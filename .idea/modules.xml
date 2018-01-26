@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/oSports.iml" filepath="$PROJECT_DIR$/oSports.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/oSports_main.iml" filepath="$PROJECT_DIR$/.idea/modules/oSports_main.iml" group="oSports" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/oSports_test.iml" filepath="$PROJECT_DIR$/.idea/modules/oSports_test.iml" group="oSports" />
+    </modules>
+  </component>
+</project>
