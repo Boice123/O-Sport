@@ -1,9 +1,9 @@
 package com.jsj141.osport.config;
 
-import com.jsj141.osport.dao.AdminDao;
 import com.google.code.kaptcha.Producer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import com.jsj141.osport.dao.AdminsDao;
 
 /**
  * 门面类
@@ -14,7 +14,7 @@ public class Facade {
     private Producer captchaProducer;
 
     @Autowired
-    private AdminDao adminDao;
+    private AdminsDao adminsDao;
 
     public Producer getCaptchaProducer() {
         return captchaProducer;
@@ -24,11 +24,11 @@ public class Facade {
         this.captchaProducer = captchaProducer;
     }
 
-    public AdminDao getAdminDao() {
-        return adminDao;
+    public AdminsDao getAdminsDao() {
+        return adminsDao;
     }
 
-    public void setAdminDao(AdminDao adminDao) {
-        this.adminDao = adminDao;
+    public void setAdminsDao(AdminsDao adminsDao) {
+        this.adminsDao = adminsDao;
     }
 }
