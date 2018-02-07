@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <form method="POST" action="http://localhost:8090/admin/save" enctype="multipart/form-data">
+      <input type="text" name="loginName"/>
+      <input type="submit" value="提交"/>
+    </form>
   </div>
 </template>
 

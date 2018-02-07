@@ -18,6 +18,6 @@ public class AutoGeneratorTest {
         DataSource ds = (DataSource) Constant.BF.getBean("dataSource");
         AutoGenerator auto = new AutoGenerator(ds);
 
-//        auto.create("admins", "admins", "com.jsj141.osport", "resources/mybatis-mapper");
+//        auto.create("admin", "admin", "com.jsj141.osport", "resources/mybatis-mapper");
     }
 }

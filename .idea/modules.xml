@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/oSports.iml" filepath="$PROJECT_DIR$/oSports.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/oSports_main.iml" filepath="$PROJECT_DIR$/.idea/modules/oSports_main.iml" group="oSports" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/oSports_test.iml" filepath="$PROJECT_DIR$/.idea/modules/oSports_test.iml" group="oSports" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/O-Sport.iml" filepath="$PROJECT_DIR$/.idea/modules/O-Sport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/O-Sport_main.iml" filepath="$PROJECT_DIR$/.idea/modules/O-Sport_main.iml" group="O-Sport" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/O-Sport_test.iml" filepath="$PROJECT_DIR$/.idea/modules/O-Sport_test.iml" group="O-Sport" />
     </modules>
   </component>
 </project>
