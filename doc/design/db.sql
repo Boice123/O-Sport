@@ -18,3 +18,12 @@ CREATE TABLE admin(
     `reg_time` timestamp NOT NULL default CURRENT_TIMESTAMP COMMENT '注册时间',
 primary key(`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='后台用户表';
+
+CREATE TABLE user(
+    `userid` INT NOT NULL AUTO_INCREMENT COMMENT '用户主键id',
+    `username` varchar(100) NOT NULL COMMENT '用户昵称',
+    `password` varchar(100) NOT NULL COMMENT '用户密码',
+    `tel` varchar(20) NOT NULL COMMENT '用户密码',
+    `registerTime` timestamp NOT NULL default NOW() COMMENT '注册时间',
+primary key(`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='后台用户表';
