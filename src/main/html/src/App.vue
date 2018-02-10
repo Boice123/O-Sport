@@ -1,28 +1,30 @@
 <template>
   <div id="app">
-    <form method="POST" action="http://localhost:8090/user/save" enctype="multipart/form-data">
-      电话：<input type="tel" name="tel"/>
-      密码：<input type="password" name="password"/>
-      昵称：<input type="text" name="username"/>
-     <!-- <input type="text" name="loginName"/>-->
-      <input type="submit" value="提交"/>
-    </form>
+   <Top/>
+   <router-view/>
   </div>
 </template>
 
 <script>
+import Top from './components/common/top'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Top
+  }
 }
 </script>
 
 <style>
+* {
+  padding: 0;
+  margin: 0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
