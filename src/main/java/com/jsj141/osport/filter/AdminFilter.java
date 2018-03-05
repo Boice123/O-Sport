@@ -13,7 +13,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
 /*
- * 管理员过滤器,根据情况修改
+ * session保持不变过滤器
  */
 
 @WebFilter(filterName = "adminFilter", urlPatterns = "/admin/*")

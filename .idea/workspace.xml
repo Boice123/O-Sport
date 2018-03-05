@@ -2,11 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bcb52b7-8068-41df-bb99-ed96139af8d0" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.lock" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/O-Sport.iml" afterPath="$PROJECT_DIR$/.idea/modules/O-Sport.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/classes/production/O-Sport/application.properties" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/classes/production/O-Sport/templates/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/doc/design/db.sql" afterPath="$PROJECT_DIR$/doc/design/db.sql" />
       <change beforePath="$PROJECT_DIR$/log/majiang-server.log" afterPath="$PROJECT_DIR$/log/majiang-server.log" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/base/BaseConfig.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/base/ResultUtil.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/base/ResultUtil.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/Facade.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/Facade.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/IndexController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/IndexController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/UserController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/UserController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/UserDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/UserDao.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/User.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/User.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/UserService.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/UserService.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/ResultUtil.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/ResultUtil.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/application.properties" afterPath="$PROJECT_DIR$/out/production/resources/application.properties" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/UserDao.xml" afterPath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/UserDao.xml" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/jsj141/osport/test/AutoGeneratorTest.class" afterPath="$PROJECT_DIR$/out/test/classes/com/jsj141/osport/test/AutoGeneratorTest.class" />
+      <change beforePath="$PROJECT_DIR$/src/main/html/config/index.js" afterPath="$PROJECT_DIR$/src/main/html/config/index.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/html/package.json" afterPath="$PROJECT_DIR$/src/main/html/package.json" />
       <change beforePath="$PROJECT_DIR$/src/main/html/src/App.vue" afterPath="$PROJECT_DIR$/src/main/html/src/App.vue" />
+      <change beforePath="$PROJECT_DIR$/src/main/html/src/components/HelloWorld.vue" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/html/src/components/common/top.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/common/top.vue" />
+      <change beforePath="$PROJECT_DIR$/src/main/html/src/components/user/signup.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/user/signup.vue" />
+      <change beforePath="$PROJECT_DIR$/src/main/html/src/main.js" afterPath="$PROJECT_DIR$/src/main/html/src/main.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/html/src/router/index.js" afterPath="$PROJECT_DIR$/src/main/html/src/router/index.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/base/BaseConfig.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/IndexController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/IndexController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/UserDao.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/User.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/filter/AdminFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/filter/AdminFilter.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/UserService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/UserDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/UserDao.xml" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -18,6 +50,11 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/O_Sport$MainApplication.coverage" NAME="MainApplication Coverage Results" MODIFIED="1518798947682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.jsj141.osport.*</FILTER>
+    </SUITE>
+  </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -25,41 +62,63 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/MainApplication.java">
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="27" />
+            <state relative-caret-position="0">
+              <caret line="60" column="43" lean-forward="false" selection-start-line="60" selection-start-column="43" selection-end-line="60" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/html/src/App.vue">
+      <file leaf-file-name="ShopController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+            <state relative-caret-position="1053">
+              <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminFilter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/filter/AdminFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="top.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/html/src/components/common/top.vue">
+      <file leaf-file-name="UserDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/UserDao.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-              <folding />
+            <state relative-caret-position="836">
+              <caret line="38" column="13" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+              <folding>
+                <marker date="1520146575549" expanded="true" signature="507:521" ph="select * fro... user" />
+                <marker date="1520146575549" expanded="true" signature="507:548" ph="select * fro... User" />
+                <marker date="1520146575549" expanded="true" signature="645:680" ph="select * fro... User" />
+                <marker date="1520146575549" expanded="true" signature="745:770" ph="select count... User" />
+                <marker date="1520146575549" expanded="true" signature="901:1103" ph="select * fro... User" />
+                <marker date="1520146575549" expanded="true" signature="1198:1370" ph="insert into User... " />
+                <marker date="1520146575549" expanded="true" signature="1465:2110" ph="update User... " />
+                <marker date="1520146575549" expanded="true" signature="2159:2198" ph="delete from User... " />
+                <marker date="1520146575549" expanded="true" signature="2172:2198" ph="delete from user... " />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signup.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/html/src/components/user/signup.vue">
+      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+            <state relative-caret-position="594">
+              <caret line="35" column="44" lean-forward="false" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -70,8 +129,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -79,6 +138,8 @@
     <findStrings>
       <find>majiang</find>
       <find>3000</find>
+      <find>bindingResult</find>
+      <find>Integer</find>
     </findStrings>
     <dirStrings>
       <dir>D:\Code\oSports\src\main\java\com\jianzheng</dir>
@@ -90,7 +151,7 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\青鱼\.gradle\wrapper\dists\gradle-4.3.1-bin\7yzdu24db77gi3zukl2a7o0xx\gradle-4.3.1" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\Administrator\.gradle\wrapper\dists\gradle-4.3.1-bin\7yzdu24db77gi3zukl2a7o0xx\gradle-4.3.1" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -321,7 +382,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="3034043227088" />
+        <entry key="$PROJECT_DIR$" value="3036034417409" />
         <entry key="$PROJECT_DIR$/build.gradle" value="2658626924" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="1124708390" />
       </map>
@@ -470,17 +531,34 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/admin/AdminController.java" />
         <option value="$PROJECT_DIR$/src/main/html/src/components/Index.vue" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/AdminService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/AdminController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java" />
-        <option value="$PROJECT_DIR$/doc/design/db.sql" />
-        <option value="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" />
         <option value="$PROJECT_DIR$/src/main/html/src/components/user/signup.vue.html" />
         <option value="$PROJECT_DIR$/src/main/html/src/components/common/top.vue" />
         <option value="$PROJECT_DIR$/src/main/html/src/App.vue" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/CheckImgController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TripService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/DruidStatFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/BaseConfig.java" />
+        <option value="D:/workspace/server/trunk/src/main/java/edu/taoliyuan/school/controller/IndexController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/IndexController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/User.java" />
+        <option value="$PROJECT_DIR$/doc/design/db.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Shop.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ShopDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/UserDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/filter/AdminFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/UserFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/LoginFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/ShopDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java" />
       </list>
     </option>
   </component>
@@ -491,13 +569,14 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
     <handled-path value="$PROJECT_DIR$/src/main/html/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="266" />
-    <option name="y" value="101" />
-    <option name="width" value="1384" />
-    <option name="height" value="875" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="41" />
+    <option name="y" value="-18" />
+    <option name="width" value="1215" />
+    <option name="height" value="706" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -514,8 +593,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -526,6 +603,17 @@
             <path>
               <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
               <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+              <item name="design" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -539,57 +627,80 @@
               <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
               <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="osport" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
               <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="osport" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
               <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="osport" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="filter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
               <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="osport" type="462c0819:PsiDirectoryNode" />
+              <item name="filter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mybatis-mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/workspace/server/trunk" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -603,8 +714,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Code\oSports\O-Sport\src\main\java\com\jsj141\osport\config" />
+      <recent name="D:\Code\oSports\O-Sport\src\main\java\com\jsj141\osport\config\filter" />
+      <recent name="D:\Code\oSports\O-Sport\src\main\java\com\jsj141\osport\controller" />
       <recent name="E:\oSport\O-Sport\src\main\html\src\components\common" />
       <recent name="D:\Code\oSports\src\main\java\com\jsj141\osport\util" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jsj141.osport.config.filter" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Code\oSports\O-Sport\src\main\java\com\jsj141\osport\util" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -793,33 +913,54 @@
       <workItem from="1517991965573" duration="3913000" />
       <workItem from="1517995893439" duration="5930000" />
       <workItem from="1518055770447" duration="2214000" />
+      <workItem from="1518277487367" duration="1537000" />
+      <workItem from="1518765437308" duration="3014000" />
+      <workItem from="1518774802321" duration="7852000" />
+      <workItem from="1518870687299" duration="7343000" />
+      <workItem from="1518925839747" duration="15302000" />
+      <workItem from="1519100721717" duration="12995000" />
+      <workItem from="1519266080289" duration="18466000" />
+      <workItem from="1519382400730" duration="9677000" />
+      <workItem from="1519470358822" duration="1373000" />
+      <workItem from="1519564110701" duration="5167000" />
+      <workItem from="1519575182909" duration="853000" />
+      <workItem from="1519614553906" duration="6315000" />
+      <workItem from="1519719972365" duration="11406000" />
+      <workItem from="1519829256312" duration="4568000" />
+      <workItem from="1519916126866" duration="1753000" />
+      <workItem from="1519994479367" duration="6825000" />
+      <workItem from="1520140134736" duration="14014000" />
+      <workItem from="1520164557809" duration="1683000" />
+      <workItem from="1520167635695" duration="403000" />
+      <workItem from="1520169050406" duration="8193000" />
+      <workItem from="1520262532472" duration="2911000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AutoGeneratorTest_testGenerate - 2018.01.28 at 20h 16m 46s.xml">
+    <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.20 at 17h 52m 43s.xml">
       <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.06 at 16h 27m 32s.xml">
+    <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.20 at 17h 55m 32s.xml">
       <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.07 at 16h 28m 03s.xml">
+    <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.20 at 22h 33m 56s.xml">
       <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.07 at 16h 32m 52s.xml">
+    <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.20 at 22h 41m 00s.xml">
       <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.07 at 16h 58m 29s.xml">
+    <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.20 at 23h 20m 31s.xml">
       <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.07 at 19h 42m 16s.xml">
+    <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.20 at 23h 40m 43s.xml">
       <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AutoGeneratorTest_testGenerate_(1) - 2018.01.28 at 21h 08m 50s.xml">
-      <configuration name="AutoGeneratorTest.testGenerate (1)" configurationId="JUnit" />
+    <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.20 at 23h 43m 16s.xml">
+      <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AutoGeneratorTest_testGenerate_(1) - 2018.02.04 at 18h 38m 31s.xml">
-      <configuration name="AutoGeneratorTest.testGenerate (1)" configurationId="JUnit" />
+    <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.22 at 12h 39m 58s.xml">
+      <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MainApplicationTests_contextLoads - 2018.01.25 at 23h 48m 47s.xml">
       <configuration name="MainApplicationTests.contextLoads" configurationId="JUnit" />
@@ -829,13 +970,22 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53725000" />
+    <option name="totallyTimeSpent" value="195375000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="266" y="101" width="1384" height="875" extended-state="1" />
+    <frame x="-9" y="-9" width="1384" height="742" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27023497" sideWeight="0.2820946" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34819898" sideWeight="0.28091604" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -843,17 +993,18 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22584857" sideWeight="0.7448485" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34819898" sideWeight="0.71908396" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906765" sideWeight="0.4969325" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34305316" sideWeight="0.48778626" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3772846" sideWeight="0.7179054" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27119884" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36254296" sideWeight="0.7443609" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906765" sideWeight="0.4969325" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906765" sideWeight="0.4969325" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27480915" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -864,8 +1015,8 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10860485" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -879,401 +1030,482 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java</url>
-          <line>32</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java</url>
+          <line>105</line>
           <properties />
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java</url>
-          <line>33</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java</url>
+          <line>103</line>
           <properties />
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java</url>
-          <line>31</line>
-          <properties class="com.jsj141.osport.controller.UserController" method="save">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="2" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java</url>
+          <line>89</line>
+          <properties />
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java</url>
+          <line>90</line>
+          <properties />
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java</url>
+          <line>102</line>
+          <properties />
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java</url>
+          <line>100</line>
+          <properties />
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java</url>
+          <line>58</line>
+          <properties />
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java</url>
+          <line>73</line>
+          <properties />
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java</url>
+          <line>66</line>
+          <properties />
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java</url>
+          <line>70</line>
+          <properties />
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java</url>
+          <line>59</line>
+          <properties />
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java</url>
+          <line>60</line>
+          <properties />
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java</url>
+          <line>50</line>
+          <properties />
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="94" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="9" />
+      <option name="time" value="95" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="Constant.FACADE" language="JAVA" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/html/src/components/Index.vue" />
-    <entry file="file://$PROJECT_DIR$/src/main/html/build/logo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/html/config/prod.env.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/html/config/dev.env.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/admin/AdminController.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AdminServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="11" column="15" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/MainApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/html/build/webpack.prod.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="19" lean-forward="false" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/html/build/webpack.dev.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1502">
-          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/html/build/webpack.base.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1482">
-          <caret line="78" column="17" lean-forward="false" selection-start-line="78" selection-start-column="17" selection-end-line="78" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/html/build/vue-loader.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/html/build/check-versions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/html/build/build.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/html/build/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/html/config/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/html/dist/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="76" lean-forward="false" selection-start-line="0" selection-start-column="76" selection-end-line="0" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/util/Result.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="99">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.12.RELEASE/11abc6411b0a1491b776de2d8f1287c7a90d9079/spring-webmvc-4.3.12.RELEASE-sources.jar!/org/springframework/web/servlet/DispatcherServlet.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.12.RELEASE/11abc6411b0a1491b776de2d8f1287c7a90d9079/spring-webmvc-4.3.12.RELEASE-sources.jar!/org/springframework/web/servlet/FrameworkServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="976" column="0" lean-forward="false" selection-start-line="976" selection-start-column="0" selection-end-line="976" selection-end-column="0" />
+        <state relative-caret-position="82">
+          <caret line="1004" column="0" lean-forward="false" selection-start-line="1004" selection-start-column="0" selection-end-line="1004" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.12.RELEASE/2106c4c25ad9f0021109c2087d4c39b71ddcc6f4/spring-core-4.3.12.RELEASE-sources.jar!/org/springframework/util/ReflectionUtils.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.12.RELEASE/4c8e2f1d4d02bdda3e1f598cb2fedc0537d1efdd/spring-web-4.3.12.RELEASE-sources.jar!/org/springframework/web/filter/RequestContextFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="375" column="0" lean-forward="false" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
+        <state relative-caret-position="179">
+          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.12.RELEASE/c58973fe94ecfc5c40bb8fe5ff9fdc64054d6fe7/spring-aop-4.3.12.RELEASE-sources.jar!/org/springframework/aop/support/AopUtils.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.12.RELEASE/4c8e2f1d4d02bdda3e1f598cb2fedc0537d1efdd/spring-web-4.3.12.RELEASE-sources.jar!/org/springframework/web/filter/OncePerRequestFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="145" column="0" lean-forward="false" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+        <state relative-caret-position="91">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.12.RELEASE/c58973fe94ecfc5c40bb8fe5ff9fdc64054d6fe7/spring-aop-4.3.12.RELEASE-sources.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.23/e5c70a402738f0ab5153e11b16ec28fb5eb8da2/tomcat-embed-core-8.5.23-sources.jar!/org/apache/catalina/core/ApplicationFilterChain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="197" column="0" lean-forward="false" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.12.RELEASE/11abc6411b0a1491b776de2d8f1287c7a90d9079/spring-webmvc-4.3.12.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="737" column="0" lean-forward="false" selection-start-line="737" selection-start-column="0" selection-end-line="737" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.12.RELEASE/11abc6411b0a1491b776de2d8f1287c7a90d9079/spring-webmvc-4.3.12.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/AbstractHandlerMethodAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="89" column="42" lean-forward="true" selection-start-line="89" selection-start-column="42" selection-end-line="89" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/AdminService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="78" lean-forward="true" selection-start-line="13" selection-start-column="78" selection-end-line="13" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/base/BaseConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="22" column="80" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-666">
-          <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/SpringContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="33" column="62" lean-forward="false" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/KaptchaConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="34" column="47" lean-forward="false" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/WebAppConfigution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="34" column="22" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="104">
+          <caret line="195" column="0" lean-forward="false" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/util/ResultUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="132">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Admin.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.12.RELEASE/11abc6411b0a1491b776de2d8f1287c7a90d9079/spring-webmvc-4.3.12.RELEASE-sources.jar!/org/springframework/web/servlet/DispatcherServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        <state relative-caret-position="83">
+          <caret line="973" column="0" lean-forward="false" selection-start-line="973" selection-start-column="0" selection-end-line="973" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.12.RELEASE/4c8e2f1d4d02bdda3e1f598cb2fedc0537d1efdd/spring-web-4.3.12.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.12.RELEASE/11abc6411b0a1491b776de2d8f1287c7a90d9079/spring-webmvc-4.3.12.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/AbstractHandlerMethodAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+        <state relative-caret-position="88">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.12.RELEASE/11abc6411b0a1491b776de2d8f1287c7a90d9079/spring-webmvc-4.3.12.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="749" column="0" lean-forward="false" selection-start-line="749" selection-start-column="0" selection-end-line="749" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.12.RELEASE/11abc6411b0a1491b776de2d8f1287c7a90d9079/spring-webmvc-4.3.12.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-133">
-          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/AdminController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/CheckImgController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="61">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/software/MyeclipseWorkplace/ShopWeb/src/com/shopweb/controller/ProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="38" column="8" lean-forward="false" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/software/MyeclipseWorkplace/ShopWeb/src/com/shopweb/controller/admin/AdminProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="73" column="5" lean-forward="false" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/software/MyeclipseWorkplace/ShopWeb/src/com/shopweb/entity/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="35" column="5" lean-forward="false" selection-start-line="29" selection-start-column="4" selection-end-line="35" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.5/caf033a4a7c37b4a8ff3ea084cba591539b0b69/commons-io-2.5-sources.jar!/org/apache/commons/io/FileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10296">
+          <caret line="525" column="11" lean-forward="false" selection-start-line="525" selection-start-column="11" selection-end-line="525" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TripService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="17" column="60" lean-forward="false" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Constant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="30" column="35" lean-forward="false" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/design/db.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        <state relative-caret-position="-19">
+          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="28" />
+        <state relative-caret-position="105">
+          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/AdminDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        <state relative-caret-position="116">
+          <caret line="46" column="23" lean-forward="true" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/AdminDao.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/BaseDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-          <folding>
-            <marker date="1517905652588" expanded="true" signature="489:523" ph="select * fro... admin" />
-            <marker date="1517905652588" expanded="true" signature="588:614" ph="select count... admin" />
-            <marker date="1517905652588" expanded="true" signature="746:949" ph="select * fro... admin" />
-            <marker date="1517905652588" expanded="true" signature="1045:1104" ph="insert into admin... " />
-            <marker date="1517905652588" expanded="true" signature="1200:1365" ph="update admin... " />
-            <marker date="1517905652588" expanded="true" signature="1414:1446" ph="delete from admin... " />
-          </folding>
+        <state relative-caret-position="108">
+          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/UserDao.xml">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/4.3.12.RELEASE/da4662aca663b3aca9320106a5af776edb51d0f8/spring-context-4.3.12.RELEASE-sources.jar!/org/springframework/validation/BindingResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="48" column="44" lean-forward="true" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
-          <folding>
-            <marker date="1518003736063" expanded="true" signature="507:548" ph="select * fro... user" />
-            <marker date="1518003736063" expanded="true" signature="613:638" ph="select count... user" />
-            <marker date="1518003736063" expanded="true" signature="769:971" ph="select * fro... user" />
-            <marker date="1518003736063" expanded="true" signature="1066:1093" ph="insert into user... " />
-            <marker date="1518003736063" expanded="true" signature="1066:1183" ph="insert into user... " />
-            <marker date="1518003736063" expanded="true" signature="1278:1735" ph="update user... " />
-            <marker date="1518003736063" expanded="true" signature="1784:1823" ph="delete from user... " />
-          </folding>
+        <state relative-caret-position="113">
+          <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/UserDao.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/962153db4a9ea71b79d047dfd1b2a0d80d8f4739/slf4j-api-1.7.25-sources.jar!/org/slf4j/LoggerFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="28" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        <state relative-caret-position="119">
+          <caret line="63" column="19" lean-forward="false" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/User.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.1.0/ab3976d4574c48d22dc1abf6a9e8bd0fdf928223/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/annotation/WebInitParam.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="37" column="5" lean-forward="false" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+        <state relative-caret-position="241">
+          <caret line="57" column="18" lean-forward="false" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/UserService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/DruidStatFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="48" lean-forward="false" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+        <state relative-caret-position="110">
+          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/MainApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="198">
           <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/html/src/components/user/signup.vue">
+    <entry file="file://D:/workspace/server/trunk/src/main/java/edu/taoliyuan/school/controller/SchoolController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        <state relative-caret-position="110">
+          <caret line="117" column="24" lean-forward="false" selection-start-line="117" selection-start-column="24" selection-end-line="117" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/workspace/server/trunk/src/main/java/edu/taoliyuan/school/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-930">
+          <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/workspace/server/trunk/src/main/java/edu/taoliyuan/school/controller/RegionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="29" column="94" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/workspace/server/trunk/src/main/resources/templates/admin/school/add.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1606">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/workspace/server/trunk/src/main/java/edu/taoliyuan/school/controller/admin/SchoolBController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="77" column="43" lean-forward="false" selection-start-line="77" selection-start-column="43" selection-end-line="77" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/workspace/server/trunk/src/main/java/edu/taoliyuan/school/controller/admin/IndexBController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-792">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/workspace/server/trunk/src/main/java/edu/taoliyuan/school/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="53" column="9" lean-forward="false" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/BaseConfig.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-22">
+          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/design/db.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="38" column="23" lean-forward="false" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Shop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-61">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-537">
+          <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="9" column="35" lean-forward="false" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/filter/AdminFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/html/src/components/common/top.vue">
+    <entry file="file://E:/software/MyeclipseWorkplace/ShoesBlock/src/cn/zk/jsj14/shoesblock/filter/LoginUserFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        <state relative-caret-position="-264">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/SessionFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="33" column="44" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/LoginFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="48" column="23" lean-forward="false" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="38" column="58" lean-forward="false" selection-start-line="38" selection-start-column="58" selection-end-line="38" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/UserDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="38" column="13" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+          <folding>
+            <marker date="1520146575549" expanded="true" signature="507:521" ph="select * fro... user" />
+            <marker date="1520146575549" expanded="true" signature="507:548" ph="select * fro... User" />
+            <marker date="1520146575549" expanded="true" signature="645:680" ph="select * fro... User" />
+            <marker date="1520146575549" expanded="true" signature="745:770" ph="select count... User" />
+            <marker date="1520146575549" expanded="true" signature="901:1103" ph="select * fro... User" />
+            <marker date="1520146575549" expanded="true" signature="1198:1370" ph="insert into User... " />
+            <marker date="1520146575549" expanded="true" signature="1465:2110" ph="update User... " />
+            <marker date="1520146575549" expanded="true" signature="2159:2198" ph="delete from User... " />
+            <marker date="1520146575549" expanded="true" signature="2172:2198" ph="delete from user... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ShopDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/ShopDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding>
+            <marker date="1520152877544" expanded="true" signature="507:548" ph="select * fro... shop" />
+            <marker date="1520152877544" expanded="true" signature="681:722" ph="select * fro... shop" />
+            <marker date="1520152877544" expanded="true" signature="855:896" ph="select * fro... shop" />
+            <marker date="1520152877544" expanded="true" signature="961:986" ph="select count... shop" />
+            <marker date="1520152877544" expanded="true" signature="1117:1319" ph="select * fro... shop" />
+            <marker date="1520152877544" expanded="true" signature="1414:1583" ph="insert into shop... " />
+            <marker date="1520152877544" expanded="true" signature="1678:2247" ph="update shop... " />
+            <marker date="1520152877544" expanded="true" signature="2296:2335" ph="delete from shop... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="60" column="43" lean-forward="false" selection-start-line="60" selection-start-column="43" selection-end-line="60" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/html/src/App.vue">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+        <state relative-caret-position="594">
+          <caret line="35" column="44" lean-forward="false" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.12.RELEASE/4c8e2f1d4d02bdda3e1f598cb2fedc0537d1efdd/spring-web-4.3.12.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="204" column="0" lean-forward="false" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1053">
+          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

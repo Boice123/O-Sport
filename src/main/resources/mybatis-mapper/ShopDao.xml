@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jsj141.osport.dao.ShopDao">
+
+    <sql id="dynamicWhere">
+        <where>
+            <if test="_parameter.containsKey('shopids') and shopids != null and shopids != ''">
+                and shopid in (${shopids})
+            </if>
+        </where>
+    </sql>
+
+    <select id="select" resultType="com.jsj141.osport.domain.Shop">
+        select * from shop where shopid=#{shopid}
+    </select>
+
+    <select id="selectByShopId" parameterType="java.lang.String" resultType="com.jsj141.osport.domain.Shop">
+        select * from shop where shopid=#{shopid}
+    </select>
+
+    <select id="selectByUserId" parameterType="java.lang.String" resultType="com.jsj141.osport.domain.Shop">
+        select * from shop where userid=#{userid}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from shop
+        <include refid="dynamicWhere" />
+    </select>
+
+    <select id="list" resultType="com.jsj141.osport.domain.Shop">
+        select * from shop
+        <include refid="dynamicWhere" />
+        <if test="_parameter.containsKey('order') and order!=null">
+            order by ${order}
+        </if>
+        limit #{start},#{size}
+    </select>
+
+    <insert id="insert" parameterType="com.jsj141.osport.domain.Shop">
+        insert into shop (shopid,shopname,shopstatus,shoppublishtime,userid,shopimg)
+        values (#{shopid},#{shopname},#{shopstatus},#{shoppublishtime},#{userid},#{shopimg})
+    </insert>
+
+    <update id="update" parameterType="com.jsj141.osport.domain.Shop">
+        update shop 
+        <set>
+            <if test="shopname != null">
+                shopname=#{shopname},
+            </if>
+            <if test="shopstatus != 0">
+                shopstatus=#{shopstatus},
+            </if>
+            <if test="shoppublishtime != null">
+                shoppublishtime=#{shoppublishtime},
+            </if>
+            <if test="userid != 0">
+                userid=#{userid},
+            </if>
+            <if test="shopimg != null">
+                shopimg=#{shopimg},
+            </if>
+        </set>
+        where shopid=#{shopid}
+    </update>
+
+    <update id="delete">
+        delete from shop where shopid=#{shopid}
+    </update>
+
+</mapper>

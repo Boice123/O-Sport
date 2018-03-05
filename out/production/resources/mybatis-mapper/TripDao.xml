@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jsj141.osport.dao.TripDao">
+
+    <sql id="dynamicWhere">
+        <where>
+            <if test="_parameter.containsKey('tripids') and tripids != null and tripids != ''">
+                and tripid in (${tripids})
+            </if>
+        </where>
+    </sql>
+
+    <select id="select" resultType="com.jsj141.osport.domain.Trip">
+        select * from trip where tripid=#{tripid}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from trip
+        <include refid="dynamicWhere" />
+    </select>
+
+    <select id="list" resultType="com.jsj141.osport.domain.Trip">
+        select * from trip
+        <include refid="dynamicWhere" />
+        <if test="_parameter.containsKey('order') and order!=null">
+            order by ${order}
+        </if>
+        limit #{start},#{size}
+    </select>
+
+    <insert id="insert" parameterType="com.jsj141.osport.domain.Trip">
+        insert into trip (tripname,tripdescription,tripnotice,tripprice,maxpeople,trippublishtime,tripimgid,shopid)
+        values (#{tripname},#{tripdescription},#{tripnotice},#{tripprice},#{maxpeople},#{trippublishtime},#{tripimgid},#{shopid})
+    </insert>
+
+    <update id="update" parameterType="com.jsj141.osport.domain.Trip">
+        update trip 
+        <set>
+            <if test="tripname != null">
+                tripname=#{tripname},
+            </if>
+            <if test="tripdescription != null">
+                tripdescription=#{tripdescription},
+            </if>
+            <if test="tripnotice != null">
+                tripnotice=#{tripnotice},
+            </if>
+            <if test="tripprice != 0">
+                tripprice=#{tripprice},
+            </if>
+            <if test="maxpeople != 0">
+                maxpeople=#{maxpeople},
+            </if>
+            <if test="trippublishtime != null">
+                trippublishtime=#{trippublishtime},
+            </if>
+            <if test="tripimgid != null">
+                tripimgid=#{tripimgid},
+            </if>
+            <if test="shopid != 0">
+                shopid=#{shopid},
+            </if>
+        </set>
+        where tripid=#{tripid}
+    </update>
+
+    <update id="delete">
+        delete from trip where tripid=#{tripid}
+    </update>
+
+</mapper>

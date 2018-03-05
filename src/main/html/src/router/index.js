@@ -1,6 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Index from '@/components/Index'
+import Signup from '@/components/user/signup'
+import Signin from '@/components/user/signin'
+import Trip from '@/components/trip/trip'
+import Shop from '@/components/shop/shop'
+import OpenShop from '@/components/shop/openshop'
+import UpdateshopInfo from '@/components/shop/updateshopInfo'
+import Shopmanagetrip from '@/components/shop/shopmanagetrip'
+import Shopmanagetrain from '@/components/shop/shopmanagetrain'
+import Shopmanagetriporder from '@/components/shop/shopmanagetriporder'
+import Shopmanagetrainorder from '@/components/shop/shopmanagetrainorder'
+import AddTrip from '@/components/shop/addTrip'
+import Shopinfo from '@/components/shop/shopinfo'
 
 Vue.use(Router)
 
@@ -8,8 +20,71 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'index',
+      component: Index
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: Signup
+    },
+    {
+      path: '/signin',
+      name: 'signin',
+      component: Signin
+    },
+    {
+      path: '/trip',
+      name: 'trip',
+      component: Trip
+    },
+    {
+      path: '/shop',
+      name: 'shop',
+      redirect: '/shop/shopinfo',
+      component: Shop,
+      children: [
+        {
+          path: 'openshop',
+          name: 'openshop',
+          component: OpenShop
+        },
+        {
+          path: 'updateshopinfo',
+          name: 'updateshopinfo',
+          component: UpdateshopInfo
+        },
+        {
+          path: 'shopmanagetrip',
+          name: 'shopmanagetrip',
+          component: Shopmanagetrip
+        },
+        {
+          path: 'shopmanagetrain',
+          name: 'shopmanagetrain',
+          component: Shopmanagetrain
+        },
+        {
+          path: 'shopmanagetriporder',
+          name: 'shopmanagetriporder',
+          component: Shopmanagetriporder
+        },
+        {
+          path: 'shopmanagetrainorder',
+          name: 'shopmanagetrainorder',
+          component: Shopmanagetrainorder
+        },
+        {
+          path: 'addTrip',
+          name: 'addTrip',
+          component: AddTrip
+        },
+        {
+          path: 'shopinfo',
+          name: 'shopinfo',
+          component: Shopinfo
+        }
+      ]
     }
   ]
 })

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jsj141.osport.dao.TriporderDao">
+
+    <sql id="dynamicWhere">
+        <where>
+            <if test="_parameter.containsKey('triporderids') and triporderids != null and triporderids != ''">
+                and triporderid in (${triporderids})
+            </if>
+        </where>
+    </sql>
+
+    <select id="select" resultType="com.jsj141.osport.domain.Triporder">
+        select * from triporder where triporderid=#{triporderid}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from triporder
+        <include refid="dynamicWhere" />
+    </select>
+
+    <select id="list" resultType="com.jsj141.osport.domain.Triporder">
+        select * from triporder
+        <include refid="dynamicWhere" />
+        <if test="_parameter.containsKey('order') and order!=null">
+            order by ${order}
+        </if>
+        limit #{start},#{size}
+    </select>
+
+    <insert id="insert" parameterType="com.jsj141.osport.domain.Triporder">
+        insert into triporder (triporderitemid,tripordertotal,triporderime,userid)
+        values (#{triporderitemid},#{tripordertotal},#{triporderime},#{userid})
+    </insert>
+
+    <update id="update" parameterType="com.jsj141.osport.domain.Triporder">
+        update triporder 
+        <set>
+            <if test="triporderitemid != 0">
+                triporderitemid=#{triporderitemid},
+            </if>
+            <if test="tripordertotal != 0">
+                tripordertotal=#{tripordertotal},
+            </if>
+            <if test="triporderime != null">
+                triporderime=#{triporderime},
+            </if>
+            <if test="userid != 0">
+                userid=#{userid},
+            </if>
+        </set>
+        where triporderid=#{triporderid}
+    </update>
+
+    <update id="delete">
+        delete from triporder where triporderid=#{triporderid}
+    </update>
+
+</mapper>

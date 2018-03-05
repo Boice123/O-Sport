@@ -12,16 +12,20 @@
     </sql>
 
     <select id="select" resultType="com.jsj141.osport.domain.User">
-        select * from user where userid=#{userid}
+        select * from User where userid=#{userid}
+    </select>
+
+    <select id="selectByTel" resultType="com.jsj141.osport.domain.User">
+        select * from User where tel=#{tel}
     </select>
 
     <select id="count" resultType="int">
-        select count(*) from user
+        select count(*) from User
         <include refid="dynamicWhere" />
     </select>
 
     <select id="list" resultType="com.jsj141.osport.domain.User">
-        select * from user
+        select * from User
         <include refid="dynamicWhere" />
         <if test="_parameter.containsKey('order') and order!=null">
             order by ${order}
@@ -30,12 +34,12 @@
     </select>
 
     <insert id="insert" parameterType="com.jsj141.osport.domain.User">
-        insert into user (username,password,tel,registerTime)
-        values (#{username},#{password},#{tel},#{registerTime})
+        insert into User (userid,username,password,tel,registerTime,realname,realid)
+        values (#{userid},#{username},#{password},#{tel},#{registerTime},#{realname},#{realid})
     </insert>
 
     <update id="update" parameterType="com.jsj141.osport.domain.User">
-        update user 
+        update User 
         <set>
             <if test="username != null">
                 username=#{username},
@@ -49,12 +53,18 @@
             <if test="registerTime != null">
                 registerTime=#{registerTime},
             </if>
+            <if test="realname != null">
+                realname=#{realname},
+            </if>
+            <if test="realid != null">
+                realid=#{realid},
+            </if>
         </set>
         where userid=#{userid}
     </update>
 
     <update id="delete">
-        delete from user where userid=#{userid}
+        delete from User where userid=#{userid}
     </update>
 
 </mapper>

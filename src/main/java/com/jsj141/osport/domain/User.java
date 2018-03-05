@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 public class User implements Serializable {
 
-    private int userid;
+    private String userid;
 
     private String username;
 
@@ -21,11 +21,15 @@ public class User implements Serializable {
 
     private String registerTime;
 
-    public int getUserid() {
+    private String realname;
+
+    private String realid;
+
+    public String getUserid() {
         return userid;
     }
 
-    public void setUserid(int userid){
+    public void setUserid(String userid){
         this.userid = userid;
     }
 
@@ -59,6 +63,22 @@ public class User implements Serializable {
 
     public void setRegisterTime(String registerTime){
         this.registerTime = registerTime;
+    }
+
+    public String getRealname() {
+        return realname;
+    }
+
+    public void setRealname(String realname){
+        this.realname = realname;
+    }
+
+    public String getRealid() {
+        return realid;
+    }
+
+    public void setRealid(String realid){
+        this.realid = realid;
     }
 
     @Override

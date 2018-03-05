@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserDao extends BaseDao {
-
+    Object selectByTel(Object obj);
 }

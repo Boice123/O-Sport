@@ -5,7 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.jsj141.osport.dao.AdminDao;
 import com.jsj141.osport.dao.UserDao;
-
+import com.jsj141.osport.dao.TripDao;
+import com.jsj141.osport.dao.ShopDao;
 /**
  * 门面类
  */
@@ -19,6 +20,12 @@ public class Facade {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private ShopDao shopDao;
+
+    @Autowired
+    private TripDao tripDao;
 
     public Producer getCaptchaProducer() {
         return captchaProducer;
@@ -42,5 +49,21 @@ public class Facade {
 
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
+    }
+
+    public ShopDao getShopDao() {
+        return shopDao;
+    }
+
+    public void setShopDao(ShopDao shopDao) {
+        this.shopDao = shopDao;
+    }
+
+    public TripDao getTripDao() {
+        return tripDao;
+    }
+
+    public void setTripDao(TripDao tripDao) {
+        this.tripDao = tripDao;
     }
 }
