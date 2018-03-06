@@ -11,21 +11,24 @@
       <el-form-item label="店铺名称" prop="shopname">
         <el-input name="shopname" v-model="form.shopname"></el-input>
       </el-form-item>
-      <el-form-item label="店铺头像">
-        <input id="file" type="file" name="shopimg" @change="getFile($event)"/>
-      </el-form-item>
       <el-form-item>
-        <!-- <el-button type="primary" @click="submitForm('form')">缴纳保证金</el-button> -->
         <button type="button" @click="submitForm('form',$event)">缴纳保证金 </button>
       </el-form-item>
-    </el-form>  
+    </el-form>
+
+    <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
+      <el-form-item label="店铺头像">
+        <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
 <script>
-import {API_saveShopURL,API_getImgPathURL} from '../../constants/index.js'
+import {API_saveShopURL, API_uploadFileURL} from '../../constants/index.js'
 import axios from 'axios'
 import $ from 'jquery'
+import ajaxSubmit from '../../../static/js/jquery.form.js'
 export default {
     name: 'openshop',
     data() {
@@ -74,28 +77,43 @@ export default {
       }
     },
     methods: {
+      uploadPic (obj) {
+        // if( this.checkFile(obj) ){
+          var options = {
+            contentType:"multipart/form-data",
+            url: API_uploadFileURL,
+            type: "post",
+            dataType: "json",
+            success: (result) => {
+              this.form.shopimg = result.data;
+            },
+            error: (XMLHttpRequest, textStatus, errorThrown) => {
+              alert("服务器出错，上传图片失败！")
+            }
+          }
+          $("#pictureForm").ajaxSubmit(options)
+          console.log("点击上传后的图片"+this.form.shopimg)
+        // }
+      },
       getFile(event) {
         this.form.shopimg = event.target.files[0]
-      } ,     
+      },
       submitForm(formName,event) {
          //信息加入param
-        // this.shopimg = event.target.files[0]
-        // console.log(this.shopimg)
         event.preventDefault()
-        // var param = new FormData(document.getElementById("myForm"))
         var param = new FormData()
-        
+
+        console.log(this.form.shopimg)
         param.append('realid',this.form.realid)
         param.append('realname',this.form.realname)
         param.append('shopname',this.form.shopname)
-        param.append('shopimg',document.getElementById("file").files[0])
-        console.log(param)
+        param.append('shopimg',this.form.shopimg)
         this.$refs[formName].validate((valid) => {
-          if (valid) {  
+          if (valid) {
             axios({
               method:'post',
               url:API_saveShopURL,
-              headers: {'Content-Type': 'multipart/form-data'},
+              // headers: {'Content-Type': 'multipart/form-data'},
               data: param
             })
               .then((response) => {
@@ -104,7 +122,7 @@ export default {
                   this.$message({
                     message: response.data.msg,
                     type: 'success'
-                  }); 
+                  });
                   this.setCookie('shop_id', response.data.data.shopid, 2)
                   this.$store.commit('shopidChange',response.data.data.shopid)
                   this.$router.push('/')
@@ -113,10 +131,10 @@ export default {
                   this.$message({
                     message: response.data.msg,
                     type: 'warning'
-                  }); 
+                  });
                 }else {
                   this.$message.error('开店验证失败，请稍后重试');
-                }        
+                }
             })
               .catch((err) => {
                 console.log(err)
@@ -126,6 +144,44 @@ export default {
             return false;
           }
         })
+      },
+      checkFile(target) {
+
+        var xmlHttp;
+        //判断浏览器是否支持ActiveX控件
+
+        var fileSize = 0;
+        if ( !target.files ) {
+          var filePath = target.value
+          var fileSystem
+          if(window.ActiveXObject){
+            //支持-通过ActiveXObject的一个新实例来创建XMLHttpRequest对象
+            fileSystem = new ActiveXObject("Scripting.FileSystemObject");
+          }
+            //不支持
+          else if(window.XMLHttpRequest){
+            fileSystem = new XMLHttpRequest()
+          }
+          // fileSystem = new ActiveXObject("Scripting.FileSystemObject")
+          var file = fileSystem.GetFile (filePath)
+          fileSize = file.Size
+        } else {
+          fileSize = target.files[0].size
+        }
+        var size = fileSize / 1024
+          if(size > 10000){
+          alert("附件不能大于10M")
+          target.value=""
+          return false
+        }
+        var name=target.value
+        var fileName = name.substring(name.lastIndexOf(".")+1).toLowerCase()
+        if(fileName != "png" && fileName != "gif" && fileName != "jpeg" && fileName != "jpg" && fileName != "svg"){
+          alert("暂不支持此文件格式的上传！")
+          target.value=""
+          return false
+        }
+        return true
       }
     }
   }

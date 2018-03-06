@@ -42,44 +42,30 @@ public class ShopController {
     //保存店铺信息
     @ResponseBody
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    Result save(@RequestParam(value="shopimg",required = false)MultipartFile shopimg,String realid,String realname, String shopname, Shop shop, Model model, BindingResult bindingResult, HttpServletRequest request) {
+    Result save(@RequestParam(value="shopimg") String shopimg,
+                    @RequestParam(value="realid") String realid,
+                    @RequestParam(value="realname") String realname,
+                    @RequestParam(value="shopname") String shopname,
+                    Shop shop,
+                    BindingResult bindingResult,
+                    HttpServletRequest request) {
         Result result = ResultUtil.initResult();
+        try{
+            User loginUser = (User) WebUtils.getSessionAttribute(request, "loginUser");
+            shop.setShopid(UUID.randomUUID().toString());
+            shop.setUserid(loginUser.getUserid());
+            shop.setShopname(shopname);
+            shop.setShopimg(shopimg);
+            loginUser.setRealid(realid);
+            loginUser.setRealname(realname);
 
-//        String realid = request.getParameter("realid");
-//        String realname = request.getParameter("realname");
-//        String shopname = request.getParameter("shopname");
-        shop.setShopid(UUID.randomUUID().toString());
-        User loginUser = (User) WebUtils.getSessionAttribute(request, "loginUser");
-        System.out.println(loginUser.getUsername());
-        shop.setUserid(loginUser.getUserid());
-        shop.setShopname(shopname);
-        loginUser.setRealid(realid);
-        loginUser.setRealname(realname);
+            userService.update(loginUser);
+            result = shopService.save(shop);
 
-        String originalFilename = shopimg.getOriginalFilename();if(shopimg!=null && originalFilename!=null && originalFilename.length()>0){
-            String pic_path = request.getSession().getServletContext().getRealPath("/")+"update/shop/";
-            String newFileName = UUID.randomUUID() + originalFilename.substring(originalFilename.lastIndexOf("."));
-            File newFile = new File(pic_path+newFileName);
-            if (!newFile.getParentFile().exists()) {
-                newFile.getParentFile().mkdirs();
-            }
-            try{
-                shopimg.transferTo(newFile);
-            }catch(Exception e) {
-                e.getMessage();
-            }
-            shop.setShopimg("upload/shop/"+newFileName);
+        } catch(Exception e) {
+            e.printStackTrace();
         }
-        userService.update(loginUser);
-        result = shopService.save(shop);
         return result;
-//        if(result.getCode() == 0) {
-//            model.addAttribute("resultInfo","<h3 color='green'>店铺注册成功</h3>");
-//            return "redirect:localhost:8080/#/";
-//        }else {
-//            model.addAttribute("resultInfo","<h3 color='red'>店铺注册失败</h3>");
-//            return "/shop/save";
-//        }
     }
 
     //返回店铺信息
@@ -87,6 +73,7 @@ public class ShopController {
     @RequestMapping(value = "/get", method = RequestMethod.POST)
     Result getShopInfo(String shopid,HttpServletRequest request) {
         Result result = ResultUtil.initResult();
+
         result = shopService.getShopInfo(shopid);
         return result;
     }
