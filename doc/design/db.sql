@@ -49,8 +49,8 @@ CREATE TABLE trip(
     `tripprice` double NOT NULL COMMENT '出行团价钱',
     `maxpeople` INT NOT NULL COMMENT '出行最大人数限制',
     `trippublishtime` timestamp NOT NULL default NOW() COMMENT '发布时间',
-    `tripimgid` varchar(300) NOT NULL COMMENT '出行团图片id',
-    `shopid` INT NOT NULL COMMENT '商店外键',
+    `tripimg` varchar(100) NOT NULL COMMENT '出行团图片',
+    `shopid` varchar(100) NOT NULL COMMENT '商店外键',
     primary key(`tripid`),
     FOREIGN KEY (shopid) REFERENCES shop ( shopid )
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='出行团表';

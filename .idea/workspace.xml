@@ -2,17 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2bcb52b7-8068-41df-bb99-ed96139af8d0" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/doc/design/db.sql" afterPath="$PROJECT_DIR$/doc/design/db.sql" />
       <change beforePath="$PROJECT_DIR$/log/majiang-server.log" afterPath="$PROJECT_DIR$/log/majiang-server.log" />
-      <change beforePath="$PROJECT_DIR$/src/main/html/package-lock.json" afterPath="$PROJECT_DIR$/src/main/html/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/src/main/html/package.json" afterPath="$PROJECT_DIR$/src/main/html/package.json" />
-      <change beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/openshop.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/openshop.vue" />
+      <change beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/addTrip.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/addTrip.vue" />
+      <change beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/shopmanagetrip.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/shopmanagetrip.vue" />
+      <change beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/updateShopInfo.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/updateShopInfo.vue" />
       <change beforePath="$PROJECT_DIR$/src/main/html/src/constants/index.js" afterPath="$PROJECT_DIR$/src/main/html/src/constants/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/IndexController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/IndexController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/html/src/router/index.js" afterPath="$PROJECT_DIR$/src/main/html/src/router/index.js" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TripDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TripDao.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Trip.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Trip.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/ShopDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/ShopDao.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -39,8 +44,8 @@
       <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="54" column="17" lean-forward="false" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
+            <state relative-caret-position="279">
+              <caret line="61" column="70" lean-forward="false" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -49,8 +54,8 @@
       <file leaf-file-name="ShopController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
-              <caret line="89" column="50" lean-forward="false" selection-start-line="89" selection-start-column="50" selection-end-line="89" selection-end-column="50" />
+            <state relative-caret-position="209">
+              <caret line="83" column="39" lean-forward="false" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,14 +63,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/IndexController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="99" column="13" lean-forward="true" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
+            <state relative-caret-position="168">
+              <caret line="71" column="70" lean-forward="false" selection-start-line="71" selection-start-column="70" selection-end-line="71" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShopDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/ShopDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="453">
+              <caret line="52" column="17" lean-forward="false" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+              <folding>
+                <marker date="1520395867872" expanded="true" signature="507:548" ph="select * fro... shop" />
+                <marker date="1520395867872" expanded="true" signature="681:722" ph="select * fro... shop" />
+                <marker date="1520395867872" expanded="true" signature="855:896" ph="select * fro... shop" />
+                <marker date="1520395867872" expanded="true" signature="961:986" ph="select count... shop" />
+                <marker date="1520395867872" expanded="true" signature="1117:1319" ph="select * fro... shop" />
+                <marker date="1520395867872" expanded="true" signature="1414:1583" ph="insert into shop... " />
+                <marker date="1520395867872" expanded="true" signature="1678:2268" ph="update shop... " />
+                <marker date="1520395867872" expanded="true" signature="2317:2356" ph="delete from shop... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShopService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="33" column="30" lean-forward="false" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -73,47 +107,48 @@
       <file leaf-file-name="db.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/doc/design/db.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="41" selection-end-column="50" />
+            <state relative-caret-position="418">
+              <caret line="53" column="26" lean-forward="false" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminFilter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/filter/AdminFilter.java">
+      <file leaf-file-name="TripController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/UserDao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="49" column="35" lean-forward="false" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
+            <state relative-caret-position="94">
+              <caret line="47" column="31" lean-forward="false" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
               <folding>
-                <marker date="1520300054019" expanded="true" signature="507:548" ph="select * fro... User" />
-                <marker date="1520300054019" expanded="true" signature="645:680" ph="select * fro... User" />
-                <marker date="1520300054019" expanded="true" signature="745:770" ph="select count... User" />
-                <marker date="1520300054019" expanded="true" signature="901:1103" ph="select * fro... User" />
-                <marker date="1520300054019" expanded="true" signature="1198:1370" ph="insert into User... " />
-                <marker date="1520300054019" expanded="true" signature="1465:2110" ph="update User... " />
-                <marker date="1520300054019" expanded="true" signature="2159:2198" ph="delete from User... " />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/UserService.java">
+      <file leaf-file-name="Trip.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Trip.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state relative-caret-position="152">
+              <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TripDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+              <folding>
+                <marker date="1520410633141" expanded="true" signature="507:548" ph="select * fro... trip" />
+                <marker date="1520410633141" expanded="true" signature="613:638" ph="select count... trip" />
+                <marker date="1520410633141" expanded="true" signature="769:971" ph="select * fro... trip" />
+                <marker date="1520410633141" expanded="true" signature="1066:1316" ph="insert into trip... " />
+                <marker date="1520410633141" expanded="true" signature="1411:2298" ph="update trip... " />
+                <marker date="1520410633141" expanded="true" signature="2347:2386" ph="delete from trip... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -531,30 +566,31 @@
         <option value="$PROJECT_DIR$/src/main/html/src/App.vue" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/CheckImgController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TripService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/DruidStatFilter.java" />
         <option value="D:/workspace/server/trunk/src/main/java/edu/taoliyuan/school/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/User.java" />
-        <option value="$PROJECT_DIR$/doc/design/db.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Shop.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ShopDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/UserDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/filter/AdminFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/UserFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/LoginFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/ShopDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/UserService.java" />
         <option value="$PROJECT_DIR$/../SchoolAssign/server/trunk/src/main/java/edu/taoliyuan/school/config/servlet/BaseConfig.java" />
         <option value="$PROJECT_DIR$/../SchoolAssign/server/trunk/src/main/java/edu/taoliyuan/school/config/BaseConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/BaseConfig.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/IndexController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/ShopDao.xml" />
+        <option value="$PROJECT_DIR$/doc/design/db.sql" />
+        <option value="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java" />
       </list>
     </option>
   </component>
@@ -568,11 +604,11 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
     <handled-path value="$PROJECT_DIR$/src/main/html/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="93" />
-    <option name="y" value="83" />
-    <option name="width" value="1442" />
-    <option name="height" value="965" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="123" />
+    <option name="y" value="197" />
+    <option name="width" value="1623" />
+    <option name="height" value="721" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -589,6 +625,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -641,7 +679,34 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="osport" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="osport" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="osport" type="462c0819:PsiDirectoryNode" />
               <item name="filter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="osport" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
@@ -658,13 +723,32 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="mybatis-mapper" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -906,13 +990,11 @@
       <workItem from="1520169050406" duration="8193000" />
       <workItem from="1520262532472" duration="2911000" />
       <workItem from="1520300254252" duration="10290000" />
+      <workItem from="1520389103592" duration="12265000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.20 at 17h 52m 43s.xml">
-      <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.20 at 17h 55m 32s.xml">
       <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
     </history-entry>
@@ -934,6 +1016,9 @@
     <history-entry file="AutoGeneratorTest_testGenerate - 2018.02.22 at 12h 39m 58s.xml">
       <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AutoGeneratorTest_testGenerate - 2018.03.07 at 12h 21m 54s.xml">
+      <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="MainApplicationTests_contextLoads - 2018.01.25 at 23h 48m 47s.xml">
       <configuration name="MainApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
@@ -942,7 +1027,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205665000" />
+    <option name="totallyTimeSpent" value="217930000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -954,19 +1039,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="93" y="83" width="1442" height="965" extended-state="1" />
+    <frame x="123" y="197" width="1623" height="721" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.54672897" sideWeight="0.28892004" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35947713" sideWeight="0.2986932" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.54672897" sideWeight="0.71107996" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35947713" sideWeight="0.70130676" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906765" sideWeight="0.4969325" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34305316" sideWeight="0.48778626" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -974,10 +1059,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36254296" sideWeight="0.7443609" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36214954" sideWeight="0.7405103" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906765" sideWeight="0.4969325" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906765" sideWeight="0.4969325" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23071529" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2047293" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -987,6 +1072,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10860485" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1002,31 +1088,35 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/IndexController.java</url>
-          <line>96</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java</url>
+          <line>47</line>
           <properties />
-          <option name="timeStamp" value="97" />
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java</url>
+          <line>48</line>
+          <properties />
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java</url>
+          <line>56</line>
+          <properties />
+          <option name="timeStamp" value="102" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="98" />
+      <option name="time" value="103" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.12.RELEASE/4c8e2f1d4d02bdda3e1f598cb2fedc0537d1efdd/spring-web-4.3.12.RELEASE-sources.jar!/org/springframework/web/filter/RequestContextFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.12.RELEASE/4c8e2f1d4d02bdda3e1f598cb2fedc0537d1efdd/spring-web-4.3.12.RELEASE-sources.jar!/org/springframework/web/filter/OncePerRequestFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/8.5.23/e5c70a402738f0ab5153e11b16ec28fb5eb8da2/tomcat-embed-core-8.5.23-sources.jar!/org/apache/catalina/core/ApplicationFilterChain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -1074,7 +1164,6 @@
     <entry file="file://E:/software/MyeclipseWorkplace/ShopWeb/src/com/shopweb/controller/ProductController.java" />
     <entry file="file://E:/software/MyeclipseWorkplace/ShopWeb/src/com/shopweb/controller/admin/AdminProductController.java" />
     <entry file="file://E:/software/MyeclipseWorkplace/ShopWeb/src/com/shopweb/entity/Product.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java" />
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.5/caf033a4a7c37b4a8ff3ea084cba591539b0b69/commons-io-2.5-sources.jar!/org/apache/commons/io/FileUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10296">
@@ -1090,24 +1179,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
           <caret line="46" column="23" lean-forward="true" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/BaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -1166,9 +1241,7 @@
     <entry file="file://E:/software/MyeclipseWorkplace/ShoesBlock/src/cn/zk/jsj14/shoesblock/filter/LoginUserFilter.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/SessionFilter.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/LoginFilter.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ShopDao.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/ShopDao.xml" />
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.12.RELEASE/4c8e2f1d4d02bdda3e1f598cb2fedc0537d1efdd/spring-web-4.3.12.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
@@ -1187,7 +1260,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="1045">
           <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
         </state>
@@ -1197,7 +1270,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1214,7 +1286,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/UserDao.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
+        <state relative-caret-position="931">
           <caret line="49" column="35" lean-forward="false" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
           <folding>
             <marker date="1520300054019" expanded="true" signature="507:548" ph="select * fro... User" />
@@ -1228,14 +1300,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="54" column="17" lean-forward="false" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -1244,28 +1308,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doc/design/db.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/BaseDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="41" selection-end-column="50" />
+        <state relative-caret-position="228">
+          <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java">
+    <entry file="file://$PROJECT_DIR$/doc/design/db.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
-          <caret line="89" column="50" lean-forward="false" selection-start-line="89" selection-start-column="50" selection-end-line="89" selection-end-column="50" />
+        <state relative-caret-position="418">
+          <caret line="53" column="26" lean-forward="false" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="61" column="70" lean-forward="false" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="17" column="51" lean-forward="false" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="33" column="30" lean-forward="false" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="71" column="70" lean-forward="false" selection-start-line="71" selection-start-column="70" selection-end-line="71" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/IndexController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Trip.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="99" column="13" lean-forward="true" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
+        <state relative-caret-position="152">
+          <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/ShopDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="52" column="17" lean-forward="false" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+          <folding>
+            <marker date="1520395867872" expanded="true" signature="507:548" ph="select * fro... shop" />
+            <marker date="1520395867872" expanded="true" signature="681:722" ph="select * fro... shop" />
+            <marker date="1520395867872" expanded="true" signature="855:896" ph="select * fro... shop" />
+            <marker date="1520395867872" expanded="true" signature="961:986" ph="select count... shop" />
+            <marker date="1520395867872" expanded="true" signature="1117:1319" ph="select * fro... shop" />
+            <marker date="1520395867872" expanded="true" signature="1414:1583" ph="insert into shop... " />
+            <marker date="1520395867872" expanded="true" signature="1678:2268" ph="update shop... " />
+            <marker date="1520395867872" expanded="true" signature="2317:2356" ph="delete from shop... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding>
+            <marker date="1520410633141" expanded="true" signature="507:548" ph="select * fro... trip" />
+            <marker date="1520410633141" expanded="true" signature="613:638" ph="select count... trip" />
+            <marker date="1520410633141" expanded="true" signature="769:971" ph="select * fro... trip" />
+            <marker date="1520410633141" expanded="true" signature="1066:1316" ph="insert into trip... " />
+            <marker date="1520410633141" expanded="true" signature="1411:2298" ph="update trip... " />
+            <marker date="1520410633141" expanded="true" signature="2347:2386" ph="delete from trip... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="83" column="39" lean-forward="false" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="47" column="31" lean-forward="false" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

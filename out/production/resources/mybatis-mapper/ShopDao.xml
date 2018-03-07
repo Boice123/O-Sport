@@ -54,9 +54,9 @@
             <if test="shoppublishtime != null">
                 shoppublishtime=#{shoppublishtime},
             </if>
-            <if test="userid != 0">
-                userid=#{userid},
-            </if>
+            <!--<if test="userid != 0">-->
+                <!--userid=#{userid},-->
+            <!--</if>-->
             <if test="shopimg != null">
                 shopimg=#{shopimg},
             </if>

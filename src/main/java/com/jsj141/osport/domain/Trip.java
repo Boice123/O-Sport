@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 public class Trip implements Serializable {
 
-    private int tripid;
+    private String tripid;
 
     private String tripname;
 
@@ -25,15 +25,15 @@ public class Trip implements Serializable {
 
     private String trippublishtime;
 
-    private String tripimgid;
+    private String tripimg;
 
-    private int shopid;
+    private String shopid;
 
-    public int getTripid() {
+    public String getTripid() {
         return tripid;
     }
 
-    public void setTripid(int tripid){
+    public void setTripid(String tripid){
         this.tripid = tripid;
     }
 
@@ -85,19 +85,19 @@ public class Trip implements Serializable {
         this.trippublishtime = trippublishtime;
     }
 
-    public String getTripimgid() {
-        return tripimgid;
+    public String getTripimg() {
+        return tripimg;
     }
 
-    public void setTripimgid(String tripimgid){
-        this.tripimgid = tripimgid;
+    public void setTripimg(String tripimg){
+        this.tripimg = tripimg;
     }
 
-    public int getShopid() {
+    public String getShopid() {
         return shopid;
     }
 
-    public void setShopid(int shopid){
+    public void setShopid(String shopid){
         this.shopid = shopid;
     }
 

@@ -20,6 +20,13 @@ public class ShopService {
         return result;
     }
 
+    public Result update(Shop shop) {
+        Result result = ResultUtil.initResult();
+        Constant.FACADE.getShopDao().update(shop);
+        ResultUtil.setSuccess(result, "修改成功", shop);
+        return result;
+    }
+
     public Result getShopInfo(String shopid) {
         Result result = ResultUtil.initResult();
         Shop shop = Constant.FACADE.getShopDao().selectByShopId(shopid);

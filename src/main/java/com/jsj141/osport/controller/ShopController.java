@@ -68,6 +68,30 @@ public class ShopController {
         return result;
     }
 
+    //修改店铺信息
+    @ResponseBody
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    Result update(@RequestParam(value="shopimg") String shopimg,
+                @RequestParam(value="shopname") String shopname,
+                Shop shop,
+                BindingResult bindingResult,
+                HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        try{
+            Shop loginShop = (Shop) WebUtils.getSessionAttribute(request, "loginShop");
+            shop.setShopid(loginShop.getShopid());
+            System.out.println(loginShop.getShopid());
+            shop.setShopname(shopname);
+            shop.setShopimg(shopimg);
+
+            result = shopService.update(shop);
+
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
     //返回店铺信息
     @ResponseBody
     @RequestMapping(value = "/get", method = RequestMethod.POST)
@@ -75,6 +99,7 @@ public class ShopController {
         Result result = ResultUtil.initResult();
 
         result = shopService.getShopInfo(shopid);
+        WebUtils.setSessionAttribute(request, "loginShop", result.getData());
         return result;
     }
 
