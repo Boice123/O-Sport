@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/O-Sport.iml" filepath="$PROJECT_DIR$/.idea/modules/O-Sport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/O-Sport.iml" filepath="$PROJECT_DIR$/O-Sport.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/O-Sport_main.iml" filepath="$PROJECT_DIR$/.idea/modules/O-Sport_main.iml" group="O-Sport" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/O-Sport_test.iml" filepath="$PROJECT_DIR$/.idea/modules/O-Sport_test.iml" group="O-Sport" />
     </modules>

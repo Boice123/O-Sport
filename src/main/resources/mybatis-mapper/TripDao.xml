@@ -15,6 +15,10 @@
         select * from trip where tripid=#{tripid}
     </select>
 
+    <select id="selectTripByShopId" resultType="com.jsj141.osport.domain.Trip">
+        select * from trip where shopid=#{shopid}
+    </select>
+
     <select id="count" resultType="int">
         select count(*) from trip
         <include refid="dynamicWhere" />

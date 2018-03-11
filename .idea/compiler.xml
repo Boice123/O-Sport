@@ -4,8 +4,6 @@
     <bytecodeTargetLevel>
       <module name="O-Sport_main" target="1.8" />
       <module name="O-Sport_test" target="1.8" />
-      <module name="oSports_main" target="1.8" />
-      <module name="oSports_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

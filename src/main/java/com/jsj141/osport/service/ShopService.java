@@ -7,7 +7,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 import com.jsj141.osport.domain.Shop;
+import com.jsj141.osport.domain.Trip;
 
 @Service
 public class ShopService {
@@ -51,6 +54,20 @@ public class ShopService {
             result.setCode(0);
             result.setData(shop);
             result.setMsg("用户已实名开店");
+        }
+        return result;
+    }
+
+    public Result getManageTrip(String shopid) {
+        Result result = ResultUtil.initResult();
+        List<Trip> tripList = Constant.FACADE.getTripDao().selectTripByShopId(shopid);
+        if(tripList == null) {
+            result.setCode(1);
+            result.setMsg("小店还没有组织户外出团活动呢！");
+        }else {
+            result.setCode(0);
+            result.setData(tripList);
+            result.setMsg("获取店铺户外出团活动列表成功");
         }
         return result;
     }

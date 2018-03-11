@@ -1,10 +1,10 @@
 # 数据库建表语句
 # 所有字段全部是NOT NULL 引擎使用InnoDB
 # 以下是创建数据库及账号的语句
-# CREATE DATABASE IF NOT EXISTS `fee` DEFAULT CHARACTER SET utf8mb4;
+# CREATE DATABASE IF NOT EXISTS `osport` DEFAULT CHARACTER SET utf8mb4;
 # grant all privileges on fee.* to 'fee'@'%' identified by 'fee..zz@#$1';
 #flush privileges;
-#use fee;
+#use osport;
 #set names utf8;
 
 DROP TABLE IF EXISTS `admin`;
@@ -36,9 +36,9 @@ CREATE TABLE shop(
     `shopimg` varchar(100) NOT NULL COMMENT '商店图片路径',
     `shopstatus` INT NOT NULL default 1 COMMENT '商店状态',
     `shoppublishtime` timestamp NOT NULL default NOW() COMMENT '成立时间',
-		`userid` varchar(100) NOT NULL COMMENT '用户外键',
-		primary key(`shopid`),
-		FOREIGN KEY (userid) REFERENCES user ( userid )
+	`userid` varchar(100) NOT NULL COMMENT '用户外键',
+	primary key(`shopid`),
+	FOREIGN KEY (userid) REFERENCES user ( userid )
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商店表';
 
 CREATE TABLE trip(
@@ -54,6 +54,20 @@ CREATE TABLE trip(
     primary key(`tripid`),
     FOREIGN KEY (shopid) REFERENCES shop ( shopid )
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='出行团表';
+
+CREATE TABLE train(
+    `trainid` varchar(100) NOT NULL COMMENT '户外培训主键id',
+    `trainname` varchar(100) NOT NULL COMMENT '户外培训名称',
+    `traindescription` varchar(100) NOT NULL COMMENT '户外培训描述',
+    `trainnotice` varchar(100) NOT NULL COMMENT '户外培训注意事项',
+    `trainprice` double NOT NULL COMMENT '户外培训价钱',
+    `maxpeople` INT NOT NULL COMMENT '户外培训最大人数限制',
+    `trainpublishtime` timestamp NOT NULL default NOW() COMMENT '发布时间',
+    `trainimg` varchar(100) NOT NULL COMMENT '户外培训图片',
+    `shopid` varchar(100) NOT NULL COMMENT '商店外键',
+    primary key(`trainid`),
+    FOREIGN KEY (shopid) REFERENCES shop ( shopid )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='户外培训表';
 
 CREATE TABLE triporder(
     `triporderid` varchar(100) NOT NULL COMMENT '出行团订单主键id',

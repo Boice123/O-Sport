@@ -12,6 +12,9 @@ import Shopmanagetrain from '@/components/shop/shopmanagetrain'
 import Shopmanagetriporder from '@/components/shop/shopmanagetriporder'
 import Shopmanagetrainorder from '@/components/shop/shopmanagetrainorder'
 import AddTrip from '@/components/shop/addTrip'
+import UpdateTripInfo from '@/components/shop/updateTripInfo'
+import AddTrain from '@/components/shop/addTrain'
+import UpdateTrainInfo from '@/components/shop/updateTrainInfo'
 import Shopinfo from '@/components/shop/shopinfo'
 
 Vue.use(Router)
@@ -41,8 +44,8 @@ export default new Router({
     {
       path: '/shop',
       name: 'shop',
-      redirect: '/shop/shopinfo',
       component: Shop,
+      redirect: 'shop/shopInfo',
       children: [
         {
           path: 'openshop',
@@ -80,11 +83,25 @@ export default new Router({
           component: AddTrip
         },
         {
+          path: 'updateTripInfo',
+          name: 'updateTripInfo',
+          component: UpdateTripInfo
+        },
+        {
+          path: 'addTrain',
+          name: 'addTrain',
+          component: AddTrain
+        },
+        {
+          path: 'updateTrainInfo',
+          name: 'updateTrainInfo',
+          component: UpdateTrainInfo
+        },
+        {
           path: 'shopinfo',
           name: 'shopinfo',
           component: Shopinfo
         }
       ]
-    }
-  ]
+    }]
 })

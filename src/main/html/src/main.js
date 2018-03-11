@@ -25,6 +25,9 @@ new Vue({
   el: '#app',
   router,
   store,
+  data: {
+    bus: new Vue()
+  },
   components: { App },
   template: '<App/>',
   //拦截器

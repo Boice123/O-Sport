@@ -39,7 +39,17 @@ public class ShopController {
     @Autowired
     private UserService userService;
 
-    //保存店铺信息
+    /**
+     * 保存店铺信息
+     * @param shopimg
+     * @param realid
+     * @param realname
+     * @param shopname
+     * @param shop
+     * @param bindingResult
+     * @param request
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     Result save(@RequestParam(value="shopimg") String shopimg,
@@ -68,7 +78,15 @@ public class ShopController {
         return result;
     }
 
-    //修改店铺信息
+    /**
+     * 修改店铺信息
+     * @param shopimg
+     * @param shopname
+     * @param shop
+     * @param bindingResult
+     * @param request
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     Result update(@RequestParam(value="shopimg") String shopimg,
@@ -92,7 +110,12 @@ public class ShopController {
         return result;
     }
 
-    //返回店铺信息
+    /**
+     * 返回店铺信息
+     * @param shopid
+     * @param request
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/get", method = RequestMethod.POST)
     Result getShopInfo(String shopid,HttpServletRequest request) {
@@ -103,8 +126,11 @@ public class ShopController {
         return result;
     }
 
-
-    //检查该用户是否有开店
+    /**
+     * 检查该用户是否有开店
+     * @param request
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/checkShopExist", method = RequestMethod.POST)
     Result checkShopExist(HttpServletRequest request) {
@@ -114,6 +140,22 @@ public class ShopController {
         System.out.println(loginUser.getUsername());
         System.out.println(loginUser.getUserid());
         result = shopService.checkShopExist(loginUser.getUserid());
+        System.out.println(result.getMsg());
+        return result;
+    }
+
+    /**
+     * 获得该店铺管理的所有Trip信息
+     * @param shopid
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getManageTrip", method = RequestMethod.POST)
+    Result getManageTrip(String shopid, HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+
+        result = shopService.getManageTrip(shopid);
         System.out.println(result.getMsg());
         return result;
     }
