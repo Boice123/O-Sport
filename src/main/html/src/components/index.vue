@@ -26,10 +26,15 @@
           <div :class="{'tripTitleSectionActive':tripTagChoose == 3,'tripTitleSection':tripTagChoose != 3}" @click="changetripTagChoose(3)">公益活动</div>
         </div>
         <div class="more">>>更多</div>
-        <div class="tripContent">
-          <div :class="{'tripContentImgActive':tripChoose == 1,'tripContentImg':tripChoose != 1}" @mouseover="changetripChoose(1)"><img src="../assets/images/banner/banner_01.jpg"/></div>
-          <div :class="{'tripContentImgActive':tripChoose == 2,'tripContentImg':tripChoose != 2}" @mouseover="changetripChoose(2)"><img src="../assets/images/banner/banner_02.jpg"/></div>
-          <div :class="{'tripContentImgActive':tripChoose == 3,'tripContentImg':tripChoose != 3}" @mouseover="changetripChoose(3)"><img src="../assets/images/banner/banner_03.jpg"/></div>
+        <div class="tripContent" >
+          <div :class="{'tripContentImgActive':tripChoose == key,'tripContentImg':tripChoose != key}" 
+                @mouseover="changetripChoose(key)"
+                @click="gotoTripPage(trip.tripid)"
+                v-for="(trip,key) in tripList"
+          >
+            <div class="tripname">{{trip.tripname}}</div>
+            <img src="../assets/images/banner/banner_01.jpg"/>
+          </div>
         </div>
       </div>
       <!-- 户外培训 -->
@@ -41,19 +46,33 @@
         <div class="more">>>更多</div>
         <div class="trainContent">
           <div class="trainContentLeft">
+            <div class="trainname"></div>
             <img src="../assets/images/banner/banner_01.jpg"/>
           </div>
           <div class="trainContentRight">
-            <div class="trainContentRight-Up">
-              <div :class="{'trainContentImgActive':trainChoose == 1,'trainContentImg':trainChoose != 1}" @mouseover="changetrainChoose(1)"><img src="../assets/images/banner/banner_01.jpg"/></div>
-              <div :class="{'trainContentImgActive':trainChoose == 2,'trainContentImg':trainChoose != 2}" @mouseover="changetrainChoose(2)"><img src="../assets/images/banner/banner_02.jpg"/></div>
-              <div :class="{'trainContentImgActive':trainChoose == 3,'trainContentImg':trainChoose != 3}" @mouseover="changetrainChoose(3)"><img src="../assets/images/banner/banner_03.jpg"/></div>
+            <div class="trainContentRightBox"
+                 v-for="(train,key) in trainList"
+                 v-if="key >= 1"
+            >
+              <div :class="{'trainContentImgActive':trainChoose == key,'trainContentImg':trainChoose != key}" @mouseover="changetrainChoose(key)">
+                <div class="trainname">{{train.trainname}}</div>
+                <img src="../assets/images/banner/banner_01.jpg"/>
+              </div>
             </div>
-            <div class="trainContentRight-Down">
-              <div :class="{'trainContentImgActive':trainChoose == 4,'trainContentImg':trainChoose != 4}" @mouseover="changetrainChoose(4)"><img src="../assets/images/banner/banner_01.jpg"/></div>
+            <!-- <div class="trainContentRightBox">
+              <div :class="{'trainContentImgActive':trainChoose == 1,'trainContentImg':trainChoose != 1}" @mouseover="changetrainChoose(1)">
+                <div class="trainname">11</div>
+                <img src="../assets/images/banner/banner_01.jpg"/>
+              </div>
+            </div> -->
+            <!-- <div class="trainContentRight-Down">
+              <div :class="{'trainContentImgActive':trainChoose == 4,'trainContentImg':trainChoose != 4}" @mouseover="changetrainChoose(4)">
+                <div class="trainname">11</div>
+                <img src="../assets/images/banner/banner_01.jpg"/>
+              </div>
               <div :class="{'trainContentImgActive':trainChoose == 5,'trainContentImg':trainChoose != 5}" @mouseover="changetrainChoose(5)"><img src="../assets/images/banner/banner_02.jpg"/></div>
               <div :class="{'trainContentImgActive':trainChoose == 6,'trainContentImg':trainChoose != 6}" @mouseover="changetrainChoose(6)"><img src="../assets/images/banner/banner_03.jpg"/></div>
-            </div>
+            </div> -->
           </div>        
         </div>
       </div>
@@ -78,27 +97,158 @@
 <script>
 import searchBar from './common/searchBar'
 import topNav from './common/topNav'
+import axios from 'axios'
+import { API_getTripList, API_getTrainList } from '../constants/index.js'
   export default {
     name: 'index',
     data() {
       return {
         tripTagChoose: 1,
-        tripChoose: 1,
+        tripChoose: 0,
         trainTagChoose: 1,
         trainChoose:1,
         clubTagChoose: 1,
-        clubChoose: 1
+        clubChoose: 1,
+        tripList: [],
+        trainList: []
       }
     },
+    created () {
+        this.getTripListByDate()
+        this.getTrainListByDate()
+    },
     methods: {
+      getTripListByDate() {
+        //按日期排序获取出团活动信息
+        var params = new URLSearchParams();
+        params.append('size',3)
+        params.append('order','trippublishtime')
+        axios({
+            method:'post',
+            url:API_getTripList,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+                this.tripList = response.data.data
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('获取按日期排序获取出团活动信息失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
+      getTripListByTrading() {
+        //按成交量热度获取出团活动信息
+        var params = new URLSearchParams();
+        params.append('size',3)
+        params.append('order','triptrading')
+        axios({
+            method:'post',
+            url:API_getTripList,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+                this.tripList = response.data.data
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('获取按热度排序获取出团活动信息失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
+      getTrainListByDate() {
+        //按日期排序获取户外培训活动信息
+        var params = new URLSearchParams();
+        params.append('size',7)
+        params.append('order','trainpublishtime')
+        axios({
+            method:'post',
+            url:API_getTrainList,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+                this.trainList = response.data.data
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('获取按日期排序获取户外培训活动信息失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
+      getTrainListByTrading() {
+        //按日期排序获取户外培训活动信息
+        var params = new URLSearchParams();
+        params.append('size',7)
+        params.append('order','traintrading')
+        axios({
+            method:'post',
+            url:API_getTrainList,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+                this.trainList = response.data.data
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('获取按热度排序获取户外培训活动信息失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
       changetripTagChoose(choose) {
         this.tripTagChoose = choose
+        if(choose === 1) {
+          this.getTripListByDate()
+          return
+        }
+        if(choose === 2) {
+          this.getTripListByTrading()
+          return
+        }
       },
       changetripChoose(choose) {
         this.tripChoose = choose
       },
       changetrainTagChoose(choose) {
         this.trainTagChoose = choose
+        if(choose === 1) {
+          this.getTrainListByDate()
+          return
+        }
+        if(choose === 2) {
+          this.getTrainListByTrading()
+          return
+        }
+        if(choose === 3){
+          return
+        }
       },
       changetrainChoose(choose) {
         this.trainChoose = choose
@@ -108,6 +258,9 @@ import topNav from './common/topNav'
       },
       changeclubChoose(choose) {
         this.clubChoose = choose
+      },
+      gotoTripPage(tripid) {
+        this.$router.push({name:'trip', params:{tripid}})
       }
     },
     components: {
@@ -183,10 +336,31 @@ import topNav from './common/topNav'
   display: flex;
   margin: 0 auto;
 }
+.tripname {
+  width: 100%;
+  position: absolute;
+  margin: 0 auto;
+  bottom: 10%;
+  color: yellow;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.trainname {
+  width: 100%;
+  position: absolute;
+  margin: 0 auto;
+  bottom: 10%;
+  color: yellow;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
 .tripContentImg {
   opacity: .5;
   height: 15rem;
   flex: 1;
+  position: relative;
   animation: triphide .5s;
   -moz-animation: triphide .5s;	/* Firefox */
   -webkit-animation: triphide .5s;	/* Safari 和 Chrome */
@@ -200,6 +374,7 @@ import topNav from './common/topNav'
   opacity: 1;
   height: 15rem;
   flex: 2;
+  position: relative;
   animation: tripshow .5s;
   -moz-animation: tripshow .5s;	/* Firefox */
   -webkit-animation: tripshow .5s;	/* Safari 和 Chrome */
@@ -247,7 +422,8 @@ import topNav from './common/topNav'
   margin: 0 auto;
 }
 .trainContentLeft {
-  flex:1
+  flex:1;
+  position: relative;
 }
 .trainContentLeft > img {
   width: 100%;
@@ -255,18 +431,21 @@ import topNav from './common/topNav'
 }
 .trainContentRight {
   flex: 2;
+  flex-direction: column;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows:1fr 1fr;
 }
-.trainContentRight-Up {
+.trainContentRightBox {
   display: flex;
   flex-direction: row;
+  position: relative;
 }
-.trainContentRight-Down {
+/* .trainContentRight-Down {
+  position: relative;
   display: flex;
   flex-direction: row;
-}
+} */
 @-webkit-keyframes trainshow /* Safari 和 Chrome */
 {
   from {  opacity: .5;}
@@ -278,6 +457,7 @@ import topNav from './common/topNav'
   to {  opacity: .5;}
 }
 .trainContentImgActive {
+  position: relative;
   opacity: 1;
   flex: 1;
   flex-wrap: wrap;

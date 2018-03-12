@@ -29,6 +29,8 @@ public class Train implements Serializable {
 
     private String shopid;
 
+    private int traintrading;
+
     public String getTrainid() {
         return trainid;
     }
@@ -99,6 +101,12 @@ public class Train implements Serializable {
 
     public void setShopid(String shopid){
         this.shopid = shopid;
+    }
+
+    public int getTraintrading() { return traintrading; }
+
+    public void setTraintrading(int traintrading){
+        this.traintrading = traintrading;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.jsj141.osport.controller;
 
+import com.jsj141.osport.domain.Trip;
 import com.jsj141.osport.util.Result;
 import com.jsj141.osport.util.ResultUtil;
 import org.slf4j.Logger;
@@ -14,10 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
+import java.util.List;
 import java.util.UUID;
 import java.io.*;
 import org.apache.commons.io.FileUtils;
@@ -25,8 +24,9 @@ import com.jsj141.osport.domain.Shop;
 import com.jsj141.osport.domain.User;
 import com.jsj141.osport.service.ShopService;
 import com.jsj141.osport.service.UserService;
+import com.jsj141.osport.service.TripService;
+import com.jsj141.osport.service.TrainService;
 import org.springframework.web.util.WebUtils;
-import org.springframework.ui.Model;
 
 @Controller
 @RequestMapping("/shop")
@@ -38,6 +38,12 @@ public class ShopController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private TripService tripService;
+
+    @Autowired
+    private TrainService trainService;
 
     /**
      * 保存店铺信息
@@ -157,6 +163,42 @@ public class ShopController {
 
         result = shopService.getManageTrip(shopid);
         System.out.println(result.getMsg());
+        return result;
+    }
+
+    /**
+     * 获得该店铺管理的所有Train信息
+     * @param shopid
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getManageTrain", method = RequestMethod.POST)
+    Result getManageTrain(String shopid, HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+
+        result = shopService.getManageTrain(shopid);
+        System.out.println(result.getMsg());
+        return result;
+    }
+
+
+    /**
+     * 获得商店下的Trip列表,分页,按日期或成交量排序
+     * @param size: 获取多少条数据
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getShopManageTripPagination", method = RequestMethod.POST)
+    Result getTripList(@RequestParam(value="start") int start,
+                       @RequestParam(value="size") int size,
+                       @RequestParam(value="shopid") String shopid,
+                       @RequestParam(value="order") String order,
+                       HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        List<Trip> tripList = tripService.listdesc(start, size, shopid.toString(), order);
+        ResultUtil.setSuccess(result, "获得Trip列表排序信息成功", tripList);
         return result;
     }
 

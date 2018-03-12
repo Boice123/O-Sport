@@ -51,6 +51,11 @@
       label="注意事项"
       width="80">
     </el-table-column>
+    <el-table-column
+      prop="triptrading"
+      label="成交量"
+      width="80">
+    </el-table-column>
     <el-table-column label="操作" prop="tripid">
       <template slot-scope="scope">
         <el-button
@@ -63,11 +68,22 @@
       </template>
     </el-table-column>
   </el-table>
+    <div class="block">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page=currentPage
+        :page-sizes="[5, 10, 20]"
+        :page-size="5"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total=shopTripCount>
+      </el-pagination>
+    </div>
   </div>
 </template>
 
 <script>
-import {API_getShopManageTripURl, API_deleteTripURl} from '../../constants/index.js'
+import {API_getShopManageTripURl, API_deleteTripURl, API_getShopTripCountURl, API_getShopManageTripPaginationURl } from '../../constants/index.js'
 import axios from 'axios'
 // import bus from '../../utils/passValue'
 export default {
@@ -82,11 +98,16 @@ export default {
           tripprice: '',
           maxpeople: '',
           tripdescription: '',
-          tripnotice: ''}]
+          tripnotice: '',
+          triptrading: ''}],
+          shopTripCount: 0,
+          pageSize: 5,
+          currentPage: 1
         }
     },
     created() {
         this.getShopManageTrip()
+        this.getShopManageTripCount()
     },
     watch: {
       '$route' (to, from) {
@@ -101,9 +122,12 @@ export default {
         console.log("shopid为："+this.getCookie('shop_id'))
         var params = new URLSearchParams();
         params.append('shopid',this.getCookie('shop_id'))
+        params.append('start',(this.currentPage-1) * this.pageSize)
+        params.append('size',this.pageSize)
+        params.append('order','trippublishtime')
         axios({
             method:'post',
-            url:API_getShopManageTripURl,
+            url:API_getShopManageTripPaginationURl,
             params
         })
         .then((response) => {
@@ -121,6 +145,31 @@ export default {
         }).catch((err) => {
             console.log(err)
         })
+      },
+      getShopManageTripCount() {
+          //获取商店户外出团总数  
+          var params = new URLSearchParams();
+          params.append('shopid',this.getCookie('shop_id'))
+          axios({
+              method:'post',
+              url:API_getShopTripCountURl,
+              params
+          })
+          .then((response) => {
+              console.log(response.data)
+              if(response.data.code == 0) {
+                this.shopTripCount = response.data.data
+              }else if(response.data.code == 1) {
+                  this.$message({
+                      message: response.data.msg,
+                      type: 'warning'
+                  }); 
+              }else {
+                  this.$message.error('获取店铺户外出团总数信息失败，请稍后重试');
+              }        
+          }).catch((err) => {
+              console.log(err)
+          })
       },
       handleEdit(tripid) {
         this.$router.push({name:'updateTripInfo', params:{tripid}})
@@ -165,6 +214,15 @@ export default {
       },
       handleSelectionChange(val) {
         this.multipleSelection = val;
+      },
+      handleSizeChange(val) {      
+        this.pageSize = val
+        console.log(`每页 ${this.pageSize} 条`)
+      },
+      handleCurrentChange(val) {
+        this.currentPage = val
+        this.getShopManageTrip()
+        console.log(`当前页: ${this.currentPage}`);
       }
     }
 }
@@ -190,5 +248,8 @@ export default {
 .addtripImg {
     width: 2rem;
     padding-left: 1rem;
+}
+.block {
+  margin: 2rem auto;
 }
 </style>

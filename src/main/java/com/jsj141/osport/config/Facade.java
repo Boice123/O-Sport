@@ -7,6 +7,7 @@ import com.jsj141.osport.dao.AdminDao;
 import com.jsj141.osport.dao.UserDao;
 import com.jsj141.osport.dao.TripDao;
 import com.jsj141.osport.dao.ShopDao;
+import com.jsj141.osport.dao.TrainDao;
 /**
  * 门面类
  */
@@ -27,6 +28,8 @@ public class Facade {
     @Autowired
     private TripDao tripDao;
 
+    @Autowired
+    private TrainDao trainDao;
     public Producer getCaptchaProducer() {
         return captchaProducer;
     }
@@ -65,5 +68,13 @@ public class Facade {
 
     public void setTripDao(TripDao tripDao) {
         this.tripDao = tripDao;
+    }
+
+    public TrainDao getTrainDao() {
+        return trainDao;
+    }
+
+    public void setTrainDao(TrainDao trainDao) {
+        this.trainDao = trainDao;
     }
 }

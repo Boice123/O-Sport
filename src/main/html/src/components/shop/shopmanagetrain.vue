@@ -50,6 +50,11 @@
       label="注意事项"
       width="80">
     </el-table-column>
+    <el-table-column
+      prop="traintrading"
+      label="成交量"
+      width="80">
+    </el-table-column>
     <el-table-column label="操作" prop="trainid">
       <template slot-scope="scope">
         <el-button
@@ -80,22 +85,23 @@ export default {
           trainprice: '',
           maxpeople: '',
           traindescription: '',
-          trainnotice: ''}]
+          trainnotice: '',
+          traintrading: ''}]
         }
     },
     created() {
-        this.getShopManagetrain()
+        this.getShopManageTrain()
     },
     watch: {
       '$route' (to, from) {
         if(to.path === "/shop/shopmanagetrain") {
           console.log("shopManagetrain  watch监听中")
-          this.getShopManagetrain()
+          this.getShopManageTrain()
         }   
       }
     },
     methods: {
-      getShopManagetrain () {
+      getShopManageTrain () {
         console.log("shopid为："+this.getCookie('shop_id'))
         var params = new URLSearchParams();
         params.append('shopid',this.getCookie('shop_id'))

@@ -29,6 +29,8 @@ public class Trip implements Serializable {
 
     private String shopid;
 
+    private int triptrading;
+
     public String getTripid() {
         return tripid;
     }
@@ -99,6 +101,14 @@ public class Trip implements Serializable {
 
     public void setShopid(String shopid){
         this.shopid = shopid;
+    }
+
+    public int getTriptrading() {
+        return triptrading;
+    }
+
+    public void setTriptrading(int triptrading){
+        this.triptrading = triptrading;
     }
 
     @Override

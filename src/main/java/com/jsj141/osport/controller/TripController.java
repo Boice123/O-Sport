@@ -23,6 +23,7 @@ import  com.jsj141.osport.service.TripService;
 import org.springframework.web.util.WebUtils;
 
 import java.util.UUID;
+import java.util.List;
 
 @Controller
 @RequestMapping("/trip")
@@ -95,8 +96,6 @@ public class TripController {
                 BindingResult bindingResult,
                 HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-//        Shop loginShop = (Shop) WebUtils.getSessionAttribute(request, "loginShop");
-//        trip.setShopid(loginShop.getShopid());
         trip.setMaxpeople(maxpeople);
         trip.setTripdescription(tripdescription);
         trip.setTripimg(tripimg);
@@ -125,6 +124,21 @@ public class TripController {
     }
 
     /**
+     * 根据shopid，获取当前店铺的Trip数量信息
+     * @param shopid
+     * @param trip
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getCount", method = RequestMethod.POST)
+    Result getCount(String shopid, Trip trip, HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        result = tripService.getTripCount(shopid);
+        return result;
+    }
+
+    /**
      * 删除Trip信息
      * @param tripid
      * @param trip
@@ -137,6 +151,23 @@ public class TripController {
         Result result = ResultUtil.initResult();
         trip.setTripid(tripid);
         result = tripService.deleteTripInfo(trip);
+        return result;
+    }
+
+    /**
+     * 获得Trip列表,按日期或成交量排序
+     * @param size: 获取多少条数据
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getTripList", method = RequestMethod.POST)
+    Result getTripList(@RequestParam(value="size") int size,
+                       @RequestParam(value="order") String order,
+                       HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        List<Trip> tripList = tripService.listdesc(0, size, order);
+        ResultUtil.setSuccess(result, "获得Trip列表排序信息成功", tripList);
         return result;
     }
 }

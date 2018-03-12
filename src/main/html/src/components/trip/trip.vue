@@ -29,11 +29,11 @@
                 </div>
             </div>
             <div class="tripDetailRight">
-                <h2 class="tripTitle">【伊犁杏花一地】</h2>
+                <h2 class="tripTitle">{{trip.tripname}}</h2>
                 <br>
-                <h4 class="tripdescription">4月新疆早春：伊宁-吐尔根杏花沟-霍城大西沟-赛里木湖环湖-果子沟，多次日出日落，伊犁杏花沟一地深度纯玩/行摄4日（3-6人VIP精品小团，越野车或商务车）</h4>
+                <h4 class="tripdescription">{{trip.tripdescription}}</h4>
                 <div class="tripPrice">
-                    产品价格：<span class="tripPriceSpan">2630</span>元起（成人）
+                    产品价格：<span class="tripPriceSpan">{{trip.tripprice}}</span>元起（成人）
                 </div>
                 <el-form class="tripgoDate">
                     <el-form-item label="出发日期：">
@@ -49,7 +49,7 @@
                     <el-form-item label="参加人数：" prop="person">
                         <el-input-number v-model="form.person" :min="1" :max="10"></el-input-number>
                     </el-form-item>
-                    <span class="tripnotice">出行须知： 请自备雨具和干粮</span>
+                    <span class="tripnotice">{{trip.tripnotice}}</span>
                     <el-form-item>
                         <el-button type="primary" @click="submitForm('form')">立刻报名</el-button>
                     </el-form-item>
@@ -62,6 +62,8 @@
 <script>
 import searchBar from '../common/searchBar'
 import topNav from '../common/topNav'
+import {API_getTripInfoURl} from '../../constants/index.js'
+import axios from 'axios'
   export default {
     name: 'trip',
     data() {
@@ -69,6 +71,7 @@ import topNav from '../common/topNav'
           form: {
               person: 1
           },
+          trip: [],
           options: [{
           value: '选项1',
           label: '黄金糕'
@@ -87,6 +90,31 @@ import topNav from '../common/topNav'
         }],
         value: ''
       }
+    },
+    created() {
+        //获取Trip信息
+        var params = new URLSearchParams();
+        params.append('tripid',this.$route.params.tripid)
+        axios({
+            method:'post',
+            url:API_getTripInfoURl,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+                this.trip = response.data.data
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('获取出行团信息失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
     },
     methods: {
         submitForm(formName) {

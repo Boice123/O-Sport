@@ -10,12 +10,12 @@
                 <span class="shopInfoDetailNum">10</span>
             </div>
             <div class="shopInfoDetailBox">
-                <span class="shopInfoDetailTitle">今日成交量</span>
-                <span class="shopInfoDetailNum">10</span>
+                <span class="shopInfoDetailTitle">户外出团总数</span>
+                <span class="shopInfoDetailNum">{{shopTripCount}}</span>
             </div>
             <div class="shopInfoDetailBox">
-                <span class="shopInfoDetailTitle">今日成交量</span>
-                <span class="shopInfoDetailNum">10</span>
+                <span class="shopInfoDetailTitle">户外培训总数</span>
+                <span class="shopInfoDetailNum">{{shopTrainCount}}</span>
             </div>
         </div>
     </div>
@@ -23,19 +23,21 @@
 </template>
 
 <script>
-import {API_getShopInfoURl} from '../../constants/index.js'
+import {API_getShopInfoURl, API_getShopTripCountURl, API_getShopTrainCountURl} from '../../constants/index.js'
 import axios from 'axios'
 export default {
     name: 'shopInfo',
     data() {
         return {
             shopname: '',
-            shopimg: ''
+            shopimg: '',
+            shopTripCount: 0,
+            shopTrainCount: 0
         }
     },
     created() {
-         //信息加入param
-         console.log(this.getCookie('shop_id'))
+        //获取商店信息
+        console.log(this.getCookie('shop_id'))
         var params = new URLSearchParams();
         params.append('shopid',this.getCookie('shop_id'))
         axios({
@@ -56,6 +58,52 @@ export default {
                 }); 
             }else {
                 this.$message.error('获取店铺信息失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      //获取商店户外出团总数  
+      var params = new URLSearchParams();
+        params.append('shopid',this.getCookie('shop_id'))
+        axios({
+            method:'post',
+            url:API_getShopTripCountURl,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+               this.shopTripCount = response.data.data
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('获取店铺户外出团总数信息失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      //获取商店户外培训总数  
+      var params = new URLSearchParams();
+        params.append('shopid',this.getCookie('shop_id'))
+        axios({
+            method:'post',
+            url:API_getShopTrainCountURl,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+               this.shopTrainCount = response.data.data
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('获取店铺户户外培训总数信息失败，请稍后重试');
             }        
         }).catch((err) => {
             console.log(err)

@@ -50,6 +50,7 @@ CREATE TABLE trip(
     `maxpeople` INT NOT NULL COMMENT '出行最大人数限制',
     `trippublishtime` timestamp NOT NULL default NOW() COMMENT '发布时间',
     `tripimg` varchar(100) NOT NULL COMMENT '出行团图片',
+    `triptrading` INT NOT NULL default 0 COMMENT '出行团成交量',
     `shopid` varchar(100) NOT NULL COMMENT '商店外键',
     primary key(`tripid`),
     FOREIGN KEY (shopid) REFERENCES shop ( shopid )
@@ -64,6 +65,7 @@ CREATE TABLE train(
     `maxpeople` INT NOT NULL COMMENT '户外培训最大人数限制',
     `trainpublishtime` timestamp NOT NULL default NOW() COMMENT '发布时间',
     `trainimg` varchar(100) NOT NULL COMMENT '户外培训图片',
+    `traintrading` INT NOT NULL default 0 COMMENT '户外培训成交量',
     `shopid` varchar(100) NOT NULL COMMENT '商店外键',
     primary key(`trainid`),
     FOREIGN KEY (shopid) REFERENCES shop ( shopid )

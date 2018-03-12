@@ -2,280 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf4ae5f9-ccdf-45d8-809f-87b63a482214" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules/O-Sport.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileChanges/last-build.bin" afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileChanges/last-build.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/iw86-base.jar" afterPath="$PROJECT_DIR$/libs/iw86-base.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/MainApplication.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/MainApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/SpringContext.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/SpringContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/base/Result.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/base/Result.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/base/ResultUtil.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/base/ResultUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/BaseConfig.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/BaseConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/Constant.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/Constant.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/Facade.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/Facade.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/KaptchaConfiguration.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/KaptchaConfiguration.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/WebAppConfigution.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/WebAppConfigution.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/filter/DruidStatFilter.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/filter/DruidStatFilter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/filter/LoginFilter.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/filter/LoginFilter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/filter/SessionFilter.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/filter/SessionFilter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/AdminController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/AdminController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/CheckImgController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/CheckImgController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/ExceptionHandler.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/ExceptionHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/IndexController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/IndexController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/ShopController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/ShopController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/TripController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/TripController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/UserController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/AdminDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/AdminDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/BaseDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/BaseDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/ShopDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/ShopDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/TrainDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/TrainDao.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/TripDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/TripDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/TriporderDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/TriporderDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/TriporderitemDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/TriporderitemDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/UserDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/UserDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Admin.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Admin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Shop.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Shop.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Train.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Train.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Trip.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Trip.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Triporder.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Triporder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Triporderitem.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Triporderitem.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/User.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/filter/AdminFilter.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/filter/AdminFilter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/AdminService.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/AdminService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/ShopService.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/ShopService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/TripService.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/TripService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/UserService.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/AutoGenerator.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/AutoGenerator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/Result.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/Result.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/ResultUtil.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/ResultUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/UUIDUtils.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/UUIDUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/classes/com/jsj141/osport/test/AdminServiceTest.class" afterPath="$PROJECT_DIR$/out/test/classes/com/jsj141/osport/test/AdminServiceTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/classes/com/jsj141/osport/test/AutoGeneratorTest.class" afterPath="$PROJECT_DIR$/out/test/classes/com/jsj141/osport/test/AutoGeneratorTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/classes/com/jsj141/osport/test/MainApplicationTests.class" afterPath="$PROJECT_DIR$/out/test/classes/com/jsj141/osport/test/MainApplicationTests.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/build/logo.png" afterPath="$PROJECT_DIR$/src/main/html/build/logo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/banner/banner_01.jpg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/banner/banner_01.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/banner/banner_02.jpg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/banner/banner_02.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/banner/banner_03.jpg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/banner/banner_03.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/signbgc.jpeg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/signbgc.jpeg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/signupBgc.jpg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/signupBgc.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/logo.png" afterPath="$PROJECT_DIR$/src/main/html/src/assets/logo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/static/.gitkeep" afterPath="$PROJECT_DIR$/src/main/html/static/.gitkeep" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__ch_qos_logback_logback_classic_1_1_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__ch_qos_logback_logback_classic_1_1_11.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__ch_qos_logback_logback_core_1_1_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__ch_qos_logback_logback_core_1_1_11.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_alibaba_druid_1_1_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_alibaba_druid_1_1_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_alibaba_fastjson_1_2_40.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_alibaba_fastjson_1_2_40.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_classmate_1_3_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_classmate_1_3_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_core_2_8_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_core_2_8_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_databind_2_8_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_databind_2_8_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_penggle_kaptcha_2_3_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_penggle_kaptcha_2_3_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jayway_jsonpath_json_path_2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jayway_jsonpath_json_path_2_2_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jhlabs_filters_2_0_235_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_jhlabs_filters_2_0_235_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_beanutils_commons_beanutils_1_9_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_beanutils_commons_beanutils_1_9_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_codec_commons_codec_1_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_codec_commons_codec_1_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_collections_commons_collections_3_2_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_collections_commons_collections_3_2_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_digester_commons_digester_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_digester_commons_digester_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_fileupload_commons_fileupload_1_3_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_fileupload_commons_fileupload_1_3_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_io_commons_io_2_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_io_commons_io_2_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_logging_commons_logging_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_logging_commons_logging_1_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__dom4j_dom4j_1_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__dom4j_dom4j_1_6_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_servlet_javax_servlet_api_3_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_servlet_javax_servlet_api_3_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_validation_validation_api_1_1_0_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_validation_validation_api_1_1_0_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__log4j_log4j_1_2_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__log4j_log4j_1_2_17.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__mysql_mysql_connector_java_5_1_44.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__mysql_mysql_connector_java_5_1_44.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_minidev_accessors_smart_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_minidev_accessors_smart_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_minidev_json_smart_2_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_minidev_json_smart_2_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_lang3_3_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_lang3_3_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_text_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_text_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_core_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_core_8_5_23.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_el_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_el_8_5_23.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_23.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_tomcat_annotations_api_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_tomcat_annotations_api_8_5_23.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_tomcat_jdbc_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_tomcat_jdbc_8_5_23.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_tomcat_juli_8_5_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_tomcat_juli_8_5_23.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_assertj_assertj_core_2_6_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_assertj_assertj_core_2_6_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_freemarker_freemarker_2_3_26_incubating.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_freemarker_freemarker_2_3_26_incubating.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hibernate_hibernate_validator_5_3_5_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hibernate_hibernate_validator_5_3_5_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_logging_jboss_logging_3_3_1_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jboss_logging_jboss_logging_3_3_1_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mockito_mockito_core_1_10_19.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mockito_mockito_core_1_10_19.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mybatis_mybatis_3_4_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mybatis_mybatis_3_4_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mybatis_mybatis_spring_1_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mybatis_mybatis_spring_1_3_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_1_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_1_3_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mybatis_spring_boot_mybatis_spring_boot_starter_1_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mybatis_spring_boot_mybatis_spring_boot_starter_1_3_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_objenesis_objenesis_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_objenesis_objenesis_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_5_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_5_0_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_skyscreamer_jsonassert_1_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_skyscreamer_jsonassert_1_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_jcl_over_slf4j_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_jcl_over_slf4j_1_7_25.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_jul_to_slf4j_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_jul_to_slf4j_1_7_25.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_log4j_over_slf4j_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_log4j_over_slf4j_1_7_25.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_slf4j_api_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_slf4j_api_1_7_25.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_1_5_8_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_autoconfigure_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_autoconfigure_1_5_8_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_1_5_8_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_cache_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_cache_1_5_8_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_freemarker_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_freemarker_1_5_8_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_jdbc_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_jdbc_1_5_8_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_logging_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_logging_1_5_8_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_test_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_test_1_5_8_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_tomcat_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_tomcat_1_5_8_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_web_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_web_1_5_8_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_1_5_8_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_autoconfigure_1_5_8_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_autoconfigure_1_5_8_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_session_spring_session_1_3_1_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_session_spring_session_1_3_1_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_aop_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_aop_4_3_12_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_beans_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_beans_4_3_12_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_context_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_context_4_3_12_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_context_support_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_context_support_4_3_12_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_core_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_core_4_3_12_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_expression_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_expression_4_3_12_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_jdbc_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_jdbc_4_3_12_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_test_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_test_4_3_12_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_tx_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_tx_4_3_12_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_web_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_web_4_3_12_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_webmvc_4_3_12_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_webmvc_4_3_12_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_yaml_snakeyaml_1_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_yaml_snakeyaml_1_17.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__xml_apis_xml_apis_1_4_01.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__xml_apis_xml_apis_1_4_01.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/O-Sport_main.iml" afterPath="$PROJECT_DIR$/.idea/modules/O-Sport_main.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/O-Sport_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/O-Sport_test.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/README.md" afterPath="$PROJECT_DIR$/doc/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/design/db.sql" afterPath="$PROJECT_DIR$/doc/design/db.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradlew" afterPath="$PROJECT_DIR$/gradlew" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradlew.bat" afterPath="$PROJECT_DIR$/gradlew.bat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/majiang-server.log" afterPath="$PROJECT_DIR$/log/majiang-server.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/majiang-server.log.1" afterPath="$PROJECT_DIR$/log/majiang-server.log.1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.npminstall.done" afterPath="$PROJECT_DIR$/node_modules/.npminstall.done" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.package_versions.json" afterPath="$PROJECT_DIR$/node_modules/.package_versions.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/application.properties" afterPath="$PROJECT_DIR$/out/production/resources/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/AdminDao.xml" afterPath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/AdminDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/ShopDao.xml" afterPath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/ShopDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/TrainDao.xml" afterPath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/TrainDao.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/TripDao.xml" afterPath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/TripDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/TriporderDao.xml" afterPath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/TriporderDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/TriporderitemDao.xml" afterPath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/TriporderitemDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/UserDao.xml" afterPath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/UserDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/templates/README.md" afterPath="$PROJECT_DIR$/out/production/resources/templates/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/.babelrc" afterPath="$PROJECT_DIR$/src/main/html/.babelrc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/.editorconfig" afterPath="$PROJECT_DIR$/src/main/html/.editorconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/.gitignore" afterPath="$PROJECT_DIR$/src/main/html/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/.postcssrc.js" afterPath="$PROJECT_DIR$/src/main/html/.postcssrc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/README.md" afterPath="$PROJECT_DIR$/src/main/html/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/build/build.js" afterPath="$PROJECT_DIR$/src/main/html/build/build.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/build/check-versions.js" afterPath="$PROJECT_DIR$/src/main/html/build/check-versions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/build/utils.js" afterPath="$PROJECT_DIR$/src/main/html/build/utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/build/vue-loader.conf.js" afterPath="$PROJECT_DIR$/src/main/html/build/vue-loader.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/build/webpack.base.conf.js" afterPath="$PROJECT_DIR$/src/main/html/build/webpack.base.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/build/webpack.dev.conf.js" afterPath="$PROJECT_DIR$/src/main/html/build/webpack.dev.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/build/webpack.prod.conf.js" afterPath="$PROJECT_DIR$/src/main/html/build/webpack.prod.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/config/dev.env.js" afterPath="$PROJECT_DIR$/src/main/html/config/dev.env.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/config/index.js" afterPath="$PROJECT_DIR$/src/main/html/config/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/config/prod.env.js" afterPath="$PROJECT_DIR$/src/main/html/config/prod.env.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/index.html" afterPath="$PROJECT_DIR$/src/main/html/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/package-lock.json" afterPath="$PROJECT_DIR$/src/main/html/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/package.json" afterPath="$PROJECT_DIR$/src/main/html/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/App.vue" afterPath="$PROJECT_DIR$/src/main/html/src/App.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/addimg.svg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/addimg.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/addtrip.svg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/addtrip.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/experience.svg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/experience.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/goodsmanage.svg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/goodsmanage.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/happy.svg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/happy.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/ordermanage.svg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/ordermanage.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/pulldown.svg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/pulldown.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/responsibility.svg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/responsibility.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/routes.svg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/routes.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/service.svg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/service.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/share.svg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/share.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/shopmanage.svg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/shopmanage.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/common/LogoTop.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/common/LogoTop.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/common/foot.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/common/foot.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/common/searchBar.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/common/searchBar.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/common/top.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/common/top.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/common/topNav.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/common/topNav.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/index.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/addTrip.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/addTrip.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/openshop.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/openshop.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/shop.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/shop.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/shopInfo.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/shopInfo.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/shopmanagetrain.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/shopmanagetrain.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/shopmanagetrainorder.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/shopmanagetrainorder.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/shopmanagetrip.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/shopmanagetrip.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/shopmanagetriporder.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/shopmanagetriporder.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/updateShopInfo.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/updateShopInfo.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/trip/trip.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/trip/trip.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/user/signin.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/user/signin.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/user/signup.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/user/signup.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/constants/index.js" afterPath="$PROJECT_DIR$/src/main/html/src/constants/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/main.js" afterPath="$PROJECT_DIR$/src/main/html/src/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/router/index.js" afterPath="$PROJECT_DIR$/src/main/html/src/router/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/store/index.js" afterPath="$PROJECT_DIR$/src/main/html/src/store/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/store/mutations.js" afterPath="$PROJECT_DIR$/src/main/html/src/store/mutations.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/utils/cookieMethod.js" afterPath="$PROJECT_DIR$/src/main/html/src/utils/cookieMethod.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/utils/upload.js" afterPath="$PROJECT_DIR$/src/main/html/src/utils/upload.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/static/js/jquery.form.js" afterPath="$PROJECT_DIR$/src/main/html/static/js/jquery.form.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/MainApplication.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/MainApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/SpringContext.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/SpringContext.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/base/Result.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/base/Result.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/base/ResultUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/base/ResultUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/BaseConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/BaseConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Constant.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Constant.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/KaptchaConfiguration.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/KaptchaConfiguration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/WebAppConfigution.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/WebAppConfigution.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/DruidStatFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/DruidStatFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/LoginFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/LoginFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/SessionFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/filter/SessionFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/AdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/CheckImgController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/CheckImgController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ExceptionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ExceptionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/IndexController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/IndexController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TrainController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TrainController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/AdminDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/AdminDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/BaseDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/BaseDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ShopDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ShopDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TrainDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TrainDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TripDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TripDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TriporderDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TriporderDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TriporderitemDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TriporderitemDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/UserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Admin.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Admin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Shop.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Shop.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Train.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Train.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Trip.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Trip.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Triporder.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Triporder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Triporderitem.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Triporderitem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/filter/AdminFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/filter/AdminFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/AdminService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/AdminService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TripService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TripService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/util/AutoGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/util/AutoGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/util/Result.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/util/Result.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/util/ResultUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/util/ResultUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/util/UUIDUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/util/UUIDUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/AdminDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/AdminDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/ShopDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/ShopDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TrainDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TrainDao.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TriporderDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TriporderDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TriporderitemDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TriporderitemDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/UserDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/UserDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/README.md" afterPath="$PROJECT_DIR$/src/main/resources/templates/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AdminServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AdminServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/MainApplicationTests.java" afterPath="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/MainApplicationTests.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -301,17 +59,107 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TrainController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TrainController.java">
+      <file leaf-file-name="ShopController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="2595">
+              <caret line="199" column="81" lean-forward="false" selection-start-line="199" selection-start-column="81" selection-end-line="199" selection-end-column="81" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShopDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/ShopDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="TripController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="115" column="7" lean-forward="true" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/doc/design/db.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="780">
+              <caret line="52" column="57" lean-forward="false" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TripService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TripService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1095">
+              <caret line="82" column="30" lean-forward="false" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TripDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="34" column="28" lean-forward="false" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TrainController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TrainController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2190">
+              <caret line="164" column="48" lean-forward="false" selection-start-line="164" selection-start-column="48" selection-end-line="164" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Train.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Train.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="990">
+              <caret line="105" column="55" lean-forward="false" selection-start-line="105" selection-start-column="55" selection-end-line="105" selection-end-column="55" />
+              <folding>
+                <element signature="e#610#611#0" expanded="true" />
+                <element signature="e#640#641#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>trip</find>
+      <find>trips</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>train</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -679,21 +527,27 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/MainApplication.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TripDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TrainDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TrainService.java" />
+        <option value="$PROJECT_DIR$/doc/design/db.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Trip.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TrainDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Train.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TrainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TripService.java" />
-        <option value="$PROJECT_DIR$/doc/design/db.sql" />
-        <option value="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TrainController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-508" />
-    <option name="y" value="127" />
+    <option name="x" value="36" />
+    <option name="y" value="63" />
     <option name="width" value="1400" />
     <option name="height" value="794" />
   </component>
@@ -713,7 +567,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -772,6 +629,24 @@
               <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="osport" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="osport" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -807,9 +682,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -820,6 +692,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jsj141.osport.service" />
       <recent name="com.jsj141.osport.controller" />
     </key>
   </component>
@@ -990,7 +863,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-508" y="127" width="1400" height="794" extended-state="0" />
+    <frame x="36" y="63" width="1400" height="794" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -999,10 +872,10 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39889196" sideWeight="0.29285714" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39889196" sideWeight="0.29642856" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.75214285" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.75214285" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1012,8 +885,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39889196" sideWeight="0.70714283" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39889196" sideWeight="0.70357144" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1027,16 +900,65 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="22" />
+      <option name="time" value="27" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/doc/design/db.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="52" column="57" lean-forward="false" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TripService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1095">
+          <caret line="82" column="30" lean-forward="false" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="28" lean-forward="false" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TrainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2190">
+          <caret line="164" column="48" lean-forward="false" selection-start-line="164" selection-start-column="48" selection-end-line="164" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Train.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="105" column="55" lean-forward="false" selection-start-line="105" selection-start-column="55" selection-end-line="105" selection-end-column="55" />
+          <folding>
+            <element signature="e#610#611#0" expanded="true" />
+            <element signature="e#640#641#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1515">
           <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1045,7 +967,7 @@
         <state relative-caret-position="375">
           <caret line="35" column="11" lean-forward="false" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1054,7 +976,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1062,7 +986,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1070,7 +993,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1245">
           <caret line="105" column="42" lean-forward="true" selection-start-line="105" selection-start-column="42" selection-end-line="105" selection-end-column="42" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1079,7 +1004,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#417#418#0" expanded="true" />
             <element signature="e#483#484#0" expanded="true" />
           </folding>
@@ -1099,7 +1023,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#417#418#0" expanded="true" />
             <element signature="e#483#484#0" expanded="true" />
           </folding>
@@ -1111,7 +1034,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#417#418#0" expanded="true" />
             <element signature="e#483#484#0" expanded="true" />
           </folding>
@@ -1123,7 +1045,6 @@
         <state relative-caret-position="150">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#417#418#0" expanded="true" />
             <element signature="e#483#484#0" expanded="true" />
           </folding>
@@ -1135,7 +1056,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#417#418#0" expanded="true" />
             <element signature="e#483#484#0" expanded="true" />
           </folding>
@@ -1147,7 +1067,6 @@
         <state relative-caret-position="195">
           <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#417#418#0" expanded="true" />
             <element signature="e#483#484#0" expanded="true" />
           </folding>
@@ -1159,7 +1078,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#417#418#0" expanded="true" />
             <element signature="e#483#484#0" expanded="true" />
           </folding>
@@ -1178,7 +1096,6 @@
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#417#418#0" expanded="true" />
             <element signature="e#483#484#0" expanded="true" />
           </folding>
@@ -1205,7 +1122,6 @@
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="e#417#418#0" expanded="true" />
             <element signature="e#483#484#0" expanded="true" />
           </folding>
@@ -1235,26 +1151,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="61" column="19" lean-forward="false" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ShopDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/BaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1262,7 +1162,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1283,76 +1182,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TripDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="35" column="11" lean-forward="false" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/design/db.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="65" column="33" lean-forward="false" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/TrainDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TripService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1368,11 +1201,168 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="77" column="81" lean-forward="false" selection-start-line="77" selection-start-column="62" selection-end-line="77" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.12.RELEASE/c58973fe94ecfc5c40bb8fe5ff9fdc64054d6fe7/spring-aop-4.3.12.RELEASE-sources.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.12.RELEASE/4c8e2f1d4d02bdda3e1f598cb2fedc0537d1efdd/spring-web-4.3.12.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="205" column="9" lean-forward="true" selection-start-line="205" selection-start-column="9" selection-end-line="205" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/BaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TrainService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="64" column="50" lean-forward="false" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TrainDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TripDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Trip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="110" column="34" lean-forward="true" selection-start-line="110" selection-start-column="34" selection-end-line="110" selection-end-column="34" />
+          <folding>
+            <element signature="e#1980#1981#0" expanded="false" />
+            <element signature="e#2016#2017#0" expanded="false" />
+            <element signature="e#2135#2136#0" expanded="false" />
+            <element signature="e#2181#2182#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/TrainDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1215">
+          <caret line="81" column="45" lean-forward="true" selection-start-line="81" selection-start-column="45" selection-end-line="81" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Train.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="105" column="55" lean-forward="false" selection-start-line="105" selection-start-column="55" selection-end-line="105" selection-end-column="55" />
+          <folding>
+            <element signature="e#610#611#0" expanded="true" />
+            <element signature="e#640#641#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/design/db.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="52" column="57" lean-forward="false" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TrainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="2190">
+          <caret line="164" column="48" lean-forward="false" selection-start-line="164" selection-start-column="48" selection-end-line="164" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/ShopDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2595">
+          <caret line="199" column="81" lean-forward="false" selection-start-line="199" selection-start-column="81" selection-end-line="199" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TripService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1095">
+          <caret line="82" column="30" lean-forward="false" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="34" column="28" lean-forward="false" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="115" column="7" lean-forward="true" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

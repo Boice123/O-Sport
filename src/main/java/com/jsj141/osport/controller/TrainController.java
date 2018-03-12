@@ -1,8 +1,8 @@
 package com.jsj141.osport.controller;
 
 import com.jsj141.osport.domain.Shop;
-import com.jsj141.osport.domain.Trip;
-import com.jsj141.osport.service.TripService;
+import com.jsj141.osport.domain.Train;
+import com.jsj141.osport.service.TrainService;
 import com.jsj141.osport.util.Result;
 import com.jsj141.osport.util.ResultUtil;
 import org.slf4j.Logger;
@@ -18,120 +18,151 @@ import org.springframework.web.util.WebUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.UUID;
+import java.util.List;
 
 @Controller
-@RequestMapping("/trip")
+@RequestMapping("/train")
 public class TrainController {
     private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
-    private TripService tripService;
+    private TrainService trainService;
 
     /**
-     * 保存Trip信息
-     * @param tripname
-     * @param tripdescription
-     * @param tripnotice
-     * @param tripprice
+     * 保存train信息
+     * @param trainname
+     * @param traindescription
+     * @param trainnotice
+     * @param trainprice
      * @param maxpeople
-     * @param tripimg
-     * @param trip
+     * @param trainimg
+     * @param train
      * @param bindingResult
      * @param request
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    Result save(@RequestParam(value="tripname") String tripname,
-                @RequestParam(value="tripdescription") String tripdescription,
-                @RequestParam(value="tripnotice") String tripnotice,
-                @RequestParam(value="tripprice") Double tripprice,
+    Result save(@RequestParam(value="trainname") String trainname,
+                @RequestParam(value="traindescription") String traindescription,
+                @RequestParam(value="trainnotice") String trainnotice,
+                @RequestParam(value="trainprice") Double trainprice,
                 @RequestParam(value="maxpeople") Integer maxpeople,
-                @RequestParam(value="tripimg") String tripimg,
-                Trip trip,
+                @RequestParam(value="trainimg") String trainimg,
+                Train train,
                 BindingResult bindingResult,
                 HttpServletRequest request) {
         Result result = ResultUtil.initResult();
         Shop loginShop = (Shop) WebUtils.getSessionAttribute(request, "loginShop");
-        trip.setTripid(UUID.randomUUID().toString());
-        trip.setShopid(loginShop.getShopid());
-        trip.setMaxpeople(maxpeople);
-        trip.setTripdescription(tripdescription);
-        trip.setTripimg(tripimg);
-        trip.setTripnotice(tripnotice);
-        trip.setTripname(tripname);
-        trip.setTripprice(tripprice);
-        result = tripService.save(trip);
+        train.setTrainid(UUID.randomUUID().toString());
+        train.setShopid(loginShop.getShopid());
+        train.setMaxpeople(maxpeople);
+        train.setTraindescription(traindescription);
+        train.setTrainimg(trainimg);
+        train.setTrainnotice(trainnotice);
+        train.setTrainname(trainname);
+        train.setTrainprice(trainprice);
+        result = trainService.save(train);
         return result;
     }
 
     /**
-     * 修改Trip信息
-     * @param tripname
-     * @param tripdescription
-     * @param tripnotice
-     * @param tripprice
+     * 修改train信息
+     * @param trainname
+     * @param traindescription
+     * @param trainnotice
+     * @param trainprice
      * @param maxpeople
-     * @param tripimg
-     * @param trip
+     * @param trainimg
+     * @param train
      * @param bindingResult
      * @param request
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    Result update(@RequestParam(value="tripname") String tripname,
-                @RequestParam(value="tripdescription") String tripdescription,
-                @RequestParam(value="tripnotice") String tripnotice,
-                @RequestParam(value="tripprice") Double tripprice,
+    Result update(@RequestParam(value="trainname") String trainname,
+                @RequestParam(value="traindescription") String traindescription,
+                @RequestParam(value="trainnotice") String trainnotice,
+                @RequestParam(value="trainprice") Double trainprice,
                 @RequestParam(value="maxpeople") Integer maxpeople,
-                @RequestParam(value="tripimg") String tripimg,
-                Trip trip,
+                @RequestParam(value="trainimg") String trainimg,
+                  Train train,
                 BindingResult bindingResult,
                 HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-//        Shop loginShop = (Shop) WebUtils.getSessionAttribute(request, "loginShop");
-//        trip.setShopid(loginShop.getShopid());
-        trip.setMaxpeople(maxpeople);
-        trip.setTripdescription(tripdescription);
-        trip.setTripimg(tripimg);
-        trip.setTripnotice(tripnotice);
-        trip.setTripname(tripname);
-        trip.setTripprice(tripprice);
-        result = tripService.update(trip);
+        train.setMaxpeople(maxpeople);
+        train.setTraindescription(traindescription);
+        train.setTrainimg(trainimg);
+        train.setTrainnotice(trainnotice);
+        train.setTrainname(trainname);
+        train.setTrainprice(trainprice);
+        result = trainService.update(train);
         return result;
     }
 
 
     /**
-     * 获取Trip信息
-     * @param tripid
-     * @param trip
+     * 获取train信息
+     * @param trainid
+     * @param train
      * @param request
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "/get", method = RequestMethod.POST)
-    Result getTripInfo(String tripid, Trip trip, HttpServletRequest request) {
+    Result gettrainInfo(String trainid, Train train, HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-        trip.setTripid(tripid);
-        result = tripService.getTripInfo(trip);
+        train.setTrainid(trainid);
+        result = trainService.getTrainInfo(train);
         return result;
     }
 
     /**
-     * 删除Trip信息
-     * @param tripid
-     * @param trip
+     * 根据shopid，获取当前店铺的Train数量信息
+     * @param shopid
+     * @param train
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getCount", method = RequestMethod.POST)
+    Result getCount(String shopid, Train train, HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        result = trainService.getTrainCount(shopid);
+        return result;
+    }
+
+    /**
+     * 删除train信息
+     * @param trainid
+     * @param train
      * @param request
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    Result deleteTripInfo(String tripid, Trip trip, HttpServletRequest request) {
+    Result deletetrainInfo(String trainid, Train train, HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-        trip.setTripid(tripid);
-        result = tripService.deleteTripInfo(trip);
+        train.setTrainid(trainid);
+        result = trainService.deleteTrainInfo(train);
+        return result;
+    }
+
+    /**
+     * 获得Train列表,按日期排序
+     * @param size: 获取多少条数据
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getTrainList", method = RequestMethod.POST)
+    Result getTrainList(@RequestParam(value="size") int size,
+                       @RequestParam(value="order") String order,
+                       HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        List<Train> trainList = trainService.listdesc(0, size, order);
+        ResultUtil.setSuccess(result, "获得Train列表排序信息成功", trainList);
         return result;
     }
 }
