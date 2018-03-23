@@ -7,10 +7,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Date;
 
 import com.jsj141.osport.domain.Shop;
 import com.jsj141.osport.domain.Trip;
+import com.jsj141.osport.domain.Triporder;
 import com.jsj141.osport.domain.Train;
 
 @Service
@@ -55,6 +58,20 @@ public class ShopService {
             result.setCode(0);
             result.setData(shop);
             result.setMsg("用户已实名开店");
+        }
+        return result;
+    }
+
+    public Result getTodayTrading(String shopid) {
+        Result result = ResultUtil.initResult();
+        List<Triporder> triporderList = Constant.FACADE.getTriporderDao().selectByShopid(shopid);
+        if(triporderList.size() == 0) {
+            result.setCode(1);
+            result.setMsg("该商店还没有订单");
+        }else {
+            result.setCode(0);
+            result.setData(triporderList);
+            result.setMsg("获取商店订单成功");
         }
         return result;
     }

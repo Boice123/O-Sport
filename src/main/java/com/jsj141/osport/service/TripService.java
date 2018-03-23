@@ -29,6 +29,13 @@ public class TripService {
         return result;
     }
 
+    public Result updateTripTrading(Trip trip) {
+        Result result = ResultUtil.initResult();
+        Constant.FACADE.getTripDao().updateTripTrading(trip);
+        ResultUtil.setSuccess(result, "修改Trip trading信息成功", trip);
+        return result;
+    }
+
     public Result getTripInfo(Trip trip) {
         Result result = ResultUtil.initResult();
         Trip tripInfo = (Trip) Constant.FACADE.getTripDao().select(trip);

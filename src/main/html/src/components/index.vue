@@ -59,32 +59,18 @@
                 <img src="../assets/images/banner/banner_01.jpg"/>
               </div>
             </div>
-            <!-- <div class="trainContentRightBox">
-              <div :class="{'trainContentImgActive':trainChoose == 1,'trainContentImg':trainChoose != 1}" @mouseover="changetrainChoose(1)">
-                <div class="trainname">11</div>
-                <img src="../assets/images/banner/banner_01.jpg"/>
-              </div>
-            </div> -->
-            <!-- <div class="trainContentRight-Down">
-              <div :class="{'trainContentImgActive':trainChoose == 4,'trainContentImg':trainChoose != 4}" @mouseover="changetrainChoose(4)">
-                <div class="trainname">11</div>
-                <img src="../assets/images/banner/banner_01.jpg"/>
-              </div>
-              <div :class="{'trainContentImgActive':trainChoose == 5,'trainContentImg':trainChoose != 5}" @mouseover="changetrainChoose(5)"><img src="../assets/images/banner/banner_02.jpg"/></div>
-              <div :class="{'trainContentImgActive':trainChoose == 6,'trainContentImg':trainChoose != 6}" @mouseover="changetrainChoose(6)"><img src="../assets/images/banner/banner_03.jpg"/></div>
-            </div> -->
           </div>        
         </div>
       </div>
       <!-- 部落活动 -->
-      <div class="clubBox">
+      <div class="clubindexBox">
         <div class="clubTitle">
           <div :class="{'clubTitleSectionActive':clubTagChoose == 1,'clubTitleSection':clubTagChoose != 1}" @click="changeclubTagChoose(1)">部落活动</div>
           <div :class="{'clubTitleSectionActive':clubTagChoose == 2,'clubTitleSection':clubTagChoose != 2}" @click="changeclubTagChoose(2)">最热部落</div>
           <div :class="{'clubTitleSectionActive':clubTagChoose == 3,'clubTitleSection':clubTagChoose != 3}" @click="changeclubTagChoose(3)">推荐部落</div>
         </div>
         <div class="more">>>更多</div>
-        <div class="clubContent">
+        <div class="clubindexContent">
           <div class="clubImg" @click="changeclubChoose(1)"><img src="../assets/images/banner/banner_01.jpg"/></div>
           <div class="clubImg" @click="changeclubChoose(2)"><img src="../assets/images/banner/banner_02.jpg"/></div>
           <div class="clubImg" @click="changeclubChoose(3)"><img src="../assets/images/banner/banner_03.jpg"/></div>
@@ -307,7 +293,7 @@ import { API_getTripList, API_getTrainList } from '../constants/index.js'
   flex: 1;
   color: #fdd000;
   font-Weight: 600;
-  font-size: 20;
+  font-size: 1rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
@@ -315,7 +301,7 @@ import { API_getTripList, API_getTrainList } from '../constants/index.js'
   flex: 1;
   color: #000;
   font-Weight: 600;
-  font-size: 20;
+  font-size: 1rem;
   background: #fdd000;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -365,9 +351,10 @@ import { API_getTripList, API_getTrainList } from '../constants/index.js'
   -moz-animation: triphide .5s;	/* Firefox */
   -webkit-animation: triphide .5s;	/* Safari 和 Chrome */
   -o-animation: triphide .5s;	/* Opera */
+  overflow: hidden;
 }
 .tripContentImg > img{
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
 }
 .tripContentImgActive {
@@ -379,9 +366,10 @@ import { API_getTripList, API_getTrainList } from '../constants/index.js'
   -moz-animation: tripshow .5s;	/* Firefox */
   -webkit-animation: tripshow .5s;	/* Safari 和 Chrome */
   -o-animation: tripshow .5s;	/* Opera */
+  overflow: hidden;
 }
 .tripContentImgActive > img{
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
 }
 /* 户外培训 */
@@ -402,7 +390,7 @@ import { API_getTripList, API_getTrainList } from '../constants/index.js'
   flex: 1;
   color: #fdd000;
   font-Weight: 600;
-  font-size: 20;
+  font-size: 1rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
@@ -410,7 +398,7 @@ import { API_getTripList, API_getTrainList } from '../constants/index.js'
   flex: 1;
   color: #000;
   font-Weight: 600;
-  font-size: 20;
+  font-size: 1rem;
   background: #fdd000;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -484,7 +472,7 @@ import { API_getTripList, API_getTrainList } from '../constants/index.js'
   height: 7.5rem;
 }
 /* 部落活动 */
-.clubBox {
+.clubindexBox {
   background: #333;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -515,7 +503,7 @@ import { API_getTripList, API_getTrainList } from '../constants/index.js'
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.clubContent {
+.clubindexContent {
   width: 100%;
   display: flex;
   justify-content: space-between;

@@ -50,8 +50,8 @@
     </select>
 
     <insert id="insert" parameterType="com.jsj141.osport.domain.Trip">
-        insert into trip (tripid,tripname,tripdescription,tripnotice,tripprice,maxpeople,trippublishtime,tripimg,shopid)
-        values (#{tripid},#{tripname},#{tripdescription},#{tripnotice},#{tripprice},#{maxpeople},#{trippublishtime},#{tripimg},#{shopid})
+        insert into trip (tripid,tripname,tripdescription,tripnotice,tripprice,maxpeople,trippublishtime,tripimg,tripprovice,tripcity,shopid)
+        values (#{tripid},#{tripname},#{tripdescription},#{tripnotice},#{tripprice},#{maxpeople},#{trippublishtime},#{tripimg},#{tripprovice},#{tripcity},#{shopid})
     </insert>
 
     <update id="update" parameterType="com.jsj141.osport.domain.Trip">
@@ -78,12 +78,26 @@
             <if test="tripimg != null">
                 tripimg=#{tripimg},
             </if>
+            <if test="tripprovice != null">
+                tripprovice=#{tripprovice},
+            </if>
+            <if test="tripcity != null">
+                tripcity=#{tripcity},
+            </if>
             <if test="shopid != null">
                 shopid=#{shopid},
             </if>
             <if test="triptrading != null">
                 triptrading=#{triptrading},
             </if>
+        </set>
+        where tripid=#{tripid}
+    </update>
+
+    <update id="updateTripTrading" parameterType="com.jsj141.osport.domain.Trip">
+        update trip
+        <set>
+            triptrading = triptrading + #{triptrading}
         </set>
         where tripid=#{tripid}
     </update>

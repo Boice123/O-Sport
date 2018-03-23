@@ -14,8 +14,55 @@
       <el-form-item label="出团价钱" prop="tripprice">
         <el-input v-model="form.tripprice"></el-input>
       </el-form-item>
-      <el-form-item label="最大人数限制" prop="maxpeople">
+      <el-form-item label="每个最大人数限制" prop="maxpeople">
         <el-input v-model="form.maxpeople"></el-input>
+      </el-form-item>
+      <el-form-item label="选择地区" prop="region">
+        <el-cascader
+          expand-trigger="hover"
+          :options="options"
+          v-model="selectedOptions2"
+          @change="handleChange">
+        </el-cascader>
+      </el-form-item>
+      <el-form-item label="选择日期(最多选择5个)" prop="date">
+        <el-date-picker
+          v-model="form.triptime1"
+          :picker-options="pickerBeginDateBefore"
+          format="yyyy 年 MM 月 dd 日"
+          value-format="yyyy-MM-dd"
+          placeholder="选择日期">
+        </el-date-picker>
+        <el-date-picker
+          v-model="form.triptime2"
+          :picker-options="pickerBeginDateBefore"
+          format="yyyy 年 MM 月 dd 日"
+          value-format="yyyy-MM-dd"
+          placeholder="选择日期">
+        </el-date-picker>
+        <el-date-picker
+          v-model="form.triptime3"
+          type="date"
+          :picker-options="pickerBeginDateBefore"
+          format="yyyy 年 MM 月 dd 日"
+          value-format="yyyy-MM-dd"
+          placeholder="选择日期">
+        </el-date-picker>
+        <el-date-picker
+          v-model="form.triptime4"
+          :picker-options="pickerBeginDateBefore"
+          format="yyyy 年 MM 月 dd 日"
+          value-format="yyyy-MM-dd"
+          placeholder="选择日期">
+        </el-date-picker>
+        <el-date-picker
+          v-model="form.triptime5"
+          type="date"
+          :picker-options="pickerBeginDateBefore"
+          format="yyyy 年 MM 月 dd 日"
+          @value-format="yyyy-MM-dd"
+          placeholder="选择日期">
+        </el-date-picker>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('form')">提交</el-button>
@@ -31,7 +78,8 @@
 
 <script>
 import axios from 'axios'
-import { API_uploadFileURL, API_saveTripURL } from '../../constants/index.js'
+import regionList from '../../constants/regionList'
+import { API_uploadFileURL, API_saveTripURL, API_checkTriptimeNull } from '../../constants/index.js'
 import $ from 'jquery'
 import ajaxSubmit from '../../../static/js/jquery.form.js'
 export default {
@@ -92,6 +140,7 @@ export default {
         callback()
       }
         return {
+          value1:'',
           form: {
             tripimg: '',
             tripname: '',
@@ -99,6 +148,13 @@ export default {
             tripdescription: '',
             tripnotice: '',
             tripprice: 0,
+            tripprovice: '',
+            tripcity: '',
+            triptime1: '',
+            triptime2: '',
+            triptime3: '',
+            triptime4: '',
+            triptime5: ''
           },
           rules: {
             tripprice: [
@@ -119,7 +175,52 @@ export default {
             tripname: [
               { validator: validateTripname, trigger: 'blur' }
             ]
+          },
+          options: [
+          {
+            value: '广东',
+            label: '广东',
+            children: [
+              {
+                value: '江门',
+                label: '江门'
+              }, 
+              {
+                value: '广州',
+                label: '广州',
+              },
+              {
+                value: "深圳",
+                label: "深圳",
+              }
+            ]
+          },
+          {
+            value: '湖南',
+            label: '湖南',
+            children: [
+              {
+                value: '长沙',
+                label: '长沙'
+              }, 
+              {
+                value: '重庆',
+                label: '重庆',
+              },
+              {
+                value: "南京",
+                label: "南京",
+              }
+            ],
           }
+        ],
+        selectedOptions: [],
+        selectedOptions2: [],
+        pickerBeginDateBefore:{
+          disabledDate(time) {
+            return time.getTime() < Date.now();
+          }
+        },
         }
     },
     methods: {
@@ -143,48 +244,92 @@ export default {
       },
       submitForm(formName) {
         console.log("hehe")
-         //信息加入param
-        var params = new FormData()
-        params.append('tripname',this.form.tripname);
-        params.append('tripdescription', this.form.tripdescription);
-        params.append('tripnotice', this.form.tripnotice);
-        params.append('tripprice', this.form.tripprice);
-        params.append('maxpeople', this.form.maxpeople);
-        params.append('tripimg', this.form.tripimg);
+        // console.log("???"+this.form.triptime1)
         this.$refs[formName].validate((valid) => {
-          if (valid) {
-            console.log("haha")
-            axios({
-              method:'post',
-              url:API_saveTripURL,
-              data: params
-            })
-              .then((response) => {
-                console.log(response.data)
-                if(response.data.code == 0) {
-                  this.$message({
-                    message: response.data.msg,
-                    type: 'success'
-                  });
-                  this.$router.push('/shop/shopmanagetrip')
-                }
-                else if(response.data.code == 1) {
-                  this.$message({
-                    message: response.data.msg,
-                    type: 'warning'
-                  });
-                }else {
-                  this.$message.error('添加报团出团信息失败，请稍后重试');
-                }
-            })
-              .catch((err) => {
-                console.log(err)
+        if (valid) {
+          console.log("haha")
+            //信息加入param
+          
+          if (this.form.tripprovice == '' || this.form.tripcity == '') {
+            this.$message({
+                  message: "请选择完整地区",
+                  type: 'warning'
               });
-          } else {
-            console.log('请确认填写的信息是否正确')
-            return false;
+              return
           }
+          var params = new FormData()
+          params.append('tripname',this.form.tripname);
+          params.append('tripdescription', this.form.tripdescription);
+          params.append('tripnotice', this.form.tripnotice);
+          params.append('tripprice', this.form.tripprice);
+          params.append('maxpeople', this.form.maxpeople);
+          params.append('tripimg', this.form.tripimg);
+          params.append('tripprovice', this.form.tripprovice);
+          params.append('tripcity', this.form.tripcity);
+          params.append('triptime1',this.form.triptime1)
+          params.append('triptime2',this.form.triptime2)
+          params.append('triptime3',this.form.triptime3)
+          params.append('triptime4',this.form.triptime4)
+          params.append('triptime5',this.form.triptime5)
+          var param = new FormData()
+          param.append('triptime1',this.form.triptime1)
+          param.append('triptime2',this.form.triptime2)
+          param.append('triptime3',this.form.triptime3)
+          param.append('triptime4',this.form.triptime4)
+          param.append('triptime5',this.form.triptime5)
+          //判断五个日期是否都为空或者null，不是才可以请求addTrip接口
+          axios({
+            method: 'post',
+            url:API_checkTriptimeNull,
+            data: param
+          }).then((response) => {
+            console.log(response.data)
+                if(response.data.code == 0) {
+                  //请求addTrip接口
+                  axios({
+                    method:'post',
+                    url:API_saveTripURL,
+                    data: params
+                  })
+                    .then((response) => {
+                      console.log(response.data)
+                      if(response.data.code == 0) {
+                        this.$message({
+                          message: response.data.msg,
+                          type: 'success'
+                        });
+                        this.$router.push('/shop/shopmanagetrip')
+                      }
+                      else if(response.data.code == 1) {
+                        this.$message({
+                          message: response.data.msg,
+                          type: 'warning'
+                        });
+                      }else {
+                        this.$message.error('添加报团出团信息失败，请稍后重试');
+                      }
+                  })
+                    .catch((err) => {
+                      console.log(err)
+                    })
+                }else {
+                  this.$message.error('请至少选择一项出行日期');
+                }
+          }).catch((err) => {
+            console.log(err)
+          })
+        } else {
+          console.log('请确认填写的信息是否正确')
+          return false;
+        }
         })
+      },
+      handleChange(value) {
+        console.log(value);
+        this.form.tripprovice = value[0]
+        this.form.tripcity = value[1]
+        console.log(this.form.tripprovice)
+        console.log(this.form.tripcity)
       }
     }
 }

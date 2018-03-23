@@ -27,7 +27,7 @@
             </option>
             </select>
             <input class="searchInput" type="text"/>
-            <button class="searchButton">搜索</button>
+            <button class="searchButton" @click="show">搜索</button>
         </div>
      </div>
     </div>
@@ -54,6 +54,11 @@
             }],
             value: ''
         }
+    },
+    methods: {
+        show() {
+            // console.log(this.)
+        }
     }
   }
 </script>
@@ -61,7 +66,9 @@
 <style>
 .searchBarContainer {
   width: 100%;
-  background: #333;
+  background: url('../../assets/images/bgc/campbgc.jpg') no-repeat;
+  background-size: cover;
+  /* background: #333; */
   display: flex;
   align-items: center;
   color: #fff;

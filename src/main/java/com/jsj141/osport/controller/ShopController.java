@@ -1,6 +1,7 @@
 package com.jsj141.osport.controller;
 
 import com.jsj141.osport.domain.Trip;
+import com.jsj141.osport.domain.Triporder;
 import com.jsj141.osport.util.Result;
 import com.jsj141.osport.util.ResultUtil;
 import org.slf4j.Logger;
@@ -26,6 +27,7 @@ import com.jsj141.osport.service.ShopService;
 import com.jsj141.osport.service.UserService;
 import com.jsj141.osport.service.TripService;
 import com.jsj141.osport.service.TrainService;
+import com.jsj141.osport.service.TriporderService;
 import org.springframework.web.util.WebUtils;
 
 @Controller
@@ -44,6 +46,9 @@ public class ShopController {
 
     @Autowired
     private TrainService trainService;
+
+    @Autowired
+    private TriporderService triporderService;
 
     /**
      * 保存店铺信息
@@ -151,6 +156,40 @@ public class ShopController {
     }
 
     /**
+     * 获得该店铺总成交量
+     * @param shopid
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getTodayTrading", method = RequestMethod.POST)
+    Result getTodayTrading(String shopid, Triporder tripOrder, HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        result = shopService.getTodayTrading(shopid);
+        System.out.println(result.getMsg());
+        return result;
+    }
+
+    /**
+     * 获得该店铺订单，分页
+     * @param shopid
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getOrderPagination", method = RequestMethod.POST)
+    Result getOrderPagination(@RequestParam(value="size") int size,
+                              @RequestParam(value="start") int start,
+                              @RequestParam(value="shopid") String shopid,
+                              HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        List<Triporder> triporderList = triporderService.listByShopid(start, size, shopid);
+        ResultUtil.setSuccess(result, "获得TripOrder列表排序信息成功", triporderList);
+        return result;
+    }
+
+
+    /**
      * 获得该店铺管理的所有Trip信息
      * @param shopid
      * @param request
@@ -201,5 +240,19 @@ public class ShopController {
         ResultUtil.setSuccess(result, "获得Trip列表排序信息成功", tripList);
         return result;
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/updateOrderStatus", method = RequestMethod.POST)
+    Result updateOrderStatus(@RequestParam(value="triporderid") String triporderid,
+                           Triporder triporder,
+                           HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        triporder.setTriporderid(triporderid);
+        triporder.setTriporderstatus(2);
+        triporderService.update(triporder);
+        ResultUtil.setSuccess(result, "确认订单成功", null);
+        return result;
+    }
+
 
 }

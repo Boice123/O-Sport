@@ -1,5 +1,6 @@
 package com.jsj141.osport.controller;
 
+import com.jsj141.osport.config.Constant;
 import com.jsj141.osport.util.Result;
 import com.jsj141.osport.util.ResultUtil;
 import org.slf4j.Logger;
@@ -9,17 +10,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.WebUtils;
 
 import com.jsj141.osport.domain.User;
+import com.jsj141.osport.domain.Triporder;
 import com.jsj141.osport.service.UserService;
+import com.jsj141.osport.service.TriporderService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.UUID;
+import java.util.List;
 
 
 @Controller
@@ -29,6 +34,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private TriporderService triporderService;
 
     @ResponseBody
     @RequestMapping(value = "/save", method = RequestMethod.POST)
@@ -54,8 +62,13 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "/signin", method = RequestMethod.POST)
-    Result signin(@Valid User user, BindingResult bindingResult, HttpServletRequest request, HttpServletResponse response) {
+    Result signin(@RequestParam(value="password") String password,
+                  @RequestParam(value="tel") String tel,
+                  User user,
+                  HttpServletRequest request) {
         Result result = ResultUtil.initResult();
+        user.setPassword(password);
+        user.setTel(tel);
         result = userService.signin(user);
 
         User loginUser = userService.getUserByTel(user);
@@ -81,4 +94,17 @@ public class UserController {
         result = userService.checkUserTelExist(user);
         return result;
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/getUserTripOrder", method = RequestMethod.POST)
+    Result getUserTripOrder(HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        User loginUser = (User) WebUtils.getSessionAttribute(request, "loginUser");
+        List<Triporder> triporder = triporderService.getUserTripOrder(loginUser.getUserid());
+        result.setCode(0);
+        result.setData(triporder);
+        result.setMsg("获取用户订单成功");
+        return result;
+    }
+
 }

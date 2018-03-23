@@ -8,6 +8,9 @@ import com.jsj141.osport.dao.UserDao;
 import com.jsj141.osport.dao.TripDao;
 import com.jsj141.osport.dao.ShopDao;
 import com.jsj141.osport.dao.TrainDao;
+import com.jsj141.osport.dao.TriptimeDao;
+import com.jsj141.osport.dao.TriporderDao;
+import com.jsj141.osport.dao.TriporderitemDao;
 /**
  * 门面类
  */
@@ -30,6 +33,16 @@ public class Facade {
 
     @Autowired
     private TrainDao trainDao;
+
+    @Autowired
+    private TriptimeDao triptimeDao;
+
+    @Autowired
+    private TriporderDao triporderDao;
+
+    @Autowired
+    private TriporderitemDao triporderitemDao;
+
     public Producer getCaptchaProducer() {
         return captchaProducer;
     }
@@ -77,4 +90,31 @@ public class Facade {
     public void setTrainDao(TrainDao trainDao) {
         this.trainDao = trainDao;
     }
+
+
+    public TriptimeDao getTriptimeDao() {
+        return triptimeDao;
+    }
+
+    public void setTriptimeDao(TriptimeDao triptimeDao) {
+        this.triptimeDao = triptimeDao;
+    }
+
+
+    public TriporderDao getTriporderDao() {
+        return triporderDao;
+    }
+
+    public void setTriporderDao(TriporderDao triporderDao) {
+        this.triporderDao = triporderDao;
+    }
+
+    public TriporderitemDao getTriporderitemDao() {
+        return triporderitemDao;
+    }
+
+    public void setTriporderitemDao(TriporderitemDao triporderitemDao) {
+        this.triporderitemDao = triporderitemDao;
+    }
+
 }

@@ -30,15 +30,18 @@
     </select>
 
     <insert id="insert" parameterType="com.jsj141.osport.domain.Triporderitem">
-        insert into triporderitem (tripid,people)
-        values (#{tripid},#{people})
+        insert into triporderitem (triporderitemid,tripid,triptimeid,people)
+        values (#{triporderitemid},#{tripid},#{triptimeid},#{people})
     </insert>
 
     <update id="update" parameterType="com.jsj141.osport.domain.Triporderitem">
         update triporderitem 
         <set>
-            <if test="tripid != 0">
+            <if test="tripid != null">
                 tripid=#{tripid},
+            </if>
+            <if test="triptimeid != null">
+                triptimeid=#{triptimeid},
             </if>
             <if test="people != 0">
                 people=#{people},

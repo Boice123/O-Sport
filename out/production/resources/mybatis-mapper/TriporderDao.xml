@@ -15,6 +15,15 @@
         select * from triporder where triporderid=#{triporderid}
     </select>
 
+    <select id="selectByShopid" resultType="com.jsj141.osport.domain.Triporder">
+        select * from triporder where triporderitemid in (select triporderitemid from triporderitem
+        where tripid in(select tripid from trip where shopid = #{shopid}))
+    </select>
+
+    <select id="selectByUserid" resultType="com.jsj141.osport.domain.Triporder">
+        select * from triporder where userid = #{userid}
+    </select>
+
     <select id="count" resultType="int">
         select count(*) from triporder
         <include refid="dynamicWhere" />
@@ -26,28 +35,38 @@
         <if test="_parameter.containsKey('order') and order!=null">
             order by ${order}
         </if>
+        <if test="_parameter.containsKey('shopid') and shopid!=null">
+            where triporderitemid in (select triporderitemid from triporderitem
+            where tripid in(select tripid from trip where shopid = #{shopid}))
+        </if>
         limit #{start},#{size}
     </select>
 
     <insert id="insert" parameterType="com.jsj141.osport.domain.Triporder">
-        insert into triporder (triporderitemid,tripordertotal,triporderime,userid)
-        values (#{triporderitemid},#{tripordertotal},#{triporderime},#{userid})
+        insert into triporder (triporderid,triporderitemid,tripordertotal,tripordertime,userid,username)
+        values (#{triporderid},#{triporderitemid},#{tripordertotal},#{tripordertime},#{userid},#{username})
     </insert>
 
     <update id="update" parameterType="com.jsj141.osport.domain.Triporder">
         update triporder 
         <set>
-            <if test="triporderitemid != 0">
+            <if test="triporderitemid != null">
                 triporderitemid=#{triporderitemid},
             </if>
             <if test="tripordertotal != 0">
                 tripordertotal=#{tripordertotal},
             </if>
-            <if test="triporderime != null">
-                triporderime=#{triporderime},
+            <if test="tripordertime != null">
+                tripordertime=#{tripordertime},
             </if>
-            <if test="userid != 0">
+            <if test="userid != null">
                 userid=#{userid},
+            </if>
+            <if test="username != null">
+                username=#{username},
+            </if>
+            <if test="triporderstatus != null">
+                triporderstatus=#{triporderstatus},
             </if>
         </set>
         where triporderid=#{triporderid}

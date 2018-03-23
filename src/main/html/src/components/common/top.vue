@@ -18,28 +18,85 @@
         <li class="rightLi">|</li>
         <router-link to='/shop'><li class="rightLi">我的商店</li></router-link>
         <li class="rightLi">|</li>
-        <li class="rightLi">我的订单</li>
+        <router-link to='/userOrder'><li class="rightLi">我的订单</li></router-link>
         <li class="rightLi">|</li>
         <li class="rightLi">我的部落</li>
         <li class="rightLi">|</li>
         <li class="rightLi">我的o-sport</li>
-        
+        <li class="rightLi">|</li>
+        <router-link to='/'><li class="rightLi">首页</li></router-link>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import {API_signinURL,API_checkShopExistURl} from '../../constants/index.js'
+import axios from 'axios'
   export default {
     name: 'signup',
     data() {
       return {
-
+        
       }
     },
     created() {
-      let username = this.getCookie('user_username')
-      this.$store.commit('usernameChange',username);
+      console.log(this.getCookie('user_tel'))
+      console.log(this.getCookie('user_password'))
+      if(this.getCookie('user_password') == "" || this.getCookie('user_password') == null){
+        return
+      }
+      var password = this.getCookie('user_password') 
+      var tel = this.getCookie('user_tel') 
+      var params = new URLSearchParams();
+      params.append('password',password);
+      params.append('tel', tel);
+      //取cookie的userid进行自动登录
+      axios({
+              method:'post',
+              url:API_signinURL,
+              params: params
+            })
+              .then((response) => {
+                console.log(response.data)
+                if(response.data.code == 0) {
+                  // this.$message({
+                  //   message: response.data.msg,
+                  //   type: 'success'
+                  // }); 
+                  //查看该用户是否开店
+                  axios({
+                      method:'post',
+                      url:API_checkShopExistURl
+                  })
+                  .then((res) => {
+                      console.log(res.data)
+                      if(res.data.code == 0) {
+                          this.setCookie('shop_id', res.data.data.shopid, 2)
+                          this.$store.commit('shopidChange',res.data.data.shopid)
+                      } 
+                  }).catch((err) => {
+                      console.log(err)
+                  })
+                  this.setCookie('user_tel', response.data.data.tel, 2)
+                  this.setCookie('user_password', response.data.data.password, 2)
+                  this.setCookie('user_username', response.data.data.username, 2)
+                  this.setCookie('user_userid', response.data.data.userid, 2)       
+                  this.$store.commit('usernameChange', response.data.data.username)
+                  // this.$router.push('/')
+                }
+                else if(response.data.code == 1) {
+                  this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                  }); 
+                }else {
+                  this.$message.error('登录失败，请稍后重试');
+                }        
+            })
+              .catch((err) => {
+                console.log(err)
+              });      
     },
     methods: {
       goToSignup() {

@@ -144,6 +144,7 @@ import axios from 'axios'
                     message: '注册成功！',
                     type: 'success'
                   });   
+                  this.setCookie('user_password', response.data.data.password, 2)
                   this.setCookie('user_tel',  response.data.data.tel, 2)
                   this.setCookie('user_username',  response.data.data.username, 2)
                   this.setCookie('user_userid',  response.data.data.userid, 2)

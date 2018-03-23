@@ -4,6 +4,7 @@ import Index from '@/components/Index'
 import Signup from '@/components/user/signup'
 import Signin from '@/components/user/signin'
 import Trip from '@/components/trip/trip'
+import CheckOrder from '@/components/order/checkOrder'
 import Shop from '@/components/shop/shop'
 import OpenShop from '@/components/shop/openshop'
 import UpdateshopInfo from '@/components/shop/updateshopInfo'
@@ -15,7 +16,12 @@ import AddTrip from '@/components/shop/addTrip'
 import UpdateTripInfo from '@/components/shop/updateTripInfo'
 import AddTrain from '@/components/shop/addTrain'
 import UpdateTrainInfo from '@/components/shop/updateTrainInfo'
-import Shopinfo from '@/components/shop/shopinfo'
+// import Shopinfo from '@/components/shop/shopinfo'
+import UserOrder from '@/components/user/userOrder'
+import Club from '@/components/club/club'
+import ClubMainPage from '@/components/club/clubMainPage'
+import MyClub from '@/components/club/myClub'
+
 
 Vue.use(Router)
 
@@ -37,15 +43,25 @@ export default new Router({
       component: Signin
     },
     {
+      path: '/userOrder',
+      name: 'userOrder',
+      component: UserOrder
+    },
+    {
       path: '/trip',
       name: 'trip',
       component: Trip
     },
     {
+      path: '/checkOrder',
+      name: 'checkOrder',
+      component: CheckOrder
+    },
+    {
       path: '/shop',
       name: 'shop',
       component: Shop,
-      redirect: 'shop/shopInfo',
+      redirect: 'shop/shopmanagetrip',
       children: [
         {
           path: 'openshop',
@@ -97,11 +113,27 @@ export default new Router({
           name: 'updateTrainInfo',
           component: UpdateTrainInfo
         },
-        {
-          path: 'shopinfo',
-          name: 'shopinfo',
-          component: Shopinfo
-        }
+        // {
+        //   path: 'shopinfo',
+        //   name: 'shopinfo',
+        //   component: Shopinfo
+        // }
       ]
-    }]
+    },
+  {
+    path: '/club',
+    name: 'club',
+    component: Club
+  },
+  {
+    path: '/clubMainPage',
+    name: 'clubMainPage',
+    component: ClubMainPage
+  },
+  {
+    path: '/myClub',
+    name: 'myClub',
+    component: MyClub
+  }
+]
 })

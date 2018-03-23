@@ -36,20 +36,21 @@
                     产品价格：<span class="tripPriceSpan">{{trip.tripprice}}</span>元起（成人）
                 </div>
                 <el-form class="tripgoDate">
-                    <el-form-item label="出发日期：">
-                        <el-select v-model="value" placeholder="请选择">
+                    <el-form-item label="出发日期：" prop="date">
+                        <el-select v-model="form.chooseTriptime" placeholder="请选择" @change="getTriptime">
+                            
                             <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value">
+                            v-for="(item, key) in triptime"
+                            :key="key"
+                            :label="item.triptime"
+                            :value="item.triptime">
                             </el-option>
                         </el-select>
                     </el-form-item>
                     <el-form-item label="参加人数：" prop="person">
                         <el-input-number v-model="form.person" :min="1" :max="10"></el-input-number>
                     </el-form-item>
-                    <span class="tripnotice">{{trip.tripnotice}}</span>
+                    <span class="tripnotice">注意事项：{{trip.tripnotice}}</span>
                     <el-form-item>
                         <el-button type="primary" @click="submitForm('form')">立刻报名</el-button>
                     </el-form-item>
@@ -62,39 +63,34 @@
 <script>
 import searchBar from '../common/searchBar'
 import topNav from '../common/topNav'
-import {API_getTripInfoURl} from '../../constants/index.js'
+import {API_getTripInfoURl, API_getTriptimeInfoURl} from '../../constants/index.js'
 import axios from 'axios'
   export default {
     name: 'trip',
     data() {
       return {
+          trip: {},
+          tripid: '',
+          value: "",
+          triptime:[],
           form: {
-              person: 1
-          },
-          trip: [],
-          options: [{
-          value: '选项1',
-          label: '黄金糕'
-        }, {
-          value: '选项2',
-          label: '双皮奶'
-        }, {
-          value: '选项3',
-          label: '蚵仔煎'
-        }, {
-          value: '选项4',
-          label: '龙须面'
-        }, {
-          value: '选项5',
-          label: '北京烤鸭'
-        }],
-        value: ''
+              person: 1,
+              chooseTriptime: '',
+              chooseTriptimeid: ''
+          }
       }
     },
     created() {
-        //获取Trip信息
+        this.getTripInfo()
+        this.getTriptimeInfo()
+    },
+    methods: {
+      //获取trip信息
+      getTripInfo() {
+          //获取Trip信息
         var params = new URLSearchParams();
         params.append('tripid',this.$route.params.tripid)
+        this.tripid = this.$route.params.tripid
         axios({
             method:'post',
             url:API_getTripInfoURl,
@@ -115,10 +111,62 @@ import axios from 'axios'
         }).catch((err) => {
             console.log(err)
         })
-    },
-    methods: {
+      },
+      //获取Trip时间
+      getTriptimeInfo() {
+        var params = new URLSearchParams()
+        params.append('tripid', this.$route.params.tripid)
+        axios({
+            method:'post',
+            url:API_getTriptimeInfoURl,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+                var dataArray = response.data.data.slice(0)
+                console.log(dataArray)
+                for(let i = 0; i< dataArray.length; i++) {
+                    if(dataArray[0].triptime === "") {
+                        dataArray.splice(0,1)
+                        console.log("oh")
+                    }
+                }
+                console.log("dataArray")
+                console.log(dataArray)
+                this.triptime = dataArray
+                this.form.chooseTriptime = dataArray[0].triptime
+                this.form.chooseTriptimeid= dataArray[0].triptimeid
+            }else if(response.data.code == 1) {
+                console.log("triptime数据为空")
+            }else {
+                this.$message.error('获取户外时间信息失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
         submitForm(formName) {
-
+            console.log("this.form.chooseTriptime"+ this.form.chooseTriptime)
+            console.log("this.form.chooseTriptimeid"+ this.form.chooseTriptimeid)
+            console.log("this.form.person"+ this.form.person)
+                this.$router.push({name:'checkOrder', params: {
+                    tripid: this.tripid,
+                    person: this.form.person,
+                    //用作确认订单显示用
+                    triptime: this.form.chooseTriptime,
+                    //用作提交订单的后台数据用
+                    triptimeid: this.form.chooseTriptimeid
+                }})       
+        },
+        getTriptime(val) {
+            for(var i=0; i< this.triptime.length;i++) {
+                if(val === this.triptime[i].triptime) {
+                    this.form.chooseTriptimeid = this.triptime[i].triptimeid
+                    break
+                }
+            }
+            // console.log(this.form.chooseTriptimeid)
         }
     },
     components: {
@@ -168,10 +216,17 @@ import axios from 'axios'
     height: 3.8rem;
 }
 .tripTitle {
+    font-size: 3rem;
     line-height: 1.5rem;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+.tripdescription {
+    font-size: 2rem;
+    font-weight: 400;
 }
 .tripPrice {
-    padding-top: 2rem;
+    padding-top: 1rem;
     font-size: 1rem;
 }
 .tripPriceSpan {
@@ -179,9 +234,11 @@ import axios from 'axios'
     font-size: 3rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    font-weight: 500;
 }
 .tripgoDate {
     padding-top: 2rem;
+    margin-left: 0rem;
 }
 .tripbuy {
     width: 15rem;
@@ -195,7 +252,7 @@ import axios from 'axios'
 }
 .tripnotice {
     display: block;
-    font-size: .5rem;
+    font-size: .8rem;
     color: red;
     padding-bottom: 1rem;
 }

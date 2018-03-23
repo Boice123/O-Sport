@@ -1,10 +1,10 @@
 <template>
   <div class="shopmanagetripContainer">
     <div class="shopmanagetripknow">本店报团出行信息管理</div>
-    <div class="shopaddtrip">
-        <router-link to="addTrip"><img class="addtripImg" src="../../assets/images/addtrip.svg"/></router-link>
-        新增
-    </div>
+    <div class="shopButton">
+      <div class="shopdeletetrip" @click="batchdeleteMethod">批量删除</div>
+      <router-link to="addTrip"><div class="shopaddtrip">新增</div></router-link>
+    </div>      
      <el-table
     :data="tableData"
     style="width: 100%"
@@ -29,7 +29,7 @@
     <el-table-column
       prop="tripname"
       label="出团名称"
-      width="100">
+      width="150">
     </el-table-column>
     <el-table-column
       prop="tripprice"
@@ -38,18 +38,18 @@
     </el-table-column>
     <el-table-column
       prop="maxpeople"
-      label="最大人数限制"
+      label="人数限制"
       width="80">
     </el-table-column>
     <el-table-column
       prop="tripdescription"
       label="出团描述"
-      width="80">
+      width="100">
     </el-table-column>
     <el-table-column
       prop="tripnotice"
       label="注意事项"
-      width="80">
+      width="100">
     </el-table-column>
     <el-table-column
       prop="triptrading"
@@ -83,7 +83,7 @@
 </template>
 
 <script>
-import {API_getShopManageTripURl, API_deleteTripURl, API_getShopTripCountURl, API_getShopManageTripPaginationURl } from '../../constants/index.js'
+import {API_getShopManageTripURl, API_deleteTripURl, API_getShopTripCountURl, API_getShopManageTripPaginationURl, API_batchDeleteTripURl } from '../../constants/index.js'
 import axios from 'axios'
 // import bus from '../../utils/passValue'
 export default {
@@ -102,7 +102,8 @@ export default {
           triptrading: ''}],
           shopTripCount: 0,
           pageSize: 5,
-          currentPage: 1
+          currentPage: 1,
+          batchdelete: []
         }
     },
     created() {
@@ -203,6 +204,34 @@ export default {
             console.log(err)
         })
       },
+      batchdeleteMethod() {
+        var params = new URLSearchParams();
+        params.append('batchdelete',this.batchdelete)
+        axios({
+            method:'post',
+            url:API_batchDeleteTripURl,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+              this.$message({
+                    message: response.data.msg,
+                    type: 'success'
+                }); 
+            location.reload()
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('批量删除失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
       toggleSelection(rows) {
         if (rows) {
           rows.forEach(row => {
@@ -213,7 +242,11 @@ export default {
         }
       },
       handleSelectionChange(val) {
-        this.multipleSelection = val;
+        this.batchdelete = []
+        for(let i = 0; i < val.length; i++) {
+          this.batchdelete.push(val[i].tripid)
+        }
+        console.log(this.batchdelete)
       },
       handleSizeChange(val) {      
         this.pageSize = val
@@ -237,13 +270,34 @@ export default {
   margin-top: 3rem;
   margin-bottom: 2rem;
 }
+.shopButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+.shopdeletetrip {
+  background: red;
+  color: #fff;
+  width: 5rem;
+  height: 2rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+}
 .shopaddtrip {
+    width: 5rem;
     height: 2rem;
-    text-align: right;
-    padding-right: 5rem;
+    font-weight: 500;
     display: flex;
+    justify-content: center;
     align-items: center;
-    flex-direction: row-reverse;
+    border: 1px solid red;
+    border-radius: 0.5rem;
+    margin-right: 5rem;
 }
 .addtripImg {
     width: 2rem;
@@ -251,5 +305,9 @@ export default {
 }
 .block {
   margin: 2rem auto;
+}
+
+.el-table th>.cell {
+  text-align: center
 }
 </style>

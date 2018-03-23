@@ -31,6 +31,10 @@ public class Trip implements Serializable {
 
     private int triptrading;
 
+    private String tripprovice;
+
+    private String tripcity;
+
     public String getTripid() {
         return tripid;
     }
@@ -109,6 +113,22 @@ public class Trip implements Serializable {
 
     public void setTriptrading(int triptrading){
         this.triptrading = triptrading;
+    }
+
+    public String getTripprovice() {
+        return tripprovice;
+    }
+
+    public String getTripcity() {
+        return tripcity;
+    }
+
+    public void setTripprovice(String tripprovice) {
+        this.tripprovice = tripprovice;
+    }
+
+    public void setTripcity(String tripcity) {
+        this.tripcity = tripcity;
     }
 
     @Override

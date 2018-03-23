@@ -89,6 +89,7 @@ import axios from 'axios'
                   }).catch((err) => {
                       console.log(err)
                   })
+                  this.setCookie('user_password', response.data.data.password, 2)
                   this.setCookie('user_tel', response.data.data.tel, 2)
                   this.setCookie('user_username', response.data.data.username, 2)
                   this.setCookie('user_userid', response.data.data.userid, 2)       

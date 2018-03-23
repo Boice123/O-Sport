@@ -11,26 +11,36 @@ import java.io.Serializable;
  */
 public class Triporderitem implements Serializable {
 
-    private int triporderitemid;
+    private String triporderitemid;
 
-    private int tripid;
+    private String tripid;
+
+    private String triptimeid;
 
     private int people;
 
-    public int getTriporderitemid() {
+    public String getTriporderitemid() {
         return triporderitemid;
     }
 
-    public void setTriporderitemid(int triporderitemid){
+    public void setTriporderitemid(String triporderitemid){
         this.triporderitemid = triporderitemid;
     }
 
-    public int getTripid() {
+    public String getTripid() {
         return tripid;
     }
 
-    public void setTripid(int tripid){
+    public void setTripid(String tripid){
         this.tripid = tripid;
+    }
+
+    public String getTriptimeid() {
+        return triptimeid;
+    }
+
+    public void setTriptimeid(String triptimeid){
+        this.triptimeid = triptimeid;
     }
 
     public int getPeople() {

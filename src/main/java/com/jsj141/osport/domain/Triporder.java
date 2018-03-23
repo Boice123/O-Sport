@@ -11,29 +11,33 @@ import java.io.Serializable;
  */
 public class Triporder implements Serializable {
 
-    private int triporderid;
+    private String triporderid;
 
-    private int triporderitemid;
+    private String triporderitemid;
 
     private double tripordertotal;
 
-    private String triporderime;
+    private String tripordertime;
 
-    private int userid;
+    private String userid;
 
-    public int getTriporderid() {
+    private String username;
+
+    private int triporderstatus;
+
+    public String getTriporderid() {
         return triporderid;
     }
 
-    public void setTriporderid(int triporderid){
+    public void setTriporderid(String triporderid){
         this.triporderid = triporderid;
     }
 
-    public int getTriporderitemid() {
+    public String getTriporderitemid() {
         return triporderitemid;
     }
 
-    public void setTriporderitemid(int triporderitemid){
+    public void setTriporderitemid(String triporderitemid){
         this.triporderitemid = triporderitemid;
     }
 
@@ -45,20 +49,40 @@ public class Triporder implements Serializable {
         this.tripordertotal = tripordertotal;
     }
 
-    public String getTriporderime() {
-        return triporderime;
+    public String getTripordertime() {
+        return tripordertime;
     }
 
-    public void setTriporderime(String triporderime){
-        this.triporderime = triporderime;
+    public void setTriporderime(String tripordertime){
+        this.tripordertime = tripordertime;
     }
 
-    public int getUserid() {
+    public String getUserid() {
         return userid;
     }
 
-    public void setUserid(int userid){
+    public void setUserid(String userid){
         this.userid = userid;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setTripordertime(String tripordertime) {
+        this.tripordertime = tripordertime;
+    }
+
+    public int getTriporderstatus() {
+        return triporderstatus;
+    }
+
+    public void setTriporderstatus(int triporderstatus) {
+        this.triporderstatus = triporderstatus;
     }
 
     @Override
