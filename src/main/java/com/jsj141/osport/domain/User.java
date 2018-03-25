@@ -21,6 +21,8 @@ public class User implements Serializable {
 
     private String registerTime;
 
+    private String userimg;
+
     private String realname;
 
     private String realid;
@@ -63,6 +65,14 @@ public class User implements Serializable {
 
     public void setRegisterTime(String registerTime){
         this.registerTime = registerTime;
+    }
+
+    public String getUserimg() {
+        return userimg;
+    }
+
+    public void setUserimg(String userimg) {
+        this.userimg = userimg;
     }
 
     public String getRealname() {

@@ -21,7 +21,9 @@ import UserOrder from '@/components/user/userOrder'
 import Club from '@/components/club/club'
 import ClubMainPage from '@/components/club/clubMainPage'
 import MyClub from '@/components/club/myClub'
-
+import CreateClub from '@/components/club/createClub'
+import AddActivity from '@/components/club/addActivity'
+import AddDiary from '@/components/club/addDiary'
 
 Vue.use(Router)
 
@@ -134,6 +136,21 @@ export default new Router({
     path: '/myClub',
     name: 'myClub',
     component: MyClub
+  },
+  {
+    path: '/createClub',
+    name: 'createClub',
+    component: CreateClub
+  },
+  {
+    path: '/addDiary',
+    name: 'addDiary',
+    component: AddDiary
+  },
+  {
+    path: '/addActivity',
+    name: 'addActivity',
+    component: AddActivity
   }
-]
+  ]
 })

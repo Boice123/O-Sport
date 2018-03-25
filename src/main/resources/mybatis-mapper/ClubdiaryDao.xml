@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jsj141.osport.dao.ClubdiaryDao">
+
+    <sql id="dynamicWhere">
+        <where>
+            <if test="_parameter.containsKey('clubdiaryids') and clubdiaryids != null and clubdiaryids != ''">
+                and clubdiaryid in (${clubdiaryids})
+            </if>
+        </where>
+    </sql>
+
+    <select id="select" resultType="com.jsj141.osport.domain.Clubdiary">
+        select * from clubdiary where clubdiaryid=#{clubdiaryid}
+    </select>
+
+    <select id="getByClubid" resultType="com.jsj141.osport.domain.Clubdiary">
+        select * from clubdiary where clubid=#{clubid}
+    </select>
+
+    <select id="getByClubowner" resultType="com.jsj141.osport.domain.Clubdiary">
+        select * from clubdiary where clubid in (select clubid from club where clubowner=#{clubowner})
+    </select>
+
+    <select id="getByUserid" resultType="com.jsj141.osport.domain.Clubdiary">
+        select * from clubdiary where clubid in (select clubid from clubuseritem where userid=#{userid})
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from clubdiary
+        <include refid="dynamicWhere" />
+    </select>
+
+    <select id="list" resultType="com.jsj141.osport.domain.Clubdiary">
+        select * from clubdiary
+        <include refid="dynamicWhere" />
+        <if test="_parameter.containsKey('order') and order!=null">
+            order by ${order}
+        </if>
+        limit #{start},#{size}
+    </select>
+
+    <insert id="insert" parameterType="com.jsj141.osport.domain.Clubdiary">
+        insert into clubdiary (clubdiaryid,clubdiaryimg,clubdiarytitle,clubdiarycontent,clubdiarytime,userid,username,clubid)
+        values (#{clubdiaryid},#{clubdiaryimg},#{clubdiarytitle},#{clubdiarycontent},#{clubdiarytime},#{userid},#{username},#{clubid})
+    </insert>
+
+    <update id="update" parameterType="com.jsj141.osport.domain.Clubdiary">
+        update clubdiary 
+        <set>
+            <if test="clubdiaryimg != null">
+                clubdiaryimg=#{clubdiaryimg},
+            </if>
+            <if test="clubdiarytitle != null">
+                clubdiarytitle=#{clubdiarytitle},
+            </if>
+            <if test="clubdiarycontent != null">
+                clubdiarycontent=#{clubdiarycontent},
+            </if>
+            <if test="clubdiarytime != null">
+                clubdiarytime=#{clubdiarytime},
+            </if>
+            <if test="userid != null">
+                userid=#{userid},
+            </if>
+            <if test="clubid != null">
+                clubid=#{clubid},
+            </if>
+        </set>
+        where clubdiaryid=#{clubdiaryid}
+    </update>
+
+    <update id="delete">
+        delete from clubdiary where clubdiaryid=#{clubdiaryid}
+    </update>
+
+</mapper>

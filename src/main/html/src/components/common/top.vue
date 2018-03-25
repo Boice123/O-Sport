@@ -20,7 +20,7 @@
         <li class="rightLi">|</li>
         <router-link to='/userOrder'><li class="rightLi">我的订单</li></router-link>
         <li class="rightLi">|</li>
-        <li class="rightLi">我的部落</li>
+        <router-link to='/myClub'><li class="rightLi">我的部落</li></router-link>
         <li class="rightLi">|</li>
         <li class="rightLi">我的o-sport</li>
         <li class="rightLi">|</li>

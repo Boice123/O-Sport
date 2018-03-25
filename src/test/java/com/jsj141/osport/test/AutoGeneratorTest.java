@@ -25,5 +25,11 @@ public class AutoGeneratorTest {
 //        auto.create("train", "train", "com.jsj141.osport", "resources/mybatis-mapper");
 //        auto.create("triporderitem", "triporderitem", "com.jsj141.osport", "resources/mybatis-mapper");
 //        auto.create("triporder", "triporder", "com.jsj141.osport", "resources/mybatis-mapper");
+//        auto.create("club", "club", "com.jsj141.osport", "resources/mybatis-mapper");
+//        auto.create("clubuseritem", "clubuseritem", "com.jsj141.osport", "resources/mybatis-mapper");
+//        auto.create("clubdiary", "clubdiary", "com.jsj141.osport", "resources/mybatis-mapper");
+//        auto.create("clubactivity", "clubactivity", "com.jsj141.osport", "resources/mybatis-mapper");
+//        auto.create("clubuseractivity", "clubuseractivity", "com.jsj141.osport", "resources/mybatis-mapper");
+
     }
 }

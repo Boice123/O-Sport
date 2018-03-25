@@ -5,130 +5,87 @@
           <div class="myClubLeft">
               <div class="myClubLeftTitle">我管理的部落</div>
               <div class="clubList">
-                <div class="myClubBox" @mouseover="changeClubCover('自行车')" @mouseout="changeClubCover('')">
-                    <img :class="{'myclubImg':clubcover!='自行车','myclubImgActive': clubcover=='自行车'}" src="../../assets/images/bgc/manycamp.jpg"/>
-                    <h2 class="myclubname">自行车俱乐部</h2>
-                </div>
-                <div class="myClubBox" @mouseover="changeClubCover('徒步')" @mouseout="changeClubCover('')">
-                    <img :class="{'myclubImg':clubcover!='徒步','myclubImgActive': clubcover=='徒步'}" src="../../assets/images/bgc/manycamp.jpg"/>
-                    <h2 class="myclubname">徒步俱乐部</h2>
+                <div 
+                    class="myClubBox" 
+                    @mouseover="changeOwnClubCover(true)" 
+                    @mouseout="changeOwnClubCover(false)"
+                    @click="gotoClubPage(ownClub.clubid)"
+                >
+                    <img 
+                        :class="{'myclubImg':ownclubcover==false,'myclubImgActive': ownclubcover==true}" 
+                        src="../../assets/images/bgc/manycamp.jpg"
+                    />
+                    <h2 class="myclubname">{{ownClub.clubname}}</h2>
                 </div>
               </div>
               <div class="myClubLeftTitle">我参与的部落</div>
               <div class="clubList">
-                <div class="myClubBox" @mouseover="changeClubCover('自行车')" @mouseout="changeClubCover('')">
-                    <img :class="{'myclubImg':clubcover!='自行车','myclubImgActive': clubcover=='自行车'}" src="../../assets/images/bgc/manycamp.jpg"/>
-                    <h2 class="myclubname">自行车俱乐部</h2>
+                <div 
+                    class="myClubBox" 
+                    @mouseover="changeClubUserItemCover(club.clubid)"
+                    @mouseout="changeClubUserItemCover('')"
+                    v-for="(club, key) in clubuseritem"
+                    @click="gotoClubPage(club.clubid)"
+                >
+                    <img 
+                        :class="{'myclubImg':clubusercover!=club.clubid,'myclubImgActive': clubusercover==club.clubid}" 
+                        src="../../assets/images/bgc/manycamp.jpg"
+                    />
+                    <h2 class="myclubname">{{club.clubname}}</h2>
                 </div>
-                <div class="myClubBox" @mouseover="changeClubCover('徒步')" @mouseout="changeClubCover('')">
+                <!-- <div class="myClubBox" @mouseover="changeClubCover('徒步')" @mouseout="changeClubCover('')">
                     <img :class="{'myclubImg':clubcover!='徒步','myclubImgActive': clubcover=='徒步'}" src="../../assets/images/bgc/manycamp.jpg"/>
                     <h2 class="myclubname">徒步俱乐部</h2>
-                </div>
+                </div> -->
               </div>
           </div>
           <div class="myClubRight">
               <div class="myclubtab">
-                  <div class="myclubtabtab">管理部落动态</div>
-                  <div class="myclubtabtab">参与部落动态</div>
+                  <div class="myclubtabtab" @click="changeChoose('管理部落动态')">管理部落动态</div>
+                  <div class="myclubtabtab" @click="changeChoose('参与部落动态')">参与部落动态</div>
               </div>
-              <div class="myClubmessageDiv">
-                <div class="myClubmessageBox">
+              <div class="myClubmessageDiv" v-if="choose == '管理部落动态'">
+                <div class="myClubmessageBox" 
+                    v-for="(clibDiary, key) in ownClubDiary"
+                >
                     <img class="myClubmessageImg" src="../../assets/images/bgc/climbmountain.jpg"/>
                     <div class="myClubmessageContent">
                         <div class="myClubmessageUp">
-                            <div class="myClubmessageTitle">哈哈哈是标题</div>
+                            <div class="myClubmessageTitle">{{clibDiary.clubdiarytitle}}</div>
                             <div class="myClubmessageTitleRight">
                                 <img class="myClubmessageUserImg" src="../../assets/images/bgc/climbmountain.jpg"/>
-                                <span class="myClubmessageUserName">用户名字</span>
-                                <span class="myClubmessageTime">发表于19:08</span>
+                                <span class="myClubmessageUserName">{{clibDiary.username}}</span>
+                                <span class="myClubmessageTime">发表于{{clibDiary.clubdiarytime}}</span>
                             </div>
                         </div>
                         <div class="myClubsmessageDown">
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记
+                            {{clibDiary.clubdiarycontent}}
                         </div>
                     </div>
                 </div>
-                <div class="myClubmessageBox">
+              </div>
+
+              <div class="myClubmessageDiv" v-if="choose == '参与部落动态'">
+                <div class="myClubmessageBox" 
+                    v-for="(diary, key) in joinClubDiary"
+                >
                     <img class="myClubmessageImg" src="../../assets/images/bgc/climbmountain.jpg"/>
                     <div class="myClubmessageContent">
                         <div class="myClubmessageUp">
-                            <div class="myClubmessageTitle">哈哈哈是标题</div>
+                            <div class="myClubmessageTitle">{{diary.clubdiarytitle}}</div>
                             <div class="myClubmessageTitleRight">
                                 <img class="myClubmessageUserImg" src="../../assets/images/bgc/climbmountain.jpg"/>
-                                <span class="myClubmessageUserName">用户名字</span>
-                                <span class="myClubmessageTime">发表于19:08</span>
+                                <span class="myClubmessageUserName">{{diary.username}}</span>
+                                <span class="myClubmessageTime">发表于{{diary.clubdiarytime}}</span>
                             </div>
                         </div>
                         <div class="myClubsmessageDown">
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记
+                            {{diary.clubdiarycontent}}
                         </div>
                     </div>
                 </div>
-                <div class="myClubmessageBox">
-                    <img class="myClubmessageImg" src="../../assets/images/bgc/climbmountain.jpg"/>
-                    <div class="myClubmessageContent">
-                        <div class="myClubmessageUp">
-                            <div class="myClubmessageTitle">哈哈哈是标题</div>
-                            <div class="myClubmessageTitleRight">
-                                <img class="myClubmessageUserImg" src="../../assets/images/bgc/climbmountain.jpg"/>
-                                <span class="myClubmessageUserName">用户名字</span>
-                                <span class="myClubmessageTime">发表于19:08</span>
-                            </div>
-                        </div>
-                        <div class="myClubsmessageDown">
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记出游小日记出游小日记出游小日记出游小日记出游小日记出
-                            游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                            出游小日记
-                        </div>
-                    </div>
-                </div>
-            </div>
+              </div>
+
           </div>
       </div>
   </div>
@@ -137,20 +94,141 @@
 <script>
 import axios from 'axios'
 import ClubHead from './clubHead.vue'
-import { API_getTripList, API_getTrainList } from '../../constants/index.js'
+import { API_getClubInfoURl, API_getClubUserItemURl, API_getOwnClubDiaryURl, API_getJoinClubDiaryURl } from '../../constants/index.js'
   export default {
-    name: 'club',
+    name: 'myclub',
     data() {
       return {
-        clubcover: ''
+        choose: '管理部落动态',
+        ownclubcover: '',
+        ownClub: {},
+        clubusercover: '',
+        clubuseritem: [],
+        ownClubDiary: [],
+        joinClubDiary: []
       }
     },
     created () {
+        var userid = this.getCookie('user_userid')
+        this.getClub(userid)
+        this.getClubUserItem(userid)
+        this.getClubDiary(userid)
+        this.getjoinClubDiary(userid)
     },
     methods: {
-      changeClubCover(text) {
-          this.clubcover = text
-      }
+      changeOwnClubCover(text) {
+          this.ownclubcover = text
+      },
+      changeClubUserItemCover(text) {
+          this.clubusercover = text
+      },
+      changeChoose(text) {
+          this.choose = text
+      },
+      gotoClubPage(clubid) {
+          console.log(clubid)
+          this.$router.push({name:'clubMainPage',params:{clubid}})
+      },
+      //获取我管理Club的信息
+      getClub(userid) {
+        var params = new URLSearchParams();
+        params.append('clubowner',userid)
+        axios({
+            method:'post',
+            url:API_getClubInfoURl,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+                this.ownClub = response.data.data
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('获取部落信息失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
+      //获取我管理Club的动态信息
+      getClubDiary(userid) {
+        var params = new URLSearchParams();
+        params.append('clubowner',userid)
+        axios({
+            method:'post',
+            url:API_getOwnClubDiaryURl,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+                this.ownClubDiary = response.data.data
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('获取管理的部落动态失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
+      //获取我参与Club的信息
+      getClubUserItem(userid) {
+        var params = new URLSearchParams();
+        params.append('userid',userid)
+        axios({
+            method:'post',
+            url:API_getClubUserItemURl,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+                this.clubuseritem = response.data.data
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('获取我参与的部落信息失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
+      //获取我参与Club的动态信息
+      getjoinClubDiary(userid) {
+        var params = new URLSearchParams();
+        params.append('userid',userid)
+        axios({
+            method:'post',
+            url:API_getJoinClubDiaryURl,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+                this.joinClubDiary = response.data.data
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('获取参与的部落动态失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
     },
     components: {
         ClubHead
@@ -181,7 +259,7 @@ import { API_getTripList, API_getTrainList } from '../../constants/index.js'
     margin-bottom: 1rem;
 }
 .myClubLeftTitle {
-    color: #000;
+    color: #fff;
     text-align: left;
     margin-bottom: 1rem;
 }
@@ -206,6 +284,7 @@ import { API_getTripList, API_getTrainList } from '../../constants/index.js'
 }
 .myclubname {
     font-size: 1rem;
+    color: #fff;
 }
 .myclubtab {
     height: 2rem;
@@ -220,6 +299,7 @@ import { API_getTripList, API_getTrainList } from '../../constants/index.js'
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
 }
 .myClubmessageDiv {
     width: 50rem;

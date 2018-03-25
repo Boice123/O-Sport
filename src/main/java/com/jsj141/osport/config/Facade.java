@@ -7,10 +7,14 @@ import com.jsj141.osport.dao.AdminDao;
 import com.jsj141.osport.dao.UserDao;
 import com.jsj141.osport.dao.TripDao;
 import com.jsj141.osport.dao.ShopDao;
-import com.jsj141.osport.dao.TrainDao;
 import com.jsj141.osport.dao.TriptimeDao;
 import com.jsj141.osport.dao.TriporderDao;
 import com.jsj141.osport.dao.TriporderitemDao;
+import com.jsj141.osport.dao.ClubDao;
+import com.jsj141.osport.dao.ClubuseritemDao;
+import com.jsj141.osport.dao.ClubdiaryDao;
+import com.jsj141.osport.dao.ClubactivityDao;
+import com.jsj141.osport.dao.ClubuseractivityDao;
 /**
  * 门面类
  */
@@ -31,8 +35,8 @@ public class Facade {
     @Autowired
     private TripDao tripDao;
 
-    @Autowired
-    private TrainDao trainDao;
+//    @Autowired
+//    private TrainDao trainDao;
 
     @Autowired
     private TriptimeDao triptimeDao;
@@ -42,6 +46,21 @@ public class Facade {
 
     @Autowired
     private TriporderitemDao triporderitemDao;
+
+    @Autowired
+    private ClubDao clubDao;
+
+    @Autowired
+    private ClubuseritemDao clubuseritemDao;
+
+    @Autowired
+    private ClubdiaryDao clubdiarydao;
+
+    @Autowired
+    private ClubactivityDao clubactivitydao;
+
+    @Autowired
+    private ClubuseractivityDao clubuseractivityDao;
 
     public Producer getCaptchaProducer() {
         return captchaProducer;
@@ -83,13 +102,13 @@ public class Facade {
         this.tripDao = tripDao;
     }
 
-    public TrainDao getTrainDao() {
-        return trainDao;
-    }
-
-    public void setTrainDao(TrainDao trainDao) {
-        this.trainDao = trainDao;
-    }
+//    public TrainDao getTrainDao() {
+//        return trainDao;
+//    }
+//
+//    public void setTrainDao(TrainDao trainDao) {
+//        this.trainDao = trainDao;
+//    }
 
 
     public TriptimeDao getTriptimeDao() {
@@ -117,4 +136,44 @@ public class Facade {
         this.triporderitemDao = triporderitemDao;
     }
 
+    public ClubDao getClubDao() {
+        return clubDao;
+    }
+
+    public void setClubDao(ClubDao clubDao) {
+        this.clubDao = clubDao;
+    }
+
+    public ClubuseritemDao getClubuseritemDao() {
+        return clubuseritemDao;
+    }
+
+    public void setClubuseritemDao(ClubuseritemDao clubuseritemDao) {
+        this.clubuseritemDao = clubuseritemDao;
+    }
+
+
+    public ClubdiaryDao getClubdiaryDao() {
+        return clubdiarydao;
+    }
+
+    public void setClubdiaryDao(ClubdiaryDao clubdiaryDao) {
+        this.clubdiarydao = clubdiaryDao;
+    }
+
+    public ClubactivityDao getClubactivityDao() {
+        return clubactivitydao;
+    }
+
+    public void setClubactivityDao(ClubactivityDao clubactivityDao) {
+        this.clubactivitydao = clubactivityDao;
+    }
+
+    public ClubuseractivityDao getClubuseractivityDao() {
+        return clubuseractivityDao;
+    }
+
+    public void setClubuseractivityDao(ClubuseractivityDao clubuseractivityDao) {
+        this.clubuseractivityDao = clubuseractivityDao;
+    }
 }

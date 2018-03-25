@@ -147,28 +147,28 @@ import axios from 'axios'
             console.log(err)
         })
       //获取商店户外培训总数  
-      var params = new URLSearchParams();
-        params.append('shopid',this.getCookie('shop_id'))
-        axios({
-            method:'post',
-            url:API_getShopTrainCountURl,
-            params
-        })
-        .then((response) => {
-            console.log(response.data)
-            if(response.data.code == 0) {
-               this.shopTrainCount = response.data.data
-            }else if(response.data.code == 1) {
-                this.$message({
-                    message: response.data.msg,
-                    type: 'warning'
-                }); 
-            }else {
-                this.$message.error('获取店铺户户外培训总数信息失败，请稍后重试');
-            }        
-        }).catch((err) => {
-            console.log(err)
-        })
+    //   var params = new URLSearchParams();
+    //     params.append('shopid',this.getCookie('shop_id'))
+    //     axios({
+    //         method:'post',
+    //         url:API_getShopTrainCountURl,
+    //         params
+    //     })
+    //     .then((response) => {
+    //         console.log(response.data)
+    //         if(response.data.code == 0) {
+    //            this.shopTrainCount = response.data.data
+    //         }else if(response.data.code == 1) {
+    //             this.$message({
+    //                 message: response.data.msg,
+    //                 type: 'warning'
+    //             }); 
+    //         }else {
+    //             this.$message.error('获取店铺户户外培训总数信息失败，请稍后重试');
+    //         }        
+    //     }).catch((err) => {
+    //         console.log(err)
+    //     })
     },
     methods: {
     },

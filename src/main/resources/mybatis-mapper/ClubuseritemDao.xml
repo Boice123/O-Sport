@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jsj141.osport.dao.ClubuseritemDao">
+
+    <sql id="dynamicWhere">
+        <where>
+            <if test="_parameter.containsKey('clubuseritemids') and clubuseritemids != null and clubuseritemids != ''">
+                and clubuseritemid in (${clubuseritemids})
+            </if>
+        </where>
+    </sql>
+
+    <select id="select" resultType="com.jsj141.osport.domain.Clubuseritem">
+        select * from clubuseritem where clubuseritemid=#{clubuseritemid}
+    </select>
+
+    <select id="selectByUseridNClubid" resultType="com.jsj141.osport.domain.Clubuseritem">
+        select * from clubuseritem where userid=#{userid} and clubid=#{clubid}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from clubuseritem
+        <include refid="dynamicWhere" />
+    </select>
+
+    <select id="list" resultType="com.jsj141.osport.domain.Clubuseritem">
+        select * from clubuseritem
+        <include refid="dynamicWhere" />
+        <if test="_parameter.containsKey('order') and order!=null">
+            order by ${order}
+        </if>
+        limit #{start},#{size}
+    </select>
+
+    <insert id="insert" parameterType="com.jsj141.osport.domain.Clubuseritem">
+        insert into clubuseritem (clubuseritemid,clubid,userid)
+        values (#{clubuseritemid},#{clubid},#{userid})
+    </insert>
+
+    <update id="update" parameterType="com.jsj141.osport.domain.Clubuseritem">
+        update clubuseritem 
+        <set>
+            <if test="clubid != null">
+                clubid=#{clubid},
+            </if>
+            <if test="userid != null">
+                userid=#{userid},
+            </if>
+        </set>
+        where clubuseritemid=#{clubuseritemid}
+    </update>
+
+    <update id="delete">
+        delete from clubuseritem where clubuseritemid=#{clubuseritemid}
+    </update>
+
+</mapper>

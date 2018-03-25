@@ -2,55 +2,77 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf4ae5f9-ccdf-45d8-809f-87b63a482214" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/shopInfo.vue" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/TrainController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/TrainDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Train.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/TrainService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/TrainDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/sousuo.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TrainController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TrainDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Train.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TrainService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TrainDao.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.3.1/fileHashes/fileHashes.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/MainApplication.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/MainApplication.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/SpringContext.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/SpringContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/base/Result.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/base/Result.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/base/ResultUtil.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/base/ResultUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/BaseConfig.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/BaseConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/Constant.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/Constant.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/Facade.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/Facade.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/KaptchaConfiguration.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/KaptchaConfiguration.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/WebAppConfigution.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/WebAppConfigution.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/filter/DruidStatFilter.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/filter/DruidStatFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/filter/LoginFilter.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/filter/LoginFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/filter/SessionFilter.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/config/filter/SessionFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/AdminController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/AdminController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/CheckImgController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/CheckImgController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/ExceptionHandler.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/ExceptionHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/IndexController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/IndexController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/ShopController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/ShopController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/TripController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/TripController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/UserController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/TripDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/TripDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/TriporderDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/TriporderDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/TriporderitemDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/TriporderitemDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Trip.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Trip.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Triporder.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Triporder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Triporderitem.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Triporderitem.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/AdminDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/AdminDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/BaseDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/BaseDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/ShopDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/ShopDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/UserDao.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/dao/UserDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Admin.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Admin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Shop.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/Shop.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/User.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/domain/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/filter/AdminFilter.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/filter/AdminFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/AdminService.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/AdminService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/ShopService.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/ShopService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/TripService.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/TripService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/UserService.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/service/UserService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/AutoGenerator.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/AutoGenerator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/Result.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/Result.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/ResultUtil.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/ResultUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/UUIDUtils.class" afterPath="$PROJECT_DIR$/out/production/classes/com/jsj141/osport/util/UUIDUtils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/classes/com/jsj141/osport/test/AutoGeneratorTest.class" afterPath="$PROJECT_DIR$/out/test/classes/com/jsj141/osport/test/AutoGeneratorTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/addTrip.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/addTrip.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/assets/images/signupBgc.jpg" afterPath="$PROJECT_DIR$/src/main/html/src/assets/images/signupBgc.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/club/clubMainPage.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/club/clubMainPage.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/design/db.sql" afterPath="$PROJECT_DIR$/doc/design/db.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/majiang-server.log" afterPath="$PROJECT_DIR$/log/majiang-server.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/TripDao.xml" afterPath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/TripDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/TriporderDao.xml" afterPath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/TriporderDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/TriporderitemDao.xml" afterPath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/TriporderitemDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/common/searchBar.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/common/searchBar.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/majiang-server.log.1" afterPath="$PROJECT_DIR$/log/majiang-server.log.1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/application.properties" afterPath="$PROJECT_DIR$/out/production/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/UserDao.xml" afterPath="$PROJECT_DIR$/out/production/resources/mybatis-mapper/UserDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/package.json" afterPath="$PROJECT_DIR$/src/main/html/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/club/club.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/club/club.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/club/clubHead.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/club/clubHead.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/club/myClub.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/club/myClub.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/common/top.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/common/top.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/common/topNav.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/common/topNav.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/index.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/index.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/shop.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/shop.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/shopmanagetrip.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/shopmanagetrip.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/shopmanagetriporder.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/shopmanagetriporder.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/shop/updateTripInfo.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/shop/updateTripInfo.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/trip/trip.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/trip/trip.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/user/signin.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/user/signin.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/components/user/signup.vue" afterPath="$PROJECT_DIR$/src/main/html/src/components/user/signup.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/constants/index.js" afterPath="$PROJECT_DIR$/src/main/html/src/constants/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/main.js" afterPath="$PROJECT_DIR$/src/main/html/src/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/router/index.js" afterPath="$PROJECT_DIR$/src/main/html/src/router/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/html/src/utils/cookieMethod.js" afterPath="$PROJECT_DIR$/src/main/html/src/utils/cookieMethod.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TripDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TripDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TriporderDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TriporderDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Trip.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Trip.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Triporder.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Triporder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Triporderitem.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Triporderitem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TripService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TripService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TriporderDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TriporderDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TriporderitemDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TriporderitemDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/UserDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-mapper/UserDao.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -77,48 +99,97 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TriporderController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TriporderController.java">
+      <file leaf-file-name="ClubController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ClubController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="82" column="63" lean-forward="false" selection-start-line="82" selection-start-column="63" selection-end-line="82" selection-end-column="63" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShopController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1815">
-              <caret line="149" column="83" lean-forward="false" selection-start-line="149" selection-start-column="8" selection-end-line="149" selection-end-column="83" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="67" column="47" lean-forward="false" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="47" column="78" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="78" />
+            <state relative-caret-position="282">
+              <caret line="172" column="42" lean-forward="true" selection-start-line="172" selection-start-column="42" selection-end-line="172" selection-end-column="42" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClubDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/ClubDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="33" column="40" lean-forward="false" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TripDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="39" column="30" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="39" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TripController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="385" column="65" lean-forward="true" selection-start-line="384" selection-start-column="23" selection-end-line="385" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClubdiaryController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ClubdiaryController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="166" column="46" lean-forward="false" selection-start-line="166" selection-start-column="30" selection-end-line="166" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClubdiaryService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ClubdiaryService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="48" column="60" lean-forward="false" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="60" />
+              <folding>
+                <element signature="e#1599#1600#0" expanded="true" />
+                <element signature="e#1675#1676#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClubdiaryDao.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/ClubdiaryDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="25" column="77" lean-forward="false" selection-start-line="25" selection-start-column="77" selection-end-line="25" selection-end-column="77" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClubService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ClubService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="65" column="31" lean-forward="true" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClubDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ClubDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -126,71 +197,9 @@
       <file leaf-file-name="TripService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TripService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="33" column="43" lean-forward="false" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Triporderitem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Triporderitem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="268">
+              <caret line="84" column="58" lean-forward="true" selection-start-line="80" selection-start-column="8" selection-end-line="84" selection-end-column="58" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TriporderService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TriporderService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1125">
-              <caret line="84" column="7" lean-forward="false" selection-start-line="84" selection-start-column="7" selection-end-line="84" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TriporderDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TriporderDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="13" column="50" lean-forward="false" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TriporderDao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/TriporderDao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Triporder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Triporder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="71" column="33" lean-forward="false" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="33" />
-              <folding>
-                <element signature="e#1421#1422#0" expanded="true" />
-                <element signature="e#1461#1462#0" expanded="true" />
-                <element signature="e#1527#1528#0" expanded="true" />
-                <element signature="e#1585#1586#0" expanded="true" />
-                <element signature="e#1635#1636#0" expanded="true" />
-                <element signature="e#1771#1772#0" expanded="true" />
-                <element signature="e#1825#1826#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -201,8 +210,8 @@
     <findStrings>
       <find>trip</find>
       <find>trips</find>
-      <find>Trip</find>
       <find>triporderime</find>
+      <find>Trip</find>
     </findStrings>
     <replaceStrings>
       <replace>train</replace>
@@ -214,12 +223,12 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="/usr/local/Cellar/gradle/4.6/libexec" />
+        <entry key="$PROJECT_DIR$" value="$USER_HOME$/.gradle/wrapper/dists/gradle-4.3.1-bin/7yzdu24db77gi3zukl2a7o0xx/gradle-4.3.1" />
       </map>
     </option>
     <option name="myGradleVersions">
       <map>
-        <entry key="$PROJECT_DIR$" value="4.6" />
+        <entry key="$PROJECT_DIR$" value="4.3.1" />
       </map>
     </option>
     <option name="availableProjects">
@@ -445,7 +454,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="3041086078000" />
+        <entry key="$PROJECT_DIR$" value="1521823511000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -481,81 +490,6 @@
               <option name="name" value="O-Sport" />
               <option name="projectBuildClasspath">
                 <list>
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-logging-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-wrapper-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-runtime-api-info-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-kotlin-dsl-tooling-builders-0.15.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-native-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-process-services-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-build-cache-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-model-core-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/groovy-all-2.4.12.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-core-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/ant-launcher-1.9.9.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-installation-beacon-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-base-services-groovy-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/ant-1.9.9.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-build-option-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-kotlin-dsl-0.15.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-messaging-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-jvm-services-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-launcher-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-base-services-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-kotlin-dsl-tooling-models-0.15.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-cli-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-docs-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-persistent-cache-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-tooling-api-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-core-api-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-model-groovy-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/gradle-resources-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-plugin-use-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-language-scala-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-ide-play-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-tooling-api-builders-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-announce-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-javascript-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-platform-native-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-jacoco-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-plugins-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-build-comparison-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-language-native-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-version-control-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-plugin-development-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-diagnostics-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-ide-native-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-build-cache-http-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-workers-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-ear-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-publish-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-testing-junit-platform-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-composite-builds-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-dependency-management-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-testing-native-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-platform-base-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-language-jvm-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-platform-play-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-ide-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-resources-gcs-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-scala-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-resources-http-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-osgi-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-language-groovy-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-language-java-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-antlr-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-reporting-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-resources-sftp-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-signing-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-resources-s3-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-code-quality-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-test-kit-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-ivy-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-platform-jvm-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-testing-base-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-testing-jvm-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-build-init-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/gradle-maven-4.6.jar" />
-                  <option value="/usr/local/Cellar/gradle/4.6/libexec/lib/plugins/ivy-2.2.0.jar" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
                 </list>
@@ -572,18 +506,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/MainApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TrainDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TrainService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TrainDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Train.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TrainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Trip.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TriptimeController.java" />
-        <option value="$PROJECT_DIR$/doc/design/db.sql" />
-        <option value="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TriporderitemService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TriporderitemDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java" />
@@ -594,20 +522,47 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TriptimeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TriptimeDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TriptimeDao.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TriporderController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Triporder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TriporderService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TriporderDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/TriporderDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/User.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/UserDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ClubuseritemService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/ClubuseritemDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ClubuseritemDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ClubuseritemController.java" />
+        <option value="$PROJECT_DIR$/doc/design/db.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Clubdiary.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ClubactivityController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ClubuseractivityService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/ClubuseractivityDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ClubuseractivityDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ClubactivityService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ClubactivityDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/ClubactivityDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ClubuseractivityController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ClubdiaryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ClubdiaryController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ClubdiaryDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/ClubdiaryDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ClubController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ClubService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ClubDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis-mapper/ClubDao.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="40" />
-    <option name="y" value="53" />
+    <option name="y" value="55" />
     <option name="width" value="1400" />
     <option name="height" value="794" />
   </component>
@@ -627,9 +582,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -708,6 +662,15 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="osport" type="462c0819:PsiDirectoryNode" />
+              <item name="filter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="O-Sport" type="b2602c69:ProjectViewProjectNode" />
+              <item name="O-Sport" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="osport" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -750,6 +713,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -758,6 +722,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -942,38 +907,50 @@
     <history-entry file="AutoGeneratorTest_testGenerate - 2018.03.16 at 11h 07m 10s.xml">
       <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AutoGeneratorTest_testGenerate - 2018.03.24 at 17h 20m 55s.xml">
+      <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AutoGeneratorTest_testGenerate - 2018.03.25 at 15h 05m 13s.xml">
+      <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AutoGeneratorTest_testGenerate - 2018.03.25 at 15h 40m 27s.xml">
+      <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AutoGeneratorTest_testGenerate - 2018.03.25 at 18h 11m 35s.xml">
+      <configuration name="AutoGeneratorTest.testGenerate" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="40" y="53" width="1400" height="794" extended-state="0" />
+    <frame x="40" y="55" width="1400" height="794" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.48857144" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.47428572" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39889196" sideWeight="0.3607143" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39889196" sideWeight="0.41785714" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.7392857" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.7221429" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963988" sideWeight="0.4942857" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39889196" sideWeight="0.63928574" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39889196" sideWeight="0.58214283" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -986,292 +963,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/MainApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#417#418#0" expanded="false" />
-            <element signature="e#483#484#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/design/db.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="30" lean-forward="false" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/MainApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="e#417#418#0" expanded="false" />
-            <element signature="e#483#484#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/design/db.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="30" lean-forward="false" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/MainApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="e#417#418#0" expanded="false" />
-            <element signature="e#483#484#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="33" lean-forward="false" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="48" lean-forward="true" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ShopDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/util/Result.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Constant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.3.12.RELEASE/c58973fe94ecfc5c40bb8fe5ff9fdc64054d6fe7/spring-aop-4.3.12.RELEASE-sources.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/BaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TrainService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="64" column="50" lean-forward="false" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TrainDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/TrainDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="81" column="45" lean-forward="true" selection-start-line="81" selection-start-column="45" selection-end-line="81" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Train.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="105" column="55" lean-forward="false" selection-start-line="105" selection-start-column="55" selection-end-line="105" selection-end-column="55" />
-          <folding>
-            <element signature="e#610#611#0" expanded="false" />
-            <element signature="e#640#641#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TrainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2190">
-          <caret line="164" column="48" lean-forward="false" selection-start-line="164" selection-start-column="48" selection-end-line="164" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Trip.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="33" column="30" lean-forward="false" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="30" />
-          <folding>
-            <element signature="e#2198#2199#0" expanded="false" />
-            <element signature="e#2244#2245#0" expanded="false" />
-            <element signature="e#2282#2283#0" expanded="false" />
-            <element signature="e#2316#2317#0" expanded="false" />
-            <element signature="e#2351#2352#0" expanded="false" />
-            <element signature="e#2382#2383#0" expanded="false" />
-            <element signature="e#2436#2437#0" expanded="false" />
-            <element signature="e#2482#2483#0" expanded="false" />
-            <element signature="e#2530#2531#0" expanded="false" />
-            <element signature="e#2570#2571#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/ShopDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-358">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/src.zip!/java/util/Date.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/util/ResultUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/design/db.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="89" column="36" lean-forward="false" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="116" column="26" lean-forward="true" selection-start-line="116" selection-start-column="26" selection-end-line="116" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TriporderitemService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="17" column="53" lean-forward="false" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/TriporderitemDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="33" column="33" lean-forward="false" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/CheckImgController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.12.RELEASE/4c8e2f1d4d02bdda3e1f598cb2fedc0537d1efdd/spring-web-4.3.12.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="204" column="0" lean-forward="false" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TripDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="9" lean-forward="false" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Triptime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/TriptimeDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="97" column="19" lean-forward="true" selection-start-line="97" selection-start-column="19" selection-end-line="97" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/TriptimeDao.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1293,26 +984,6 @@
         <state relative-caret-position="-711">
           <caret line="33" column="64" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="64" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="66" column="88" lean-forward="false" selection-start-line="66" selection-start-column="74" selection-end-line="66" selection-end-column="88" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="389" column="66" lean-forward="true" selection-start-line="389" selection-start-column="8" selection-end-line="389" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1343,28 +1014,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TripService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="33" column="43" lean-forward="false" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Triporder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
           <caret line="71" column="33" lean-forward="false" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="33" />
           <folding>
-            <element signature="e#1421#1422#0" expanded="true" />
-            <element signature="e#1461#1462#0" expanded="true" />
-            <element signature="e#1527#1528#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1635#1636#0" expanded="true" />
-            <element signature="e#1771#1772#0" expanded="true" />
-            <element signature="e#1825#1826#0" expanded="true" />
+            <element signature="e#1421#1422#0" expanded="false" />
+            <element signature="e#1461#1462#0" expanded="false" />
+            <element signature="e#1527#1528#0" expanded="false" />
+            <element signature="e#1585#1586#0" expanded="false" />
+            <element signature="e#1635#1636#0" expanded="false" />
+            <element signature="e#1771#1772#0" expanded="false" />
+            <element signature="e#1825#1826#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1374,7 +1035,7 @@
         <state relative-caret-position="930">
           <caret line="82" column="63" lean-forward="false" selection-start-line="82" selection-start-column="63" selection-end-line="82" selection-end-column="63" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1384,16 +1045,6 @@
         <state relative-caret-position="585">
           <caret line="47" column="78" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="78" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1815">
-          <caret line="149" column="83" lean-forward="false" selection-start-line="149" selection-start-column="8" selection-end-line="149" selection-end-column="83" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1418,18 +1069,341 @@
         <state relative-caret-position="1125">
           <caret line="84" column="7" lean-forward="false" selection-start-line="84" selection-start-column="7" selection-end-line="84" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="67" column="47" lean-forward="false" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
+        <state relative-caret-position="750">
+          <caret line="74" column="39" lean-forward="false" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TrainService.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TrainController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/filter/AdminFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="74" column="31" lean-forward="true" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
+          <folding>
+            <element signature="e#1272#1273#0" expanded="false" />
+            <element signature="e#1302#1303#0" expanded="false" />
+            <element signature="e#1348#1349#0" expanded="false" />
+            <element signature="e#1386#1387#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/UserDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="56" column="23" lean-forward="false" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Club.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/ClubuseritemDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="77" lean-forward="false" selection-start-line="18" selection-start-column="77" selection-end-line="18" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ClubuseritemDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="64" lean-forward="false" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ClubuseritemService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ClubuseritemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="58" column="43" lean-forward="false" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/BaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="8" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ShopService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ShopController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="71" column="87" lean-forward="true" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/domain/Clubdiary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="89" column="46" lean-forward="false" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
+          <folding>
+            <element signature="e#1762#1763#0" expanded="true" />
+            <element signature="e#1793#1794#0" expanded="true" />
+            <element signature="e#1881#1882#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/design/db.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="124" column="17" lean-forward="false" selection-start-line="124" selection-start-column="17" selection-end-line="124" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/jsj141/osport/test/AutoGeneratorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ClubactivityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="61" column="30" lean-forward="true" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/config/Facade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="179" column="0" lean-forward="true" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2184#2185#0" expanded="false" />
+            <element signature="e#2214#2215#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ClubactivityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="34" column="50" lean-forward="false" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ClubactivityDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/ClubuseractivityDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-163">
+          <caret line="13" column="79" lean-forward="false" selection-start-line="13" selection-start-column="79" selection-end-line="13" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/ClubactivityDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="61" column="17" lean-forward="false" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ClubuseractivityDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ClubuseractivityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="81" lean-forward="false" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ClubuseractivityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ClubdiaryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="166" column="46" lean-forward="false" selection-start-line="166" selection-start-column="30" selection-end-line="166" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/TripController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="385" column="65" lean-forward="true" selection-start-line="384" selection-start-column="23" selection-end-line="385" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/TripService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="84" column="58" lean-forward="true" selection-start-line="80" selection-start-column="8" selection-end-line="84" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ClubService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="65" column="31" lean-forward="true" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/ClubdiaryDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="25" column="77" lean-forward="false" selection-start-line="25" selection-start-column="77" selection-end-line="25" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ClubdiaryDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/service/ClubdiaryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="48" column="60" lean-forward="false" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="60" />
+          <folding>
+            <element signature="e#1599#1600#0" expanded="true" />
+            <element signature="e#1675#1676#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/dao/ClubDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/TripDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="39" column="30" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="39" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis-mapper/ClubDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="33" column="40" lean-forward="false" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jsj141/osport/controller/ClubController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="172" column="42" lean-forward="true" selection-start-line="172" selection-start-column="42" selection-end-line="172" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

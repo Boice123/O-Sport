@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,14 +18,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import java.util.List;
 import java.util.UUID;
-import java.io.*;
-import org.apache.commons.io.FileUtils;
+
 import com.jsj141.osport.domain.Shop;
 import com.jsj141.osport.domain.User;
 import com.jsj141.osport.service.ShopService;
 import com.jsj141.osport.service.UserService;
 import com.jsj141.osport.service.TripService;
-import com.jsj141.osport.service.TrainService;
 import com.jsj141.osport.service.TriporderService;
 import org.springframework.web.util.WebUtils;
 
@@ -44,8 +41,8 @@ public class ShopController {
     @Autowired
     private TripService tripService;
 
-    @Autowired
-    private TrainService trainService;
+//    @Autowired
+//    private TrainService trainService;
 
     @Autowired
     private TriporderService triporderService;
@@ -211,15 +208,15 @@ public class ShopController {
      * @param request
      * @return
      */
-    @ResponseBody
-    @RequestMapping(value = "/getManageTrain", method = RequestMethod.POST)
-    Result getManageTrain(String shopid, HttpServletRequest request) {
-        Result result = ResultUtil.initResult();
-
-        result = shopService.getManageTrain(shopid);
-        System.out.println(result.getMsg());
-        return result;
-    }
+//    @ResponseBody
+//    @RequestMapping(value = "/getManageTrain", method = RequestMethod.POST)
+//    Result getManageTrain(String shopid, HttpServletRequest request) {
+//        Result result = ResultUtil.initResult();
+//
+//        result = shopService.getManageTrain(shopid);
+//        System.out.println(result.getMsg());
+//        return result;
+//    }
 
 
     /**

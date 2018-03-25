@@ -37,11 +37,11 @@
           </div>
         </div>
       </div>
-      <!-- 户外培训 -->
+      <!-- 部落列表 -->
       <div class="trainBox">
         <div class="trainTitle">
-          <div :class="{'trainTitleSectionActive':trainTagChoose == 1,'trainTitleSection':trainTagChoose != 1}" @click="changetrainTagChoose(1)">最新培训</div>
-          <div :class="{'trainTitleSectionActive':trainTagChoose == 2,'trainTitleSection':trainTagChoose != 2}" @click="changetrainTagChoose(2)">最热培训</div>
+          <div :class="{'trainTitleSectionActive':clubTagChoose == 1,'trainTitleSection':clubTagChoose != 1}" @click="changeclubTagChoose(1)">最新部落</div>
+          <div :class="{'trainTitleSectionActive':clubTagChoose == 2,'trainTitleSection':clubTagChoose != 2}" @click="changeclubTagChoose(2)">最热部落</div>
         </div>
         <div class="more">>>更多</div>
         <div class="trainContent">
@@ -51,11 +51,11 @@
           </div>
           <div class="trainContentRight">
             <div class="trainContentRightBox"
-                 v-for="(train,key) in trainList"
+                 v-for="(club,key) in clubList"
                  v-if="key >= 1"
             >
-              <div :class="{'trainContentImgActive':trainChoose == key,'trainContentImg':trainChoose != key}" @mouseover="changetrainChoose(key)">
-                <div class="trainname">{{train.trainname}}</div>
+              <div :class="{'trainContentImgActive':clubChoose == key,'trainContentImg':clubChoose != key}" @mouseover="changeclubChoose(key)">
+                <div class="trainname">{{club.clubname}}</div>
                 <img src="../assets/images/banner/banner_01.jpg"/>
               </div>
             </div>
@@ -63,7 +63,7 @@
         </div>
       </div>
       <!-- 部落活动 -->
-      <div class="clubindexBox">
+      <!-- <div class="clubindexBox">
         <div class="clubTitle">
           <div :class="{'clubTitleSectionActive':clubTagChoose == 1,'clubTitleSection':clubTagChoose != 1}" @click="changeclubTagChoose(1)">部落活动</div>
           <div :class="{'clubTitleSectionActive':clubTagChoose == 2,'clubTitleSection':clubTagChoose != 2}" @click="changeclubTagChoose(2)">最热部落</div>
@@ -76,7 +76,7 @@
           <div class="clubImg" @click="changeclubChoose(3)"><img src="../assets/images/banner/banner_03.jpg"/></div>
           <div class="clubImgL" @click="changeclubChoose(4)"><img src="../assets/images/banner/banner_03.jpg"/></div>
         </div>
-      </div>
+      </div> -->
   </div>
 </template>
 
@@ -84,24 +84,22 @@
 import searchBar from './common/searchBar'
 import topNav from './common/topNav'
 import axios from 'axios'
-import { API_getTripList, API_getTrainList } from '../constants/index.js'
+import { API_getTripList, API_getClubList } from '../constants/index.js'
   export default {
     name: 'index',
     data() {
       return {
         tripTagChoose: 1,
         tripChoose: 0,
-        trainTagChoose: 1,
-        trainChoose:1,
         clubTagChoose: 1,
         clubChoose: 1,
         tripList: [],
-        trainList: []
+        clubList: []
       }
     },
     created () {
         this.getTripListByDate()
-        this.getTrainListByDate()
+        this.getClubListByDate()
     },
     methods: {
       getTripListByDate() {
@@ -156,53 +154,55 @@ import { API_getTripList, API_getTrainList } from '../constants/index.js'
             console.log(err)
         })
       },
-      getTrainListByDate() {
-        //按日期排序获取户外培训活动信息
+      getClubListByDate() {
+        //按日期排序获取部落列表
         var params = new URLSearchParams();
+        params.append('start',0)
         params.append('size',7)
-        params.append('order','trainpublishtime')
+        params.append('order','clubpublishtime')
         axios({
             method:'post',
-            url:API_getTrainList,
+            url:API_getClubList,
             params
         })
         .then((response) => {
             console.log(response.data)
             if(response.data.code == 0) {
-                this.trainList = response.data.data
+                this.clubList = response.data.data
             }else if(response.data.code == 1) {
                 this.$message({
                     message: response.data.msg,
                     type: 'warning'
                 }); 
             }else {
-                this.$message.error('获取按日期排序获取户外培训活动信息失败，请稍后重试');
+                this.$message.error('获取按日期排序部落列表失败，请稍后重试');
             }        
         }).catch((err) => {
             console.log(err)
         })
       },
-      getTrainListByTrading() {
-        //按日期排序获取户外培训活动信息
+      getClubListByPeople() {
+        //按热度排序获取部落列表
         var params = new URLSearchParams();
+        params.append('start',0)
         params.append('size',7)
-        params.append('order','traintrading')
+        params.append('order','clubpeople')
         axios({
             method:'post',
-            url:API_getTrainList,
+            url:API_getClubList,
             params
         })
         .then((response) => {
             console.log(response.data)
             if(response.data.code == 0) {
-                this.trainList = response.data.data
+                this.clubList = response.data.data
             }else if(response.data.code == 1) {
                 this.$message({
                     message: response.data.msg,
                     type: 'warning'
                 }); 
             }else {
-                this.$message.error('获取按热度排序获取户外培训活动信息失败，请稍后重试');
+                this.$message.error('获取按热度排序部落列表失败，请稍后重试');
             }        
         }).catch((err) => {
             console.log(err)
@@ -222,28 +222,22 @@ import { API_getTripList, API_getTrainList } from '../constants/index.js'
       changetripChoose(choose) {
         this.tripChoose = choose
       },
-      changetrainTagChoose(choose) {
-        this.trainTagChoose = choose
+      changeclubTagChoose(choose) {
+        this.clubTagChoose = choose
         if(choose === 1) {
-          this.getTrainListByDate()
+          this.getClubListByDate()
           return
         }
         if(choose === 2) {
-          this.getTrainListByTrading()
+          this.getClubListByPeople()
           return
         }
-        if(choose === 3){
-          return
-        }
-      },
-      changetrainChoose(choose) {
-        this.trainChoose = choose
-      },
-      changeclubTagChoose(choose) {
-        this.clubTagChoose = choose
       },
       changeclubChoose(choose) {
         this.clubChoose = choose
+      },
+      changeclubTagChoose(choose) {
+        this.clubTagChoose = choose
       },
       gotoTripPage(tripid) {
         this.$router.push({name:'trip', params:{tripid}})
@@ -415,7 +409,7 @@ import { API_getTripList, API_getTrainList } from '../constants/index.js'
 }
 .trainContentLeft > img {
   width: 100%;
-  height: 15rem;
+  height: 18rem;
 }
 .trainContentRight {
   flex: 2;
@@ -456,7 +450,7 @@ import { API_getTripList, API_getTrainList } from '../constants/index.js'
 }
 .trainContentImgActive > img{
   width: 100%;
-  height: 7.5rem;
+  height: 9rem;
 }
 .trainContentImg {
   opacity: .5;
@@ -469,7 +463,7 @@ import { API_getTripList, API_getTrainList } from '../constants/index.js'
 }
 .trainContentImg > img {
   width: 100%;
-  height: 7.5rem;
+  height: 79rem;
 }
 /* 部落活动 */
 .clubindexBox {

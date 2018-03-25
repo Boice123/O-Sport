@@ -7,14 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Date;
 
 import com.jsj141.osport.domain.Shop;
 import com.jsj141.osport.domain.Trip;
 import com.jsj141.osport.domain.Triporder;
-import com.jsj141.osport.domain.Train;
 
 @Service
 public class ShopService {
@@ -90,17 +87,17 @@ public class ShopService {
         return result;
     }
 
-    public Result getManageTrain(String shopid) {
-        Result result = ResultUtil.initResult();
-        List<Train> trainList = Constant.FACADE.getTrainDao().selectTrainByShopId(shopid);
-        if(trainList == null) {
-            result.setCode(1);
-            result.setMsg("小店还没有组织户外培训活动呢！");
-        }else {
-            result.setCode(0);
-            result.setData(trainList);
-            result.setMsg("获取店铺户外培训列表成功");
-        }
-        return result;
-    }
+//    public Result getManageTrain(String shopid) {
+//        Result result = ResultUtil.initResult();
+//        List<Train> trainList = Constant.FACADE.getTrainDao().selectTrainByShopId(shopid);
+//        if(trainList == null) {
+//            result.setCode(1);
+//            result.setMsg("小店还没有组织户外培训活动呢！");
+//        }else {
+//            result.setCode(0);
+//            result.setData(trainList);
+//            result.setMsg("获取店铺户外培训列表成功");
+//        }
+//        return result;
+//    }
 }

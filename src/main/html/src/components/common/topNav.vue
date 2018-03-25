@@ -4,9 +4,9 @@
         <div :class="{'topNavSections':showul != 1,'topNavSectionsActive': showul == 1}" @mouseover="changeShowUl(1)">
           运动部落
           <ul class="topNavUl" v-if="showul == 1"  @mouseout="changeShowUl(0)">
-            <li :class="{'topNavLi': showli != 1,'topNavLiActive': showli == 1}" @mouseover="changeShowLi(1)" @mouseout="changeShowLi(0)">部落主页</li>
-            <li :class="{'topNavLi': showli != 2,'topNavLiActive': showli == 2}" @mouseover="changeShowLi(2)" @mouseout="changeShowLi(0)">创建部落</li>
-            <li :class="{'topNavLi': showli != 3,'topNavLiActive': showli == 3}" @mouseover="changeShowLi(3)" @mouseout="changeShowLi(0)">我的部落</li>
+            <li :class="{'topNavLi': showli != 1,'topNavLiActive': showli == 1}" @mouseover="changeShowLi(1)" @mouseout="changeShowLi(0)" @click="gotoClub">部落主页</li>
+            <li :class="{'topNavLi': showli != 2,'topNavLiActive': showli == 2}" @mouseover="changeShowLi(2)" @mouseout="changeShowLi(0)" @click="createClub">创建部落</li>
+            <li :class="{'topNavLi': showli != 3,'topNavLiActive': showli == 3}" @mouseover="changeShowLi(3)" @mouseout="changeShowLi(0)" @click="gotoMyClub">我的部落</li>
           </ul>
         </div>
         <div :class="{'topNavSections':showul != 2,'topNavSectionsActive': showul == 2}" @mouseover="changeShowUl(2)" @mouseout="changeShowUl(0)">报团出行</div>
@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+import { API_getClubInfoURl, API_getClubUserItemURl } from '../../constants/index.js'
   export default {
     name: 'topNav',
     data() {
@@ -32,6 +34,37 @@
       },
       changeShowLi(num) {
         this.showli = num
+      },
+      gotoClub() {
+        this.$router.push('/club')
+      },
+      createClub() {
+       //判断当前用户是否已经创建过部落
+        var params = new URLSearchParams();
+        params.append('clubowner',this.getCookie('user_userid'))
+        axios({
+            method:'post',
+            url:API_getClubInfoURl,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+               this.$message({
+                    message: '您已经创建过部落，不能再创建',
+                    type: 'warning'
+                });  
+            }else if(response.data.code == 1) {
+                this.$router.push('/createClub')
+            }else {
+                this.$message.error('获取部落信息失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })    
+      },
+      gotoMyClub() {
+       this.$router.push('/myClub') 
       }
     }
   }

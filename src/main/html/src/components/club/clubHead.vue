@@ -1,8 +1,10 @@
 <template>
   <div class="clubHead">
         <div class="inputDiv">
-            <input type="text" class="clubinput"/>
-            <span class="clubspan"></span>
+            <input type="text" class="clubinput" placeholder="请输入部落关键字"/>
+            <div class="clubspan">
+                <img class="sousuoImg" src="../../assets/images/sousuo.svg"/>
+            </div>
         </div>
       </div>
 </template>
@@ -36,9 +38,15 @@
     font-size: 15px;
 }
 .clubspan {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: red;
     width: 4rem;
     height: 3rem;
+}
+.sousuoImg {
+    width: 2rem;
+    height: 2rem;
 }
 </style>

@@ -25,6 +25,7 @@ CREATE TABLE user(
     `password` varchar(100) NOT NULL COMMENT '用户密码',
     `tel` varchar(20) NOT NULL COMMENT '用户手机',
     `registerTime` timestamp NOT NULL default NOW() COMMENT '注册时间',
+    `userimg` varchar(100) COMMENT '用户图片路径',
     `realname` varchar(20) COMMENT '真实姓名',
     `realid` varchar(20) COMMENT '身份证号',
 primary key(`userid`)
@@ -61,24 +62,25 @@ CREATE TABLE trip(
 CREATE TABLE triptime(
     `triptimeid` varchar(100) NOT NULL COMMENT '出行团时间主键id',
     `triptime` datetime NOT NULL COMMENT '出行团时间',
+    `triptimemaxpeople` int NOT NULL COMMENT '出行团时间最大人数限制',
     `tripid` varchar(100) NOT NULL COMMENT '对应的出行团id',
     primary key(`triptimeid`),
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='出行团时间表';
 
-CREATE TABLE train(
-    `trainid` varchar(100) NOT NULL COMMENT '户外培训主键id',
-    `trainname` varchar(100) NOT NULL COMMENT '户外培训名称',
-    `traindescription` varchar(100) NOT NULL COMMENT '户外培训描述',
-    `trainnotice` varchar(100) NOT NULL COMMENT '户外培训注意事项',
-    `trainprice` double NOT NULL COMMENT '户外培训价钱',
-    `maxpeople` INT NOT NULL COMMENT '户外培训最大人数限制',
-    `trainpublishtime` timestamp NOT NULL default NOW() COMMENT '发布时间',
-    `trainimg` varchar(100) NOT NULL COMMENT '户外培训图片',
-    `traintrading` INT NOT NULL default 0 COMMENT '户外培训成交量',
-    `shopid` varchar(100) NOT NULL COMMENT '商店外键',
-    primary key(`trainid`),
-    FOREIGN KEY (shopid) REFERENCES shop ( shopid )
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='户外培训表';
+--CREATE TABLE train(
+--    `trainid` varchar(100) NOT NULL COMMENT '户外培训主键id',
+--    `trainname` varchar(100) NOT NULL COMMENT '户外培训名称',
+--    `traindescription` varchar(100) NOT NULL COMMENT '户外培训描述',
+--    `trainnotice` varchar(100) NOT NULL COMMENT '户外培训注意事项',
+--    `trainprice` double NOT NULL COMMENT '户外培训价钱',
+--    `maxpeople` INT NOT NULL COMMENT '户外培训最大人数限制',
+--    `trainpublishtime` timestamp NOT NULL default NOW() COMMENT '发布时间',
+--    `trainimg` varchar(100) NOT NULL COMMENT '户外培训图片',
+--    `traintrading` INT NOT NULL default 0 COMMENT '户外培训成交量',
+--    `shopid` varchar(100) NOT NULL COMMENT '商店外键',
+--    primary key(`trainid`),
+--    FOREIGN KEY (shopid) REFERENCES shop ( shopid )
+--)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='户外培训表';
 
 CREATE TABLE triporder(
     `triporderid` varchar(100) NOT NULL COMMENT '出行团订单主键id',
@@ -97,8 +99,49 @@ CREATE TABLE triporderitem(
     primary key(`triporderitemid`),
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='出行团订单详情表';
 
--- CREATE TABLE tripimg(
---     `tripimgid` INT NOT NULL AUTO_INCREMENT COMMENT '出行团图片id',
---     `tripimg` varchar(100) NOT NULL COMMENT '出行团图片路径',
---     primary key(`tripimgid`)
--- )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='出行团图片表';
+CREATE TABLE club(
+    `clubid` varchar(100) NOT NULL COMMENT '部落主键id',
+    `clubname` varchar(100) NOT NULL COMMENT '部落名称',
+    `clubtab` varchar(100) NOT NULL COMMENT '部落标签',
+    `clubimg` varchar(100) COMMENT '部落头像',
+    `clubpeople` int default 0 COMMENT '部落人数',
+    `clubowner` varchar(100) NOT NULL COMMENT '部落管理者',
+    `clubpublishtime` timestamp NOT NULL default NOW() COMMENT '部落成立时间',
+    primary key(`clubid`),
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部落表';
+
+CREATE TABLE clubdiary(
+    `clubdiaryid` varchar(100) NOT NULL COMMENT '部落事件主键id',
+    `clubdiaryimg` varchar(100) COMMENT '部落事件图片',
+    `clubdiarytitle` varchar(100) NOT NULL COMMENT '部落事件标题',
+    `clubdiarycontent` varchar(300) NOT NULL COMMENT '部落事件内容',
+    `clubdiarytime` timestamp NOT NULL default NOW() COMMENT '部落事件发布时间',
+    `userid` varchar(100) NOT NULL COMMENT '用户主键id',
+    `clubid` varchar(100) NOT NULL COMMENT '部落主键id',
+    primary key(`clubdiaryid`),
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部落事件表';
+
+CREATE TABLE clubactivity(
+    `clubactivityid` varchar(100) NOT NULL COMMENT '部落活动主键id',
+    `clubactivityimg` varchar(100) COMMENT '部落活动图片',
+    `clubactivitytitle` varchar(100) NOT NULL COMMENT '部落活动标题',
+    `clubactivitycontent` varchar(300) NOT NULL COMMENT '部落活动内容',
+    `clubactivitytime` timestamp NOT NULL default NOW() COMMENT '部落活动发布时间',
+    `clubactivitypeople` int default 0 COMMENT '部落活动参加人数',
+    `clubid` varchar(100) NOT NULL COMMENT '部落主键id',
+    primary key(`clubactivityid`),
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部落活动表';
+
+CREATE TABLE clubuseractivity(
+    `clubuseractivityid` varchar(100) NOT NULL COMMENT '部落活动与参与用户主键id',
+    `clubactivityid` varchar(100) NOT NULL COMMENT '部落活动主键id',
+    `userid` varchar(100) NOT NULL COMMENT '用户id',
+    primary key(`clubuseractivityid`),
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部落活动参与用户表';
+
+CREATE TABLE clubuseritem(
+    `clubuseritemid` varchar(100) NOT NULL COMMENT '部落与用户关系主键id',
+    `clubid` varchar(100) NOT NULL COMMENT '部落id',
+    `userid` varchar(100) NOT NULL COMMENT '用户id',
+    primary key(`clubuseritemid`),
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部落与用户关系表';
