@@ -65,7 +65,7 @@ public class ClubuseractivityController {
             //参加活动
             clubuseractivity.setClubuseractivityid(UUID.randomUUID().toString());
             clubuseractivityService.save(clubuseractivity);
-            clubactivityService.updatePeople();
+            clubactivityService.updatePeople(clubactivityid);
             lastResult.setCode(0);
             lastResult.setMsg("参加活动成功");
         }else {

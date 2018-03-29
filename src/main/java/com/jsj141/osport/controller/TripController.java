@@ -391,6 +391,26 @@ public class TripController {
         return result;
     }
 
+    /**
+     * 根据地区和关键词获得Trip信息
+     * @param tripprovice
+     * @param tripcity
+     * @param searchKey
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value="/searchKey", method = RequestMethod.POST)
+    Result searchKey(@RequestParam(value="tripprovice") String tripprovice,
+                     @RequestParam(value="tripcity") String tripcity,
+                     @RequestParam(value="searchKey") String searchKey,
+                     HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        List<Trip> tripList = tripService.searchKey(tripprovice, tripcity, searchKey);
+        ResultUtil.setSuccess(result, "根据地区和关键词获得Trip信息成功", tripList);
+        return result;
+    }
+
     public String format(String time) {
         try {
             SimpleDateFormat sf = new SimpleDateFormat("EEE MMM dd hh:mm:ss z yyyy", Locale.ENGLISH);

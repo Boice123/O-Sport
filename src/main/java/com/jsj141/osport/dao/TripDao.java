@@ -15,4 +15,5 @@ public interface TripDao extends BaseDao {
     int getCountByShopId(String shopid);
     List<Trip> listdesc(Map map);
     void updateTripTrading(Trip trip);
+    List<Trip> searchKey(Map map);
 }

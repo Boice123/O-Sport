@@ -100,4 +100,22 @@ public class TripService {
         return Constant.FACADE.getTripDao().listdesc(row);
     }
 
+    /**
+     * 根据关键词和地区找Trip
+     * @param tripprovice
+     * @param tripcity
+     * @param searchKey
+     * @return
+     */
+    public List<Trip> searchKey(String tripprovice, String tripcity, String searchKey) {
+        Row row = new Row();
+        searchKey = "'%" + searchKey + "%'";
+        if(!tripprovice.equals("") && !tripcity.equals("")) {
+            row.put("tripprovice", tripprovice);
+            row.put("tripcity", tripcity);
+        }
+        row.put("searchKey",searchKey);
+        return Constant.FACADE.getTripDao().searchKey(row);
+    }
+
 }

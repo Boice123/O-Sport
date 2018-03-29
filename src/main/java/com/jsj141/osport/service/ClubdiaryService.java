@@ -2,6 +2,7 @@ package com.jsj141.osport.service;
 
 import com.iw86.base.Row;
 import com.jsj141.osport.config.Constant;
+import com.jsj141.osport.domain.Clubactivity;
 import com.jsj141.osport.domain.Trip;
 import com.jsj141.osport.domain.Clubdiary;
 import com.jsj141.osport.util.Result;
@@ -56,10 +57,10 @@ public class ClubdiaryService {
         return result;
     }
 
-    public Result deleteTripInfo(Trip trip) {
+    public Result delete(Clubdiary clubdiary) {
         Result result = ResultUtil.initResult();
-        Constant.FACADE.getTripDao().delete(trip.getTripid());
-        ResultUtil.setSuccess(result, "删除户外出团活动信息成功", null);
+        Constant.FACADE.getClubdiaryDao().delete(clubdiary);
+        ResultUtil.setSuccess(result, "删除动态信息成功", null);
         return result;
     }
 
@@ -77,33 +78,13 @@ public class ClubdiaryService {
         return Constant.FACADE.getTripDao().list(row);
     }
 
-    /**
-     * 取指定数目的数据
-     * @param page 要获得数据的页码
-     * @param size 每一页显示的最大记录数
-     * @return
-     */
-    public List<Trip> listdesc(int page, int size, String order) {
+    public List<Clubdiary> listdesc(int page, int size, String order, String clubid) {
         Row row = new Row();
         row.put("start", page);
         row.put("size", size);
         row.put("order",order);
-        return Constant.FACADE.getTripDao().listdesc(row);
-    }
-
-    /**
-     * 商店下 取指定数目的数据
-     * @param start 要获得数据开始记录数
-     * @param size 每一页显示的最大记录数
-     * @return
-     */
-    public List<Trip> listdesc(int start, int size, String shopid, String order) {
-        Row row = new Row();
-        row.put("start", start);
-        row.put("size", size);
-        row.put("shopid", shopid);
-        row.put("order",order);
-        return Constant.FACADE.getTripDao().listdesc(row);
+        row.put("clubid",clubid);
+        return Constant.FACADE.getClubdiaryDao().listdesc(row);
     }
 
 }

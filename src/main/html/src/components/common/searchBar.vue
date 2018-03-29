@@ -5,29 +5,19 @@
     </div>
     <div class="searchBarRight">
      <div class="searchBox">
-        <div class="searchBoxLeft">
-            <select class="searchSelectLeft">
-            <option class="searchOptionLeft" value="1" selected="selected">广州</option>
-            <option class="searchOptionLeft"
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-            </option>
-            </select>
-        </div>
-        <div class="searchBoxRight">
-            <select class="searchSelectRight">
-            <option value="1" selected="selected">全部</option>
-            <option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-            </option>
-            </select>
-            <input class="searchInput" type="text"/>
+         <el-cascader
+          class="cascader"
+          expand-trigger="hover"
+          :options="options"
+          v-model="selectedOptions2"
+          @change="handleChange">
+        </el-cascader>
+        <div class="inputSearchBox">
+            <input class="searchInput" type="text" v-model="searchKey"/>
             <button class="searchButton" @click="show">搜索</button>
+            <ul class="searchResultUl">
+                <li class="searchResultLi" v-for="(result, key) in searchResult">{{result.tripname}}</li>
+            </ul>
         </div>
      </div>
     </div>
@@ -35,29 +25,101 @@
 </template>
 
 <script>
+import axios from 'axios'
+import { API_searchTripURL } from '../../constants/index.js'
   export default {
     name: 'searchBar',
     data() {
         return {
-            options: [{
-                value: '2',
-                label: '上海'
-            }, {
-                value: '3',
-                label: '深圳'
-            }, {
-                value: '4',
-                label: '杭州'
-            }, {
-                value: '5',
-                label: '重庆'
-            }],
-            value: ''
+            tripprovice: '',
+            tripcity: '',
+            searchKey: '',
+            searchResult: [],
+            options: [
+            {
+                value: '取消选择',
+                label: '取消选择'
+            },
+            {
+            value: '广东',
+            label: '广东',
+            children: [
+              {
+                value: '江门',
+                label: '江门'
+              }, 
+              {
+                value: '广州',
+                label: '广州',
+              },
+              {
+                value: "深圳",
+                label: "深圳",
+              }
+            ]
+          },
+          {
+            value: '湖南',
+            label: '湖南',
+            children: [
+              {
+                value: '长沙',
+                label: '长沙'
+              }, 
+              {
+                value: '重庆',
+                label: '重庆',
+              },
+              {
+                value: "南京",
+                label: "南京",
+              }
+            ],
+          }
+        ],
+        value: '',
+        selectedOptions2: [],
+        }
+    },
+    watch: {
+        searchKey: function() {
+            this.getsearchLi()
         }
     },
     methods: {
         show() {
-            // console.log(this.)
+            this.$router.push({name:'searchList',params: {tripprovice: this.tripprovice,tripcity: this.tripcity, searchKey: this.searchKey}});
+        },
+        handleChange(value) {
+            this.tripprovice = value[0]
+            this.tripcity = value[1]
+        },
+        getsearchLi() {
+            if(this.tripprovice == '取消选择') {
+                this.tripprovice = ''
+                this.tripcity = ''
+            }
+            if(this.searchKey == '') {
+                this.searchResult = []
+                return
+            }
+            var params = new FormData()
+            params.append('tripprovice',this.tripprovice)
+            console.log("this.tripprovice"+this.tripprovice)
+            params.append('tripcity',this.tripcity)
+            params.append('searchKey',this.searchKey)
+            //根据地区和关键字找出Trip
+            axios({
+              method:'post',
+              url:API_searchTripURL,
+              data: params
+            })
+              .then((response) => {
+                console.log(response.data)
+                if(response.data.code == 0) {
+                  this.searchResult = response.data.data
+                }
+            })
         }
     }
   }
@@ -136,20 +198,47 @@
     padding-left: 1rem;
     border: none;
 }
-
-.searchInput {
-    height: 1.5rem;
-    font-size: 1rem;
-    border: none;
-    background: #333;
-    color: #fff;
+.inputSearchBox {
+    border-radius: 5px;
+    /* overflow: hidden; */
+    margin-left: 1rem;
+    position: relative;
 }
-
+.searchInput {
+    height: 2.5rem;
+    width: 15rem;
+    font-size: 1rem;
+    /* border: none; */
+    background: #fff;
+    color: #000;
+    padding: 0 5px;
+    border: 1px solid gray;
+}
 .searchButton {
-    padding: 0.5rem 2.5rem;
+    padding: 0.6rem 2.5rem;
     color: #000;
     font-size: 1rem;
     font-weight: 600;
     background: #fdd000;
+}
+.cascader {
+    width: 7rem;
+    height: 2.35rem;
+    border-radius: 10px;
+}
+.searchResultUl {
+    position: absolute;
+    left: 0.04rem;
+    top: 2.6rem;
+    background: #fff;
+}
+.searchResultLi {
+    height: 2rem;
+    color: #000;
+    width: 15.2rem;
+    border-bottom: 1px solid #ebebe8;
+    padding-left: 0.5rem;
+    display: flex;
+    align-items:  center;
 }
 </style>

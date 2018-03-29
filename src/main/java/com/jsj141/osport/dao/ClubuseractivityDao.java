@@ -9,4 +9,5 @@ import com.jsj141.osport.domain.Clubuseractivity;
 @Repository
 public interface ClubuseractivityDao extends BaseDao {
     Clubuseractivity getByUseridNClubactivityId(Clubuseractivity clubuseractivity);
+    void deleteByClubactivityid(String clubactivityid);
 }

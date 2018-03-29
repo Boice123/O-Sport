@@ -83,7 +83,7 @@ export default {
         if (valid) {
             //信息加入param       
           var params = new FormData()
-          params.append('clubid',this.$route.params.clubid);
+          params.append('clubid',this.getCookie("clubid"));
           params.append('clubactivitytitle',this.form.clubactivitytitle);
           params.append('clubactivitycontent', this.form.clubactivitycontent);
           axios({
@@ -93,8 +93,11 @@ export default {
           }).then((response) => {
             console.log(response.data)
                 if(response.data.code == 0) {
-                  this.$router.push({name:'clubMainPage', params:{clubid: this.$route.params.clubid}})
-                }else {
+                  this.$router.push('/clubManage')
+                }else if(response.data.code == 1) {
+                  this.$message.error(response.data.msg);
+                }
+                else {
                   this.$message.error('添加部落活动失败，请稍后重试');
                 }
             })

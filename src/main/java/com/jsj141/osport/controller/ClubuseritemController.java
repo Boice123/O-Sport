@@ -114,21 +114,7 @@ public class ClubuseritemController {
 //        return result;
 //    }
 
-    /**
-     * 返回店铺信息
-     * @param shopid
-     * @param request
-     * @return
-     */
-//    @ResponseBody
-//    @RequestMapping(value = "/get", method = RequestMethod.POST)
-//    Result getShopInfo(String shopid,HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//
-//        result = shopService.getShopInfo(shopid);
-//        WebUtils.setSessionAttribute(request, "loginShop", result.getData());
-//        return result;
-//    }
+
 
 
     /**
@@ -158,57 +144,5 @@ public class ClubuseritemController {
         }
         return result;
     }
-
-    /**
-     * 检查该用户是否有开店
-     * @param request
-     * @return
-     */
-//    @ResponseBody
-//    @RequestMapping(value = "/checkShopExist", method = RequestMethod.POST)
-//    Result checkShopExist(HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//
-//        User loginUser = (User) WebUtils.getSessionAttribute(request, "loginUser");
-//        System.out.println(loginUser.getUsername());
-//        System.out.println(loginUser.getUserid());
-//        result = shopService.checkShopExist(loginUser.getUserid());
-//        System.out.println(result.getMsg());
-//        return result;
-//    }
-
-    /**
-     * 获得该店铺总成交量
-     * @param shopid
-     * @param request
-     * @return
-     */
-//    @ResponseBody
-//    @RequestMapping(value = "/getTodayTrading", method = RequestMethod.POST)
-//    Result getTodayTrading(String shopid, Triporder tripOrder, HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//        result = shopService.getTodayTrading(shopid);
-//        System.out.println(result.getMsg());
-//        return result;
-//    }
-
-
-    /**
-     * 获得该店铺管理的所有Trip信息
-     * @param shopid
-     * @param request
-     * @return
-     */
-//    @ResponseBody
-//    @RequestMapping(value = "/getManageTrip", method = RequestMethod.POST)
-//    Result getManageTrip(String shopid, HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//
-//        result = shopService.getManageTrip(shopid);
-//        System.out.println(result.getMsg());
-//        return result;
-//    }
-
-
 
 }

@@ -238,54 +238,21 @@ public class ClubController {
     }
 
     /**
-     * 检查该用户是否有开店
+     *
+     * 根据关键词获得Club信息
+     * @param searchKey
      * @param request
      * @return
      */
-//    @ResponseBody
-//    @RequestMapping(value = "/checkShopExist", method = RequestMethod.POST)
-//    Result checkShopExist(HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//
-//        User loginUser = (User) WebUtils.getSessionAttribute(request, "loginUser");
-//        System.out.println(loginUser.getUsername());
-//        System.out.println(loginUser.getUserid());
-//        result = shopService.checkShopExist(loginUser.getUserid());
-//        System.out.println(result.getMsg());
-//        return result;
-//    }
-
-    /**
-     * 获得该店铺总成交量
-     * @param shopid
-     * @param request
-     * @return
-     */
-//    @ResponseBody
-//    @RequestMapping(value = "/getTodayTrading", method = RequestMethod.POST)
-//    Result getTodayTrading(String shopid, Triporder tripOrder, HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//        result = shopService.getTodayTrading(shopid);
-//        System.out.println(result.getMsg());
-//        return result;
-//    }
-
-
-    /**
-     * 获得该店铺管理的所有Trip信息
-     * @param shopid
-     * @param request
-     * @return
-     */
-//    @ResponseBody
-//    @RequestMapping(value = "/getManageTrip", method = RequestMethod.POST)
-//    Result getManageTrip(String shopid, HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//
-//        result = shopService.getManageTrip(shopid);
-//        System.out.println(result.getMsg());
-//        return result;
-//    }
+    @ResponseBody
+    @RequestMapping(value="/searchKey", method = RequestMethod.POST)
+    Result searchKey(@RequestParam(value="searchKey") String searchKey,
+                     HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        List<Club> clubList = clubService.searchKey(searchKey);
+        ResultUtil.setSuccess(result, "根据关键词获得Club信息成功", clubList);
+        return result;
+    }
 
 
 

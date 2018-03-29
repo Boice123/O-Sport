@@ -15,6 +15,17 @@
         select * from clubactivity where clubactivityid=#{clubactivityid}
     </select>
 
+    <select id="listdesc" resultType="com.jsj141.osport.domain.Clubactivity">
+        select * from clubactivity
+        <include refid="dynamicWhere" />
+        <if test="_parameter.containsKey('clubid') and clubid!=null">
+            where clubid = #{clubid}
+        </if>
+        <if test="_parameter.containsKey('order') and order!=null">
+            order by ${order} DESC
+        </if>
+        limit #{start},#{size}
+    </select>
 
     <select id="getByClubid" resultType="com.jsj141.osport.domain.Clubactivity">
         select * from clubactivity where clubid=#{clubid}
@@ -65,7 +76,7 @@
     </update>
 
     <update id="updatePeople">
-        update clubactivity set clubactivitypeople = clubactivitypeople + 1
+        update clubactivity set clubactivitypeople = clubactivitypeople + 1 where clubactivityid=#{clubactivityid}
     </update>
 
     <update id="delete">

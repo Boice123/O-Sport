@@ -24,6 +24,12 @@ import MyClub from '@/components/club/myClub'
 import CreateClub from '@/components/club/createClub'
 import AddActivity from '@/components/club/addActivity'
 import AddDiary from '@/components/club/addDiary'
+import ClubManage from '@/components/club/clubManage'
+import ClubManageDiary from '@/components/club/clubManageDiary'
+import ClubManageActivity from '@/components/club/clubManageActivity'
+import UpdateActivityInfo from '@/components/club/updateActivityInfo'
+import SearchList from '@/components/searchList'
+import SearchClubList from '@/components/club/searchClubList'
 
 Vue.use(Router)
 
@@ -33,6 +39,16 @@ export default new Router({
       path: '/',
       name: 'index',
       component: Index
+    },
+    {
+      path: '/searchList',
+      name: 'searchList',
+      component: SearchList
+    },
+    {
+      path: '/searchclubList',
+      name: 'searchclubList',
+      component: SearchClubList
     },
     {
       path: '/signup',
@@ -115,11 +131,6 @@ export default new Router({
           name: 'updateTrainInfo',
           component: UpdateTrainInfo
         },
-        // {
-        //   path: 'shopinfo',
-        //   name: 'shopinfo',
-        //   component: Shopinfo
-        // }
       ]
     },
   {
@@ -151,6 +162,29 @@ export default new Router({
     path: '/addActivity',
     name: 'addActivity',
     component: AddActivity
+  },
+  {
+    path: '/clubManage',
+    name: 'clubManage',
+    component: ClubManage,
+    redirect: 'clubManage/clubManageActivity',
+    children: [
+      {
+        path: 'clubManageActivity',
+        name: 'clubManageActivity',
+        component: ClubManageActivity
+      },
+      {
+        path: 'clubManageDiary',
+        name: 'clubManageDiary',
+        component: ClubManageDiary
+      },
+      {
+        path: 'updateActivityInfo',
+        name: 'updateActivityInfo',
+        component: UpdateActivityInfo
+      }
+    ]
   }
   ]
 })

@@ -16,4 +16,5 @@ public interface ClubDao extends BaseDao {
     List<Club> selectByClubtab(Club club);
     void updateClubPeople(String clubid);
     List<Club> listdesc(Map map);
+    List<Club> searchKey(Map map);
 }

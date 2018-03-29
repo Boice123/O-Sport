@@ -107,7 +107,7 @@ CREATE TABLE club(
     `clubpeople` int default 0 COMMENT '部落人数',
     `clubowner` varchar(100) NOT NULL COMMENT '部落管理者',
     `clubpublishtime` timestamp NOT NULL default NOW() COMMENT '部落成立时间',
-    primary key(`clubid`),
+    primary key(`clubid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部落表';
 
 CREATE TABLE clubdiary(
@@ -117,8 +117,9 @@ CREATE TABLE clubdiary(
     `clubdiarycontent` varchar(300) NOT NULL COMMENT '部落事件内容',
     `clubdiarytime` timestamp NOT NULL default NOW() COMMENT '部落事件发布时间',
     `userid` varchar(100) NOT NULL COMMENT '用户主键id',
+    `username` varchar(100) NOT NULL COMMENT '用户名字',
     `clubid` varchar(100) NOT NULL COMMENT '部落主键id',
-    primary key(`clubdiaryid`),
+    primary key(`clubdiaryid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部落事件表';
 
 CREATE TABLE clubactivity(
@@ -129,19 +130,19 @@ CREATE TABLE clubactivity(
     `clubactivitytime` timestamp NOT NULL default NOW() COMMENT '部落活动发布时间',
     `clubactivitypeople` int default 0 COMMENT '部落活动参加人数',
     `clubid` varchar(100) NOT NULL COMMENT '部落主键id',
-    primary key(`clubactivityid`),
+    primary key(`clubactivityid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部落活动表';
 
 CREATE TABLE clubuseractivity(
     `clubuseractivityid` varchar(100) NOT NULL COMMENT '部落活动与参与用户主键id',
     `clubactivityid` varchar(100) NOT NULL COMMENT '部落活动主键id',
     `userid` varchar(100) NOT NULL COMMENT '用户id',
-    primary key(`clubuseractivityid`),
+    primary key(`clubuseractivityid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部落活动参与用户表';
 
 CREATE TABLE clubuseritem(
     `clubuseritemid` varchar(100) NOT NULL COMMENT '部落与用户关系主键id',
     `clubid` varchar(100) NOT NULL COMMENT '部落id',
     `userid` varchar(100) NOT NULL COMMENT '用户id',
-    primary key(`clubuseritemid`),
+    primary key(`clubuseritemid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部落与用户关系表';

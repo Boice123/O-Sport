@@ -53,6 +53,13 @@ public class ClubuseractivityService {
         return result;
     }
 
+    public Result deleteByClubactivityid(String clubactivityid) {
+        Result result = ResultUtil.initResult();
+        Constant.FACADE.getClubuseractivityDao().deleteByClubactivityid(clubactivityid);
+        ResultUtil.setSuccess(result, "删除对应的用户参与活动的信息成功", null);
+        return result;
+    }
+
     public Result deleteTripInfo(Trip trip) {
         Result result = ResultUtil.initResult();
         Constant.FACADE.getTripDao().delete(trip.getTripid());

@@ -3,7 +3,9 @@
       <ClubHead/>
       <div class="myClub">
           <div class="myClubLeft">
+              <div v-if="this.getCookie('clubid') != null && this.getCookie('clubid') != '' ">
               <div class="myClubLeftTitle">我管理的部落</div>
+              <div class="myClubLeftMa" @click="gotoClubManage(ownClub.clubid)">部落管理</div>
               <div class="clubList">
                 <div 
                     class="myClubBox" 
@@ -17,6 +19,7 @@
                     />
                     <h2 class="myclubname">{{ownClub.clubname}}</h2>
                 </div>
+              </div>
               </div>
               <div class="myClubLeftTitle">我参与的部落</div>
               <div class="clubList">
@@ -33,10 +36,6 @@
                     />
                     <h2 class="myclubname">{{club.clubname}}</h2>
                 </div>
-                <!-- <div class="myClubBox" @mouseover="changeClubCover('徒步')" @mouseout="changeClubCover('')">
-                    <img :class="{'myclubImg':clubcover!='徒步','myclubImgActive': clubcover=='徒步'}" src="../../assets/images/bgc/manycamp.jpg"/>
-                    <h2 class="myclubname">徒步俱乐部</h2>
-                </div> -->
               </div>
           </div>
           <div class="myClubRight">
@@ -110,6 +109,7 @@ import { API_getClubInfoURl, API_getClubUserItemURl, API_getOwnClubDiaryURl, API
     },
     created () {
         var userid = this.getCookie('user_userid')
+        console.log("clubid"+ this.getCookie("clubid"))
         this.getClub(userid)
         this.getClubUserItem(userid)
         this.getClubDiary(userid)
@@ -128,6 +128,9 @@ import { API_getClubInfoURl, API_getClubUserItemURl, API_getOwnClubDiaryURl, API
       gotoClubPage(clubid) {
           console.log(clubid)
           this.$router.push({name:'clubMainPage',params:{clubid}})
+      },
+      gotoClubManage(clubid) {
+          this.$router.push({name:'clubManage',params:{clubid}})
       },
       //获取我管理Club的信息
       getClub(userid) {
@@ -252,6 +255,7 @@ import { API_getClubInfoURl, API_getClubUserItemURl, API_getOwnClubDiaryURl, API
     flex-direction: column;
     border-right: 1px solid gray;
     padding-right: 1rem;
+    position: relative;
 }
 .myClubRight {
     flex:4;
@@ -262,6 +266,13 @@ import { API_getClubInfoURl, API_getClubUserItemURl, API_getOwnClubDiaryURl, API
     color: #fff;
     text-align: left;
     margin-bottom: 1rem;
+}
+.myClubLeftMa {
+    color: #fff;
+    position: absolute;
+    right: 10%;
+    border: 1px solid #fff;
+    padding: 5px;
 }
 .clubList {
     display: flex;

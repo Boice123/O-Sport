@@ -22,4 +22,5 @@ export const clearCookie = function(){
 	 this.setCookie("user_userid", "", -1);
 	 this.setCookie("user_password", "", -1);
 	 this.setCookie("shop_id", "", -1)
+	 this.setCookie("clubid", "", -1)
 }

@@ -6,6 +6,7 @@ import com.jsj141.osport.service.ClubactivityService;
 import com.jsj141.osport.service.TripService;
 import com.jsj141.osport.service.TriptimeService;
 import com.jsj141.osport.service.ClubService;
+import com.jsj141.osport.service.ClubuseractivityService;
 import com.jsj141.osport.util.Result;
 import com.jsj141.osport.util.ResultUtil;
 import org.slf4j.Logger;
@@ -39,6 +40,9 @@ public class ClubactivityController {
 
     @Autowired
     private ClubactivityService clubactivityService;
+
+    @Autowired
+    private ClubuseractivityService clubuseractivityService;
 
     @Autowired
     private ClubService clubService;
@@ -80,64 +84,48 @@ public class ClubactivityController {
 
     }
 
-    /**
-     * 修改Trip信息
-     * @param tripname
-     * @param tripdescription
-     * @param tripnotice
-     * @param tripprice
-     * @param maxpeople
-     * @param tripimg
-     * @param trip
-     * @param bindingResult
-     * @param request
-     * @return
-     */
+
     @ResponseBody
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    Result update(@RequestParam(value="tripname") String tripname,
-                @RequestParam(value="tripdescription") String tripdescription,
-                @RequestParam(value="tripnotice") String tripnotice,
-                @RequestParam(value="tripprice") Double tripprice,
-                @RequestParam(value="maxpeople") Integer maxpeople,
-                @RequestParam(value="tripimg") String tripimg,
-                  @RequestParam(value="tripprovice") String tripprovice,
-                  @RequestParam(value="tripcity") String tripcity,
-                  @RequestParam(value="triptime1") String triptime1,
-                  @RequestParam(value="triptime2") String triptime2,
-                  @RequestParam(value="triptime3") String triptime3,
-                  @RequestParam(value="triptime4") String triptime4,
-                  @RequestParam(value="triptime5") String triptime5,
-                  @RequestParam(value="triptimeid1") String triptimeid1,
-                  @RequestParam(value="triptimeid2") String triptimeid2,
-                  @RequestParam(value="triptimeid3") String triptimeid3,
-                  @RequestParam(value="triptimeid4") String triptimeid4,
-                  @RequestParam(value="triptimeid5") String triptimeid5,
-                Trip trip,
-                  Triptime triptimeEntity,
+    Result update(@RequestParam(value="clubactivityid") String clubactivityid ,
+                  @RequestParam(value="clubactivitytitle") String clubactivitytitle ,
+                  @RequestParam(value="clubactivitycontent") String clubactivitycontent,
+                Clubactivity clubactivity,
                 BindingResult bindingResult,
                 HttpServletRequest request) {
         Result lastResult = ResultUtil.initResult();
 
-            lastResult.setCode(1);
-            lastResult.setMsg("请不要选择重复的出行时间");
-        return lastResult;
+        clubactivity.setClubactivityid(clubactivityid);
+        clubactivity.setClubactivitycontent(clubactivitycontent);
+        clubactivity.setClubactivitytitle(clubactivitytitle);
+        return clubactivityService.update(clubactivity);
     }
 
-
     /**
-     * 获取Trip信息
-     * @param tripid
-     * @param trip
+     *
+     * 根据clubactivityid获得clubactivity
+     * @param clubactivityid
+     * @param clubactivity
      * @param request
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "/get", method = RequestMethod.POST)
-    Result getTripInfo(String tripid, Trip trip, HttpServletRequest request) {
+    Result getclubactivity(
+            @RequestParam(value="clubactivityid") String clubactivityid,
+            Clubactivity clubactivity,
+            HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-        trip.setTripid(tripid);
-        result = tripService.getTripInfo(trip);
+        clubactivity.setClubactivityid(clubactivityid);
+        Clubactivity ca = clubactivityService.get(clubactivity);
+        if(ca != null ) {
+            result.setCode(0);
+            result.setData(ca);
+            result.setMsg("获取活动成功");
+        }else {
+            result.setCode(1);
+            result.setMsg("没有该活动数据");
+        }
         return result;
     }
 
@@ -168,67 +156,80 @@ public class ClubactivityController {
     }
 
     /**
-     * 根据shopid，获取当前店铺的Trip数量信息
-     * @param shopid
-     * @param trip
+     * 根据Clubid获取部落活动,分页
+     * @param clubid
+     * @param clubactivity
      * @param request
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "/getCount", method = RequestMethod.POST)
-    Result getCount(String shopid, Trip trip, HttpServletRequest request) {
+    @RequestMapping(value = "/getAllByClubidPaginaton", method = RequestMethod.POST)
+    Result getAllByClubidPaginaton(
+                            @RequestParam(value="clubid") String clubid,
+                            @RequestParam(value="start") int start,
+                            @RequestParam(value="size") int size,
+                            @RequestParam(value="order") String order,
+                          Clubactivity clubactivity,
+                          HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-        result = tripService.getTripCount(shopid);
-        return result;
-    }
-
-    /**
-     * 删除Trip信息
-     * @param tripid
-     * @param trip
-     * @param request
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    Result deleteTripInfo(String tripid, Trip trip, Triptime triptime, HttpServletRequest request) {
-        Result result = ResultUtil.initResult();
-        Result result1 = ResultUtil.initResult();
-        Result result2 = ResultUtil.initResult();
-        trip.setTripid(tripid);
-        result1 = tripService.deleteTripInfo(trip);
-        triptime.setTripid(tripid);
-        result2 = triptimeService.deleteTriptimeInfo(triptime);
-        if(result1.getCode() == 0 && result2.getCode() == 0) {
+//        clubactivity.setClubid(clubid);
+        List<Clubactivity> clubactivtyList= clubactivityService.listdesc(start, size, order, clubid);
+        if(clubactivtyList.size() != 0 ) {
             result.setCode(0);
-            result.setMsg("删除成功");
-        } else {
+            result.setData(clubactivtyList);
+            result.setMsg("获取部落全部活动成功");
+        }else {
             result.setCode(1);
-            result.setMsg("删除失败");
+            result.setMsg("部落没有活动数据");
         }
         return result;
     }
 
     /**
-     * 批量删除Trip信息
+     * 删除clubActivity信息
+     * @param clubactivityid
+     * @param clubActivity
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    Result deleteTripInfo(@RequestParam(value="clubactivityid") String clubactivityid,
+                          Clubactivity clubActivity,
+                          HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+
+        clubActivity.setClubactivityid(clubactivityid);
+        clubactivityService.delete(clubActivity);
+        clubuseractivityService.deleteByClubactivityid(clubactivityid);
+//        if(result1.getCode() == 0 && result2.getCode() == 0) {
+        result.setCode(0);
+        result.setMsg("删除成功");
+//        } else {
+//            result.setCode(1);
+//            result.setMsg("删除失败");
+//        }
+        return result;
+    }
+
+    /**
+     * 批量删除CLubactivity信息
      * @param batchdelete
-     * @param trip
+     * @param batchdelete
      * @param request
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "/batchdelete", method = RequestMethod.POST)
     Result batchdeleteTripInfo(@RequestParam(value="batchdelete") String[] batchdelete,
-                                Trip trip,
-                                Triptime triptime,
+                                Clubactivity clubactivity,
                                 HttpServletRequest request) {
         Result result = ResultUtil.initResult();
         for(int i = 0;i< batchdelete.length; i++){
-            String tripid = batchdelete[i];
-            trip.setTripid(tripid);
-            triptime.setTripid(tripid);
-            tripService.deleteTripInfo(trip);
-            triptimeService.deleteTriptimeInfo(triptime);
+            String clubactivityid = batchdelete[i];
+            clubactivity.setClubactivityid(clubactivityid);
+            clubactivityService.delete(clubactivity);
+            clubuseractivityService.deleteByClubactivityid(clubactivityid);
         }
         result.setCode(0);
         result.setMsg("删除成功");
@@ -251,17 +252,5 @@ public class ClubactivityController {
         List<Trip> tripList = tripService.listdesc(0, size, order);
         ResultUtil.setSuccess(result, "获得Trip列表排序信息成功", tripList);
         return result;
-    }
-
-    public String format(String time) {
-        try {
-            SimpleDateFormat sf = new SimpleDateFormat("EEE MMM dd hh:mm:ss z yyyy", Locale.ENGLISH);
-            Date date = sf.parse(time);
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            return df.format(date);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
     }
 }

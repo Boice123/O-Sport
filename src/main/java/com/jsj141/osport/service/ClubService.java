@@ -113,17 +113,10 @@ public class ClubService {
         return result;
     }
 
-//    public Result getManageTrain(String shopid) {
-//        Result result = ResultUtil.initResult();
-//        List<Train> trainList = Constant.FACADE.getTrainDao().selectTrainByShopId(shopid);
-//        if(trainList == null) {
-//            result.setCode(1);
-//            result.setMsg("小店还没有组织户外培训活动呢！");
-//        }else {
-//            result.setCode(0);
-//            result.setData(trainList);
-//            result.setMsg("获取店铺户外培训列表成功");
-//        }
-//        return result;
-//    }
+    public List<Club> searchKey(String searchKey) {
+        Row row = new Row();
+        searchKey = "'%" + searchKey + "%'";
+        row.put("searchKey",searchKey);
+        return Constant.FACADE.getClubDao().searchKey(row);
+    }
 }

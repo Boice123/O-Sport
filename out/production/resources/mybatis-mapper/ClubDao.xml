@@ -28,6 +28,9 @@
         select * from club
     </select>
 
+    <select id="searchKey" resultType="com.jsj141.osport.domain.Club">
+        select * from club where clubname like ${searchKey}
+    </select>
 
     <select id="listdesc" resultType="com.jsj141.osport.domain.Club">
         select * from club

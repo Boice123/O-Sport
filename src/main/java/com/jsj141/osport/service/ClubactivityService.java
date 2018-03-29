@@ -23,22 +23,35 @@ public class ClubactivityService {
         return result;
     }
 
-    public Result update(Trip trip) {
+    public Result update(Clubactivity clubactivity) {
         Result result = ResultUtil.initResult();
-        Constant.FACADE.getTripDao().update(trip);
-        ResultUtil.setSuccess(result, "修改Trip信息成功", trip);
+        Constant.FACADE.getClubactivityDao().update(clubactivity);
+        ResultUtil.setSuccess(result, "修改clubactivity信息成功", clubactivity);
         return result;
     }
 
-    public Result updatePeople() {
+    public Result updatePeople(String clubactivityid) {
         Result result = ResultUtil.initResult();
-        Constant.FACADE.getClubactivityDao().updatePeople();
+        Constant.FACADE.getClubactivityDao().updatePeople(clubactivityid);
         ResultUtil.setSuccess(result, "修改Clubactivity人数信息成功");
         return result;
     }
 
+    public Clubactivity get(Clubactivity clubactivity) {
+        return (Clubactivity) Constant.FACADE.getClubactivityDao().select(clubactivity);
+    }
+
     public List<Clubactivity> getByClubid(Clubactivity clubactivity) {
         return Constant.FACADE.getClubactivityDao().getByClubid(clubactivity);
+    }
+
+    public List<Clubactivity> listdesc(int page, int size, String order, String clubid) {
+        Row row = new Row();
+        row.put("start", page);
+        row.put("size", size);
+        row.put("order",order);
+        row.put("clubid",clubid);
+        return Constant.FACADE.getClubactivityDao().listdesc(row);
     }
 
     public Result getTripInfo(Trip trip) {
@@ -52,6 +65,13 @@ public class ClubactivityService {
         Result result = ResultUtil.initResult();
         int count = Constant.FACADE.getTripDao().getCountByShopId(shopid);
         ResultUtil.setSuccess(result, "获取当前店铺Trip数量成功", count);
+        return result;
+    }
+
+    public Result delete(Clubactivity clubactivity) {
+        Result result = ResultUtil.initResult();
+        Constant.FACADE.getClubactivityDao().delete(clubactivity);
+        ResultUtil.setSuccess(result, "删除clubactivity数据成功", null);
         return result;
     }
 
@@ -74,35 +94,6 @@ public class ClubactivityService {
         row.put("start", (page - 1) * size);
         row.put("size", size);
         return Constant.FACADE.getTripDao().list(row);
-    }
-
-    /**
-     * 取指定数目的数据
-     * @param page 要获得数据的页码
-     * @param size 每一页显示的最大记录数
-     * @return
-     */
-    public List<Trip> listdesc(int page, int size, String order) {
-        Row row = new Row();
-        row.put("start", page);
-        row.put("size", size);
-        row.put("order",order);
-        return Constant.FACADE.getTripDao().listdesc(row);
-    }
-
-    /**
-     * 商店下 取指定数目的数据
-     * @param start 要获得数据开始记录数
-     * @param size 每一页显示的最大记录数
-     * @return
-     */
-    public List<Trip> listdesc(int start, int size, String shopid, String order) {
-        Row row = new Row();
-        row.put("start", start);
-        row.put("size", size);
-        row.put("shopid", shopid);
-        row.put("order",order);
-        return Constant.FACADE.getTripDao().listdesc(row);
     }
 
 }

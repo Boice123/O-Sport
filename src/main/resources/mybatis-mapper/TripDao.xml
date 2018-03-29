@@ -19,6 +19,18 @@
         select * from trip where shopid=#{shopid}
     </select>
 
+    <select id="searchKey" resultType="com.jsj141.osport.domain.Trip">
+        select * from trip where
+        <include refid="dynamicWhere" />
+        <if test="_parameter.containsKey('tripprovice') and tripprovice!=null">
+            tripprovice = #{tripprovice} and
+        </if>
+        <if test="_parameter.containsKey('tripcity') and tripcity!=null">
+            tripcity = #{tripcity} and
+        </if>
+            tripname like ${searchKey}
+    </select>
+
     <select id="count" resultType="int">
         select count(*) from trip
         <include refid="dynamicWhere" />

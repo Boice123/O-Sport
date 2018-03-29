@@ -55,4 +55,8 @@
         delete from clubuseractivity where clubuseractivityid=#{clubuseractivityid}
     </update>
 
+    <update id="deleteByClubactivityid">
+        delete from clubuseractivity where clubactivityid=#{clubactivityid}
+    </update>
+
 </mapper>

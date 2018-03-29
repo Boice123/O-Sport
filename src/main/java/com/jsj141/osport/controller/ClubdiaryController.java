@@ -54,36 +54,10 @@ public class ClubdiaryController {
         clubdiary.setUsername(loginUser.getUsername());
         clubdiary.setClubid(clubid);
         clubdiary.setUserid(loginUser.getUserid());
+        clubdiary.setUsername(loginUser.getUsername());
         clubdiaryService.save(clubdiary);
         lastResult.setCode(0);
         lastResult.setMsg("添加成功");
-        return lastResult;
-    }
-
-    /**
-     * 修改Trip信息
-     * @param tripname
-     * @param tripdescription
-     * @param tripnotice
-     * @param tripprice
-     * @param maxpeople
-     * @param tripimg
-     * @param trip
-     * @param bindingResult
-     * @param request
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
-    Result update(@RequestParam(value="tripname") String tripname,
-                @RequestParam(value="tripdescription") String tripdescription,
-                @RequestParam(value="tripnotice") String tripnotice,
-                Trip trip,
-                  Triptime triptimeEntity,
-                BindingResult bindingResult,
-                HttpServletRequest request) {
-        Result lastResult = ResultUtil.initResult();
-
         return lastResult;
     }
 
@@ -130,6 +104,39 @@ public class ClubdiaryController {
         }
         return result;
     }
+
+    /**
+     * 根据Clubid获取部落动态,分页
+     * @param clubid
+     * @param start
+     * @param size
+     * @param order
+     * @param clubdiary
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getAllByClubidPaginaton", method = RequestMethod.POST)
+    Result getAllByClubidPaginaton(
+            @RequestParam(value="clubid") String clubid,
+            @RequestParam(value="start") int start,
+            @RequestParam(value="size") int size,
+            @RequestParam(value="order") String order,
+            Clubdiary clubdiary,
+            HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        List<Clubdiary> clubdiaryList= clubdiaryService.listdesc(start, size, order, clubid);
+        if(clubdiaryList.size() != 0 ) {
+            result.setCode(0);
+            result.setData(clubdiaryList);
+            result.setMsg("获取部落全部动态成功");
+        }else {
+            result.setCode(1);
+            result.setMsg("部落没有动态数据");
+        }
+        return result;
+    }
+
 
     /**
      * 获取管理的部落全部动态
@@ -181,53 +188,43 @@ public class ClubdiaryController {
         return result;
     }
 
-    /**
-     * 删除Trip信息
-     * @param tripid
-     * @param trip
-     * @param request
-     * @return
-     */
+
     @ResponseBody
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    Result deleteTripInfo(String tripid, Trip trip, Triptime triptime, HttpServletRequest request) {
+    Result deleteTripInfo(@RequestParam(value="clubdiaryid") String clubdiaryid,
+                          Clubdiary clubdiary,
+                          HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-        Result result1 = ResultUtil.initResult();
-        Result result2 = ResultUtil.initResult();
-        trip.setTripid(tripid);
-        result1 = tripService.deleteTripInfo(trip);
-        triptime.setTripid(tripid);
-        result2 = triptimeService.deleteTriptimeInfo(triptime);
-        if(result1.getCode() == 0 && result2.getCode() == 0) {
-            result.setCode(0);
-            result.setMsg("删除成功");
-        } else {
-            result.setCode(1);
-            result.setMsg("删除失败");
-        }
+
+        clubdiary.setClubdiaryid(clubdiaryid);
+        clubdiaryService.delete(clubdiary);
+//        if(result1.getCode() == 0 && result2.getCode() == 0) {
+        result.setCode(0);
+        result.setMsg("删除成功");
+//        } else {
+//            result.setCode(1);
+//            result.setMsg("删除失败");
+//        }
         return result;
     }
 
     /**
-     * 批量删除Trip信息
+     * 批量删除CLubdiary
      * @param batchdelete
-     * @param trip
+     * @param clubdiary
      * @param request
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "/batchdelete", method = RequestMethod.POST)
     Result batchdeleteTripInfo(@RequestParam(value="batchdelete") String[] batchdelete,
-                                Trip trip,
-                                Triptime triptime,
-                                HttpServletRequest request) {
+                               Clubdiary clubdiary,
+                               HttpServletRequest request) {
         Result result = ResultUtil.initResult();
         for(int i = 0;i< batchdelete.length; i++){
-            String tripid = batchdelete[i];
-            trip.setTripid(tripid);
-            triptime.setTripid(tripid);
-            tripService.deleteTripInfo(trip);
-            triptimeService.deleteTriptimeInfo(triptime);
+            String clubactivityid = batchdelete[i];
+            clubdiary.setClubdiaryid(clubactivityid);
+            clubdiaryService.delete(clubdiary);
         }
         result.setCode(0);
         result.setMsg("删除成功");
