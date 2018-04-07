@@ -135,6 +135,22 @@ public class ShopController {
     }
 
     /**
+     * 返回店铺数量
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/count", method = RequestMethod.POST)
+    Result count(HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        List<Shop> shopList = shopService.getAllShop();
+        result.setCode(0);
+        result.setData(shopList.size());
+        result.setMsg("获取商店数量成功");
+        return result;
+    }
+
+    /**
      * 检查该用户是否有开店
      * @param request
      * @return
@@ -203,23 +219,6 @@ public class ShopController {
     }
 
     /**
-     * 获得该店铺管理的所有Train信息
-     * @param shopid
-     * @param request
-     * @return
-     */
-//    @ResponseBody
-//    @RequestMapping(value = "/getManageTrain", method = RequestMethod.POST)
-//    Result getManageTrain(String shopid, HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//
-//        result = shopService.getManageTrain(shopid);
-//        System.out.println(result.getMsg());
-//        return result;
-//    }
-
-
-    /**
      * 获得商店下的Trip列表,分页,按日期或成交量排序
      * @param size: 获取多少条数据
      * @param request
@@ -245,11 +244,29 @@ public class ShopController {
                            HttpServletRequest request) {
         Result result = ResultUtil.initResult();
         triporder.setTriporderid(triporderid);
-        triporder.setTriporderstatus(2);
+//        triporder.setTriporderstatus(2);
         triporderService.update(triporder);
         ResultUtil.setSuccess(result, "确认订单成功", null);
         return result;
     }
 
+    /**
+     * 获得商店下的Trip列表,分页,按日期或成交量排序
+     * @param size: 获取多少条数据
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getAllShopPagination", method = RequestMethod.POST)
+    Result getAllShopPagination(
+                       @RequestParam(value="start") int start,
+                       @RequestParam(value="size") int size,
+                       @RequestParam(value="order") String order,
+                       HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        List<Shop> shopList = shopService.listdesc(start, size, order);
+        ResultUtil.setSuccess(result, "获得Shop列表排序信息成功", shopList);
+        return result;
+    }
 
 }

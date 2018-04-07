@@ -22,8 +22,8 @@
       </div>
       <div class="clubMainPageBody">
           <div class="addNewPart" v-if="clubChoose==='部落动态'" @click="addDiary(clubinfo.clubid)">发布动态</div>
-          <div class="addNewPart" v-if="clubChoose==='部落活动'" @click="addActivity(clubinfo.clubid)">发布活动</div>
-          <div class="addNewPart" v-if="clubChoose==='摄影作品'">摄影作品</div>
+          <!-- <div class="addNewPart" v-if="clubChoose==='部落活动'" @click="addActivity(clubinfo.clubid)">发布活动</div> -->
+          <!-- <div class="addNewPart" v-if="clubChoose==='摄影作品'">摄影作品</div> -->
           <div class="clubMainPageNav">
               <ul class="clubMainPageNavUl">
                   <li :class="{'clubMainPageNavLi': clubChoose!='部落活动','clubMainPageNavLiActive': clubChoose == '部落活动'}" @click="changeClubChoose('部落活动')">部落活动</li>     
@@ -79,12 +79,13 @@
                               <span class="messageTime">发表于{{clubdiary.clubdiarytime}}</span>
                           </div>
                       </div>
-                      <div class="messageDown">
+                      <div :class="{'messageDown': clubdiaryid == clubdiary.clubdiaryid, 'messageDownDrag': clubdiaryid != clubdiary.clubdiaryid}">
                         {{clubdiary.clubdiarycontent}}
                       </div>
+                      <span class="dragdown" @click="dragPassageDown(clubdiary.clubdiaryid)">点击下拉</span>
                   </div>
               </div>
-              <div class="messageBox">
+              <!-- <div class="messageBox">
                   <img class="messageImg" src="../../assets/images/bgc/climbmountain.jpg"/>
                   <div class="messageContent">
                       <div class="messageUp">
@@ -95,7 +96,7 @@
                               <span class="messageTime">发表于19:08</span>
                           </div>
                       </div>
-                      <div class="messageDown">
+                      <div :class="{'messageDown': passageDragDown == false, 'messageDownDrag': passageDragDown == true}">
                         出游小日记出游小日记出游小日记出游小日记出游小日记出
                           游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
                           出游小日记
@@ -114,6 +115,7 @@
                           游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
                           出游小日记
                       </div>
+                      <span class="dragdown" @click="dragPassageDown">点击下拉</span>
                   </div>
               </div>
               <div class="messageBox">
@@ -127,7 +129,7 @@
                               <span class="messageTime">发表于19:08</span>
                           </div>
                       </div>
-                      <div class="messageDown">
+                      <div :class="{'messageDown': passageDragDown == false, 'messageDownDrag': passageDragDown == true}">
                         出游小日记出游小日记出游小日记出游小日记出游小日记出
                           游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
                           出游小日记
@@ -146,9 +148,10 @@
                           游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
                           出游小日记
                       </div>
+                      <span class="dragdown" @click="dragPassageDown">点击下拉</span>
                   </div>
-              </div>
-          </div>
+              </div>-->
+          </div> 
           <div class="activityDiv" v-if="clubChoose == '部落活动'">
             <div 
                 class="activityBox"
@@ -175,9 +178,6 @@
             </div>
           </div>
       </div>
-      <!-- <div class="modalWrap" v-if="activityVisible == true">
-          <div class="modal">{{activityDetail}}</div>
-      </div> -->
   </div>
 </template>
 
@@ -194,7 +194,8 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
           clubDiary: [],
           clubActivity: [],
           activityVisible: true,
-          activityDetail: ''
+          activityDetail: '',
+          clubdiaryid: ''
       }
     },
     created () {
@@ -214,6 +215,9 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
           this.$alert(content, '活动详情', {
           confirmButtonText: '确定'
         });
+      },
+      dragPassageDown(clubdiaryid) {
+          this.clubdiaryid = clubdiaryid
       },
       getClub(clubid) {
          var params = new URLSearchParams() 
@@ -420,7 +424,7 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
     background: #fff;
     display: flex;
     flex-direction: row;
-    height: 12rem;
+    /* height: 12rem; */
 }
 .messageImg {
     width: 15rem;
@@ -428,7 +432,9 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
 }
 .messageContent {
     display: flex;
+    flex: 1;
     flex-direction: column;
+    position: relative;
 }
 .messageUp {
     display: flex;
@@ -468,7 +474,19 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
     text-overflow:ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 4;
+}
+.messageDownDrag {
+    color: gray;
+    overflow: hidden;
+    margin-left: 1rem;
+    line-height: 1.4rem;
+    font-size: 16px;
+    text-align: left;
+    text-overflow:ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /* -webkit-line-clamp: 5; */
 }
 .activityDiv {
     width: 98%;
@@ -618,5 +636,32 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
 {
   from { top: 85% }
   to { top: 100% }
+}
+.dragdown {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.clubText {  
+    width: 100%;
+    height: 17rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: clubTexthide .5s;
+    -moz-animation: clubTexthide .5s;	/* Firefox */
+    -webkit-animation: clubTexthide .5s;	/* Safari 和 Chrome */
+    -o-animation: clubTexthide .5s;	/* Opera */
+}
+.clubTextActive {  
+    width: 100%;
+    height: 17rem;
+    position: absolute;
+    left: 0;
+    top: -10%;
+    animation: clubTextshow .5s;
+    -moz-animation: clubTextshow .5s;	/* Firefox */
+    -webkit-animation: clubTextshow .5s;	/* Safari 和 Chrome */
+    -o-animation: clubTextshow .5s;	/* Opera */
 }
 </style>

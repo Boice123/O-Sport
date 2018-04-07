@@ -116,7 +116,8 @@ export default {
                     message: response.data.msg,
                     type: 'success'
                   });
-                  this.$router.push('/')
+                  this.$router.push('/shop')
+                  location.reload()
                 }
                 else if(response.data.code == 1) {
                   this.$message({

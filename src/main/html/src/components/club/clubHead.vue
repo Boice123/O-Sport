@@ -6,7 +6,7 @@
                 <img class="sousuoImg" src="../../assets/images/sousuo.svg"/>
             </div>
             <ul class="clubsearchResultUl">
-                <li class="clubsearchResultLi" v-for="(result, key) in searchResult">{{result.clubname}}</li>
+                <li class="clubsearchResultLi" v-for="(result, key) in searchResult" @click="setSearchKey(result.clubname)">{{result.clubname}}</li>
             </ul>
         </div>
       </div>
@@ -30,6 +30,11 @@ export default {
     methods: {
         show() {
             this.$router.push({name:'searchclubList',params: {searchKey: this.searchKey}});
+        },
+        setSearchKey(clubname) {
+            this.searchResult = []
+            this.searchKey = clubname
+            
         },
         getsearchLi() {
             if(this.searchKey == '') {

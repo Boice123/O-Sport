@@ -164,6 +164,38 @@ public class ClubdiaryController {
     }
 
     /**
+     * 获取部落全部动态
+     * @param start
+     * @param size
+     * @param order
+     * @param clubid
+     * @param clubdiary
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getAllClubDiary", method = RequestMethod.POST)
+    Result getAllClubDiary(
+            @RequestParam(value = "start") int start,
+            @RequestParam(value = "size") int size,
+            @RequestParam(value = "order") String order,
+            @RequestParam(value = "clubid") String clubid,
+            Clubdiary clubdiary,
+            HttpServletRequest request){
+        Result result = ResultUtil.initResult();
+        List<Clubdiary> clubDiaryList= clubdiaryService.listdesc(start, size, order, clubid);
+        if(clubDiaryList.size() != 0 ) {
+            result.setCode(0);
+            result.setData(clubDiaryList);
+            result.setMsg("获取部落全部动态成功");
+        }else {
+            result.setCode(1);
+            result.setMsg("部落没有动态数据");
+        }
+        return result;
+    }
+
+    /**
      * 获取参与的部落全部动态
      * @param userid
      * @param club
@@ -228,24 +260,6 @@ public class ClubdiaryController {
         }
         result.setCode(0);
         result.setMsg("删除成功");
-        return result;
-    }
-
-
-    /**
-     * 获得Trip列表,按日期或成交量排序
-     * @param size: 获取多少条数据
-     * @param request
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "/getTripList", method = RequestMethod.POST)
-    Result getTripList(@RequestParam(value="size") int size,
-                       @RequestParam(value="order") String order,
-                       HttpServletRequest request) {
-        Result result = ResultUtil.initResult();
-        List<Trip> tripList = tripService.listdesc(0, size, order);
-        ResultUtil.setSuccess(result, "获得Trip列表排序信息成功", tripList);
         return result;
     }
 

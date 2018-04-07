@@ -36,12 +36,9 @@ public class TriporderitemService {
         return result;
     }
 
-//    public Result getTriporderitemCount(String shopid) {
-//        Result result = ResultUtil.initResult();
-//        int count = Constant.FACADE.getTriporderitemDao().getCountByShopId(shopid);
-//        ResultUtil.setSuccess(result, "获取当前店铺Triporderitem数量成功", count);
-//        return result;
-//    }
+    public Triporderitem get(Triporderitem Triporderitem) {
+        return (Triporderitem) Constant.FACADE.getTriporderitemDao().select(Triporderitem);
+    }
 
     public Result deleteTriporderitemInfo(Triporderitem Triporderitem) {
         Result result = ResultUtil.initResult();
@@ -63,34 +60,5 @@ public class TriporderitemService {
         row.put("size", size);
         return Constant.FACADE.getTriporderitemDao().list(row);
     }
-
-    /**
-     * 取指定数目的数据
-     * @param page 要获得数据的页码
-     * @param size 每一页显示的最大记录数
-     * @return
-//     */
-//    public List<Triporderitem> listdesc(int page, int size, String order) {
-//        Row row = new Row();
-//        row.put("start", page);
-//        row.put("size", size);
-//        row.put("order",order);
-//        return Constant.FACADE.getTriporderitemDao().listdesc(row);
-//    }
-
-    /**
-     * 商店下 取指定数目的数据
-     * @param start 要获得数据开始记录数
-     * @param size 每一页显示的最大记录数
-     * @return
-     */
-//    public List<Triporderitem> listdesc(int start, int size, String shopid, String order) {
-//        Row row = new Row();
-//        row.put("start", start);
-//        row.put("size", size);
-//        row.put("shopid", shopid);
-//        row.put("order",order);
-//        return Constant.FACADE.getTriporderitemDao().listdesc(row);
-//    }
 
 }

@@ -60,7 +60,7 @@
           type="date"
           :picker-options="pickerBeginDateBefore"
           format="yyyy 年 MM 月 dd 日"
-          @value-format="yyyy-MM-dd"
+          value-format="yyyy-MM-dd"
           placeholder="选择日期">
         </el-date-picker>
       </el-form-item>

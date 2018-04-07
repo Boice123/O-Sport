@@ -16,7 +16,7 @@
             <input class="searchInput" type="text" v-model="searchKey"/>
             <button class="searchButton" @click="show">搜索</button>
             <ul class="searchResultUl">
-                <li class="searchResultLi" v-for="(result, key) in searchResult">{{result.tripname}}</li>
+                <li class="searchResultLi" v-for="(result, key) in searchResult" @click="setSearchKey(result.tripname)">{{result.tripname}}</li>
             </ul>
         </div>
      </div>
@@ -87,6 +87,11 @@ import { API_searchTripURL } from '../../constants/index.js'
         }
     },
     methods: {
+        setSearchKey(clubname) {
+            this.searchResult = []
+            this.searchKey = clubname
+            
+        },
         show() {
             let data = {
                 tripprovice: this.tripprovice,
@@ -110,7 +115,6 @@ import { API_searchTripURL } from '../../constants/index.js'
             }
             var params = new FormData()
             params.append('tripprovice',this.tripprovice)
-            console.log("this.tripprovice"+this.tripprovice)
             params.append('tripcity',this.tripcity)
             params.append('searchKey',this.searchKey)
             //根据地区和关键字找出Trip

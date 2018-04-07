@@ -32,7 +32,7 @@
 
 <script>
 import axios from 'axios'
-import { API_saveClubURL ,API_uploadFileURL} from '../../constants/index.js'
+import { API_saveClubURL ,API_uploadFileURL, API_getClubInfoURl} from '../../constants/index.js'
   export default {
     name: 'createclub',
     data() {
@@ -157,6 +157,22 @@ import { API_saveClubURL ,API_uploadFileURL} from '../../constants/index.js'
                     message: response.data.msg,
                     type: 'success'
                   });
+                  //查看该用户是否有自己管理的club
+                  var params = new URLSearchParams();
+                  params.append('clubowner',this.getCookie('user_userid'));
+                  axios({
+                      method:'post',
+                      url:API_getClubInfoURl,
+                      params
+                  })
+                  .then((res) => {
+                      console.log(res.data)
+                      if(res.data.code == 0) {
+                          this.setCookie('clubid', res.data.data.clubid, 2)
+                      }
+                  }).catch((err) => {
+                      console.log(err)
+                  })
                   this.$router.push('/club')
                 }
                 else if(response.data.code == 1) {

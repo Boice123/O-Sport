@@ -16,7 +16,7 @@
             <input class="searchInput" type="text" v-model="searchKey"/>
             <button class="searchButton" @click="show">搜索</button>
             <ul class="searchResultUl">
-                <li class="searchResultLi" v-for="(result, key) in searchResult">{{result.tripname}}</li>
+                <li class="searchResultLi" v-for="(result, key) in searchResult" @click="setSearchKey(result.tripname)">{{result.tripname}}</li>
             </ul>
         </div>
      </div>
@@ -87,6 +87,11 @@ import { API_searchTripURL } from '../../constants/index.js'
         }
     },
     methods: {
+        setSearchKey(clubname) {
+            this.searchResult = []
+            this.searchKey = clubname
+            
+        },
         show() {
             this.$router.push({name:'searchList',params: {tripprovice: this.tripprovice,tripcity: this.tripcity, searchKey: this.searchKey}});
         },

@@ -32,13 +32,18 @@ new Vue({
   components: { App },
   template: '<App/>',
   //拦截器
-  // watch: {
-  //   '$route': function(to) {
-  //     if(to.path != '/signup' && to.path !='/' && to.path != '/trip') {
-  //       if(this.$store.state.username == '') {
-  //         this.$router.push('/signin')
-  //       }
-  //     }
-  //   }
-  // }
+  watch: {
+    '$route': function(to, from) {
+      // if(to.fullPath == 'admin') {
+      //   if(this.getCookie('admin_shopid') == '') {
+      //     this.$router.push('/adminsignin')
+      //   }
+      // }
+      if(to.path != '/signup' && to.path !='/' && to.path != '/trip') {
+        if(this.$store.state.username == '') {
+          this.$router.push('/signin')
+        }
+      }
+    }
+  }
 })

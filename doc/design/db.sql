@@ -9,14 +9,12 @@
 
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE admin(
-    `id` INT NOT NULL AUTO_INCREMENT COMMENT '主键id',
-    `login_name` varchar(100) NOT NULL COMMENT '登录名称',
-    `true_name` varchar(100) NOT NULL COMMENT '真实名称',
-    `type` varchar(10) NOT NULL COMMENT '管理员标识,admin管理员，cashier收银员',
-    `password` varchar(100) NOT NULL COMMENT '用户密码',
-    `last_login_time` timestamp NOT NULL default CURRENT_TIMESTAMP COMMENT '最近登录时间',
-    `reg_time` timestamp NOT NULL default CURRENT_TIMESTAMP COMMENT '注册时间',
-primary key(`id`)
+    `adminid` varchar(100) NOT NULL COMMENT '管理员主键id',
+    `adminname` varchar(100) NOT NULL COMMENT '管理员姓名',
+    `adminpassword` varchar(100) NOT NULL COMMENT '管理员密码',
+    `adminregistertime` timestamp NOT NULL default NOW() COMMENT '注册时间',
+    `admintel` varchar(20) NOT NULL COMMENT '管理员手机',
+primary key(`adminid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='后台用户表';
 
 CREATE TABLE user(
@@ -38,8 +36,7 @@ CREATE TABLE shop(
     `shopstatus` INT NOT NULL default 1 COMMENT '商店状态',
     `shoppublishtime` timestamp NOT NULL default NOW() COMMENT '成立时间',
 	`userid` varchar(100) NOT NULL COMMENT '用户外键',
-	primary key(`shopid`),
-	FOREIGN KEY (userid) REFERENCES user ( userid )
+	primary key(`shopid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商店表';
 
 CREATE TABLE trip(
@@ -55,40 +52,27 @@ CREATE TABLE trip(
     `tripprovice` varchar(10) NOT NULL COMMENT '省',
     `tripcity` varchar(10) NOT NULL COMMENT '市',
     `shopid` varchar(100) NOT NULL COMMENT '商店外键',
-    primary key(`tripid`),
-    FOREIGN KEY (shopid) REFERENCES shop ( shopid )
+    primary key(`tripid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='出行团表';
 
 CREATE TABLE triptime(
     `triptimeid` varchar(100) NOT NULL COMMENT '出行团时间主键id',
-    `triptime` datetime NOT NULL COMMENT '出行团时间',
+    `triptime` varchar(100) NOT NULL COMMENT '出行团时间',
     `triptimemaxpeople` int NOT NULL COMMENT '出行团时间最大人数限制',
     `tripid` varchar(100) NOT NULL COMMENT '对应的出行团id',
-    primary key(`triptimeid`),
+    primary key(`triptimeid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='出行团时间表';
 
---CREATE TABLE train(
---    `trainid` varchar(100) NOT NULL COMMENT '户外培训主键id',
---    `trainname` varchar(100) NOT NULL COMMENT '户外培训名称',
---    `traindescription` varchar(100) NOT NULL COMMENT '户外培训描述',
---    `trainnotice` varchar(100) NOT NULL COMMENT '户外培训注意事项',
---    `trainprice` double NOT NULL COMMENT '户外培训价钱',
---    `maxpeople` INT NOT NULL COMMENT '户外培训最大人数限制',
---    `trainpublishtime` timestamp NOT NULL default NOW() COMMENT '发布时间',
---    `trainimg` varchar(100) NOT NULL COMMENT '户外培训图片',
---    `traintrading` INT NOT NULL default 0 COMMENT '户外培训成交量',
---    `shopid` varchar(100) NOT NULL COMMENT '商店外键',
---    primary key(`trainid`),
---    FOREIGN KEY (shopid) REFERENCES shop ( shopid )
---)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='户外培训表';
 
 CREATE TABLE triporder(
     `triporderid` varchar(100) NOT NULL COMMENT '出行团订单主键id',
     `triporderitemid` varchar(100) NOT NULL  COMMENT '出行团订单详情主键id',
     `tripordertotal` double NOT NULL COMMENT '出行团订单总计',
-    `triporderime` timestamp NOT NULL default NOW() COMMENT '下单时间',
+    `tripordertime` timestamp NOT NULL default NOW() COMMENT '下单时间',
     `userid` varchar(100) NOT NULL COMMENT '用户外键',
-    primary key(`triporderid`),
+    `triporderstatus` varchar(20) default '已报名' NOT NULL COMMENT '订单状态',
+    `username` varchar(100) NOT NULL COMMENT '用户名',
+    primary key(`triporderid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='出行团订单表';
 
 CREATE TABLE triporderitem(
@@ -96,7 +80,7 @@ CREATE TABLE triporderitem(
     `tripid` varchar(100) NOT NULL COMMENT '出行团主键id',
     `triptimeid` varchar(100) NOT NULL COMMENT '出行时间主键id',
     `people` INT NOT NULL COMMENT '购买人数',
-    primary key(`triporderitemid`),
+    primary key(`triporderitemid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='出行团订单详情表';
 
 CREATE TABLE club(

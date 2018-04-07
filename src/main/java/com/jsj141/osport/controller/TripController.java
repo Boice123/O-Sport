@@ -162,6 +162,133 @@ public class TripController {
     }
 
     /**
+     * 保存Trip信息
+     * @param tripname
+     * @param tripdescription
+     * @param tripnotice
+     * @param tripprice
+     * @param maxpeople
+     * @param tripimg
+     * @param trip
+     * @param bindingResult
+     * @param request
+     * @return
+     */
+
+    @ResponseBody
+    @RequestMapping(value = "/adminsave", method = RequestMethod.POST)
+    Result adminsave(@RequestParam(value="tripname") String tripname,
+                @RequestParam(value="tripdescription") String tripdescription,
+                @RequestParam(value="tripnotice") String tripnotice,
+                @RequestParam(value="tripprice") Double tripprice,
+                @RequestParam(value="maxpeople") Integer maxpeople,
+                @RequestParam(value="tripimg") String tripimg,
+                @RequestParam(value="tripprovice") String tripprovice,
+                @RequestParam(value="tripcity") String tripcity,
+                @RequestParam(value="triptime1") String triptime1,
+                @RequestParam(value="triptime2") String triptime2,
+                @RequestParam(value="triptime3") String triptime3,
+                @RequestParam(value="triptime4") String triptime4,
+                @RequestParam(value="triptime5") String triptime5,
+                @RequestParam(value="shopid") String shopid,
+                Trip trip,
+                Triptime triptimeEntity,
+                BindingResult bindingResult,
+                HttpServletRequest request) {
+        Result lastResult = ResultUtil.initResult();
+        Shop loginShop = (Shop) WebUtils.getSessionAttribute(request, "loginShop");
+        //将triptime为null全都设置成""
+        if(triptime1.equals("null")) {
+            triptime1 = "";
+        }
+        if(triptime2.equals("null")) {
+            triptime2 = "";
+        }
+        if(triptime3.equals("null")) {
+            triptime3 = "";
+        }
+        if(triptime4.equals("null")) {
+            triptime4 = "";
+        }
+        if(triptime5.equals("null")) {
+            triptime5 = "";
+        }
+        //检查是否有重复的
+        Set<String> set = new HashSet<String>();
+        int count =0;
+        if(!triptime1.equals("")) {
+            set.add(triptime1);
+            count += 1;
+        }
+        if(!triptime2.equals("")) {
+            set.add(triptime2);
+            count += 1;
+        }
+        if(!triptime3.equals("")) {
+            set.add(triptime3);
+            count += 1;
+        }
+        if(!triptime4.equals("")) {
+            set.add(triptime4);
+            count += 1;
+        }
+        if(!triptime5.equals("")) {
+            set.add(triptime5);
+            count += 1;
+        }
+        if(set.size() == count){
+            //保存trip
+            trip.setTripid(UUID.randomUUID().toString());
+            trip.setShopid(shopid);
+            trip.setMaxpeople(maxpeople);
+            trip.setTripdescription(tripdescription);
+            trip.setTripimg(tripimg);
+            trip.setTripnotice(tripnotice);
+            trip.setTripname(tripname);
+            trip.setTripprice(tripprice);
+            trip.setTripprovice(tripprovice);
+            trip.setTripcity(tripcity);
+            tripService.save(trip);
+            //保存triptime
+            triptimeEntity.setTriptimeid(UUID.randomUUID().toString());
+            triptimeEntity.setTriptime(triptime1);
+            triptimeEntity.setTripid(trip.getTripid());
+            triptimeEntity.setTriptimemaxpeople(maxpeople);
+            triptimeService.save(triptimeEntity);
+
+            triptimeEntity.setTriptimeid(UUID.randomUUID().toString());
+            triptimeEntity.setTriptime(triptime2);
+            triptimeEntity.setTripid(trip.getTripid());
+            triptimeEntity.setTriptimemaxpeople(maxpeople);
+            triptimeService.save(triptimeEntity);
+
+            triptimeEntity.setTriptimeid(UUID.randomUUID().toString());
+            triptimeEntity.setTriptime(triptime3);
+            triptimeEntity.setTripid(trip.getTripid());
+            triptimeEntity.setTriptimemaxpeople(maxpeople);
+            triptimeService.save(triptimeEntity);
+
+            triptimeEntity.setTriptimeid(UUID.randomUUID().toString());
+            triptimeEntity.setTriptime(triptime4);
+            triptimeEntity.setTripid(trip.getTripid());
+            triptimeEntity.setTriptimemaxpeople(maxpeople);
+            triptimeService.save(triptimeEntity);
+
+            triptimeEntity.setTriptimeid(UUID.randomUUID().toString());
+            triptimeEntity.setTriptime(triptime5);
+            triptimeEntity.setTripid(trip.getTripid());
+            triptimeEntity.setTriptimemaxpeople(maxpeople);
+            triptimeService.save(triptimeEntity);
+            lastResult.setCode(0);
+            lastResult.setMsg("添加成功");
+        }else{
+            lastResult.setCode(1);
+            lastResult.setMsg("请不要选择重复的出行时间");
+        }
+        return lastResult;
+    }
+
+    /**
      * 修改Trip信息
      * @param tripname
      * @param tripdescription
@@ -375,19 +502,58 @@ public class TripController {
 
 
     /**
-     * 获得Trip列表,按日期或成交量排序
+     * 获得Trip列表,商家入住的
      * @param size: 获取多少条数据
      * @param request
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "/getTripList", method = RequestMethod.POST)
-    Result getTripList(@RequestParam(value="size") int size,
+    @RequestMapping(value = "/getShopAllPagination", method = RequestMethod.POST)
+    Result getShopAllPagination(
+                       @RequestParam(value="start") int start,
+                       @RequestParam(value="size") int size,
+                       @RequestParam(value="shopid") String shopid,
                        @RequestParam(value="order") String order,
                        HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-        List<Trip> tripList = tripService.listdesc(0, size, order);
+        List<Trip> tripList = tripService.listdescn(start, size, shopid, order);
+        ResultUtil.setSuccess(result, "获得Shop Trip列表排序信息成功", tripList);
+        return result;
+    }
+
+    /**
+     *  根据热度或者更新时间获取Trip
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getTripList", method = RequestMethod.POST)
+    Result getTripList(
+            @RequestParam(value="start") int start,
+            @RequestParam(value="size") int size,
+            @RequestParam(value="order") String order,
+            HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        List<Trip> tripList = tripService.listdesc(start, size, order);
         ResultUtil.setSuccess(result, "获得Trip列表排序信息成功", tripList);
+        return result;
+    }
+
+    /**
+     * 获得Trip列表,本站发起的
+     * @param size: 获取多少条数据
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getWebTripPagination", method = RequestMethod.POST)
+    Result getWebTripPagination(
+            @RequestParam(value="start") int start,
+            @RequestParam(value="size") int size,
+            @RequestParam(value="shopid") String shopid,
+            @RequestParam(value="order") String order,
+            HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        List<Trip> tripList = tripService.listdesc(start, size, shopid, order);
+        ResultUtil.setSuccess(result, "获得Web Trip列表排序信息成功", tripList);
         return result;
     }
 

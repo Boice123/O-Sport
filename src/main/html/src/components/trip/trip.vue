@@ -10,7 +10,7 @@
                 <div class="tripBigImgboxWrap">
                     <img class="tripBigImg" src="../../assets/images/banner/banner_01.jpg"/>
                 </div>
-                <div class="tripSmallImgboxWrap">
+                <!-- <div class="tripSmallImgboxWrap">
                     <div class="tripSmallImgBox">
                         <img class="tripSmallImg" src="../../assets/images/banner/banner_01.jpg"/>
                     </div>
@@ -26,7 +26,7 @@
                     <div class="tripSmallImgBox">
                         <img class="tripSmallImg" src="../../assets/images/banner/banner_01.jpg"/>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="tripDetailRight">
                 <h2 class="tripTitle">{{trip.tripname}}</h2>
@@ -126,13 +126,22 @@ import axios from 'axios'
             if(response.data.code == 0) {
                 var dataArray = response.data.data.slice(0)
                 console.log(dataArray)
-                for(let i = 0; i< dataArray.length; i++) {
-                    if(dataArray[0].triptime === "") {
-                        dataArray.splice(0,1)
-                        console.log("oh")
+                for(let i = 0 ;i < dataArray.length; i++) {
+                    if(dataArray[i].triptime === "" ) {
+                        dataArray.splice(i,1)
+                        i = -1
+                        continue
+                    }
+                    var triptime = dataArray[i].triptime.split("-")
+                    var startTime = new Date(triptime[0],triptime[1] -1 ,triptime[2])
+                    var startTimes = startTime.getTime()
+                    var endTime = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDay()+ 1)
+                    var endTimes = endTime.getTime()
+                    if(startTimes <= endTimes) {
+                        dataArray.splice(i,1)
+                        i = -1
                     }
                 }
-                console.log("dataArray")
                 console.log(dataArray)
                 this.triptime = dataArray
                 this.form.chooseTriptime = dataArray[0].triptime

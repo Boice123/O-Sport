@@ -5,14 +5,19 @@
 
     <sql id="dynamicWhere">
         <where>
-            <if test="_parameter.containsKey('ids') and ids != null and ids != ''">
-                and id in (${ids})
+            <if test="_parameter.containsKey('adminids') and adminids != null and adminids != ''">
+                and adminid in (${adminids})
             </if>
         </where>
     </sql>
 
     <select id="select" resultType="com.jsj141.osport.domain.Admin">
-        select * from admin where id=#{id}
+        select * from admin where adminid=#{adminid}
+    </select>
+
+
+    <select id="selectByTel" resultType="com.jsj141.osport.domain.Admin">
+        select * from admin where admintel=#{admintel}
     </select>
 
     <select id="count" resultType="int">
@@ -30,22 +35,31 @@
     </select>
 
     <insert id="insert" parameterType="com.jsj141.osport.domain.Admin">
-        insert into admin (loginName)
-        values (#{loginName})
+        insert into admin (adminid,adminname,adminpassword,adminregistertime,admintel)
+        values (#{adminid},#{adminname},#{adminpassword},#{adminregistertime},#{admintel})
     </insert>
 
     <update id="update" parameterType="com.jsj141.osport.domain.Admin">
         update admin 
         <set>
-            <if test="loginName != null">
-                loginName=#{loginName},
+            <if test="adminname != null">
+                adminname=#{adminname},
+            </if>
+            <if test="adminpassword != null">
+                adminpassword=#{adminpassword},
+            </if>
+            <if test="adminregistertime != null">
+                adminregistertime=#{adminregistertime},
+            </if>
+            <if test="admintel != null">
+                admintel=#{admintel},
             </if>
         </set>
-        where id=#{id}
+        where adminid=#{adminid}
     </update>
 
     <update id="delete">
-        delete from admin where id=#{id}
+        delete from admin where adminid=#{adminid}
     </update>
 
 </mapper>

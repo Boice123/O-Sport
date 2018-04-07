@@ -6,7 +6,7 @@
         v-for="(search, key) in searchList"
         @mouseover="changeSearchCover(search.clubid)" 
         @mouseout="changeSearchCover('')"
-        @click="gotoTripPage(search.clubid)"
+        @click="gotoClubPage(search.clubid)"
     >
         <img 
             :class="{'searchImg': searchCover != search.clubid,'searchImgActive': searchCover == search.clubid}"
@@ -100,7 +100,10 @@ export default {
         }).catch((err) => {
             console.log(err)
         })
-        }
+      },
+      gotoClubPage(clubid) {
+          this.$router.push({name: 'clubMainPage', params: {clubid}})
+      }
     },
     components: {
       ClubHeadForSearchList

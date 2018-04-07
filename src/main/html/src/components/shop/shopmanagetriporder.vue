@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import { API_getShopManageOrderPaginationURl, API_shopUpdateOrderStatusURl} from '../../constants/index.js'
+import { API_getShopManageOrderPaginationURl, API_shopUpdateOrderStatusURl, API_getShopTripOrderCountURl} from '../../constants/index.js'
 import axios from 'axios'
 export default {
     name: 'shopmanagetriporder',
@@ -80,6 +80,7 @@ export default {
     },
     created() {
       this.getShopManageTripOrder()
+      this.getShopTripOrderCount()
     },
     methods: {
       //获得订单信息
@@ -98,7 +99,6 @@ export default {
             console.log(response.data)
             if(response.data.code == 0) {
               this.tableData = response.data.data
-              this.shopTripOrderCount = response.data.data.length
             }else if(response.data.code == 1) {
                 this.$message({
                     message: response.data.msg,
@@ -111,7 +111,32 @@ export default {
             console.log(err)
         })
       },
-      
+      getShopTripOrderCount() {
+        var params = new URLSearchParams();
+        params.append('shopid',this.getCookie('shop_id'))
+        params.append('start',this.currentPage)
+        params.append('size',this.pageSize)
+        axios({
+            method:'post',
+            url:API_getShopTripOrderCountURl,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+              this.shopTripOrderCount = response.data.data
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('获取户外出团订单信息失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
       getShopManageTripOrderUser () {
         console.log("shopid为："+this.getCookie('shop_id'))
         
@@ -150,7 +175,7 @@ export default {
       },
       handleCurrentChange(val) {
         this.currentPage = val
-        this.getShopManageTrip()
+        this.getShopManageTripOrder()
         console.log(`当前页: ${this.currentPage}`);
       }
     }

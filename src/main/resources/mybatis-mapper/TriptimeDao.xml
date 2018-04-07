@@ -50,9 +50,6 @@
             <if test="triptimemaxpeople != null">
                 triptimemaxpeople=#{triptimemaxpeople},
             </if>
-            <if test="triptimestatus != null">
-                triptimestatus=#{triptimestatus},
-            </if>
         </set>
         where triptimeid=#{triptimeid}
     </update>

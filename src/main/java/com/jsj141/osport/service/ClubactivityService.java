@@ -47,10 +47,18 @@ public class ClubactivityService {
 
     public List<Clubactivity> listdesc(int page, int size, String order, String clubid) {
         Row row = new Row();
-        row.put("start", page);
-        row.put("size", size);
-        row.put("order",order);
-        row.put("clubid",clubid);
+        if(page !=-1){
+            row.put("start", page);
+        }
+        if(size != -1) {
+            row.put("size", size);
+        }
+        if(!order.equals("")) {
+            row.put("order",order);
+        }
+        if(!clubid.equals("")) {
+            row.put("clubid",clubid);
+        }
         return Constant.FACADE.getClubactivityDao().listdesc(row);
     }
 

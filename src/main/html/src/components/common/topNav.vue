@@ -9,9 +9,9 @@
             <li :class="{'topNavLi': showli != 3,'topNavLiActive': showli == 3}" @mouseover="changeShowLi(3)" @mouseout="changeShowLi(0)" @click="gotoMyClub">我的部落</li>
           </ul>
         </div>
-        <div :class="{'topNavSections':showul != 2,'topNavSectionsActive': showul == 2}" @mouseover="changeShowUl(2)" @mouseout="changeShowUl(0)">报团出行</div>
-        <div :class="{'topNavSections':showul != 3,'topNavSectionsActive': showul == 3}" @mouseover="changeShowUl(3)" @mouseout="changeShowUl(0)">我的店铺</div>
-        <div :class="{'topNavSections':showul != 4,'topNavSectionsActive': showul == 4}" @mouseover="changeShowUl(4)" @mouseout="changeShowUl(0)">知识课堂</div>
+        <div :class="{'topNavSections':showul != 2,'topNavSectionsActive': showul == 2}" @mouseover="changeShowUl(2)" @mouseout="changeShowUl(0)" @click="gotoSearchList">报团出行</div>
+        <div :class="{'topNavSections':showul != 3,'topNavSectionsActive': showul == 3}" @mouseover="changeShowUl(3)" @mouseout="changeShowUl(0)" @click="gotoMyShop">我的店铺</div>
+        <!-- <div :class="{'topNavSections':showul != 4,'topNavSectionsActive': showul == 4}" @mouseover="changeShowUl(4)" @mouseout="changeShowUl(0)">知识课堂</div> -->
       </div>
       <div class="topNavRight"></div>
   </div>
@@ -37,6 +37,16 @@ import { API_getClubInfoURl, API_getClubUserItemURl } from '../../constants/inde
       },
       gotoClub() {
         this.$router.push('/club')
+      },
+      gotoSearchList() {
+        this.$router.push({name: 'searchList', params: {
+          tripprovice: '',
+          tripcity: '',
+          searchKey: ''
+        }})
+      },
+      gotoMyShop() {
+        this.$router.push('/shop')
       },
       createClub() {
        //判断当前用户是否已经创建过部落

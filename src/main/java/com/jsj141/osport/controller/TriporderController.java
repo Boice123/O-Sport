@@ -101,8 +101,100 @@ public class TriporderController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
-    Result update(@RequestParam(value="tripname") String tripname,
+    @RequestMapping(value = "/cancel", method = RequestMethod.POST)
+    Result cancel(@RequestParam(value="triporderid") String triporderid,
+                Triporderitem triporderitem,
+                Triporder triporder,
+                Triptime triptime,
+                BindingResult bindingResult,
+                HttpServletRequest request) {
+                Result lastResult = ResultUtil.initResult();
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date now = new Date();
+            triporder.setTriporderid(triporderid);
+            Triporder order = triporderService.get(triporder);
+            triporderitem.setTriporderitemid(order.getTriporderitemid());
+            Triporderitem getTriporderitem = triporderitemService.get(triporderitem);
+            triptime.setTriptimeid(getTriporderitem.getTriptimeid());
+            Triptime tripArrange = triptimeService.get(triptime);
+            if(tripArrange == null) {
+                lastResult.setCode(1);
+                lastResult.setMsg("对应的出行时间不存在");
+            }
+            System.out.println(sdf.parse(tripArrange.getTriptime()).getTime());
+            System.out.println(sdf.parse(sdf.format(now)).getTime());
+            System.out.println(sdf.parse(tripArrange.getTriptime()).getTime() - sdf.parse(sdf.format(now)).getTime());
+            System.out.println(tripArrange.getTriptime());
+            System.out.println(sdf.format(now));
+            if((sdf.parse(tripArrange.getTriptime()).getTime() - sdf.parse(sdf.format(now)).getTime() >= 1000 * 60 * 60 * 24)) {
+                //更改订单表
+                triporder.setTriporderstatus("已取消");
+                triporderService.update(triporder);
+                //删除订单项
+//                triporderitemService.deleteTriporderitemInfo(triporderitem);
+                //恢复Trip可用人数
+                triptime.setTriptimemaxpeople(tripArrange.getTriptimemaxpeople() + getTriporderitem.getPeople());
+                triptimeService.update(triptime);
+                lastResult.setCode(0);
+                lastResult.setMsg("取消订单成功");
+
+            }else if((sdf.parse(tripArrange.getTriptime()).getTime() - sdf.parse(sdf.format(now)).getTime()) < 0) {
+                lastResult.setCode(1);
+                lastResult.setMsg("订单信息已过期");
+            }else{
+                lastResult.setCode(1);
+                lastResult.setMsg("取消订单时间距离出团时间不足一天，取消订单失败");
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return lastResult;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/sure", method = RequestMethod.POST)
+    Result sure(@RequestParam(value="triporderid") String triporderid,
+                Triporderitem triporderitem,
+                Triporder triporder,
+                Triptime triptime,
+                  BindingResult bindingResult,
+                  HttpServletRequest request) {
+        Result lastResult = ResultUtil.initResult();
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date now = new Date();
+            triporder.setTriporderid(triporderid);
+            Triporder order = triporderService.get(triporder);
+            triporderitem.setTriporderitemid(order.getTriporderitemid());
+            Triporderitem getTriporderitem = triporderitemService.get(triporderitem);
+            triptime.setTriptimeid(getTriporderitem.getTriptimeid());
+            Triptime tripArrange = triptimeService.get(triptime);
+            if (tripArrange == null) {
+                lastResult.setCode(1);
+                lastResult.setMsg("对应的出行时间不存在");
+            }
+            if((sdf.parse(tripArrange.getTriptime()).getTime() - sdf.parse(sdf.format(now)).getTime() >= 0)) {
+                triporder.setTriporderid(triporderid);
+                triporder.setTriporderstatus("已确认");
+                triporderService.update(triporder);
+                lastResult.setCode(0);
+                lastResult.setMsg("确认订单成功");
+            }else {
+                lastResult.setCode(1);
+                lastResult.setMsg("还没到出团时间，确认订单失败");
+            }
+
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+        return lastResult;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/updateStatus", method = RequestMethod.POST)
+    Result update(@RequestParam(value="triporderstatus") String tripname,
                 BindingResult bindingResult,
                 HttpServletRequest request) {
                 Result lastResult = ResultUtil.initResult();
@@ -113,118 +205,50 @@ public class TriporderController {
         return lastResult;
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/shopTripOrderCount", method = RequestMethod.POST)
+    Result shopTripOrderCount(
+        @RequestParam(value="shopid") String shopid,
+        HttpServletRequest request) {
+            Result lastResult = ResultUtil.initResult();
+            int count = triporderService.shopTripOrderCount(shopid);
+            lastResult.setCode(0);
+            lastResult.setData(count);
+            lastResult.setMsg("获取订单总数成功");
+            return lastResult;
+    }
 
-    /**
-//     * 获取Triporder信息
-//     * @param tripid
-//     * @param trip
-//     * @param request
-//     * @return
-//     */
-//    @ResponseBody
-//    @RequestMapping(value = "/get", method = RequestMethod.POST)
-//    Result getTripInfo(String tripid, Trip trip, HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//        trip.setTripid(tripid);
-//        result = triporderService.getTripInfo(trip);
-//        return result;
-//    }
+    @ResponseBody
+    @RequestMapping(value = "/getWebAllPagination", method = RequestMethod.POST)
+    Result getWebAllPagination(
+            @RequestParam(value="start") int start,
+            @RequestParam(value="size") int size,
+            @RequestParam(value="order") String order,
+            @RequestParam(value="shopid") String shopid,
+            HttpServletRequest request) {
+        Result lastResult = ResultUtil.initResult();
+        List<Triporder> orderList = triporderService.listdesc(start, size, shopid, order);
+        lastResult.setCode(0);
+        lastResult.setData(orderList);
+        lastResult.setMsg("获取Web所有出行订单成功");
+        return lastResult;
+    }
 
-    /**
-     * 根据shopid，获取当前店铺的Trip数量信息
-     * @param shopid
-     * @param trip
-     * @param request
-     * @return
-     */
-//    @ResponseBody
-//    @RequestMapping(value = "/getCount", method = RequestMethod.POST)
-//    Result getCount(String shopid, Trip trip, HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//        result = triporderService.getTripCount(shopid);
-//        return result;
-//    }
-
-    /**
-     * 删除Trip信息
-     * @param tripid
-     * @param trip
-     * @param request
-     * @return
-//     */
-//    @ResponseBody
-//    @RequestMapping(value = "/delete", method = RequestMethod.POST)
-//    Result deleteTripInfo(String tripid, Trip trip, Triptime triptime, HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//        Result result1 = ResultUtil.initResult();
-//        Result result2 = ResultUtil.initResult();
-//        trip.setTripid(tripid);
-//        result1 = triporderService.deleteTripInfo(trip);
-//        triptime.setTripid(tripid);
-//        result2 = triporderService.deleteTriptimeInfo(triptime);
-//        if(result1.getCode() == 0 && result2.getCode() == 0) {
-//            result.setCode(0);
-//            result.setMsg("删除成功");
-//        } else {
-//            result.setCode(1);
-//            result.setMsg("删除失败");
-//        }
-//        return result;
-//    }
-
-    /**
-     * 批量删除Trip信息
-     * @param batchdelete
-     * @param trip
-     * @param request
-//     * @return
-//     */
-//    @ResponseBody
-//    @RequestMapping(value = "/batchdelete", method = RequestMethod.POST)
-//    Result batchdeleteTripInfo(@RequestParam(value="batchdelete") String[] batchdelete,
-//                                Trip trip,
-//                                Triptime triptime,
-//                                HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//        for(int i = 0;i< batchdelete.length; i++){
-//            String tripid = batchdelete[i];
-//            trip.setTripid(tripid);
-//            triptime.setTripid(tripid);
-//            tripService.deleteTripInfo(trip);
-//            triptimeService.deleteTriptimeInfo(triptime);
-//        }
-//        result.setCode(0);
-//        result.setMsg("删除成功");
-//        return result;
-//    }
+    @ResponseBody
+    @RequestMapping(value = "/getShopAllPagination", method = RequestMethod.POST)
+    Result getShopAllPagination(
+            @RequestParam(value="start") int start,
+            @RequestParam(value="size") int size,
+            @RequestParam(value="order") String order,
+            @RequestParam(value="shopid") String shopid,
+            HttpServletRequest request) {
+        Result lastResult = ResultUtil.initResult();
+        List<Triporder> orderList = triporderService.listdescn(start, size, shopid, order);
+        lastResult.setCode(0);
+        lastResult.setData(orderList);
+        lastResult.setMsg("获取Shop所有出行订单成功");
+        return lastResult;
+    }
 
 
-    /**
-     * 获得Trip列表,按日期或成交量排序
-     * @param size: 获取多少条数据
-     * @param request
-     * @return
-     */
-//    @ResponseBody
-//    @RequestMapping(value = "/getTripList", method = RequestMethod.POST)
-//    Result getTripList(@RequestParam(value="size") int size,
-//                       @RequestParam(value="order") String order,
-//                       HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//        List<Trip> tripList = tripService.listdesc(0, size, order);
-//        ResultUtil.setSuccess(result, "获得Trip列表排序信息成功", tripList);
-//        return result;
-//    }
-//
-//    public String format(String time) {
-//        try {
-//            SimpleDateFormat sf = new SimpleDateFormat("EEE MMM dd hh:mm:ss z yyyy", Locale.ENGLISH);
-//            Date date = sf.parse(time);
-//            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-//            return df.format(date);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return "";
-//    }
 }

@@ -18,6 +18,7 @@
         <el-input class="yzmInput" type="text" v-model="form.checkcode"></el-input>
         <img id="checkImg" class="checkImage" src=API_checkImgURL @click="changeYZM" title="点击更换验证码">
       </el-form-item>
+       <a class="gotosign" type="primary" @click="gotoSignin">已有账号，前往登录</a>
       <el-form-item>
         <el-button type="primary" @click="submitForm('form')">注册</el-button>
       </el-form-item>
@@ -97,6 +98,9 @@ import axios from 'axios'
       img1.src=API_checkImgURL+"?"+new Date().getTime();
     },
     methods: {
+      gotoSignin() {
+        this.$router.push('/signin')
+      },
       //更换验证码
       changeYZM() {
         var img1 = document.getElementById("checkImg");
@@ -206,5 +210,12 @@ import axios from 'axios'
   position: absolute;
   right:0;
   top: 0;
+}
+.gotosign {
+  display: block;
+  color: #fff;
+  font-size: 0.4rem;
+  margin-left: 13rem;
+  padding-bottom: 1rem;
 }
 </style>

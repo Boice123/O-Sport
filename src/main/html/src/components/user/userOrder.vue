@@ -7,10 +7,29 @@
                 style="width: 100%"
                 tooltip-effect="dark"
             >
+                    <el-table-column type="expand">
+                        <template slot-scope="props">
+                            <el-form label-position="left" inline class="demo-table-expand" >
+                            <el-form-item label="出团名称">
+                                <span>{{ props.row.trip.tripname }}</span>
+                            </el-form-item>
+                            <el-form-item label="出团单价">
+                                <span>{{ props.row.trip.tripprice }}</span>
+                            </el-form-item>
+                            <el-form-item label="出团时间">
+                                <span>{{ props.row.triptime.triptime  }}</span>
+                            </el-form-item>
+                            <el-form-item label="参与人数">
+                                <span>{{ props.row.triporderitem.people  }}</span>
+                            </el-form-item>
+                            </el-form>
+                        </template>
+                    </el-table-column>
                 <el-table-column
                 type="selection"
                 width="55">
                 </el-table-column>
+                
                 <el-table-column
                 prop="triporderid"
                 label="订单号"
@@ -32,6 +51,17 @@
                 label="订单状态"
                 width="80">
                 </el-table-column>
+                <el-table-column label="操作" prop="tripid">
+                    <template slot-scope="scope">
+                        <el-button
+                        size="mini"
+                        @click="cancel(triporder[scope.$index].triporderid, triporder[scope.$index].triporderstatus)">取消订单</el-button>
+                        <el-button
+                        size="mini"
+                        type="danger"
+                        @click="sure(triporder[scope.$index].triporderid, triporder[scope.$index].triporderstatus)">确认订单</el-button>
+                    </template>
+                </el-table-column>
             </el-table>
             <!-- <div class="block">
                 <el-pagination
@@ -49,7 +79,7 @@
 </template>
 
 <script>
-import {API_getUserTripOrderURl} from '../../constants/index.js'
+import {API_getUserTripOrderURl, API_gettriporderitemURl, API_cancelOrderURl, API_sureOrderURl} from '../../constants/index.js'
 import axios from 'axios'
   export default {
     name: 'checkOrder',
@@ -59,9 +89,19 @@ import axios from 'axios'
               triporderid: '',
               tripordertotal: '',
               tripordertime: '',
-              triporderstatus: 1,            
+              triporderstatus: '已下单',  
+            //   tripname: '',
+              trip: {
+                  tripname: '',
+                  tripprice: ''
+              },
+              triptime: {
+                  triptime: ''
+              },
+              triporderitem: {
+                  people: ''
+              }   
           }],
-          triporderitem:[]
       }
     },
     created() {
@@ -74,6 +114,7 @@ import axios from 'axios'
             console.log(response.data)
             if(response.data.code == 0) {
                 this.triporder = response.data.data
+                // this.triporder.trip = response.data.data.trip
             }else if(response.data.code == 1) {
                 this.$message({
                     message: response.data.msg,
@@ -84,36 +125,104 @@ import axios from 'axios'
             }        
         }).catch((err) => {
             console.log(err)
-        })      
+        })  
+        
     },
     methods: {
-        getOrderItem(triporderitemid) {
+        gotoIndex() {
+            this.$router.push('/')
+        },
+        cancel(triporderid, triporderstatus) {
+            if(triporderstatus === '已取消') {
+                this.$message({
+                        message: "您已取消订单了，请不要重复操作",
+                        type: 'warning'
+                });
+                return
+            }
+            if(triporderstatus === '已确认') {
+                this.$message({
+                        message: "您已确认订单了，不可取消",
+                        type: 'warning'
+                });
+                return
+            }
+
             var params = new URLSearchParams();
-            params.append('triporderitemid',triporderitemid) 
-            //获取triporderitem信息
+            params.append('triporderid', triporderid);
+            //取消订单信息
             axios({
                 method:'post',
-                url:API_getTripOrderItemURl,
+                url:API_cancelOrderURl,
                 params
             })
             .then((response) => {
                 console.log(response.data)
                 if(response.data.code == 0) {
-                    this.triporderitem = response.data.data
+                    this.$message({
+                        message: response.data.msg,
+                        type: 'success'
+                    }); 
+                    setTimeout(() => {
+                        location.reload()
+                    },2000)
+                    
                 }else if(response.data.code == 1) {
                     this.$message({
                         message: response.data.msg,
                         type: 'warning'
                     }); 
                 }else {
-                    this.$message.error('获取订单信息失败，请稍后重试');
+                    this.$message.error('取消订单失败，请稍后重试');
                 }        
             }).catch((err) => {
                 console.log(err)
-            })      
+            })  
         },
-        gotoIndex() {
-            this.$router.push('/')
+        sure(triporderid, triporderstatus) {
+            if(triporderstatus === '已取消') {
+                this.$message({
+                        message: "您已经取消订单，操作无效",
+                        type: 'warning'
+                });
+                return
+            }
+            if(triporderstatus === '已确认') {
+                this.$message({
+                        message: "您已确认订单了，请不要重复操作",
+                        type: 'warning'
+                });
+                return
+            }
+            var params = new URLSearchParams();
+            params.append('triporderid', triporderid);
+            //取消订单信息
+            axios({
+                method:'post',
+                url:API_sureOrderURl,
+                params
+            })
+            .then((response) => {
+                console.log(response.data)
+                if(response.data.code == 0) {
+                    this.$message({
+                        message: response.data.msg,
+                        type: 'success'
+                    }); 
+                    setTimeout(() => {
+                        location.reload()
+                    },2000)
+                }else if(response.data.code == 1) {
+                    this.$message({
+                        message: response.data.msg,
+                        type: 'warning'
+                    }); 
+                }else {
+                    this.$message.error('取消订单失败，请稍后重试');
+                }        
+            }).catch((err) => {
+                console.log(err)
+            })  
         }
     }
   }

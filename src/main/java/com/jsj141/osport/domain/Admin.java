@@ -11,24 +11,54 @@ import java.io.Serializable;
  */
 public class Admin implements Serializable {
 
-    private int id;
+    private String adminid;
 
-    private String loginName;
+    private String adminname;
 
-    public int getId() {
-        return id;
+    private String adminpassword;
+
+    private String adminregistertime;
+
+    private String admintel;
+
+    public String getAdminid() {
+        return adminid;
     }
 
-    public void setId(int id){
-        this.id = id;
+    public void setAdminid(String adminid){
+        this.adminid = adminid;
     }
 
-    public String getLoginName() {
-        return loginName;
+    public String getAdminname() {
+        return adminname;
     }
 
-    public void setLoginName(String loginName){
-        this.loginName = loginName;
+    public void setAdminname(String adminname){
+        this.adminname = adminname;
+    }
+
+    public String getAdminpassword() {
+        return adminpassword;
+    }
+
+    public void setAdminpassword(String adminpassword){
+        this.adminpassword = adminpassword;
+    }
+
+    public String getAdminregistertime() {
+        return adminregistertime;
+    }
+
+    public void setAdminregistertime(String adminregistertime){
+        this.adminregistertime = adminregistertime;
+    }
+
+    public String getAdmintel() {
+        return admintel;
+    }
+
+    public void setAdmintel(String admintel){
+        this.admintel = admintel;
     }
 
     @Override

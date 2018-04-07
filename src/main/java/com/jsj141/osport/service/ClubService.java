@@ -25,10 +25,10 @@ public class ClubService {
         return result;
     }
 
-    public Result update(Shop shop) {
+    public Result update(Club club) {
         Result result = ResultUtil.initResult();
-        Constant.FACADE.getClubDao().update(shop);
-        ResultUtil.setSuccess(result, "修改店铺信息成功", shop);
+        Constant.FACADE.getClubDao().update(club);
+        ResultUtil.setSuccess(result, "修改club信息成功", club);
         return result;
     }
 

@@ -1,6 +1,8 @@
 package com.jsj141.osport.service;
 
+import com.iw86.base.Row;
 import com.jsj141.osport.config.Constant;
+import com.jsj141.osport.domain.Club;
 import com.jsj141.osport.util.Result;
 import com.jsj141.osport.util.ResultUtil;
 import org.slf4j.Logger;
@@ -29,6 +31,10 @@ public class ShopService {
         Constant.FACADE.getShopDao().update(shop);
         ResultUtil.setSuccess(result, "修改店铺信息成功", shop);
         return result;
+    }
+
+    public List<Shop> getAllShop() {
+        return (List<Shop>)Constant.FACADE.getShopDao().getAllShop();
     }
 
     public Result getShopInfo(String shopid) {
@@ -87,17 +93,11 @@ public class ShopService {
         return result;
     }
 
-//    public Result getManageTrain(String shopid) {
-//        Result result = ResultUtil.initResult();
-//        List<Train> trainList = Constant.FACADE.getTrainDao().selectTrainByShopId(shopid);
-//        if(trainList == null) {
-//            result.setCode(1);
-//            result.setMsg("小店还没有组织户外培训活动呢！");
-//        }else {
-//            result.setCode(0);
-//            result.setData(trainList);
-//            result.setMsg("获取店铺户外培训列表成功");
-//        }
-//        return result;
-//    }
+    public List<Shop> listdesc(int page, int size, String order) {
+        Row row = new Row();
+        row.put("start", page);
+        row.put("size", size);
+        row.put("order",order);
+        return Constant.FACADE.getShopDao().listdesc(row);
+    }
 }

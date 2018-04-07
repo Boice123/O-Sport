@@ -23,7 +23,37 @@ public class Triporder implements Serializable {
 
     private String username;
 
-    private int triporderstatus;
+    private String triporderstatus;
+
+    private Triptime triptime;
+
+    private Trip trip;
+
+    private Triporderitem triporderitem;
+
+    public Trip getTrip() {
+        return trip;
+    }
+
+    public void setTrip(Trip trip){
+        this.trip = trip;
+    }
+
+    public Triptime getTriptime() {
+        return triptime;
+    }
+
+    public void setTriptime(Triptime triptime){
+        this.triptime = triptime;
+    }
+
+    public Triporderitem getTriporderitem() {
+        return triporderitem;
+    }
+
+    public void setTriporderitem(Triporderitem triporderitem){
+        this.triporderitem = triporderitem;
+    }
 
     public String getTriporderid() {
         return triporderid;
@@ -77,11 +107,11 @@ public class Triporder implements Serializable {
         this.tripordertime = tripordertime;
     }
 
-    public int getTriporderstatus() {
+    public String getTriporderstatus() {
         return triporderstatus;
     }
 
-    public void setTriporderstatus(int triporderstatus) {
+    public void setTriporderstatus(String triporderstatus) {
         this.triporderstatus = triporderstatus;
     }
 

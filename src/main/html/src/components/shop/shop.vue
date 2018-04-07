@@ -3,9 +3,9 @@
         <div class="shopTopNav">
             O-Sport店铺中心 
             <ul class="shopTopNavUl">
-                <router-link to="shopinfo"><li class="shopTopNavLi">店铺首页</li></router-link>
+                <!-- <router-link to="shopinfo"><li class="shopTopNavLi">店铺首页</li></router-link>
                 <router-link to="shopinfo"><li class="shopTopNavLi">设置</li></router-link>
-                <router-link to="shopinfo"><li class="shopTopNavLi">更多</li></router-link>
+                <router-link to="shopinfo"><li class="shopTopNavLi">更多</li></router-link> -->
             </ul>
         </div>
         <div class="shopContent">

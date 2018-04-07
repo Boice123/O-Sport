@@ -8,6 +8,7 @@
       <el-form-item label="密码" prop="password">
         <el-input type="password" v-model="form.password"></el-input>
       </el-form-item>
+      <a class="gotosign" type="primary" @click="gotoSignup">没有账号，去注册</a>
       <el-form-item>
         <el-button type="primary" @click="submitForm('form')">登录</el-button>
       </el-form-item>
@@ -56,6 +57,9 @@ import axios from 'axios'
       }
     },
     methods: {
+      gotoSignup() {
+        this.$router.push('/signup')
+      },
       submitForm(formName) {
          //信息加入param
         var params = new URLSearchParams();
@@ -153,5 +157,12 @@ import axios from 'axios'
   width: 20rem;
   background: #000;
   opacity: 0.9;
+}
+.gotosign {
+  display: block;
+  color: #fff;
+  font-size: 0.4rem;
+  margin-left: 13rem;
+  padding-bottom: 1rem;
 }
 </style>

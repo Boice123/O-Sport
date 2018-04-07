@@ -72,7 +72,7 @@ public class TripService {
     }
 
     /**
-     * 取指定数目的数据
+     * 取全部Trip指定数目的数据
      * @param page 要获得数据的页码
      * @param size 每一页显示的最大记录数
      * @return
@@ -98,6 +98,29 @@ public class TripService {
         row.put("shopid", shopid);
         row.put("order",order);
         return Constant.FACADE.getTripDao().listdesc(row);
+    }
+
+    /**
+     * 商店下 取指定数目的数据
+     * @param start 要获得数据开始记录数
+     * @param size 每一页显示的最大记录数
+     * @return
+     */
+    public List<Trip> listdescn(int start, int size, String shopid, String order) {
+        Row row = new Row();
+        if(start != -1) {
+            row.put("start", start);
+        }
+        if(size != -1) {
+            row.put("size", size);
+        }
+        if(!shopid.equals("")) {
+            row.put("shopid", shopid);
+        }
+        if(!order.equals("")) {
+            row.put("order",order);
+        }
+        return Constant.FACADE.getTripDao().listdescn(row);
     }
 
     /**

@@ -6,7 +6,7 @@
         <el-input v-model="form.clubdiarytitle"></el-input>
       </el-form-item>
       <el-form-item label="内容" prop="clubdiarycontent">
-        <el-input v-model="form.clubdiarycontent"></el-input>
+        <el-input v-model="form.clubdiarycontent" type="textarea"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('form')">提交</el-button>

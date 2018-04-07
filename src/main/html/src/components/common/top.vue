@@ -60,10 +60,6 @@ import axios from 'axios'
               .then((response) => {
                 console.log(response.data)
                 if(response.data.code == 0) {
-                  // this.$message({
-                  //   message: response.data.msg,
-                  //   type: 'success'
-                  // }); 
                   //查看该用户是否开店
                   axios({
                       method:'post',

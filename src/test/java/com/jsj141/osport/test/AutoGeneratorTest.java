@@ -17,7 +17,7 @@ public class AutoGeneratorTest {
     public void testGenerate() throws Exception {
         DataSource ds = (DataSource) Constant.BF.getBean("dataSource");
         AutoGenerator auto = new AutoGenerator(ds);
-
+//        auto.create("admin", "admin", "com.jsj141.osport", "resources/mybatis-mapper");
 //        auto.create("User", "user", "com.jsj141.osport", "resources/mybatis-mapper");
 //        auto.create("triptime", "triptime", "com.jsj141.osport", "resources/mybatis-mapper");
 //        auto.create("shop", "shop", "com.jsj141.osport", "resources/mybatis-mapper");

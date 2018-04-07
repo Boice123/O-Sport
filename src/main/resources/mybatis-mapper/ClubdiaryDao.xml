@@ -50,7 +50,12 @@
         <if test="_parameter.containsKey('order') and order!=null">
             order by ${order} DESC
         </if>
-        limit #{start},#{size}
+        <if test="_parameter.containsKey('start') and start!=null">
+            limit #{start}
+        </if>
+        <if test="_parameter.containsKey('size') and size!=null">
+            ,#{size}
+        </if>
     </select>
 
     <insert id="insert" parameterType="com.jsj141.osport.domain.Clubdiary">

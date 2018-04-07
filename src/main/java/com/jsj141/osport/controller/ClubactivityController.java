@@ -48,12 +48,11 @@ public class ClubactivityController {
     private ClubService clubService;
 
 
-
     @ResponseBody
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    Result save(@RequestParam(value="clubid") String clubid ,
-                @RequestParam(value="clubactivitytitle") String clubactivitytitle ,
-                @RequestParam(value="clubactivitycontent") String clubactivitycontent,
+    Result save(@RequestParam(value = "clubid") String clubid,
+                @RequestParam(value = "clubactivitytitle") String clubactivitytitle,
+                @RequestParam(value = "clubactivitycontent") String clubactivitycontent,
 //                @RequestParam(value="clubdiaryimg") String clubdiaryimg,
                 Club club,
                 Clubactivity clubactivity,
@@ -66,7 +65,7 @@ public class ClubactivityController {
         //检验当前用户是否部落创建人才可以创建活动
         club.setClubid(clubid);
         Club getClub = clubService.getByClubid(club);
-        if(getClub.getClubowner().equals(loginUser.getUserid())) {
+        if (getClub.getClubowner().equals(loginUser.getUserid())) {
             //创建活动
             clubactivity.setClubactivityid(UUID.randomUUID().toString());
             clubactivity.setClubactivitytitle(clubactivitytitle);
@@ -87,12 +86,12 @@ public class ClubactivityController {
 
     @ResponseBody
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    Result update(@RequestParam(value="clubactivityid") String clubactivityid ,
-                  @RequestParam(value="clubactivitytitle") String clubactivitytitle ,
-                  @RequestParam(value="clubactivitycontent") String clubactivitycontent,
-                Clubactivity clubactivity,
-                BindingResult bindingResult,
-                HttpServletRequest request) {
+    Result update(@RequestParam(value = "clubactivityid") String clubactivityid,
+                  @RequestParam(value = "clubactivitytitle") String clubactivitytitle,
+                  @RequestParam(value = "clubactivitycontent") String clubactivitycontent,
+                  Clubactivity clubactivity,
+                  BindingResult bindingResult,
+                  HttpServletRequest request) {
         Result lastResult = ResultUtil.initResult();
 
         clubactivity.setClubactivityid(clubactivityid);
@@ -102,8 +101,8 @@ public class ClubactivityController {
     }
 
     /**
-     *
      * 根据clubactivityid获得clubactivity
+     *
      * @param clubactivityid
      * @param clubactivity
      * @param request
@@ -112,17 +111,17 @@ public class ClubactivityController {
     @ResponseBody
     @RequestMapping(value = "/get", method = RequestMethod.POST)
     Result getclubactivity(
-            @RequestParam(value="clubactivityid") String clubactivityid,
+            @RequestParam(value = "clubactivityid") String clubactivityid,
             Clubactivity clubactivity,
             HttpServletRequest request) {
         Result result = ResultUtil.initResult();
         clubactivity.setClubactivityid(clubactivityid);
         Clubactivity ca = clubactivityService.get(clubactivity);
-        if(ca != null ) {
+        if (ca != null) {
             result.setCode(0);
             result.setData(ca);
             result.setMsg("获取活动成功");
-        }else {
+        } else {
             result.setCode(1);
             result.setMsg("没有该活动数据");
         }
@@ -131,6 +130,7 @@ public class ClubactivityController {
 
     /**
      * 根据Clubid获取部落活动
+     *
      * @param clubid
      * @param clubactivity
      * @param request
@@ -138,17 +138,17 @@ public class ClubactivityController {
      */
     @ResponseBody
     @RequestMapping(value = "/getAllByClubid", method = RequestMethod.POST)
-    Result getAllByClubid(@RequestParam(value="clubid") String clubid,
-                       Clubactivity clubactivity,
-                       HttpServletRequest request) {
+    Result getAllByClubid(@RequestParam(value = "clubid") String clubid,
+                          Clubactivity clubactivity,
+                          HttpServletRequest request) {
         Result result = ResultUtil.initResult();
         clubactivity.setClubid(clubid);
-        List<Clubactivity> clubactivtyList= clubactivityService.getByClubid(clubactivity);
-        if(clubactivtyList.size() != 0 ) {
+        List<Clubactivity> clubactivtyList = clubactivityService.getByClubid(clubactivity);
+        if (clubactivtyList.size() != 0) {
             result.setCode(0);
             result.setData(clubactivtyList);
             result.setMsg("获取部落全部活动成功");
-        }else {
+        } else {
             result.setCode(1);
             result.setMsg("部落没有活动数据");
         }
@@ -157,6 +157,7 @@ public class ClubactivityController {
 
     /**
      * 根据Clubid获取部落活动,分页
+     *
      * @param clubid
      * @param clubactivity
      * @param request
@@ -165,20 +166,20 @@ public class ClubactivityController {
     @ResponseBody
     @RequestMapping(value = "/getAllByClubidPaginaton", method = RequestMethod.POST)
     Result getAllByClubidPaginaton(
-                            @RequestParam(value="clubid") String clubid,
-                            @RequestParam(value="start") int start,
-                            @RequestParam(value="size") int size,
-                            @RequestParam(value="order") String order,
-                          Clubactivity clubactivity,
-                          HttpServletRequest request) {
+            @RequestParam(value = "clubid") String clubid,
+            @RequestParam(value = "start") int start,
+            @RequestParam(value = "size") int size,
+            @RequestParam(value = "order") String order,
+            Clubactivity clubactivity,
+            HttpServletRequest request) {
         Result result = ResultUtil.initResult();
 //        clubactivity.setClubid(clubid);
-        List<Clubactivity> clubactivtyList= clubactivityService.listdesc(start, size, order, clubid);
-        if(clubactivtyList.size() != 0 ) {
+        List<Clubactivity> clubactivtyList = clubactivityService.listdesc(start, size, order, clubid);
+        if (clubactivtyList.size() != 0) {
             result.setCode(0);
             result.setData(clubactivtyList);
             result.setMsg("获取部落全部活动成功");
-        }else {
+        } else {
             result.setCode(1);
             result.setMsg("部落没有活动数据");
         }
@@ -187,6 +188,7 @@ public class ClubactivityController {
 
     /**
      * 删除clubActivity信息
+     *
      * @param clubactivityid
      * @param clubActivity
      * @param request
@@ -194,7 +196,7 @@ public class ClubactivityController {
      */
     @ResponseBody
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    Result deleteTripInfo(@RequestParam(value="clubactivityid") String clubactivityid,
+    Result deleteTripInfo(@RequestParam(value = "clubactivityid") String clubactivityid,
                           Clubactivity clubActivity,
                           HttpServletRequest request) {
         Result result = ResultUtil.initResult();
@@ -214,6 +216,7 @@ public class ClubactivityController {
 
     /**
      * 批量删除CLubactivity信息
+     *
      * @param batchdelete
      * @param batchdelete
      * @param request
@@ -221,11 +224,11 @@ public class ClubactivityController {
      */
     @ResponseBody
     @RequestMapping(value = "/batchdelete", method = RequestMethod.POST)
-    Result batchdeleteTripInfo(@RequestParam(value="batchdelete") String[] batchdelete,
-                                Clubactivity clubactivity,
-                                HttpServletRequest request) {
+    Result batchdeleteTripInfo(@RequestParam(value = "batchdelete") String[] batchdelete,
+                               Clubactivity clubactivity,
+                               HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-        for(int i = 0;i< batchdelete.length; i++){
+        for (int i = 0; i < batchdelete.length; i++) {
             String clubactivityid = batchdelete[i];
             clubactivity.setClubactivityid(clubactivityid);
             clubactivityService.delete(clubactivity);
@@ -236,21 +239,20 @@ public class ClubactivityController {
         return result;
     }
 
-
-    /**
-     * 获得Trip列表,按日期或成交量排序
-     * @param size: 获取多少条数据
-     * @param request
-     * @return
-     */
     @ResponseBody
-    @RequestMapping(value = "/getTripList", method = RequestMethod.POST)
-    Result getTripList(@RequestParam(value="size") int size,
-                       @RequestParam(value="order") String order,
-                       HttpServletRequest request) {
+    @RequestMapping(value = "/getAllClubActivity", method = RequestMethod.POST)
+    Result getAllClubActivity(
+            @RequestParam(value = "start") int start,
+            @RequestParam(value = "size") int size,
+            @RequestParam(value = "order") String order,
+            @RequestParam(value = "clubid") String clubid,
+            Clubactivity clubactivity,
+            HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-        List<Trip> tripList = tripService.listdesc(0, size, order);
-        ResultUtil.setSuccess(result, "获得Trip列表排序信息成功", tripList);
+        List<Clubactivity> clubactivtyList = clubactivityService.listdesc(start, size, order, clubid);
+        result.setCode(0);
+        result.setMsg("获取clubactivtyList成功");
+        result.setData(clubactivtyList);
         return result;
     }
 }

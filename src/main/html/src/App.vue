@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-   <Top v-if="!isSign"/>
-   <LogoTop v-if="isSign"/>
+   <Top v-if="!isSign&&!admin"/>
+   <LogoTop v-if="isSign&&!admin"/>
    <router-view/>
     <Foot/>
   </div>
@@ -15,7 +15,8 @@ export default {
   name: 'App',
   data() {
     return {
-      isSign: false
+      isSign: false,
+      admin: false
     }
   },
   components: {
@@ -27,9 +28,20 @@ export default {
     '$route':function(to,from){
         if(to.fullPath == '/signin' || to.fullPath == '/signup' || to.fullPath == 'shop'){
           this.isSign = true
+          this.admin = false
+        }
+        else if(to.fullPath == '/adminsignin') {
+          this.admin = true
+        }
+        else if(to.fullPath == '/adminsignup') {
+          this.admin = true
+        }
+        else if(to.fullPath == 'admin') {
+          this.admin = true
         }
         else{
           this.isSign = false
+          this.admin = false
         }
       }
     }
