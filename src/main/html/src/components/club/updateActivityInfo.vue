@@ -8,21 +8,20 @@
       <el-form-item label="活动内容" prop="clubactivitycontent">
         <el-input v-model="form.clubactivitycontent" :value="form.clubactivitycontent"></el-input>
       </el-form-item>
-      <el-form-item label="活动图片" prop="clubactivityimg">
+       <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
+        <el-form-item label="活动封面">
+          <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
+        </el-form-item>
+      </el-form>
+      <el-form-item label="" prop="clubactivityimg">
         <img class="shopimg" :src="form.clubactivityimg"/>
-        <div class="shopimg">
-        </div>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('form')">修改</el-button>
       </el-form-item>
     </el-form>
 
-    <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
-      <el-form-item label="活动图片">
-        <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
-      </el-form-item>
-    </el-form>
+   
   </div>
 </template>
 
@@ -40,13 +39,19 @@ export default {
           callback(new Error('请输入部落活动标题'));
         }
         callback()
-      };
+      }
       var validateClubactivitycontent = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入部落活动内容'));
         }
         callback()
-      };
+      }
+      var validateclubactivityimg = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请选择活动封面'));
+        } 
+          callback()
+      }
       return {
         form: {
           clubactivitytitle: '',
@@ -59,7 +64,10 @@ export default {
           ],
           clubactivitycontent: [
             { validator: validateClubactivitycontent, trigger: 'blur' }
-          ]
+          ],
+          clubactivityimg: [
+               { validator: validateclubactivityimg, trigger: 'blur' }
+            ]
         }
       }
     },
@@ -77,6 +85,7 @@ export default {
             if(response.data.code == 0) {
               this.form.clubactivitytitle = response.data.data.clubactivitytitle
               this.form.clubactivitycontent = response.data.data.clubactivitycontent
+              this.form.clubactivityimg = response.data.data.clubactivityimg 
             }else if(response.data.code == 1) {
                 this.$message({
                     message: response.data.msg,
@@ -98,7 +107,7 @@ export default {
             type: "post",
             dataType: "json",
             success: (result) => {
-              this.form.shopimg = result.data;
+              this.form.clubactivityimg = result.data;
             },
             error: (XMLHttpRequest, textStatus, errorThrown) => {
               alert("服务器出错，上传图片失败！")
@@ -114,6 +123,7 @@ export default {
         param.append('clubactivityid',this.$route.params.clubactivityid)
         param.append('clubactivitytitle',this.form.clubactivitytitle)
         param.append('clubactivitycontent',this.form.clubactivitycontent)
+        param.append('clubactivityimg', this.form.clubactivityimg);
         this.$refs[formName].validate((valid) => {
           if (valid) {
             axios({

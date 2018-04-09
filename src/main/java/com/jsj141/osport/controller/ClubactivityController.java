@@ -53,7 +53,7 @@ public class ClubactivityController {
     Result save(@RequestParam(value = "clubid") String clubid,
                 @RequestParam(value = "clubactivitytitle") String clubactivitytitle,
                 @RequestParam(value = "clubactivitycontent") String clubactivitycontent,
-//                @RequestParam(value="clubdiaryimg") String clubdiaryimg,
+                @RequestParam(value="clubactivityimg") String clubactivityimg,
                 Club club,
                 Clubactivity clubactivity,
                 BindingResult bindingResult,
@@ -70,6 +70,7 @@ public class ClubactivityController {
             clubactivity.setClubactivityid(UUID.randomUUID().toString());
             clubactivity.setClubactivitytitle(clubactivitytitle);
             clubactivity.setClubactivitycontent(clubactivitycontent);
+            clubactivity.setClubactivityimg(clubactivityimg);
             clubactivity.setClubid(clubid);
             clubactivityService.save(clubactivity);
             lastResult.setCode(0);
@@ -89,6 +90,7 @@ public class ClubactivityController {
     Result update(@RequestParam(value = "clubactivityid") String clubactivityid,
                   @RequestParam(value = "clubactivitytitle") String clubactivitytitle,
                   @RequestParam(value = "clubactivitycontent") String clubactivitycontent,
+                  @RequestParam(value="clubactivityimg") String clubactivityimg,
                   Clubactivity clubactivity,
                   BindingResult bindingResult,
                   HttpServletRequest request) {
@@ -97,6 +99,7 @@ public class ClubactivityController {
         clubactivity.setClubactivityid(clubactivityid);
         clubactivity.setClubactivitycontent(clubactivitycontent);
         clubactivity.setClubactivitytitle(clubactivitytitle);
+        clubactivity.setClubactivityimg(clubactivityimg);
         return clubactivityService.update(clubactivity);
     }
 

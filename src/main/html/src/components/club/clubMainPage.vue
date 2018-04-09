@@ -29,11 +29,11 @@
                   <li :class="{'clubMainPageNavLi': clubChoose!='部落活动','clubMainPageNavLiActive': clubChoose == '部落活动'}" @click="changeClubChoose('部落活动')">部落活动</li>     
                   <li :class="{'clubMainPageNavLi': clubChoose!='部落动态','clubMainPageNavLiActive': clubChoose == '部落动态'}" @click="changeClubChoose('部落动态')">部落动态</li>
                   <li :class="{'clubMainPageNavLi': clubChoose!='部落会员','clubMainPageNavLiActive': clubChoose == '部落会员'}" @click="changeClubChoose('部落会员')">部落会员</li>
-                  <li :class="{'clubMainPageNavLi': clubChoose!='摄影作品','clubMainPageNavLiActive': clubChoose == '摄影作品'}" @click="changeClubChoose('摄影作品')">摄影作品</li>
+                  <!-- <li :class="{'clubMainPageNavLi': clubChoose!='摄影作品','clubMainPageNavLiActive': clubChoose == '摄影作品'}" @click="changeClubChoose('摄影作品')">摄影作品</li> -->
               </ul>
           </div>
 
-          <div class="photoDiv" v-if="clubChoose == '摄影作品'">
+          <!-- <div class="photoDiv" v-if="clubChoose == '摄影作品'">
               <div class="clubBox" @mouseover="changeClubCover('自行车')" @mouseout="changeClubCover('')">
                   <img :class="{'clubImg':clubCover!='自行车','clubImgActive': clubCover=='自行车'}" src="../../assets/images/bgc/manycamp.jpg"/>
                   <div class="clubTextMask" v-if="clubCover == '自行车'"></div>
@@ -65,16 +65,16 @@
                     <h2 class="clubname">自行车俱乐部</h2>
                     <p class="clubnum"><br>共93名会员</p>
                  </div>
-              </div>
-          </div>
+              </div> -->
+          <!-- </div> -->
           <div class="messageDiv" v-if="clubChoose == '部落动态'">
               <div class="messageBox" v-for="(clubdiary, key) in clubDiary">
-                  <img class="messageImg" src="../../assets/images/bgc/climbmountain.jpg"/>
+                  <img class="messageImg" :src="clubdiary.clubdiaryimg"/>
                   <div class="messageContent">
                       <div class="messageUp">
                           <div class="messageTitle">{{clubdiary.clubdiarytitle}}</div>
                           <div class="messageTitleRight">
-                              <img class="messageUserImg" src="../../assets/images/bgc/climbmountain.jpg"/>
+                              <img class="messageUserImg"/>
                               <span class="messageUserName">{{clubdiary.username}}</span>
                               <span class="messageTime">发表于{{clubdiary.clubdiarytime}}</span>
                           </div>
@@ -159,7 +159,7 @@
                 @mouseout="changeClubCover('')"
                 v-for="(activity,key) in clubActivity"
             >
-                  <img :class="{'activityImg':clubCover!=activity.clubactivityid,'activityImgActive': clubCover==activity.clubactivityid}" src="../../assets/images/bgc/manycamp.jpg"/>
+                  <img :class="{'activityImg':clubCover!=activity.clubactivityid,'activityImgActive': clubCover==activity.clubactivityid}" :src="activity.clubactivityimg"/>
                   <div class="clubTextMask" v-if="clubCover == activity.clubactivityid"></div>
                   <div :class="{'clubText': clubCover!=activity.clubactivityid,'clubTextActive': clubCover==activity.clubactivityid}">
                     <h2 class="activityname">{{activity.clubactivitytitle}}</h2>

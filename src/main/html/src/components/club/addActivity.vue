@@ -8,25 +8,29 @@
       <el-form-item label="内容" prop="clubactivitycontent">
         <el-input v-model="form.clubactivitycontent"></el-input>
       </el-form-item>
+      <el-form id="pictureForm" class="pictureForm" method="POST" enctype="multipart/form-data">
+        <el-form-item label="封面图">
+          <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
+        </el-form-item>
+      </el-form>
+       <el-form-item label="" prop="clubactivityimg">
+        <img class="shopimg" :src="form.clubactivityimg"/>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('form')">提交</el-button>
       </el-form-item>
     </el-form>
-    <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
-      <el-form-item label="图片">
-        <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
-      </el-form-item>
-    </el-form>
+   
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import { API_addActivityURL } from '../../constants/index.js'
+import { API_addActivityURL, API_uploadFileURL } from '../../constants/index.js'
 import $ from 'jquery'
 import ajaxSubmit from '../../../static/js/jquery.form.js'
 export default {
-    name: 'addDiary',
+    name: 'addActivity',
     data() {
       // 请输入动态标题
       var validateclubactivitytitle = (rule, value, callback) => {
@@ -39,6 +43,12 @@ export default {
       var validateclubactivitycontent = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入动态内容'));
+        } 
+          callback()
+      }
+      var validateclubactivityimg = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请选择动态封面'));
         } 
           callback()
       }
@@ -55,6 +65,9 @@ export default {
             ],
             clubactivitycontent: [
               { validator: validateclubactivitycontent, trigger: 'blur' }
+            ],
+            clubactivityimg: [
+               { validator: validateclubactivityimg, trigger: 'blur' }
             ]
           }
         }
@@ -86,6 +99,7 @@ export default {
           params.append('clubid',this.getCookie("clubid"));
           params.append('clubactivitytitle',this.form.clubactivitytitle);
           params.append('clubactivitycontent', this.form.clubactivitycontent);
+           params.append('clubactivityimg', this.form.clubactivityimg);
           axios({
             method: 'post',
             url:API_addActivityURL,
@@ -131,6 +145,17 @@ export default {
     margin: 0 auto;
 }
 .el-upload__tip {
+  padding-left: 1rem;
+}
+.shopimg {
+    width: 5rem;
+    height: 6rem;
+    border: 1px solid #e1e0e0;
+    border-radius: .5rem;
+    background: url("../../assets/images/addimg.svg") no-repeat center;
+    background-size: 2rem 2rem;
+}
+.pictureForm {
   padding-left: 1rem;
 }
 </style>

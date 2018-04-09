@@ -96,7 +96,7 @@
                @click="gotoClubMainPage(club.clubid)"
           >
             <div class="trainname">{{club.clubname}}</div>
-            <img src="../assets/images/banner/banner_01.jpg"/>
+            <img :src="club.clubimg"/>
           </div>
           <div class="trainContentRight">
             <div class="trainContentRightBox"
@@ -106,7 +106,7 @@
             >
               <div :class="{'trainContentImgActive':clubChoose == key,'trainContentImg':clubChoose != key}" @mouseover="changeclubChoose(key)">
                 <div class="trainname">{{club.clubname}}</div>
-                <img src="../assets/images/banner/banner_01.jpg"/>
+                <img :src="club.clubimg"/>
               </div>
             </div>
           </div>        
@@ -122,7 +122,7 @@
                 @mouseout="changeActivityCover('')"
                 v-for="(activity, index) in clubactivity"
             >
-                  <img :class="{'activityImg': activityCover!=activity.clubactivityid,'activityImgActive': activityCover==activity.clubactivityid}" src="../assets/images/bgc/manycamp.jpg"/>
+                  <img :class="{'activityImg': activityCover!=activity.clubactivityid,'activityImgActive': activityCover==activity.clubactivityid}" :src="activity.clubactivityimg"/>
                   <div class="clubTextMask" v-if="activityCover == activity.clubactivityid"></div>
                   <div :class="{'clubText': activityCover!=activity.clubactivityid,'clubTextActive': activityCover==activity.clubactivityid}">
                     <h2 class="activityname">{{activity.clubactivitytitle}}</h2>
@@ -602,6 +602,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
   padding-right: 2rem;
   margin: 0 auto;
   position: relative;
+  height: 25rem;
 }
 .trainTitle {
   width: 30%;

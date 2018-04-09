@@ -47,7 +47,7 @@
                 <div class="myClubmessageBox" 
                     v-for="(clibDiary, key) in ownClubDiary"
                 >
-                    <img class="myClubmessageImg" src="../../assets/images/bgc/climbmountain.jpg"/>
+                    <img class="myClubmessageImg" :src="clibDiary.clubdiaryimg"/>
                     <div class="myClubmessageContent">
                         <div class="myClubmessageUp">
                             <div class="myClubmessageTitle">{{clibDiary.clubdiarytitle}}</div>
