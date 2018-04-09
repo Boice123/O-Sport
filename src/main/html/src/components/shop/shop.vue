@@ -283,7 +283,7 @@ import axios from 'axios'
     align-items: center;
 }
 .shopInfoDetailTitle {
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding-bottom: 0.5rem;
 }
 .shopInfoDetailNum {

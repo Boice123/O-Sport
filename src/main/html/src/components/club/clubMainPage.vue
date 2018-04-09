@@ -2,7 +2,7 @@
   <div class="clubMainPageContainer">
       <div class="clubHead">
         <div class="clubHeadDetail">
-            <img class="clubHeadImg" src="../../assets/images/bgc/dessert.jpg"/>
+            <img class="clubHeadImg" :src="clubinfo.clubimg"/>
             <div class="clubHeadName">{{clubinfo.clubname}}</div>
             <div class="clubInfoDetail">
                 <div class="clubInfoDetailBox">

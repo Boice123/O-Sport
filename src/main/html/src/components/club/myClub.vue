@@ -15,7 +15,7 @@
                 >
                     <img 
                         :class="{'myclubImg':ownclubcover==false,'myclubImgActive': ownclubcover==true}" 
-                        src="../../assets/images/bgc/manycamp.jpg"
+                        :src="ownClub.clubimg"
                     />
                     <h2 class="myclubname">{{ownClub.clubname}}</h2>
                 </div>
@@ -32,7 +32,7 @@
                 >
                     <img 
                         :class="{'myclubImg':clubusercover!=club.clubid,'myclubImgActive': clubusercover==club.clubid}" 
-                        src="../../assets/images/bgc/manycamp.jpg"
+                        :src="club.clubimg"
                     />
                     <h2 class="myclubname">{{club.clubname}}</h2>
                 </div>

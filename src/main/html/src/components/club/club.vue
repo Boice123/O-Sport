@@ -26,7 +26,7 @@
               >
                   <img 
                     :class="{'clubImg':clubcover!=club.clubid,'clubImgActive': clubcover==club.clubid}" 
-                    src="../../assets/images/bgc/manycamp.jpg"
+                    :src="club.clubimg"
                   />
                   <div class="clubTextMask" v-if="clubcover == club.clubid"></div>
                   <div :class="{'clubText': clubcover!=club.clubid,'clubTextActive': clubcover==club.clubid}">
