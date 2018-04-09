@@ -97,10 +97,13 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "/getUserTripOrder", method = RequestMethod.POST)
-    Result getUserTripOrder(HttpServletRequest request) {
+    Result getUserTripOrder(
+            @RequestParam(value="triporderstatus") String triporderstatus,
+            Triporder order,
+            HttpServletRequest request) {
         Result result = ResultUtil.initResult();
         User loginUser = (User) WebUtils.getSessionAttribute(request, "loginUser");
-        List<Triporder> triporder = triporderService.getUserTripOrder(loginUser.getUserid());
+        List<Triporder> triporder = triporderService.getUserTripOrder(loginUser.getUserid(),triporderstatus);
         result.setCode(0);
         result.setData(triporder);
         result.setMsg("获取用户订单成功");

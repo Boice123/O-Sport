@@ -14,8 +14,8 @@
     </div>
     <div class="right">
       <ul>
-        <li class="rightLi">我的提问</li>
-        <li class="rightLi">|</li>
+        <!-- <li class="rightLi">我的提问</li>
+        <li class="rightLi">|</li> -->
         <router-link to='/shop'><li class="rightLi">我的商店</li></router-link>
         <li class="rightLi">|</li>
         <router-link to='/userOrder'><li class="rightLi">我的订单</li></router-link>
@@ -23,6 +23,10 @@
         <router-link to='/myClub'><li class="rightLi">我的部落</li></router-link>
         <li class="rightLi">|</li>
         <li class="rightLi">我的o-sport</li>
+        <ul class="meUl">
+          <li class="meLi">上传头像</li>
+          <li class="meLi">修改昵称</li>      
+        </ul>
         <li class="rightLi">|</li>
         <router-link to='/'><li class="rightLi">首页</li></router-link>
       </ul>
@@ -147,6 +151,8 @@ import axios from 'axios'
   padding: 0.8rem;
   flex:5;
   float: right;
+  position: relative;
+  /* overflow: hidden; */
 }
 
 .leftLi {
@@ -167,5 +173,23 @@ import axios from 'axios'
 .rightLi:hover {
   color: #fdd000;
   cursor: pointer;
+}
+.meUl {
+  width: 6.5rem;
+  background: #2b2b2b;
+  position: absolute;
+  right: 24.5%;
+  top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.meLi {
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

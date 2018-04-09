@@ -1,7 +1,8 @@
 <template>
   <div class="searchBarContainer">
     <div class="searchBarLeft">
-      O-Sport
+      <div class="logo">O-Sport</div>
+      <div class="logo_content">专业户外运动社交与出行平台</div>
     </div>
     <div class="searchBarRight">
      <div class="searchBox">
@@ -145,10 +146,22 @@ import { API_searchTripURL } from '../../constants/index.js'
 
 .searchBarLeft {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.logo {
     font-size: 4rem;
     padding: 1rem auto;
+    font-weight: 600;
 }
-
+.logo_content {
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    color: #fdd000;
+}
 .searchBarRight {
     flex: 2;
 }

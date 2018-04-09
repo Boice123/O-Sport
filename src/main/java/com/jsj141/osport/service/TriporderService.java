@@ -88,11 +88,18 @@ public class TriporderService {
 
     /**
      * 根据userid查询订单
-     * @param userid
+     * @param
      * @return
      */
-    public List<Triporder> getUserTripOrder(String userid) {
-        List<Triporder> triporder = (List<Triporder>) Constant.FACADE.getTriporderDao().selectByUserid(userid);
+    public List<Triporder> getUserTripOrder(String userid, String triporderstatus) {
+        Row row = new Row();
+        if(!userid.equals("")) {
+            row.put("userid", userid);
+        }
+        if(!triporderstatus.equals("")) {
+            row.put("triporderstatus", triporderstatus);
+        }
+        List<Triporder> triporder = (List<Triporder>) Constant.FACADE.getTriporderDao().listdesc(row);
         for(int i = 0; i < triporder.size();i ++) {
             String triporderitemid = triporder.get(i).getTriporderitemid();
             Triporderitem triporderitem = new Triporderitem();
