@@ -1,6 +1,12 @@
 <template>
     <div class="checkOrderContainer">
-        <div class="triporderDetailBox">
+        <div class="orderNav">
+                <div :class="{'orderNavSectionActive': click == '全部','orderNavSection': click != '全部'}" @click="clickStatus('全部')">全部</div>
+                <div :class="{'orderNavSectionActive': click == '已报名','orderNavSection': click != '已报名'}" @click="clickStatus('已报名')">已报名</div>
+                <div :class="{'orderNavSectionActive': click == '已取消','orderNavSection': click != '已取消'}" @click="clickStatus('已取消')">已取消</div>
+                <div :class="{'orderNavSectionActive': click == '已确认','orderNavSection': click != '已确认'}" @click="clickStatus('已确认')">已确认</div>
+        </div>
+        <div class="triporderDetailBox">           
             <div class="checkOrdertitle">用户订单信息</div>
              <el-table class="tripDetail"
                 :data="triporder"
@@ -102,35 +108,46 @@ import axios from 'axios'
                   people: ''
               }   
           }],
+          click: '全部'
       }
     },
     created() {
-        //获取triporder信息
-        axios({
-            method:'post',
-            url:API_getUserTripOrderURl
-        })
-        .then((response) => {
-            console.log(response.data)
-            if(response.data.code == 0) {
-                this.triporder = response.data.data
-                // this.triporder.trip = response.data.data.trip
-            }else if(response.data.code == 1) {
-                this.$message({
-                    message: response.data.msg,
-                    type: 'warning'
-                }); 
-            }else {
-                this.$message.error('获取订单信息失败，请稍后重试');
-            }        
-        }).catch((err) => {
-            console.log(err)
-        })  
-        
+        this.getAllOrders('')      
     },
     methods: {
+        clickStatus(text) {
+            console.log(text)
+            this.click = text
+            this.getAllOrders(text)
+        },
         gotoIndex() {
             this.$router.push('/')
+        },
+        getAllOrders(click) {
+            //获取所有triporder信息
+            var params = new URLSearchParams();
+            params.append('triporderstatus',click)
+            axios({
+                method:'post',
+                url:API_getUserTripOrderURl,
+                params
+            })
+            .then((response) => {
+                console.log(response.data)
+                if(response.data.code == 0) {
+                    this.triporder = response.data.data
+                    // this.triporder.trip = response.data.data.trip
+                }else if(response.data.code == 1) {
+                    this.$message({
+                        message: response.data.msg,
+                        type: 'warning'
+                    }); 
+                }else {
+                    this.$message.error('获取订单信息失败，请稍后重试');
+                }        
+            }).catch((err) => {
+                console.log(err)
+            })  
         },
         cancel(triporderid, triporderstatus) {
             if(triporderstatus === '已取消') {
@@ -230,8 +247,27 @@ import axios from 'axios'
 
 <style>
 .checkOrderContainer {
-    width: 50rem;
+    width: 80rem;
     margin: 2rem auto;
+    display: flex;
+}
+.orderNav {
+    width: 10rem;
+    height: 15rem;
+    margin-top: 3rem;
+}
+.orderNavSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.orderNavSectionActive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    color: orange;
 }
 .triporderDetailBox {
     width: 60rem;
@@ -248,4 +284,5 @@ import axios from 'axios'
 .el-table th>.cell {
   text-align: center
 }
+
 </style>

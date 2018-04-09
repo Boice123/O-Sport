@@ -54,6 +54,12 @@
     <select id="listdesc" resultType="com.jsj141.osport.domain.Triporder">
         select * from triporder
         <include refid="dynamicWhere" />
+        <if test="_parameter.containsKey('userid') and userid!=null">
+            where userid = #{userid}
+        </if>
+        <if test="_parameter.containsKey('triporderstatus') and triporderstatus!=null">
+            and triporderstatus = #{triporderstatus}
+        </if>
         <if test="_parameter.containsKey('shopid') and shopid!=null">
             where triporderitemid in (select triporderitemid from triporderitem
             where tripid in (select tripid from trip where shopid = #{shopid}))

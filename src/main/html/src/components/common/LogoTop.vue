@@ -1,11 +1,23 @@
 <template>
   <div class="logoTopContainer">
     <div class="logoTopWrap">
-      <div class="logoTopLeft">
-        O-Sport
-      </div>
-      <div class="logoTopRight">
-        预订热线:9:00~23:00<br><br>020-123456789
+      <div class="logoLeft">
+      <div class="logo">O-Sport</div>
+      <div class="logo_content">专业户外运动社交与出行平台</div>
+    </div>
+      <div class="logoRight">
+        <div class="logoTopSection">
+          <img class="logoTopsectionImg" src="../../assets/images/responsibility.svg"/>
+          <div class="logoTopsectionSpan">提倡责任组织和参与</div>
+        </div>
+        <div class="logoTopSection">
+          <img class="logoTopsectionImg" src="../../assets/images/experience.svg"/>
+          <div class="logoTopsectionSpan">边走边玩，一路行摄</div>
+        </div>
+        <div class="logoTopSection">
+          <img class="logoTopsectionImg" src="../../assets/images/share.svg"/>
+          <div class="logoTopsectionSpan">分享照片游记心得</div>
+        </div>
       </div>
     </div>
   </div>
@@ -34,21 +46,38 @@
 }
 
 .logoTopWrap {
-  width: 40%;
+  /* width: 40%; */
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
-
-.logoTopLeft {
-    flex: 1;
-    font-size: 4rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 2rem;
+.logoLeft {
+  flex: 1;
+  /* margin-left: 5rem; */
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right:  28rem;
 }
-
-.logoTopRight {
+.logoRight {
+  display: flex;
     flex: 1;
-    color: #fdd000;
+    flex-direction: row;
+}
+.logoTopSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
+}
+.logoTopsectionImg {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+.logoTopsectionSpan {
+  font-size: 0.5rem;
 }
 </style>
