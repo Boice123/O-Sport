@@ -5,21 +5,20 @@
       <el-form-item label="部落名称" prop="clubactivitytitle">
         <el-input v-model="form.clubname" :value="form.clubname"></el-input>
       </el-form-item>
-      <!-- <el-form-item label="活动图片" prop="clubactivityimg">
-        <img class="shopimg" :src="form.clubactivityimg"/>
-        <div class="shopimg">
-        </div>
-      </el-form-item> -->
+       <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
+        <el-form-item label="部落头像">
+          <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
+        </el-form-item>
+      </el-form>
+      <el-form-item label="活动图片" prop="clubactivityimg">
+        <img class="shopimg" :src="form.clubimg"/>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('form')">修改</el-button>
       </el-form-item>
     </el-form>
 
-    <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
-      <el-form-item label="活动图片">
-        <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
-      </el-form-item>
-    </el-form>
+   
   </div>
 </template>
 
@@ -38,6 +37,13 @@ export default {
         }
         callback()
       };
+       // 检验图片
+      var validateClubimg = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请选择部落图片'));
+        }
+        callback()
+      };
       return {
         form: {
           clubname: '',
@@ -46,6 +52,9 @@ export default {
         rules: {
           clubname: [
             { validator: validateClubname, trigger: 'blur' }
+          ],
+          clubimg: [
+            { validator: validateClubimg, trigger: 'blur' }
           ]
         }
       }
@@ -63,6 +72,7 @@ export default {
             console.log(response.data)
             if(response.data.code == 0) {
               this.form.clubname = response.data.data.clubname
+              this.form.clubimg = response.data.data.clubimg
             }else if(response.data.code == 1) {
                 this.$message({
                     message: response.data.msg,
@@ -84,14 +94,14 @@ export default {
             type: "post",
             dataType: "json",
             success: (result) => {
-              this.form.shopimg = result.data;
+              this.form.clubimg = result.data;
             },
             error: (XMLHttpRequest, textStatus, errorThrown) => {
               alert("服务器出错，上传图片失败！")
             }
           }
           $("#pictureForm").ajaxSubmit(options)
-          console.log("点击上传后的图片"+this.form.shopimg)
+          console.log("点击上传后的图片"+this.form.clubimg)
         // }
       },
       submitForm(formName) {
@@ -99,6 +109,7 @@ export default {
         var param = new FormData()
         param.append('clubid',this.getCookie('clubid'))
         param.append('clubname',this.form.clubname)
+         param.append('clubimg',this.form.clubimg)
         this.$refs[formName].validate((valid) => {
           if (valid) {
             axios({
@@ -121,7 +132,7 @@ export default {
                     type: 'warning'
                   });
                 }else {
-                  this.$message.error('修改部落活动信息失败，请稍后重试');
+                  this.$message.error('修改部落信息失败，请稍后重试');
                 }
             })
               .catch((err) => {

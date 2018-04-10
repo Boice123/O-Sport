@@ -222,4 +222,10 @@ import { API_saveClubURL ,API_uploadFileURL, API_getClubInfoURl} from '../../con
   background: #000;
   opacity: 0.9;
 }
+.shopimg {
+  width:5rem;
+  height: 5rem;
+  border-radius: 5px;
+  
+}
 </style>
