@@ -78,12 +78,63 @@ public class UserController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/get", method = RequestMethod.POST)
+    Result get(HttpServletRequest request, HttpServletResponse response) {
+        Result result = ResultUtil.initResult();
+        User loginUser = (User) WebUtils.getSessionAttribute(request, "loginUser");
+        User nowUser = userService.get(loginUser);
+        result.setCode(0);
+        result.setMsg("获取用户信息成功");
+        result.setData(nowUser);
+        return result;
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     Result logout(HttpServletRequest request, HttpServletResponse response) {
         Result result = ResultUtil.initResult();
         WebUtils.setSessionAttribute(request, "loginUser", null);
         result.setCode(0);
         result.setMsg("退出登录成功");
+        return result;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    Result update(@RequestParam(value="username") String username,
+                  @RequestParam(value="userimg") String userimg,
+                  User user,
+                  HttpServletRequest request,
+                  HttpServletResponse response) {
+        Result result = ResultUtil.initResult();
+        User loginUser = (User) WebUtils.getSessionAttribute(request, "loginUser");
+        user.setUsername(username);
+        user.setUserimg(userimg);
+        user.setUserid(loginUser.getUserid());
+        result = userService.update(user);
+        return result;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/updatepassword", method = RequestMethod.POST)
+    Result updatepassword(@RequestParam(value="newpwd") String newpwd,
+                  @RequestParam(value="oldpwd") String oldpwd,
+                  User user,
+                  HttpServletRequest request,
+                  HttpServletResponse response) {
+        Result result = ResultUtil.initResult();
+        User loginUser = (User) WebUtils.getSessionAttribute(request, "loginUser");
+        user.setUserid(loginUser.getUserid());
+        User nowUser = userService.get(user);
+        System.out.println(nowUser.getPassword());
+        System.out.println(oldpwd);
+        if(nowUser.getPassword().equals(oldpwd)) {
+            nowUser.setPassword(newpwd);
+            result= userService.update(nowUser);
+        }else {
+            result.setCode(1);
+            result.setMsg("原密码错误");
+        }
         return result;
     }
 

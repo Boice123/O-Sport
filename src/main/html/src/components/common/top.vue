@@ -14,19 +14,17 @@
     </div>
     <div class="right">
       <ul>
-        <!-- <li class="rightLi">我的提问</li>
-        <li class="rightLi">|</li> -->
         <router-link to='/shop'><li class="rightLi">我的商店</li></router-link>
         <li class="rightLi">|</li>
         <router-link to='/userOrder'><li class="rightLi">我的订单</li></router-link>
         <li class="rightLi">|</li>
         <router-link to='/myClub'><li class="rightLi">我的部落</li></router-link>
         <li class="rightLi">|</li>
-        <li class="rightLi">我的o-sport</li>
-        <ul class="meUl">
+        <router-link to='/userCenter'><li class="rightLi">我的o-sport</li></router-link>
+        <!-- <ul class="meUl">
           <li class="meLi">上传头像</li>
           <li class="meLi">修改昵称</li>      
-        </ul>
+        </ul> -->
         <li class="rightLi">|</li>
         <router-link to='/'><li class="rightLi">首页</li></router-link>
       </ul>
@@ -41,7 +39,7 @@ import axios from 'axios'
     name: 'signup',
     data() {
       return {
-        
+        showUl: 0
       }
     },
     created() {
@@ -126,6 +124,9 @@ import axios from 'axios'
         this.$store.commit('usernameChange','')
         this.$store.commit('shopidChange','')
         console.log("logout")
+      },
+      changeShowUl(value) {
+        this.showUl = value
       }
     }
   }
@@ -152,8 +153,15 @@ import axios from 'axios'
   flex:5;
   float: right;
   position: relative;
-  /* overflow: hidden; */
 }
+
+/* .rightActive {
+  padding-right: 2rem;
+  padding: 0.8rem;
+  flex:5;
+  float: right;
+  position: relative;
+} */
 
 .leftLi {
   padding: 0.5rem;
@@ -179,7 +187,7 @@ import axios from 'axios'
   background: #2b2b2b;
   position: absolute;
   right: 24.5%;
-  top: 3.5rem;
+  top: 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

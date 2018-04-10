@@ -25,9 +25,17 @@ public class UserService {
         return result;
     }
 
-    public void update(User user) {
-        Constant.FACADE.getUserDao().update(user);
+    public User get(User user) {
+        return (User)Constant.FACADE.getUserDao().select(user);
     }
+
+    public Result update(User user) {
+        Result result = ResultUtil.initResult();
+        Constant.FACADE.getUserDao().update(user);
+        ResultUtil.setSuccess(result, "修改成功", null);
+        return result;
+    }
+
     public Result signin(User user) {
         Result result = ResultUtil.initResult();
         User loginUser = (User)Constant.FACADE.getUserDao().selectByTel(user);

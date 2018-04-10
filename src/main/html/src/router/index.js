@@ -9,15 +9,13 @@ import Shop from '@/components/shop/shop'
 import OpenShop from '@/components/shop/openshop'
 import UpdateshopInfo from '@/components/shop/updateshopInfo'
 import Shopmanagetrip from '@/components/shop/shopmanagetrip'
-// import Shopmanagetrain from '@/components/shop/shopmanagetrain'
 import Shopmanagetriporder from '@/components/shop/shopmanagetriporder'
-// import Shopmanagetrainorder from '@/components/shop/shopmanagetrainorder'
 import AddTrip from '@/components/shop/addTrip'
 import UpdateTripInfo from '@/components/shop/updateTripInfo'
-// import AddTrain from '@/components/shop/addTrain'
-// import UpdateTrainInfo from '@/components/shop/updateTrainInfo'
-// import Shopinfo from '@/components/shop/shopinfo'
 import UserOrder from '@/components/user/userOrder'
+import UserCenter from '@/components/user/userCenter'
+import UpdateUserInfo from '@/components/user/updateUserInfo'
+import UpdatePassword from '@/components/user/updatePassword'
 import Club from '@/components/club/club'
 import ClubMainPage from '@/components/club/clubMainPage'
 import MyClub from '@/components/club/myClub'
@@ -79,6 +77,24 @@ export default new Router({
       path: '/userOrder',
       name: 'userOrder',
       component: UserOrder
+    },
+    {
+      path: '/userCenter',
+      name: 'userCenter',
+      component: UserCenter,
+      redirect: 'userCenter/updateuserinfo',
+      children: [
+        {
+          path: 'updateuserinfo',
+          name: 'updateuserinfo',
+          component: UpdateUserInfo
+        },
+        {
+          path: 'updatepassword',
+          name: 'updatepassword',
+          component: UpdatePassword
+        }
+      ]
     },
     {
       path: '/trip',
