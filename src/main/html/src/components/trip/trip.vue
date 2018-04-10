@@ -10,23 +10,6 @@
                 <div class="tripBigImgboxWrap">
                     <img class="tripBigImg" src="../../assets/images/banner/banner_01.jpg"/>
                 </div>
-                <!-- <div class="tripSmallImgboxWrap">
-                    <div class="tripSmallImgBox">
-                        <img class="tripSmallImg" src="../../assets/images/banner/banner_01.jpg"/>
-                    </div>
-                    <div class="tripSmallImgBox">
-                        <img class="tripSmallImg" src="../../assets/images/banner/banner_01.jpg"/>
-                    </div>
-                    <div class="tripSmallImgBox">
-                        <img class="tripSmallImg" src="../../assets/images/banner/banner_01.jpg"/>
-                    </div>
-                    <div class="tripSmallImgBox">
-                        <img class="tripSmallImg" src="../../assets/images/banner/banner_01.jpg"/>
-                    </div>
-                    <div class="tripSmallImgBox">
-                        <img class="tripSmallImg" src="../../assets/images/banner/banner_01.jpg"/>
-                    </div>
-                </div> -->
             </div>
             <div class="tripDetailRight">
                 <h2 class="tripTitle">{{trip.tripname}}</h2>
@@ -57,13 +40,43 @@
                 </el-form>
             </div>
         </div>
+        <!-- 评价 -->
+        <div class="tripBottom">
+            <div class="introduceTrip">
+                <div class="introduceTripBox">
+                    <span class="introduceTripTitle">出行推荐</span>
+                </div>
+                <div class="introduceTripImg" 
+                        @click="gotoTripPage(trip.tripid)"
+                        v-for="(trip,key) in tripList"
+                    >
+                    <div class="introname">{{trip.tripname}}</div>
+                    <!-- <img :src="trip.tripimg"/> -->
+                    <img class="introImg" src="../../assets/images/banner/banner_01.jpg"/>
+                </div>
+            </div>
+            <div class="evaluate">
+                <div class="introduceTripBox">
+                    <span class="introduceTripTitle">评价</span>
+                </div>
+                <div class="evaluateBox"
+                    v-for="(evaluate, key) in evaluateList"
+                >
+                    <div class="evaluateUser">
+                        <img class="evaluateUserImg" src="../../assets/images/banner/banner_01.jpg"/>
+                        <div>{{evaluate.evaluatetime}}</div>
+                    </div>
+                    <div class="evaluateContent">{{evaluate.content}}</div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 import searchBar from '../common/searchBar'
 import topNav from '../common/topNav'
-import {API_getTripInfoURl, API_getTriptimeInfoURl} from '../../constants/index.js'
+import {API_getTripInfoURl, API_getTriptimeInfoURl, API_getTripList, API_getEvaluateURL} from '../../constants/index.js'
 import axios from 'axios'
   export default {
     name: 'trip',
@@ -77,14 +90,74 @@ import axios from 'axios'
               person: 1,
               chooseTriptime: '',
               chooseTriptimeid: ''
-          }
+          },
+          tripList: [],
+          evaluateList: []
       }
     },
     created() {
         this.getTripInfo()
         this.getTriptimeInfo()
+        this.getTripListByTrading()
+        this.getEvaluate()
     },
     methods: {
+      gotoTripPage(tripid) {
+        this.$router.push({name:'trip', params:{tripid}})
+      },
+      getEvaluate() {
+        //获取评价
+        var params = new URLSearchParams();
+        params.append('tripid', this.$route.params.tripid)
+        params.append('order', 'evaluatetime')
+        axios({
+            method:'post',
+            url:API_getEvaluateURL,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+                this.evaluateList = response.data.data
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('获取评价失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
+      getTripListByTrading() {
+        //按成交量热度获取出团活动信息
+        var params = new URLSearchParams();
+        params.append('start', 0)
+        params.append('size',2)
+        params.append('order','triptrading')
+        axios({
+            method:'post',
+            url:API_getTripList,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+                this.tripList = response.data.data
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('获取按热度排序获取出团活动信息失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
       //获取trip信息
       getTripInfo() {
           //获取Trip信息
@@ -264,5 +337,71 @@ import axios from 'axios'
     font-size: .8rem;
     color: red;
     padding-bottom: 1rem;
+}
+.tripBottom {
+    width: 80rem;
+    margin: 0 auto;
+    display: flex;
+    margin-bottom: 2rem;
+}
+.introduceTrip {
+    flex: 1;
+    /* height: 10rem; */
+    border: 1px solid #fdd000;
+}
+.evaluate {
+    flex: 3;
+    /* height: 10rem; */
+    border: 1px solid #fdd000;
+}
+.introduceTripBox {
+    border-bottom: 5px dotted gray;
+    margin: 2rem 3rem;
+    display: flex;
+    justify-content: flex-start;
+}
+.introduceTripTitle {
+    font-size: 1rem;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+.introduceTripImg {
+    width: 100%;
+    margin-bottom: 1rem;
+    position: relative;
+}
+.evaluateBox {
+   min-height: 10rem;
+   margin: auto 3rem;
+   padding: 1rem auto;
+   background: yellow;
+   border-bottom: 1px solid gray;
+   display: flex;
+   align-items: center;
+}
+.evaluateUser {
+    flex: 1;
+}
+.evaluateContent {
+    flex: 4;
+    text-align: left;
+}
+.evaluateUserImg {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 2.5rem;
+    margin-bottom: 1rem;
+}
+.introImg {
+    width: 13rem;
+    height: 10rem;
+}
+.introname {
+  position: absolute;
+  left: 9rem;
+  bottom: 10%;
+  color: #fdd000;
+  font-size: 1rem;
+  font-weight: 600;
 }
 </style>

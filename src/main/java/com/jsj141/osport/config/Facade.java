@@ -1,20 +1,10 @@
 package com.jsj141.osport.config;
 
 import com.google.code.kaptcha.Producer;
+import com.jsj141.osport.dao.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.jsj141.osport.dao.AdminDao;
-import com.jsj141.osport.dao.UserDao;
-import com.jsj141.osport.dao.TripDao;
-import com.jsj141.osport.dao.ShopDao;
-import com.jsj141.osport.dao.TriptimeDao;
-import com.jsj141.osport.dao.TriporderDao;
-import com.jsj141.osport.dao.TriporderitemDao;
-import com.jsj141.osport.dao.ClubDao;
-import com.jsj141.osport.dao.ClubuseritemDao;
-import com.jsj141.osport.dao.ClubdiaryDao;
-import com.jsj141.osport.dao.ClubactivityDao;
-import com.jsj141.osport.dao.ClubuseractivityDao;
+
 /**
  * 门面类
  */
@@ -34,9 +24,6 @@ public class Facade {
 
     @Autowired
     private TripDao tripDao;
-
-//    @Autowired
-//    private TrainDao trainDao;
 
     @Autowired
     private TriptimeDao triptimeDao;
@@ -61,6 +48,9 @@ public class Facade {
 
     @Autowired
     private ClubuseractivityDao clubuseractivityDao;
+
+    @Autowired
+    private EvaluateDao evaluateDao;
 
     public Producer getCaptchaProducer() {
         return captchaProducer;
@@ -101,14 +91,6 @@ public class Facade {
     public void setTripDao(TripDao tripDao) {
         this.tripDao = tripDao;
     }
-
-//    public TrainDao getTrainDao() {
-//        return trainDao;
-//    }
-//
-//    public void setTrainDao(TrainDao trainDao) {
-//        this.trainDao = trainDao;
-//    }
 
 
     public TriptimeDao getTriptimeDao() {
@@ -175,5 +157,13 @@ public class Facade {
 
     public void setClubuseractivityDao(ClubuseractivityDao clubuseractivityDao) {
         this.clubuseractivityDao = clubuseractivityDao;
+    }
+
+    public EvaluateDao getEvaluateDao() {
+        return evaluateDao;
+    }
+
+    public void setEvaluateDao(EvaluateDao evaluateDao) {
+        this.evaluateDao = evaluateDao;
     }
 }

@@ -67,6 +67,8 @@ export const API_getHotClubActivity = 'http://localhost:8000/clubactivity/getHot
 export const API_gettriporderitemURl = 'http://localhost:8000/triporderitem/get'
 export const API_cancelOrderURl = 'http://localhost:8000/triporder/cancel'
 export const API_sureOrderURl = 'http://localhost:8000/triporder/sure'
+export const API_evaluateOrderURl = 'http://localhost:8000/evaluate/save'
+export const API_getEvaluateURL = 'http://localhost:8000/evaluate/getCondition'
 
 export const API_adminsigninURL = 'http://localhost:8000/admin/signin'
 export const API_saveAdminURL = 'http://localhost:8000/admin/save'

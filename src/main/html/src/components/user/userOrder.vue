@@ -32,11 +32,6 @@
                         </template>
                     </el-table-column>
                 <el-table-column
-                type="selection"
-                width="55">
-                </el-table-column>
-                
-                <el-table-column
                 prop="triporderid"
                 label="订单号"
                 width="300">
@@ -59,13 +54,20 @@
                 </el-table-column>
                 <el-table-column label="操作" prop="tripid">
                     <template slot-scope="scope">
+                        <span v-if="triporder[scope.$index].triporderstatus === '已取消' || triporder[scope.$index].triporderstatus === '已评价'">订单已完成</span>
                         <el-button
                         size="mini"
+                        v-if="triporder[scope.$index].triporderstatus === '已报名'"
                         @click="cancel(triporder[scope.$index].triporderid, triporder[scope.$index].triporderstatus)">取消订单</el-button>
                         <el-button
                         size="mini"
                         type="danger"
+                        v-if="triporder[scope.$index].triporderstatus === '已报名'"
                         @click="sure(triporder[scope.$index].triporderid, triporder[scope.$index].triporderstatus)">确认订单</el-button>
+                        <el-button
+                        size="mini"
+                        v-if="triporder[scope.$index].triporderstatus === '已确认'"
+                        @click="evaluate(triporder[scope.$index].trip.tripid, triporder[scope.$index].triporderid)">评价订单</el-button>
                     </template>
                 </el-table-column>
             </el-table>
@@ -85,7 +87,7 @@
 </template>
 
 <script>
-import {API_getUserTripOrderURl, API_gettriporderitemURl, API_cancelOrderURl, API_sureOrderURl} from '../../constants/index.js'
+import {API_getUserTripOrderURl, API_gettriporderitemURl, API_cancelOrderURl, API_sureOrderURl, API_evaluateOrderURl} from '../../constants/index.js'
 import axios from 'axios'
   export default {
     name: 'checkOrder',
@@ -95,11 +97,11 @@ import axios from 'axios'
               triporderid: '',
               tripordertotal: '',
               tripordertime: '',
-              triporderstatus: '已下单',  
-            //   tripname: '',
+              triporderstatus: '已报名',  
               trip: {
                   tripname: '',
-                  tripprice: ''
+                  tripprice: '',
+                  tripid: ''
               },
               triptime: {
                   triptime: ''
@@ -126,6 +128,9 @@ import axios from 'axios'
         getAllOrders(click) {
             //获取所有triporder信息
             var params = new URLSearchParams();
+            if(click == '全部') {
+                click = ''
+            }
             params.append('triporderstatus',click)
             axios({
                 method:'post',
@@ -164,37 +169,44 @@ import axios from 'axios'
                 });
                 return
             }
+            this.$confirm('是否要取消订单?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                var params = new URLSearchParams();
+                params.append('triporderid', triporderid);
+                //取消订单信息
+                axios({
+                    method:'post',
+                    url:API_cancelOrderURl,
+                    params
+                })
+                .then((response) => {
+                    console.log(response.data)
+                    if(response.data.code == 0) {
+                        this.$message({
+                            message: response.data.msg,
+                            type: 'success'
+                        }); 
+                        setTimeout(() => {
+                            location.reload()
+                        },2000)
+                        
+                    }else if(response.data.code == 1) {
+                        this.$message({
+                            message: response.data.msg,
+                            type: 'warning'
+                        }); 
+                    }else {
+                        this.$message.error('取消订单失败，请稍后重试');
+                    }        
+                }).catch((err) => {
+                    console.log(err)
+                })  
+            }).catch(() => {
 
-            var params = new URLSearchParams();
-            params.append('triporderid', triporderid);
-            //取消订单信息
-            axios({
-                method:'post',
-                url:API_cancelOrderURl,
-                params
             })
-            .then((response) => {
-                console.log(response.data)
-                if(response.data.code == 0) {
-                    this.$message({
-                        message: response.data.msg,
-                        type: 'success'
-                    }); 
-                    setTimeout(() => {
-                        location.reload()
-                    },2000)
-                    
-                }else if(response.data.code == 1) {
-                    this.$message({
-                        message: response.data.msg,
-                        type: 'warning'
-                    }); 
-                }else {
-                    this.$message.error('取消订单失败，请稍后重试');
-                }        
-            }).catch((err) => {
-                console.log(err)
-            })  
         },
         sure(triporderid, triporderstatus) {
             if(triporderstatus === '已取消') {
@@ -211,36 +223,86 @@ import axios from 'axios'
                 });
                 return
             }
-            var params = new URLSearchParams();
-            params.append('triporderid', triporderid);
-            //取消订单信息
-            axios({
-                method:'post',
-                url:API_sureOrderURl,
-                params
-            })
-            .then((response) => {
-                console.log(response.data)
-                if(response.data.code == 0) {
-                    this.$message({
-                        message: response.data.msg,
-                        type: 'success'
-                    }); 
-                    setTimeout(() => {
-                        location.reload()
-                    },2000)
-                }else if(response.data.code == 1) {
-                    this.$message({
-                        message: response.data.msg,
-                        type: 'warning'
-                    }); 
-                }else {
-                    this.$message.error('取消订单失败，请稍后重试');
-                }        
-            }).catch((err) => {
-                console.log(err)
-            })  
-        }
+            this.$confirm('是否要确认订单?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                var params = new URLSearchParams();
+                params.append('triporderid', triporderid);
+                //取消订单信息
+                axios({
+                    method:'post',
+                    url:API_sureOrderURl,
+                    params
+                })
+                .then((response) => {
+                    console.log(response.data)
+                    if(response.data.code == 0) {
+                        this.$message({
+                            message: response.data.msg,
+                            type: 'success'
+                        }); 
+                        setTimeout(() => {
+                            location.reload()
+                        },2000)
+                    }else if(response.data.code == 1) {
+                        this.$message({
+                            message: response.data.msg,
+                            type: 'warning'
+                        }); 
+                    }else {
+                        this.$message.error('取消订单失败，请稍后重试');
+                    }        
+                }).catch((err) => {
+                    console.log(err)
+                })  
+            }).catch(() => {       
+            });            
+        },
+        evaluate(tripid, triporderid) {
+                console.log(tripid, triporderid)
+                this.$prompt('请输入评价', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    inputPattern: /\S/,
+                    inputErrorMessage: '评价不能为空'
+                    }).then(({ value }) => {
+                        var params = new URLSearchParams();
+                        params.append('content', value)
+                        params.append('tripid', tripid)
+                        params.append('triporderid', triporderid);
+                        //评价订单信息
+                        axios({
+                            method:'post',
+                            url:API_evaluateOrderURl,
+                            params
+                        })
+                        .then((response) => {
+                            console.log(response.data)
+                            if(response.data.code == 0) {
+                                this.$message({
+                                    message: response.data.msg,
+                                    type: 'success'
+                                }); 
+                                setTimeout(() => {
+                                    location.reload()
+                                },2000)
+                            }else if(response.data.code == 1) {
+                                this.$message({
+                                    message: response.data.msg,
+                                    type: 'warning'
+                                }); 
+                            }else {
+                                this.$message.error('评价订单失败，请稍后重试');
+                            }        
+                        }).catch((err) => {
+                            console.log(err)
+                        })  
+                    }).catch(() => {
+    
+                });
+        }    
     }
   }
 </script>

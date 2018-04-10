@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jsj141.osport.dao.EvaluateDao">
+
+    <sql id="dynamicWhere">
+        <where>
+            <if test="_parameter.containsKey('evaluateids') and evaluateids != null and evaluateids != ''">
+                and evaluateid in (${evaluateids})
+            </if>
+        </where>
+    </sql>
+
+    <select id="select" resultType="com.jsj141.osport.domain.Evaluate">
+        select * from evaluate where evaluateid=#{evaluateid}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from evaluate
+        <include refid="dynamicWhere" />
+    </select>
+
+    <select id="list" resultType="com.jsj141.osport.domain.Evaluate">
+        select * from evaluate
+        <include refid="dynamicWhere" />
+        <if test="_parameter.containsKey('order') and order!=null">
+            order by ${order}
+        </if>
+        limit #{start},#{size}
+    </select>
+
+    <select id="listdesc" resultType="com.jsj141.osport.domain.Evaluate">
+        select * from evaluate
+        <include refid="dynamicWhere" />
+        <if test="_parameter.containsKey('tripid') and tripid!=null">
+            where tripid=#{tripid}
+        </if>
+        <if test="_parameter.containsKey('order') and order!=null">
+            order by ${order} desc
+        </if>
+    </select>
+
+    <insert id="insert" parameterType="com.jsj141.osport.domain.Evaluate">
+        insert into evaluate (evaluateid,tripid,triporderid,userid,content,evaluatetime)
+        values (#{evaluateid},#{tripid},#{triporderid},#{userid},#{content},#{evaluatetime})
+    </insert>
+
+    <update id="update" parameterType="com.jsj141.osport.domain.Evaluate">
+        update evaluate 
+        <set>
+            <if test="tripid != null">
+                tripid=#{tripid},
+            </if>
+            <if test="triporderid != null">
+                triporderid=#{triporderid},
+            </if>
+            <if test="userid != null">
+                userid=#{userid},
+            </if>
+            <if test="content != null">
+                content=#{content},
+            </if>
+        </set>
+        where evaluateid=#{evaluateid}
+    </update>
+
+    <update id="delete">
+        delete from evaluate where evaluateid=#{evaluateid}
+    </update>
+
+</mapper>
