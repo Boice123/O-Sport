@@ -8,21 +8,25 @@
       <el-form-item label="内容" prop="clubdiarycontent">
         <el-input v-model="form.clubdiarycontent" type="textarea"></el-input>
       </el-form-item>
+      <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
+        <el-form-item label="封面图">
+          <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
+        </el-form-item>
+      </el-form>
+       <el-form-item label="" prop="clubdiaryimg">
+        <img class="shopimg" :src="form.clubdiaryimg"/>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('form')">提交</el-button>
       </el-form-item>
     </el-form>
-    <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
-      <el-form-item label="图片">
-        <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
-      </el-form-item>
-    </el-form>
+   
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import { API_addDiaryURL } from '../../constants/index.js'
+import { API_addDiaryURL, API_uploadFileURL } from '../../constants/index.js'
 import $ from 'jquery'
 import ajaxSubmit from '../../../static/js/jquery.form.js'
 export default {
@@ -42,6 +46,12 @@ export default {
         } 
           callback()
       }
+      var validateClubdiaryimg = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请选择封面图'));
+        } 
+          callback()
+      }
         return {
           value1:'',
           form: {
@@ -55,6 +65,9 @@ export default {
             ],
             clubdiarycontent: [
               { validator: validateClubdiarycontent, trigger: 'blur' }
+            ],
+            clubdiaryimg: [
+               { validator: validateClubdiaryimg, trigger: 'blur' }
             ]
           }
         }
@@ -86,6 +99,7 @@ export default {
           params.append('clubid',this.$route.params.clubid);
           params.append('clubdiarytitle',this.form.clubdiarytitle);
           params.append('clubdiarycontent', this.form.clubdiarycontent);
+          params.append('clubdiaryimg', this.form.clubdiaryimg);
           axios({
             method: 'post',
             url:API_addDiaryURL,
@@ -128,6 +142,17 @@ export default {
     margin: 0 auto;
 }
 .el-upload__tip {
+  padding-left: 1rem;
+}
+.shopimg {
+    width: 5rem;
+    height: 6rem;
+    border: 1px solid #e1e0e0;
+    border-radius: .5rem;
+    background: url("../../assets/images/addimg.svg") no-repeat center;
+    background-size: 2rem 2rem;
+}
+.pictureForm {
   padding-left: 1rem;
 }
 </style>

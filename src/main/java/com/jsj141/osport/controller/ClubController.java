@@ -40,6 +40,7 @@ public class ClubController {
     @ResponseBody
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     Result save(@RequestParam(value = "clubname") String clubname,
+                @RequestParam(value = "clubimg") String clubimg,
                 @RequestParam(value = "clubtab") String clubtab,
                 Club club,
                 BindingResult bindingResult,
@@ -50,6 +51,7 @@ public class ClubController {
             club.setClubid(UUID.randomUUID().toString());
             club.setClubname(clubname);
             club.setClubtab(clubtab);
+            club.setClubimg(clubimg);
             club.setClubowner(loginUser.getUserid());
             result = clubService.save(club);
 

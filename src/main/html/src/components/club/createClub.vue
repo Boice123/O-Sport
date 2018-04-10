@@ -16,15 +16,19 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
+                <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
+                  <el-form-item label="部落头像">
+                      <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
+                  </el-form-item>
+                </el-form>
+                <el-form-item label="" prop="clubimg">
+                  <img class="shopimg" :src="form.clubimg"/>
+                </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="submitForm('form')">创建部落</el-button>
                 </el-form-item>
             </el-form>
-            <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
-                <el-form-item label="部落头像">
-                    <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
-                </el-form-item>
-            </el-form>
+            
           </div>    
       </div>
   </div>
@@ -32,6 +36,7 @@
 
 <script>
 import axios from 'axios'
+import $ from 'jquery'
 import { API_saveClubURL ,API_uploadFileURL, API_getClubInfoURl} from '../../constants/index.js'
   export default {
     name: 'createclub',
@@ -51,7 +56,7 @@ import { API_saveClubURL ,API_uploadFileURL, API_getClubInfoURl} from '../../con
         callback()
       };
       //部落头像
-      var validateShopname = (rule, value, callback) => {
+      var validateClubimg = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请选择部落头像'));
         }
@@ -69,10 +74,10 @@ import { API_saveClubURL ,API_uploadFileURL, API_getClubInfoURl} from '../../con
           ],
           clubtab: [
             { validator: validateClubTab, trigger: 'blur' }
+          ],
+          clubimg: [
+            { validator: validateClubimg, trigger: 'blur' }
           ]
-        //   shopname: [
-        //     { validator: validateShopname, trigger: 'blur' }
-        //   ]
         },
         options: [{
           value: '自行车',
@@ -125,7 +130,7 @@ import { API_saveClubURL ,API_uploadFileURL, API_getClubInfoURl} from '../../con
             type: "post",
             dataType: "json",
             success: (result) => {
-              this.form.shopimg = result.data;
+              this.form.clubimg = result.data;
             },
             error: (XMLHttpRequest, textStatus, errorThrown) => {
               alert("服务器出错，上传图片失败！")
@@ -141,6 +146,7 @@ import { API_saveClubURL ,API_uploadFileURL, API_getClubInfoURl} from '../../con
 
         param.append('clubname',this.form.clubname)
         param.append('clubtab',this.form.clubtab)
+        param.append('clubimg',this.form.clubimg)
         // param.append('clubhead',this.form.clubhead)
         this.$refs[formName].validate((valid) => {
           if (valid) {

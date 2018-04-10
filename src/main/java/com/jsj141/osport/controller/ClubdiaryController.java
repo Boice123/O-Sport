@@ -41,7 +41,7 @@ public class ClubdiaryController {
     Result save(@RequestParam(value="clubid") String clubid ,
                 @RequestParam(value="clubdiarytitle") String clubdiarytitle ,
                 @RequestParam(value="clubdiarycontent") String clubdiarycontent,
-//                @RequestParam(value="clubdiaryimg") String clubdiaryimg,
+                @RequestParam(value="clubdiaryimg") String clubdiaryimg,
                 Clubdiary clubdiary,
                 BindingResult bindingResult,
                 HttpServletRequest request) {
@@ -51,6 +51,7 @@ public class ClubdiaryController {
         clubdiary.setClubdiaryid(UUID.randomUUID().toString());
         clubdiary.setClubdiarytitle(clubdiarytitle);
         clubdiary.setClubdiarycontent(clubdiarycontent);
+        clubdiary.setClubdiaryimg(clubdiaryimg);
         clubdiary.setUsername(loginUser.getUsername());
         clubdiary.setClubid(clubid);
         clubdiary.setUserid(loginUser.getUserid());

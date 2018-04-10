@@ -23,8 +23,8 @@
     <el-table-column
       prop="tripimg"
       label="出团图片"
-      width="100">
-      <!-- <img :src={tripimg} /> -->
+      width="100">hhhhh
+      <!-- <img :src=tableData.tripimg /> -->
     </el-table-column>
     <el-table-column
       prop="tripname"

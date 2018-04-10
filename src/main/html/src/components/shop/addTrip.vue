@@ -64,13 +64,16 @@
           placeholder="选择日期">
         </el-date-picker>
       </el-form-item>
+      <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
+        <el-form-item  class="pictureForm" label="出团图片">
+          <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
+        </el-form-item>
+      </el-form>
+      <el-form-item label="" prop="tripimg">
+        <img class="shopimg" :src="form.tripimg"/>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('form')">提交</el-button>
-      </el-form-item>
-    </el-form>
-    <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
-      <el-form-item label="出团图片">
-        <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
       </el-form-item>
     </el-form>
   </div>
@@ -111,10 +114,10 @@ export default {
           callback()
         }
       }
-      // 出团价格
+      // 出团图片
       var validateTripimg = (rule, value, callback) => {
         if (value === '') {
-          callback(new Error('请输入出团价格'));
+          callback(new Error('请选择出团图片'));
         }
         callback()
       }
@@ -352,6 +355,17 @@ export default {
     margin: 0 auto;
 }
 .el-upload__tip {
+  padding-left: 1rem;
+}
+.shopimg {
+    width: 5rem;
+    height: 6rem;
+    border: 1px solid #e1e0e0;
+    border-radius: .5rem;
+    background: url("../../assets/images/addimg.svg") no-repeat center;
+    background-size: 2rem 2rem;
+}
+.pictureForm {
   padding-left: 1rem;
 }
 </style>

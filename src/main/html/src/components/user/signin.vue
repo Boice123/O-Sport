@@ -143,7 +143,7 @@ import axios from 'axios'
 .signin {
   width: 100%;
   height: 33rem;
-  background: url("../../assets/images/signupBgc.jpg");
+  background: url("../../assets/images/bgc/sign.jpg");
   background-size: cover;
   position: relative;
 }

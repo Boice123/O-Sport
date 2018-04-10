@@ -5,21 +5,20 @@
       <el-form-item label="店铺名称" prop="shopname">
         <el-input v-model="form.shopname" :value="form.shopname"></el-input>
       </el-form-item>
-      <el-form-item label="店铺图片" prop="shopimg">
+      <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
+      <el-form-item class="pictureForm" label="店铺头像">
+        <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
+      </el-form-item>
+     </el-form>
+      <el-form-item label="" prop="shopimg">
         <img class="shopimg" :src="form.shopimg"/>
-        <div class="shopimg">
-        </div>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('form')">修改</el-button>
       </el-form-item>
     </el-form>
 
-    <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
-      <el-form-item label="店铺头像">
-        <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
-      </el-form-item>
-    </el-form>
+    
   </div>
 </template>
 
@@ -164,5 +163,8 @@ export default {
     border-radius: .5rem;
     background: url("../../assets/images/addimg.svg") no-repeat center;
     background-size: 2rem 2rem;
+}
+.pictureForm {
+  padding-left: 1rem;
 }
 </style>

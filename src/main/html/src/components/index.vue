@@ -5,17 +5,17 @@
       <!-- topNav导航栏 -->
       <topNav/>
       <!-- banner -->
-      <el-carousel trigger="click" height="400px">
+      <el-carousel trigger="click" height="500px">
         <el-carousel-item :key="1">
-          <a href="#"><img class="bannerImg" src="../assets/images/banner/banner_01.jpg"/></a>
-          <a href="#"><img class="bannerImg" src="../assets/images/banner/banner_02.jpg"/></a>
-          <a href="#"><img class="bannerImg" src="../assets/images/banner/banner_03.jpg"/></a>
+          <a href="#"><img class="bannerImg" src="../assets/images/banner/banner1.jpg"/></a>
+          <a href="#"><img class="bannerImg" src="../assets/images/banner/banner2.jpg"/></a>
+          <a href="#"><img class="bannerImg" src="../assets/images/banner/banner3.jpg"/></a>
         </el-carousel-item>
         <el-carousel-item :key="2">
-          <a href="#"><img class="bannerImg" src="../assets/images/banner/banner_02.jpg"/></a>
+          <a href="#"><img class="bannerImg" src="../assets/images/banner/banner2.jpg"/></a>
         </el-carousel-item>
         <el-carousel-item :key="3">
-          <a href="#"><img class="bannerImg" src="../assets/images/banner/banner_03.jpg"/></a>
+          <a href="#"><img class="bannerImg" src="../assets/images/banner/banner3.jpg"/></a>
         </el-carousel-item>
       </el-carousel>
       <!-- 报名出团活动 -->
@@ -32,7 +32,7 @@
                 v-for="(trip,key) in tripList"
           >
             <div class="tripname">{{trip.tripname}}</div>
-            <img src="../assets/images/banner/banner_01.jpg"/>
+            <img :src="trip.tripimg"/>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
                @click="gotoTripPage(trip.tripid)"
                v-for="(trip, index) in tripTwoList"
                v-if="index >= 1">
-              <img class="introduceImg" src="../assets/images/banner/banner_01.jpg"/>
+              <img class="introduceImg" :src="trip.tripimg"/>
               <div class="clubTextMask" v-if="clubChoose == index"></div>
               <div :class="{'tripInText': clubChoose!= index,'tripInTextActive': clubChoose==index}">
                 <h2 class="tripInname">{{trip.tripname}}</h2>
@@ -70,7 +70,7 @@
           @click="gotoTripPage(trip.tripid)"
           v-for="(trip, index) in tripTwoList"
           v-if="index == 0">
-          <img class="introduceImg" src="../assets/images/banner/banner_01.jpg"/>
+          <img class="introduceImg":src="trip.tripimg"/>
           <div class="clubTextMask" v-if="clubChoose == 0"></div>
               <div :class="{'tripInText': clubChoose!= 0,'tripInTextActive': clubChoose==0}">
                 <h2 class="tripInname">{{trip.tripname}}</h2>
@@ -96,7 +96,7 @@
                @click="gotoClubMainPage(club.clubid)"
           >
             <div class="trainname">{{club.clubname}}</div>
-            <img src="../assets/images/banner/banner_01.jpg"/>
+            <img :src="club.clubimg"/>
           </div>
           <div class="trainContentRight">
             <div class="trainContentRightBox"
@@ -106,7 +106,7 @@
             >
               <div :class="{'trainContentImgActive':clubChoose == key,'trainContentImg':clubChoose != key}" @mouseover="changeclubChoose(key)">
                 <div class="trainname">{{club.clubname}}</div>
-                <img src="../assets/images/banner/banner_01.jpg"/>
+                <img :src="club.clubimg"/>
               </div>
             </div>
           </div>        
@@ -122,7 +122,7 @@
                 @mouseout="changeActivityCover('')"
                 v-for="(activity, index) in clubactivity"
             >
-                  <img :class="{'activityImg': activityCover!=activity.clubactivityid,'activityImgActive': activityCover==activity.clubactivityid}" src="../assets/images/bgc/manycamp.jpg"/>
+                  <img :class="{'activityImg': activityCover!=activity.clubactivityid,'activityImgActive': activityCover==activity.clubactivityid}" :src="activity.clubactivityimg"/>
                   <div class="clubTextMask" v-if="activityCover == activity.clubactivityid"></div>
                   <div :class="{'clubText': activityCover!=activity.clubactivityid,'clubTextActive': activityCover==activity.clubactivityid}">
                     <h2 class="activityname">{{activity.clubactivitytitle}}</h2>
@@ -473,8 +473,8 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
   width: 100%;
 }
 .bannerImg {
-  width: 100%;
-  height: 400px;
+  width: 80%;
+  height: 500px;
 }
 .tripBox {
   background: #333;
@@ -547,7 +547,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
   position: absolute;
   margin: 0 auto;
   bottom: 10%;
-  color: yellow;
+  color: #fdd000;
   font-size: 1rem;
   font-weight: 600;
 }
@@ -557,7 +557,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
   position: absolute;
   margin: 0 auto;
   bottom: 10%;
-  color: yellow;
+  color: #fdd000;
   font-size: 1rem;
   font-weight: 600;
   z-index: 2;
@@ -602,6 +602,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
   padding-right: 2rem;
   margin: 0 auto;
   position: relative;
+  height: 25rem;
 }
 .trainTitle {
   width: 30%;
@@ -824,7 +825,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
     top: 90%;
     width: 4rem;
     height: 2rem;
-    background: yellow;
+    background: #fdd000;
     color: #000;
     border-radius: 10px;
     animation: clubjoinhide .5s;
@@ -841,7 +842,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
     top: 75%;
     width: 4rem;
     height: 2rem;
-    background: yellow;
+    background: #fdd000;
     color: #000;
     border-radius: 10px;
     animation: clubjoinshow .5s;
@@ -927,7 +928,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
   to { left: -10%  }
 }
 .addNewPart {
-    background: yellow;
+    background: #fdd000;
     color: #000;
     position: absolute;
     right: -10%;
@@ -954,7 +955,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
     top: 100%;
     width: 4rem;
     height: 2rem;
-    background: yellow;
+    background: #fdd000;
     color: #000;
     border-radius: 10px;
     animation: opendetailhide .5s;
@@ -971,7 +972,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
     top: 100%;
     width: 4rem;
     height: 2rem;
-    background: yellow;
+    background: #fdd000;
     color: #000;
     border-radius: 10px;
     animation: opendetailhide .5s;
@@ -988,7 +989,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
     top: 80%;
     width: 4rem;
     height: 2rem;
-    background: yellow;
+    background: #fdd000;
     color: #000;
     border-radius: 10px;
     animation: opendetailshow .5s;
@@ -1005,7 +1006,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
     top: 80%;
     width: 4rem;
     height: 2rem;
-    background: yellow;
+    background: #fdd000;
     color: #000;
     border-radius: 10px;
     animation: opendetailshow .5s;
@@ -1031,5 +1032,8 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
 .tripIntroduceContent {
   display: flex;
   flex-direction: row;
+}
+.el-carousel {
+  background: #333;
 }
 </style>

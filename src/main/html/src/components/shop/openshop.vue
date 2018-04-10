@@ -1,6 +1,6 @@
 <template>
   <div class="openshopContainer">
-    <div class="openshopknow">在本网站开店需先完成实名认证和缴纳保证金，如无问题请遵循以下的步骤进行</div>
+    <div class="openshopknow">在本网站开店需先完成实名认证，如无问题请遵循以下的步骤进行</div>
     <el-form id="myForm" ref="form" :rules="rules" :model="form" label-width="80px">
       <el-form-item label="身份证号" prop="realid">
         <el-input name="realid" v-model="form.realid"></el-input>
@@ -11,16 +11,20 @@
       <el-form-item label="店铺名称" prop="shopname">
         <el-input name="shopname" v-model="form.shopname"></el-input>
       </el-form-item>
+       <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
+        <el-form-item class="pictureForm" label="店铺头像">
+          <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
+        </el-form-item>
+      </el-form>
+      <el-form-item label="" prop="shopimg">
+        <img class="shopimg" :src="form.shopimg"/>
+      </el-form-item>
       <el-form-item>
-        <button type="button" @click="submitForm('form',$event)">缴纳保证金 </button>
+        <button type="button" class="openShopButton" @click="submitForm('form',$event)">提交</button>
       </el-form-item>
     </el-form>
 
-    <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
-      <el-form-item label="店铺头像">
-        <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
-      </el-form-item>
-    </el-form>
+   
   </div>
 </template>
 
@@ -56,6 +60,12 @@ export default {
         }
         callback()
       };
+       var validateShopimg = (rule, value, callback) => {
+        if (value === null || value === '') {
+          callback(new Error('请选择店铺头像'));
+        }
+        callback()
+      };
       return {
         form: {
           realid: '',
@@ -72,6 +82,9 @@ export default {
           ],
           shopname: [
             { validator: validateShopname, trigger: 'blur' }
+          ],
+          shopimg: [
+             { validator: validateShopimg, trigger: 'blur' }
           ]
         }
       }
@@ -227,4 +240,14 @@ export default {
     height: 178px;
     display: block;
   }
+  .openShopButton {
+    background: #fdd000;
+    color: #000;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+  }
+.pictureForm {
+  padding-left: 1rem;
+}
 </style>

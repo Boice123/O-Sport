@@ -182,7 +182,7 @@ import axios from 'axios'
 .signup {
   width: 100%;
   height: 35rem;
-  background: url("../../assets/images/signupBgc.jpg");
+  background: url("../../assets/images/bgc/sign.jpg");
   background-size: cover;
   position: relative;
 }
