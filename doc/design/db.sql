@@ -130,3 +130,15 @@ CREATE TABLE clubuseritem(
     `userid` varchar(100) NOT NULL COMMENT '用户id',
     primary key(`clubuseritemid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='部落与用户关系表';
+
+CREATE TABLE evaluate(
+    `evaluateid` varchar(100) NOT NULL COMMENT '评价主键id',
+    `tripid` varchar(100) NOT NULL COMMENT 'tripid',
+    `triporderid` varchar(100) NOT NULL COMMENT '订单id',
+    `userid` varchar(100) NOT NULL COMMENT '用户id',
+    `content` varchar(200) NOT NULL COMMENT '评价内容',
+    `evaluatetime` timestamp NOT NULL default NOW() COMMENT '评价时间',
+    primary key(`evaluateid`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='出行评价表';
+
+
