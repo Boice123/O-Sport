@@ -221,7 +221,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
         //按日期排序获取出团活动信息
         var params = new URLSearchParams();
         params.append('start', 0)
-        params.append('size',4)
+        params.append('size',5)
         params.append('order','trippublishtime')
         axios({
             method:'post',
@@ -248,7 +248,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
         //按成交量热度获取出团活动信息
         var params = new URLSearchParams();
         params.append('start', 0)
-        params.append('size',4)
+        params.append('size',5)
         params.append('order','triptrading')
         axios({
             method:'post',

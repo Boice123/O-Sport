@@ -75,6 +75,7 @@ public class ClubController {
     Result updateClub(
                 @RequestParam(value="clubid") String clubid,
                 @RequestParam(value="clubname") String clubname,
+                @RequestParam(value="clubimg") String clubimg,
                 Club club,
                 BindingResult bindingResult,
                 HttpServletRequest request) {
@@ -83,6 +84,7 @@ public class ClubController {
 
             club.setClubid(clubid);
             club.setClubname(clubname);
+            club.setClubimg(clubimg);
             result = clubService.update(club);
 
         } catch(Exception e) {
