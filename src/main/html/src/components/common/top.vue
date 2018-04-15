@@ -14,8 +14,8 @@
     </div>
     <div class="right">
       <ul>
-        <router-link to='/shop'><li class="rightLi">我的商店</li></router-link>
-        <li class="rightLi">|</li>
+        <!-- <router-link to='/shop'><li class="rightLi">我的商店</li></router-link>
+        <li class="rightLi">|</li> -->
         <router-link to='/userOrder'><li class="rightLi">我的订单</li></router-link>
         <li class="rightLi">|</li>
         <router-link to='/myClub'><li class="rightLi">我的部落</li></router-link>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import {API_signinURL,API_checkShopExistURl,API_getClubInfoURl} from '../../constants/index.js'
+import {API_signinURL} from '../../constants/index.js'
 import axios from 'axios'
   export default {
     name: 'signup',
@@ -61,43 +61,12 @@ import axios from 'axios'
             })
               .then((response) => {
                 console.log(response.data)
-                if(response.data.code == 0) {
-                  //查看该用户是否开店
-                  axios({
-                      method:'post',
-                      url:API_checkShopExistURl
-                  })
-                  .then((res) => {
-                      console.log(res.data)
-                      if(res.data.code == 0) {
-                          this.setCookie('shop_id', res.data.data.shopid, 2)
-                          this.$store.commit('shopidChange',res.data.data.shopid)
-                      } 
-                  }).catch((err) => {
-                      console.log(err)
-                  })
+                if(response.data.code == 0) {          
                   this.setCookie('user_tel', response.data.data.tel, 2)
                   this.setCookie('user_password', response.data.data.password, 2)
                   this.setCookie('user_username', response.data.data.username, 2)
                   this.setCookie('user_userid', response.data.data.userid, 2)       
                   this.$store.commit('usernameChange', response.data.data.username)
-                  //查看该用户是否有自己管理的club
-                  var params = new URLSearchParams();
-                  params.append('clubowner',this.getCookie('user_userid'));
-                  axios({
-                      method:'post',
-                      url:API_getClubInfoURl,
-                      params
-                  })
-                  .then((res) => {
-                      console.log(res.data)
-                      if(res.data.code == 0) {
-                          this.setCookie('clubid', res.data.data.clubid, 2)
-                      }
-                  }).catch((err) => {
-                      console.log(err)
-                  })
-                  // this.$router.push('/')
                 }
                 else if(response.data.code == 1) {
                   this.$message({

@@ -6,7 +6,7 @@ vue.use(vuex)
 
 const state = {
 	username: "",
-	shopid: ""
+	admin: ""
 }
 
 export default new vuex.Store({

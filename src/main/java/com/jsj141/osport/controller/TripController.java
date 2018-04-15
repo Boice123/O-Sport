@@ -441,9 +441,9 @@ public class TripController {
      */
     @ResponseBody
     @RequestMapping(value = "/getCount", method = RequestMethod.POST)
-    Result getCount(String shopid, Trip trip, HttpServletRequest request) {
+    Result getCount(HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-        result = tripService.getTripCount(shopid);
+        result = tripService.getTripCount();
         return result;
     }
 
@@ -507,19 +507,19 @@ public class TripController {
      * @param request
      * @return
      */
-    @ResponseBody
-    @RequestMapping(value = "/getShopAllPagination", method = RequestMethod.POST)
-    Result getShopAllPagination(
-                       @RequestParam(value="start") int start,
-                       @RequestParam(value="size") int size,
-                       @RequestParam(value="shopid") String shopid,
-                       @RequestParam(value="order") String order,
-                       HttpServletRequest request) {
-        Result result = ResultUtil.initResult();
-        List<Trip> tripList = tripService.listdescn(start, size, shopid, order);
-        ResultUtil.setSuccess(result, "获得Shop Trip列表排序信息成功", tripList);
-        return result;
-    }
+//    @ResponseBody
+//    @RequestMapping(value = "/getShopAllPagination", method = RequestMethod.POST)
+//    Result getShopAllPagination(
+//                       @RequestParam(value="start") int start,
+//                       @RequestParam(value="size") int size,
+//                       @RequestParam(value="shopid") String shopid,
+//                       @RequestParam(value="order") String order,
+//                       HttpServletRequest request) {
+//        Result result = ResultUtil.initResult();
+//        List<Trip> tripList = tripService.listdescn(start, size, shopid, order);
+//        ResultUtil.setSuccess(result, "获得Shop Trip列表排序信息成功", tripList);
+//        return result;
+//    }
 
     /**
      *  根据热度或者更新时间获取Trip
@@ -538,21 +538,19 @@ public class TripController {
     }
 
     /**
-     * 获得Trip列表,本站发起的
-     * @param size: 获取多少条数据
+     * 获得Trip列表
      * @param request
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "/getWebTripPagination", method = RequestMethod.POST)
+    @RequestMapping(value = "/getTripPagination", method = RequestMethod.POST)
     Result getWebTripPagination(
             @RequestParam(value="start") int start,
             @RequestParam(value="size") int size,
-            @RequestParam(value="shopid") String shopid,
             @RequestParam(value="order") String order,
             HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-        List<Trip> tripList = tripService.listdesc(start, size, shopid, order);
+        List<Trip> tripList = tripService.listdesc(start, size, order);
         ResultUtil.setSuccess(result, "获得Web Trip列表排序信息成功", tripList);
         return result;
     }

@@ -65,15 +65,15 @@ public class EvaluateController {
      * @param request
      * @return
      */
-    @ResponseBody
-    @RequestMapping(value = "/get", method = RequestMethod.POST)
-    Result getTripInfo(String tripid, Trip trip, HttpServletRequest request) {
-        Result result = ResultUtil.initResult();
-
-        trip.setTripid(tripid);
-        result = tripService.getTripInfo(trip);
-        return result;
-    }
+//    @ResponseBody
+//    @RequestMapping(value = "/get", method = RequestMethod.POST)
+//    Result getTripInfo(String tripid, Trip trip, HttpServletRequest request) {
+//        Result result = ResultUtil.initResult();
+//
+//        trip.setTripid(tripid);
+//        result = tripService.getTripInfo(trip);
+//        return result;
+//    }
 
     /**
      * 根据shopid，获取当前店铺的Trip数量信息
@@ -82,13 +82,13 @@ public class EvaluateController {
      * @param request
      * @return
      */
-    @ResponseBody
-    @RequestMapping(value = "/getCount", method = RequestMethod.POST)
-    Result getCount(String shopid, Trip trip, HttpServletRequest request) {
-        Result result = ResultUtil.initResult();
-        result = tripService.getTripCount(shopid);
-        return result;
-    }
+//    @ResponseBody
+//    @RequestMapping(value = "/getCount", method = RequestMethod.POST)
+//    Result getCount(String shopid, Trip trip, HttpServletRequest request) {
+//        Result result = ResultUtil.initResult();
+//        result = tripService.getTripCount(shopid);
+//        return result;
+//    }
 
     /**
      * 删除Trip信息
@@ -138,18 +138,18 @@ public class EvaluateController {
     /**
      *  根据热度或者更新时间获取Trip
      */
-    @ResponseBody
-    @RequestMapping(value = "/getTripList", method = RequestMethod.POST)
-    Result getTripList(
-            @RequestParam(value="start") int start,
-            @RequestParam(value="size") int size,
-            @RequestParam(value="order") String order,
-            HttpServletRequest request) {
-        Result result = ResultUtil.initResult();
-        List<Trip> tripList = tripService.listdesc(start, size, order);
-        ResultUtil.setSuccess(result, "获得Trip列表排序信息成功", tripList);
-        return result;
-    }
+//    @ResponseBody
+//    @RequestMapping(value = "/getTripList", method = RequestMethod.POST)
+//    Result getTripList(
+//            @RequestParam(value="start") int start,
+//            @RequestParam(value="size") int size,
+//            @RequestParam(value="order") String order,
+//            HttpServletRequest request) {
+//        Result result = ResultUtil.initResult();
+//        List<Trip> tripList = tripService.listdesc(start, size, order);
+//        ResultUtil.setSuccess(result, "获得Trip列表排序信息成功", tripList);
+//        return result;
+//    }
 
     /**
      * 获得Trip列表,本站发起的
@@ -157,19 +157,19 @@ public class EvaluateController {
      * @param request
      * @return
      */
-    @ResponseBody
-    @RequestMapping(value = "/getWebTripPagination", method = RequestMethod.POST)
-    Result getWebTripPagination(
-            @RequestParam(value="start") int start,
-            @RequestParam(value="size") int size,
-            @RequestParam(value="shopid") String shopid,
-            @RequestParam(value="order") String order,
-            HttpServletRequest request) {
-        Result result = ResultUtil.initResult();
-        List<Trip> tripList = tripService.listdesc(start, size, shopid, order);
-        ResultUtil.setSuccess(result, "获得Web Trip列表排序信息成功", tripList);
-        return result;
-    }
+//    @ResponseBody
+//    @RequestMapping(value = "/getWebTripPagination", method = RequestMethod.POST)
+//    Result getWebTripPagination(
+//            @RequestParam(value="start") int start,
+//            @RequestParam(value="size") int size,
+////            @RequestParam(value="shopid") String shopid,
+//            @RequestParam(value="order") String order,
+//            HttpServletRequest request) {
+//        Result result = ResultUtil.initResult();
+//        List<Trip> tripList = tripService.listdesc(start, size, order);
+//        ResultUtil.setSuccess(result, "获得Web Trip列表排序信息成功", tripList);
+//        return result;
+//    }
 
     /**
      * 根据地区和关键词获得Trip信息
@@ -179,27 +179,27 @@ public class EvaluateController {
      * @param request
      * @return
      */
-    @ResponseBody
-    @RequestMapping(value="/searchKey", method = RequestMethod.POST)
-    Result searchKey(@RequestParam(value="tripprovice") String tripprovice,
-                     @RequestParam(value="tripcity") String tripcity,
-                     @RequestParam(value="searchKey") String searchKey,
-                     HttpServletRequest request) {
-        Result result = ResultUtil.initResult();
-        List<Trip> tripList = tripService.searchKey(tripprovice, tripcity, searchKey);
-        ResultUtil.setSuccess(result, "根据地区和关键词获得Trip信息成功", tripList);
-        return result;
-    }
+//    @ResponseBody
+//    @RequestMapping(value="/searchKey", method = RequestMethod.POST)
+//    Result searchKey(@RequestParam(value="tripprovice") String tripprovice,
+//                     @RequestParam(value="tripcity") String tripcity,
+//                     @RequestParam(value="searchKey") String searchKey,
+//                     HttpServletRequest request) {
+//        Result result = ResultUtil.initResult();
+//        List<Trip> tripList = tripService.searchKey(tripprovice, tripcity, searchKey);
+//        ResultUtil.setSuccess(result, "根据地区和关键词获得Trip信息成功", tripList);
+//        return result;
+//    }
 
-    public String format(String time) {
-        try {
-            SimpleDateFormat sf = new SimpleDateFormat("EEE MMM dd hh:mm:ss z yyyy", Locale.ENGLISH);
-            Date date = sf.parse(time);
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            return df.format(date);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
+//    public String format(String time) {
+//        try {
+//            SimpleDateFormat sf = new SimpleDateFormat("EEE MMM dd hh:mm:ss z yyyy", Locale.ENGLISH);
+//            Date date = sf.parse(time);
+//            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+//            return df.format(date);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return "";
+//    }
 }

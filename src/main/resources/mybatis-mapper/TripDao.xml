@@ -43,9 +43,6 @@
     <select id="listdesc" resultType="com.jsj141.osport.domain.Trip">
         select * from trip
         <include refid="dynamicWhere" />
-        <if test="_parameter.containsKey('shopid') and shopid!=null">
-            where shopid = #{shopid}
-        </if>
         <if test="_parameter.containsKey('order') and order!=null">
             order by ${order} DESC
         </if>
@@ -80,8 +77,8 @@
     </select>
 
     <insert id="insert" parameterType="com.jsj141.osport.domain.Trip">
-        insert into trip (tripid,tripname,tripdescription,tripnotice,tripprice,maxpeople,trippublishtime,tripimg,tripprovice,tripcity,shopid)
-        values (#{tripid},#{tripname},#{tripdescription},#{tripnotice},#{tripprice},#{maxpeople},#{trippublishtime},#{tripimg},#{tripprovice},#{tripcity},#{shopid})
+        insert into trip (tripid,tripname,tripdescription,tripnotice,tripprice,maxpeople,trippublishtime,tripimg,tripprovice,tripcity)
+        values (#{tripid},#{tripname},#{tripdescription},#{tripnotice},#{tripprice},#{maxpeople},#{trippublishtime},#{tripimg},#{tripprovice},#{tripcity})
     </insert>
 
     <update id="update" parameterType="com.jsj141.osport.domain.Trip">
@@ -113,9 +110,6 @@
             </if>
             <if test="tripcity != null">
                 tripcity=#{tripcity},
-            </if>
-            <if test="shopid != null">
-                shopid=#{shopid},
             </if>
             <if test="triptrading != null">
                 triptrading=#{triptrading},

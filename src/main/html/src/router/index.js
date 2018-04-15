@@ -5,13 +5,13 @@ import Signup from '@/components/user/signup'
 import Signin from '@/components/user/signin'
 import Trip from '@/components/trip/trip'
 import CheckOrder from '@/components/order/checkOrder'
-import Shop from '@/components/shop/shop'
-import OpenShop from '@/components/shop/openshop'
-import UpdateshopInfo from '@/components/shop/updateshopInfo'
-import Shopmanagetrip from '@/components/shop/shopmanagetrip'
-import Shopmanagetriporder from '@/components/shop/shopmanagetriporder'
-import AddTrip from '@/components/shop/addTrip'
-import UpdateTripInfo from '@/components/shop/updateTripInfo'
+// import Shop from '@/components/shop/shop'
+// import OpenShop from '@/components/shop/openshop'
+// import UpdateshopInfo from '@/components/shop/updateshopInfo'
+// import Shopmanagetrip from '@/components/shop/shopmanagetrip'
+// import Shopmanagetriporder from '@/components/shop/shopmanagetriporder'
+// import AddTrip from '@/components/shop/addTrip'
+// import UpdateTripInfo from '@/components/shop/updateTripInfo'
 import UserOrder from '@/components/user/userOrder'
 import UserCenter from '@/components/user/userCenter'
 import UpdateUserInfo from '@/components/user/updateUserInfo'
@@ -33,9 +33,9 @@ import SearchClubList from '@/components/club/searchClubList'
 import Admin from '@/components/admin/admin'
 import Adminsignup from '@/components/admin/adminsignup'
 import Adminsignin from '@/components/admin/adminsignin'
-import AdminShop from '@/components/admin/adminShop'
-import AdminShopTrip from '@/components/admin/adminShopTrip'
-import AdminShopTripOrder from '@/components/admin/adminShopTripOrder'
+// import AdminShop from '@/components/admin/adminShop'
+// import AdminShopTrip from '@/components/admin/adminShopTrip'
+// import AdminShopTripOrder from '@/components/admin/adminShopTripOrder'
 import AdminTrip from '@/components/admin/adminTrip'
 import AdminTripOrder from '@/components/admin/adminTripOrder'
 import AdminClub from '@/components/admin/adminClub'
@@ -106,64 +106,64 @@ export default new Router({
       name: 'checkOrder',
       component: CheckOrder
     },
-    {
-      path: '/shop',
-      name: 'shop',
-      component: Shop,
-      redirect: 'shop/shopmanagetrip',
-      children: [
-        {
-          path: 'openshop',
-          name: 'openshop',
-          component: OpenShop
-        },
-        {
-          path: 'updateshopinfo',
-          name: 'updateshopinfo',
-          component: UpdateshopInfo
-        },
-        {
-          path: 'shopmanagetrip',
-          name: 'shopmanagetrip',
-          component: Shopmanagetrip
-        },
-        // {
-        //   path: 'shopmanagetrain',
-        //   name: 'shopmanagetrain',
-        //   component: Shopmanagetrain
-        // },
-        {
-          path: 'shopmanagetriporder',
-          name: 'shopmanagetriporder',
-          component: Shopmanagetriporder
-        },
-        // {
-        //   path: 'shopmanagetrainorder',
-        //   name: 'shopmanagetrainorder',
-        //   component: Shopmanagetrainorder
-        // },
-        {
-          path: 'addTrip',
-          name: 'addTrip',
-          component: AddTrip
-        },
-        {
-          path: 'updateTripInfo',
-          name: 'updateTripInfo',
-          component: UpdateTripInfo
-        },
-        // {
-        //   path: 'addTrain',
-        //   name: 'addTrain',
-        //   component: AddTrain
-        // },
-        // {
-        //   path: 'updateTrainInfo',
-        //   name: 'updateTrainInfo',
-        //   component: UpdateTrainInfo
-        // },
-      ]
-    },
+    // {
+    //   path: '/shop',
+    //   name: 'shop',
+    //   component: Shop,
+    //   redirect: 'shop/shopmanagetrip',
+    //   children: [
+    //     {
+    //       path: 'openshop',
+    //       name: 'openshop',
+    //       component: OpenShop
+    //     },
+    //     {
+    //       path: 'updateshopinfo',
+    //       name: 'updateshopinfo',
+    //       component: UpdateshopInfo
+    //     },
+    //     {
+    //       path: 'shopmanagetrip',
+    //       name: 'shopmanagetrip',
+    //       component: Shopmanagetrip
+    //     },
+    //     // {
+    //     //   path: 'shopmanagetrain',
+    //     //   name: 'shopmanagetrain',
+    //     //   component: Shopmanagetrain
+    //     // },
+    //     {
+    //       path: 'shopmanagetriporder',
+    //       name: 'shopmanagetriporder',
+    //       component: Shopmanagetriporder
+    //     },
+    //     // {
+    //     //   path: 'shopmanagetrainorder',
+    //     //   name: 'shopmanagetrainorder',
+    //     //   component: Shopmanagetrainorder
+    //     // },
+    //     {
+    //       path: 'addTrip',
+    //       name: 'addTrip',
+    //       component: AddTrip
+    //     },
+    //     {
+    //       path: 'updateTripInfo',
+    //       name: 'updateTripInfo',
+    //       component: UpdateTripInfo
+    //     },
+    //     // {
+    //     //   path: 'addTrain',
+    //     //   name: 'addTrain',
+    //     //   component: AddTrain
+    //     // },
+    //     // {
+    //     //   path: 'updateTrainInfo',
+    //     //   name: 'updateTrainInfo',
+    //     //   component: UpdateTrainInfo
+    //     // },
+    //   ]
+    // },
   {
     path: '/club',
     name: 'club',
@@ -226,23 +226,23 @@ export default new Router({
     path: '/admin',
     name: 'admin',
     component: Admin,
-    redirect: 'admin/adminShop',
+    redirect: 'admin/adminTrip',
     children: [
-      {
-        path: 'adminShop',
-        name: 'adminShop',
-        component: AdminShop
-      },
-      {
-        path: 'adminShopTrip',
-        name: 'adminShopTrip',
-        component: AdminShopTrip
-      },
-      {
-        path: 'adminShopTripOrder',
-        name: 'adminShopTripOrder',
-        component: AdminShopTripOrder
-      },
+      // {
+      //   path: 'adminShop',
+      //   name: 'adminShop',
+      //   component: AdminShop
+      // },
+      // {
+      //   path: 'adminShopTrip',
+      //   name: 'adminShopTrip',
+      //   component: AdminShopTrip
+      // },
+      // {
+      //   path: 'adminShopTripOrder',
+      //   name: 'adminShopTripOrder',
+      //   component: AdminShopTripOrder
+      // },
       {
         path: 'adminTrip',
         name: 'adminTrip',

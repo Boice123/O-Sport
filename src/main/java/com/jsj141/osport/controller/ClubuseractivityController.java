@@ -174,9 +174,9 @@ public class ClubuseractivityController {
      */
     @ResponseBody
     @RequestMapping(value = "/getCount", method = RequestMethod.POST)
-    Result getCount(String shopid, Trip trip, HttpServletRequest request) {
+    Result getCount(HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-        result = tripService.getTripCount(shopid);
+        result = tripService.getTripCount();
         return result;
     }
 

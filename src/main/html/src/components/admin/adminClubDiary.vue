@@ -87,7 +87,6 @@ import {API_getAllClubDiary, API_deleteTripURl, API_batchDeleteTripURl} from '..
 import axios from 'axios'
 // import bus from '../../utils/passValue'
 export default {
-    name: 'shopmanagetrip',
     data() {
         return {
           tableData: [{

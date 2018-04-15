@@ -20,7 +20,7 @@
       </el-carousel>
       <!-- 报名出团活动 -->
       <div class="tripBox">
-        <div class="tripTitle">
+        <div class="triptagTitle">
           <div :class="{'tripTitleSectionActive':tripTagChoose == 1,'tripTitleSection':tripTagChoose != 1}" @click="changetripTagChoose(1)">最新出团</div>
           <div :class="{'tripTitleSectionActive':tripTagChoose == 2,'tripTitleSection':tripTagChoose != 2}" @click="changetripTagChoose(2)">最热出团</div>
         </div>
@@ -37,8 +37,8 @@
         </div>
       </div>
       <!-- 自营和入驻商家出团活动 -->
-      <div class="tripIntroduceBox">
-        <div class="tripTitle">
+      <!-- <div class="tripIntroduceBox">
+        <div class="triptagTitle">
           <div :class="{'tripTitleSectionActive':tripTagTwoChoose == 1,'tripTitleSection':tripTagTwoChoose != 1}" @click="changetripTagTwoChoose(1)">本站自营出团</div>
           <div :class="{'tripTitleSectionActive':tripTagTwoChoose == 2,'tripTitleSection':tripTagTwoChoose != 2}" @click="changetripTagTwoChoose(2)">入驻商家出团</div>
         </div>
@@ -82,7 +82,7 @@
               </div>
           </div>
           </div>
-      </div>
+      </div> -->
       <!-- 部落列表 -->
       <div class="trainBox">
         <div class="trainTitle">
@@ -113,7 +113,7 @@
         </div>
       </div>
       <!-- 部落活动 -->
-      <div class="activityDivWrap">
+      <!-- <div class="activityDivWrap">
         <div class="tripActivityTitle">部落活动</div>
       <div class="activityDiv">
         <div 
@@ -138,8 +138,8 @@
                     </span>
                  </div>
             </div>
-      </div>
-      </div>
+      </div> 
+      </div>-->
   </div>
 </template>
 
@@ -167,9 +167,9 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
     },
     created () {
         this.getTripListByDate()
-        this.getTripOnWeb()
+        // this.getTripOnWeb()
         this.getClubListByDate()
-        this.getHotClubActivity()
+        // this.getHotClubActivity()
     },
     methods: {
       open(content) {
@@ -258,7 +258,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
         .then((response) => {
             console.log(response.data)
             if(response.data.code == 0) {
-                this.tripWebList = response.data.data
+                this.tripList = response.data.data
             }else if(response.data.code == 1) {
                 this.$message({
                     message: response.data.msg,
@@ -271,62 +271,62 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
             console.log(err)
         })
       },
-      getTripOnWeb() {
-        //按热度排序获取本站自营的Trip
-        var params = new URLSearchParams();
-        params.append('start',0)
-        params.append('size',7)
-        params.append('shopid', '000000')
-        params.append('order','triptrading')
-        axios({
-            method:'post',
-            url:API_getWebTripPagination,
-            params
-        })
-        .then((response) => {
-            console.log(response.data)
-            if(response.data.code == 0) {
-                this.tripTwoList = response.data.data
-            }else if(response.data.code == 1) {
-                this.$message({
-                    message: response.data.msg,
-                    type: 'warning'
-                }); 
-            }else {
-                this.$message.error('获取按日期排序部落列表失败，请稍后重试');
-            }        
-        }).catch((err) => {
-            console.log(err)
-        })
-      },
-      getTripOnShop() {
-        //按热度排序获取入驻商店的Trip
-        var params = new URLSearchParams();
-        params.append('start',0)
-        params.append('size',7)
-        params.append('shopid', '000000')
-        params.append('order','triptrading')
-        axios({
-            method:'post',
-            url:API_getShopTripPagination,
-            params
-        })
-        .then((response) => {
-            console.log(response.data)
-            if(response.data.code == 0) {
-                this.tripTwoList = response.data.data
-            }else if(response.data.code == 1) {
-                this.$message({
-                    message: response.data.msg,
-                    type: 'warning'
-                }); 
-            }else {
-                this.$message.error('获取按日期排序部落列表失败，请稍后重试');
-            }        
-        }).catch((err) => {
-            console.log(err)
-        })
-      },
+      // getTripOnWeb() {
+      //   //按热度排序获取本站自营的Trip
+      //   var params = new URLSearchParams();
+      //   params.append('start',0)
+      //   params.append('size',7)
+      //   params.append('shopid', '000000')
+      //   params.append('order','triptrading')
+      //   axios({
+      //       method:'post',
+      //       url:API_getWebTripPagination,
+      //       params
+      //   })
+      //   .then((response) => {
+      //       console.log(response.data)
+      //       if(response.data.code == 0) {
+      //           this.tripTwoList = response.data.data
+      //       }else if(response.data.code == 1) {
+      //           this.$message({
+      //               message: response.data.msg,
+      //               type: 'warning'
+      //           }); 
+      //       }else {
+      //           this.$message.error('获取按日期排序部落列表失败，请稍后重试');
+      //       }        
+      //   }).catch((err) => {
+      //       console.log(err)
+      //   })
+      // },
+      // getTripOnShop() {
+      //   //按热度排序获取入驻商店的Trip
+      //   var params = new URLSearchParams();
+      //   params.append('start',0)
+      //   params.append('size',7)
+      //   params.append('shopid', '000000')
+      //   params.append('order','triptrading')
+      //   axios({
+      //       method:'post',
+      //       url:API_getShopTripPagination,
+      //       params
+      //   })
+      //   .then((response) => {
+      //       console.log(response.data)
+      //       if(response.data.code == 0) {
+      //           this.tripTwoList = response.data.data
+      //       }else if(response.data.code == 1) {
+      //           this.$message({
+      //               message: response.data.msg,
+      //               type: 'warning'
+      //           }); 
+      //       }else {
+      //           this.$message.error('获取按日期排序部落列表失败，请稍后重试');
+      //       }        
+      //   }).catch((err) => {
+      //       console.log(err)
+      //   })
+      // },
       getClubListByDate() {
         //按日期排序获取部落列表
         var params = new URLSearchParams();
@@ -381,34 +381,34 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
             console.log(err)
         })
       },
-      getHotClubActivity() {
-        //按热度获取部落活动信息
-        var params = new URLSearchParams();
-        params.append('start', 0)
-        params.append('size',2)
-        params.append('order','clubactivitypeople')
-        params.append('clubid','')
-        axios({
-            method:'post',
-            url:API_getClubActivityPaginationURl,
-            params
-        })
-        .then((response) => {
-            console.log(response.data)
-            if(response.data.code == 0) {
-                this.clubactivity = response.data.data
-            }else if(response.data.code == 1) {
-                this.$message({
-                    message: response.data.msg,
-                    type: 'warning'
-                }); 
-            }else {
-                this.$message.error('获取按热度排序获取部落活动信息失败，请稍后重试');
-            }        
-        }).catch((err) => {
-            console.log(err)
-        })
-      },
+      // getHotClubActivity() {
+      //   //按热度获取部落活动信息
+      //   var params = new URLSearchParams();
+      //   params.append('start', 0)
+      //   params.append('size',2)
+      //   params.append('order','clubactivitypeople')
+      //   params.append('clubid','')
+      //   axios({
+      //       method:'post',
+      //       url:API_getClubActivityPaginationURl,
+      //       params
+      //   })
+      //   .then((response) => {
+      //       console.log(response.data)
+      //       if(response.data.code == 0) {
+      //           this.clubactivity = response.data.data
+      //       }else if(response.data.code == 1) {
+      //           this.$message({
+      //               message: response.data.msg,
+      //               type: 'warning'
+      //           }); 
+      //       }else {
+      //           this.$message.error('获取按热度排序获取部落活动信息失败，请稍后重试');
+      //       }        
+      //   }).catch((err) => {
+      //       console.log(err)
+      //   })
+      // },
       changetripTagChoose(choose) {
         this.tripTagChoose = choose
         if(choose === 1) {
@@ -473,11 +473,11 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
   width: 100%;
 }
 .bannerImg {
-  width: 80%;
-  height: 500px;
+  width: 100%;
+  height: auto;
 }
 .tripBox {
-  background: #333;
+  background: #fff;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 2rem;
@@ -494,7 +494,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
   padding-right: 2rem;
   padding-top: 1.5rem;
 }
-.tripTitle {
+.triptagTitle {
   width: 30%;
   display: flex;
 }
@@ -541,13 +541,14 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
   width: 100%;
   display: flex;
   margin: 0 auto;
+  background: #000;
 }
 .tripname {
   width: 100%;
   position: absolute;
   margin: 0 auto;
   bottom: 10%;
-  color: #fdd000;
+  color: #fff;
   font-size: 1rem;
   font-weight: 600;
 }
@@ -557,7 +558,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
   position: absolute;
   margin: 0 auto;
   bottom: 10%;
-  color: #fdd000;
+  color: #fff;
   font-size: 1rem;
   font-weight: 600;
   z-index: 2;
@@ -595,7 +596,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
 }
 /* 户外培训 */
 .trainBox {
-  background: #333;
+  background: #fff;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 2rem;
@@ -648,6 +649,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows:1fr 1fr;
+  background: #000;
 }
 .trainContentRightBox {
   display: flex;
@@ -684,7 +686,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
 }
 /* 部落活动 */
 .clubindexBox {
-  background: #333;
+  background: #fff;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 2rem;
@@ -735,7 +737,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
   height: 12rem;
 }
 .tripIntroduceBox {
-  background: #333;
+  background: #fff;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 2rem;
@@ -872,7 +874,7 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
 }
 .activityDivWrap {
   width: 100%;
-  background: #333;
+  background: #fff;
   padding-top: 2rem;
 }
 .activityDiv {
@@ -1034,6 +1036,6 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
   flex-direction: row;
 }
 .el-carousel {
-  background: #333;
+  background: #fff;
 }
 </style>

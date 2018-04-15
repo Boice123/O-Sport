@@ -8,7 +8,7 @@
         <div class="tripDetail">
             <div class="tripDetailLeft">
                 <div class="tripBigImgboxWrap">
-                    <img class="tripBigImg" src="../../assets/images/banner/banner_01.jpg"/>
+                    <img class="tripBigImg" :src="trip.tripimg"/>
                 </div>
             </div>
             <div class="tripDetailRight">
@@ -51,8 +51,8 @@
                         v-for="(trip,key) in tripList"
                     >
                     <div class="introname">{{trip.tripname}}</div>
-                    <!-- <img :src="trip.tripimg"/> -->
-                    <img class="introImg" src="../../assets/images/banner/banner_01.jpg"/>
+                    <img class="introImg" :src="trip.tripimg"/>
+                    <!-- <img class="introImg" src="../../assets/images/banner/banner_01.jpg"/> -->
                 </div>
             </div>
             <div class="evaluate">
@@ -298,13 +298,14 @@ import axios from 'axios'
     height: 3.8rem;
 }
 .tripTitle {
-    font-size: 3rem;
-    line-height: 1.5rem;
+    font-size: 2rem;
+    width: 100%;
+    /* line-height: 1.5rem; */
     margin-top: 1rem;
     font-weight: 500;
 }
 .tripdescription {
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: 400;
 }
 .tripPrice {
@@ -347,12 +348,12 @@ import axios from 'axios'
 .introduceTrip {
     flex: 1;
     /* height: 10rem; */
-    border: 1px solid #fdd000;
+    /* border: 1px solid #fdd000; */
 }
 .evaluate {
     flex: 3;
     /* height: 10rem; */
-    border: 1px solid #fdd000;
+    /* border: 1px solid #fdd000; */
 }
 .introduceTripBox {
     border-bottom: 5px dotted gray;
@@ -374,7 +375,6 @@ import axios from 'axios'
    min-height: 10rem;
    margin: auto 3rem;
    padding: 1rem auto;
-   background: yellow;
    border-bottom: 1px solid gray;
    display: flex;
    align-items: center;

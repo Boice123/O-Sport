@@ -5,12 +5,12 @@
           运动部落
           <ul class="topNavUl" v-if="showul == 1"  @mouseout="changeShowUl(0)">
             <li :class="{'topNavLi': showli != 1,'topNavLiActive': showli == 1}" @mouseover="changeShowLi(1)" @mouseout="changeShowLi(0)" @click="gotoClub">部落主页</li>
-            <li :class="{'topNavLi': showli != 2,'topNavLiActive': showli == 2}" @mouseover="changeShowLi(2)" @mouseout="changeShowLi(0)" @click="createClub">创建部落</li>
+            <!-- <li :class="{'topNavLi': showli != 2,'topNavLiActive': showli == 2}" @mouseover="changeShowLi(2)" @mouseout="changeShowLi(0)" @click="createClub">创建部落</li> -->
             <li :class="{'topNavLi': showli != 3,'topNavLiActive': showli == 3}" @mouseover="changeShowLi(3)" @mouseout="changeShowLi(0)" @click="gotoMyClub">我的部落</li>
           </ul>
         </div>
         <div :class="{'topNavSections':showul != 2,'topNavSectionsActive': showul == 2}" @mouseover="changeShowUl(2)" @mouseout="changeShowUl(0)" @click="gotoSearchList">报团出行</div>
-        <div :class="{'topNavSections':showul != 3,'topNavSectionsActive': showul == 3}" @mouseover="changeShowUl(3)" @mouseout="changeShowUl(0)" @click="gotoMyShop">我的店铺</div>
+        <!-- <div :class="{'topNavSections':showul != 3,'topNavSectionsActive': showul == 3}" @mouseover="changeShowUl(3)" @mouseout="changeShowUl(0)" @click="gotoMyShop">我的店铺</div> -->
         <!-- <div :class="{'topNavSections':showul != 4,'topNavSectionsActive': showul == 4}" @mouseover="changeShowUl(4)" @mouseout="changeShowUl(0)">知识课堂</div> -->
       </div>
       <div class="topNavRight"></div>

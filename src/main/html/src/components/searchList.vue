@@ -116,7 +116,6 @@ export default {
 .searchContent {
     width: 80%;
     margin: 3rem auto;
-    background: pink;
     overflow: hidden;
     flex-direction: column;
     display: grid;

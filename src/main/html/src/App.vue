@@ -26,7 +26,7 @@ export default {
   },
   watch:{
     '$route':function(to,from){
-        if(to.fullPath == '/signin' || to.fullPath == '/signup' || to.fullPath == 'shop'){
+        if(to.fullPath == '/signin' || to.fullPath == '/signup'){
           this.isSign = true
           this.admin = false
         }

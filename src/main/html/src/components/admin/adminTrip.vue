@@ -83,7 +83,7 @@
 </template>
 
 <script>
-import {API_getWebTripPagination, API_deleteTripURl, API_batchDeleteTripURl, API_getAdminTripCountURl} from '../../constants/index.js'
+import {API_getTripPagination, API_deleteTripURl, API_batchDeleteTripURl, API_getTripCountURl} from '../../constants/index.js'
 import axios from 'axios'
 // import bus from '../../utils/passValue'
 export default {
@@ -110,23 +110,23 @@ export default {
         this.getAdminShopTrip()
         this.getAdminTripCount()
     },
-    watch: {
-      '$route' (to, from) {
-        if(to.path === "/shop/shopmanagetrip") {
-          console.log("shopManageTrip  watch监听中")
-          this.getAdminShopTrip()
-        }   
-      }
-    },
+    // watch: {
+    //   '$route' (to, from) {
+    //     if(to.path === "/shop/shopmanagetrip") {
+    //       console.log("shopManageTrip  watch监听中")
+    //       this.getAdminShopTrip()
+    //     }   
+    //   }
+    // },
     methods: {
       getAdminTripCount() {
-          //获取自营户外出团总数  
+          //获取户外出团总数  
           var params = new URLSearchParams();
-          params.append('shopid',this.getCookie('admin_shopid'))
+          // params.append('shopid',this.getCookie('admin_shopid'))
           axios({
               method:'post',
-              url:API_getAdminTripCountURl,
-              params
+              url:API_getTripCountURl,
+              // params
           })
           .then((response) => {
               console.log(response.data)
@@ -138,22 +138,21 @@ export default {
                       type: 'warning'
                   }); 
               }else {
-                  this.$message.error('获取自营户外出团总数信息失败，请稍后重试');
+                  this.$message.error('获取出团总数信息失败，请稍后重试');
               }        
           }).catch((err) => {
               console.log(err)
           })
       },
       getAdminShopTrip () {
-        console.log(this.getCookie('admin_shopid'))
         var params = new URLSearchParams();
         params.append('start',(this.currentPage-1) * this.pageSize)
         params.append('size',this.pageSize)
-        params.append('shopid', this.getCookie('admin_shopid'))
+        // params.append('shopid', this.getCookie('admin_shopid'))
         params.append('order','trippublishtime')
         axios({
             method:'post',
-            url:API_getWebTripPagination,
+            url:API_getTripPagination,
             params
         })
         .then((response) => {

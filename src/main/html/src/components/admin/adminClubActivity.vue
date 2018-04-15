@@ -77,7 +77,6 @@ import {API_getAllClubActivity, API_deleteTripURl, API_batchDeleteTripURl} from 
 import axios from 'axios'
 // import bus from '../../utils/passValue'
 export default {
-    name: 'shopmanagetrip',
     data() {
         return {
           tableData: [{
@@ -98,14 +97,6 @@ export default {
     created() {
         this.getAdminClubactivity()
         this.getActivityCount()
-    },
-    watch: {
-      '$route' (to, from) {
-        if(to.path === "/shop/shopmanagetrip") {
-          console.log("shopManageTrip  watch监听中")
-          this.getAdminShopTrip()
-        }   
-      }
     },
     methods: {
       getAdminClubactivity () {

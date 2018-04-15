@@ -494,7 +494,7 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
 }
 .activityBox {
     width: 100%;
-    height: 16rem;
+    height: 15rem;
     display: flex;
     flex-direction: row;
     position: relative;
@@ -663,5 +663,15 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
     -moz-animation: clubTextshow .5s;	/* Firefox */
     -webkit-animation: clubTextshow .5s;	/* Safari 和 Chrome */
     -o-animation: clubTextshow .5s;	/* Opera */
+}
+@-webkit-keyframes clubTextshow /* Safari 和 Chrome */
+{
+  from { top: 0 }
+  to { top: -10%}
+}
+@-webkit-keyframes clubTexthide /* Safari 和 Chrome */
+{
+  from { top: -10% }
+  to { top: 0 }
 }
 </style>

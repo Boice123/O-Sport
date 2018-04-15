@@ -43,10 +43,10 @@ public class TripService {
         return result;
     }
 
-    public Result getTripCount(String shopid) {
+    public Result getTripCount() {
         Result result = ResultUtil.initResult();
-        int count = Constant.FACADE.getTripDao().getCountByShopId(shopid);
-        ResultUtil.setSuccess(result, "获取当前店铺Trip数量成功", count);
+        int count = Constant.FACADE.getTripDao().count(new Row());
+        ResultUtil.setSuccess(result, "获取当前Trip数量成功", count);
         return result;
     }
 
@@ -91,14 +91,14 @@ public class TripService {
      * @param size 每一页显示的最大记录数
      * @return
      */
-    public List<Trip> listdesc(int start, int size, String shopid, String order) {
-        Row row = new Row();
-        row.put("start", start);
-        row.put("size", size);
-        row.put("shopid", shopid);
-        row.put("order",order);
-        return Constant.FACADE.getTripDao().listdesc(row);
-    }
+//    public List<Trip> listdesc(int start, int size, String shopid, String order) {
+//        Row row = new Row();
+//        row.put("start", start);
+//        row.put("size", size);
+//        row.put("shopid", shopid);
+//        row.put("order",order);
+//        return Constant.FACADE.getTripDao().listdesc(row);
+//    }
 
     /**
      * 商店下 取指定数目的数据

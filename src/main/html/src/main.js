@@ -34,16 +34,25 @@ new Vue({
   //拦截器
   watch: {
     '$route': function(to, from) {
-      // if(to.fullPath == 'admin') {
-      //   if(this.getCookie('admin_shopid') == '') {
-      //     this.$router.push('/adminsignin')
-      //   }
-      // }
-      if(to.path != '/signup' && to.path !='/' && to.path != '/trip') {
-        if(this.$store.state.username == '') {
-          this.$router.push('/signin')
+      console.log(to.path)
+      if(to.path == '/admin/adminTrip' ||
+         to.path == '/admin/adminaddTrip' ||
+         to.path == '/admin/adminupdateTrip' ||
+         to.path == '/admin/adminTripOrder' ||
+         to.path == '/admin/adminClub' ||
+         to.path == '/admin/adminClubActivity' ||
+         to.path == '/admin/adminClubDiary') {       
+        if(this.getCookie('admin_shopid') == '') {
+          this.$router.push('/adminsignin')
+          return
         }
       }
+      // if(to.path != '/signup' && to.path !='/' && to.path != '/trip') {
+      //   if(this.$store.state.username == '') {
+      //     this.$router.push('/signin')
+      //   }
+      // }
+     
     }
   }
 })

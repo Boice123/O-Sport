@@ -8,12 +8,12 @@
         </div>
         <div class="triporderDetailBox">           
             <div class="checkOrdertitle">用户订单信息</div>
-             <el-table class="tripDetail"
+             <el-table class="orderDetail"
                 :data="triporder"
                 style="width: 100%"
                 tooltip-effect="dark"
             >
-                    <el-table-column type="expand">
+                <el-table-column type="expand">
                         <template slot-scope="props">
                             <el-form label-position="left" inline class="demo-table-expand" >
                             <el-form-item label="出团名称">
@@ -52,7 +52,7 @@
                 label="订单状态"
                 width="80">
                 </el-table-column>
-                <el-table-column label="操作" prop="tripid">
+                <el-table-column prop="tripid">
                     <template slot-scope="scope">
                         <span v-if="triporder[scope.$index].triporderstatus === '已取消' || triporder[scope.$index].triporderstatus === '已评价'">订单已完成</span>
                         <el-button
@@ -71,17 +71,6 @@
                     </template>
                 </el-table-column>
             </el-table>
-            <!-- <div class="block">
-                <el-pagination
-                    @size-change="handleSizeChange"
-                    @current-change="handleCurrentChange"
-                    :current-page=currentPage
-                    :page-sizes="[5, 10, 20]"
-                    :page-size="5"
-                    layout="total, sizes, prev, pager, next, jumper"
-                    :total=shopTripCount>
-                </el-pagination>
-            </div> -->
         </div>
   </div>
 </template>
@@ -345,6 +334,10 @@ import axios from 'axios'
 }
 .el-table th>.cell {
   text-align: center
+}
+.orderDetail {
+    display: flex;
+    flex-direction: column;
 }
 
 </style>
