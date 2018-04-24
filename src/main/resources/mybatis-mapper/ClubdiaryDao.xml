@@ -23,8 +23,21 @@
         select * from clubdiary where clubid in (select clubid from club where clubowner=#{clubowner})
     </select>
 
+    <select id="getCountByUserid" resultType="com.jsj141.osport.domain.Clubdiary">
+        select * from clubdiary where clubid in (select clubid from clubuseritem where userid=#{userid})
+    </select>
+
     <select id="getByUserid" resultType="com.jsj141.osport.domain.Clubdiary">
         select * from clubdiary where clubid in (select clubid from clubuseritem where userid=#{userid})
+        <if test="_parameter.containsKey('order') and order!=null">
+            order by ${order} DESC
+        </if>
+        <if test="_parameter.containsKey('start') and start!=null">
+            limit #{start}
+        </if>
+        <if test="_parameter.containsKey('size') and size!=null">
+            ,#{size}
+        </if>
     </select>
 
     <select id="count" resultType="int">

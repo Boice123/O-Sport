@@ -2,7 +2,7 @@ package com.jsj141.osport.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-
+import java.util.List;
 import java.io.Serializable;
 
 /**
@@ -25,15 +25,23 @@ public class Trip implements Serializable {
 
     private String trippublishtime;
 
+    private String triptime;
+
     private String tripimg;
 
     private String shopid;
 
     private int triptrading;
 
+    private int tripsure;
+
     private String tripprovice;
 
     private String tripcity;
+
+    private String tripstatus;
+
+    private List<Triporder> closeOrderList;
 
     public String getTripid() {
         return tripid;
@@ -129,6 +137,38 @@ public class Trip implements Serializable {
 
     public void setTripcity(String tripcity) {
         this.tripcity = tripcity;
+    }
+
+    public String getTriptime() {
+        return triptime;
+    }
+
+    public void setTriptime(String triptime) {
+        this.triptime = triptime;
+    }
+
+    public String getTripstatus() {
+        return tripstatus;
+    }
+
+    public void setTripstatus(String tripstatus) {
+        this.tripstatus = tripstatus;
+    }
+
+    public int getTripsure() {
+        return tripsure;
+    }
+
+    public void setTripsure(int tripsure) {
+        this.tripsure = tripsure;
+    }
+
+    public void setCloseOrderList(List<Triporder> closeOrderList) {
+        this.closeOrderList = closeOrderList;
+    }
+
+    public List<Triporder> getCloseOrderList() {
+        return closeOrderList;
     }
 
     @Override

@@ -2,9 +2,9 @@
     <div class="checkOrderContainer">
         <div class="orderNav">
                 <div :class="{'orderNavSectionActive': click == '全部','orderNavSection': click != '全部'}" @click="clickStatus('全部')">全部</div>
-                <div :class="{'orderNavSectionActive': click == '已报名','orderNavSection': click != '已报名'}" @click="clickStatus('已报名')">已报名</div>
+                <div :class="{'orderNavSectionActive': click == '未付款','orderNavSection': click != '未付款'}" @click="clickStatus('未付款')">未付款</div>
+                <div :class="{'orderNavSectionActive': click == '已付款','orderNavSection': click != '已付款'}" @click="clickStatus('已付款')">已付款</div>
                 <div :class="{'orderNavSectionActive': click == '已取消','orderNavSection': click != '已取消'}" @click="clickStatus('已取消')">已取消</div>
-                <div :class="{'orderNavSectionActive': click == '已确认','orderNavSection': click != '已确认'}" @click="clickStatus('已确认')">已确认</div>
         </div>
         <div class="triporderDetailBox">           
             <div class="checkOrdertitle">用户订单信息</div>
@@ -13,34 +13,47 @@
                 style="width: 100%"
                 tooltip-effect="dark"
             >
-                <el-table-column type="expand">
-                        <template slot-scope="props">
-                            <el-form label-position="left" inline class="demo-table-expand" >
-                            <el-form-item label="出团名称">
-                                <span>{{ props.row.trip.tripname }}</span>
-                            </el-form-item>
-                            <el-form-item label="出团单价">
-                                <span>{{ props.row.trip.tripprice }}</span>
-                            </el-form-item>
-                            <el-form-item label="出团时间">
-                                <span>{{ props.row.triptime.triptime  }}</span>
-                            </el-form-item>
-                            <el-form-item label="参与人数">
-                                <span>{{ props.row.triporderitem.people  }}</span>
-                            </el-form-item>
-                            </el-form>
-                        </template>
-                    </el-table-column>
                 <el-table-column
-                prop="triporderid"
-                label="订单号"
-                width="300">
+                    type="index"
+                    width="50">
+                </el-table-column>
+                <el-table-column
+                label="出团图片"
+                width="100">
+                <template slot-scope="scope">
+                   <img class="miniimg" :src="scope.row.trip.tripimg"/>
+                </template>
+                </el-table-column>
+                <el-table-column
+                label="出团名称"
+                width="100">
+                <template slot-scope="scope">
+                   <span>{{ scope.row.trip.tripname}}</span>
+                </template>
+                </el-table-column>
+                <el-table-column
+                label="出团时间"
+                width="100">
+                 <template slot-scope="scope">
+                   <span>{{triporder[scope.$index].trip.triptime}}</span>
+                </template>
+                </el-table-column>
+                <el-table-column
+                label="出团单价"
+                width="100">
+                 <template slot-scope="scope">
+                   <span>{{triporder[scope.$index].trip.tripprice}}</span>
+                </template>
+                </el-table-column>
+                <el-table-column
+                prop="people"
+                label="参与人数"
+                width="100">
                 </el-table-column>
                 <el-table-column
                 prop="tripordertime"
                 label="下单时间"
                 width="100">
-                <!-- <img :src={tripimg} /> -->
                 </el-table-column>
                 <el-table-column
                 prop="tripordertotal"
@@ -54,20 +67,10 @@
                 </el-table-column>
                 <el-table-column prop="tripid">
                     <template slot-scope="scope">
-                        <span v-if="triporder[scope.$index].triporderstatus === '已取消' || triporder[scope.$index].triporderstatus === '已评价'">订单已完成</span>
                         <el-button
                         size="mini"
-                        v-if="triporder[scope.$index].triporderstatus === '已报名'"
+                        v-if="triporder[scope.$index].triporderstatus === '未付款'"
                         @click="cancel(triporder[scope.$index].triporderid, triporder[scope.$index].triporderstatus)">取消订单</el-button>
-                        <el-button
-                        size="mini"
-                        type="danger"
-                        v-if="triporder[scope.$index].triporderstatus === '已报名'"
-                        @click="sure(triporder[scope.$index].triporderid, triporder[scope.$index].triporderstatus)">确认订单</el-button>
-                        <el-button
-                        size="mini"
-                        v-if="triporder[scope.$index].triporderstatus === '已确认'"
-                        @click="evaluate(triporder[scope.$index].trip.tripid, triporder[scope.$index].triporderid)">评价订单</el-button>
                     </template>
                 </el-table-column>
             </el-table>
@@ -86,18 +89,15 @@ import axios from 'axios'
               triporderid: '',
               tripordertotal: '',
               tripordertime: '',
-              triporderstatus: '已报名',  
+              people:'',
+              triporderstatus: '',  
               trip: {
                   tripname: '',
                   tripprice: '',
-                  tripid: ''
-              },
-              triptime: {
-                  triptime: ''
-              },
-              triporderitem: {
-                  people: ''
-              }   
+                  tripid: '',
+                  triptime: '',
+                  tripimg: ''
+              }
           }],
           click: '全部'
       }
@@ -114,6 +114,7 @@ import axios from 'axios'
         gotoIndex() {
             this.$router.push('/')
         },
+        // 获取用户所有订单  
         getAllOrders(click) {
             //获取所有triporder信息
             var params = new URLSearchParams();
@@ -130,7 +131,6 @@ import axios from 'axios'
                 console.log(response.data)
                 if(response.data.code == 0) {
                     this.triporder = response.data.data
-                    // this.triporder.trip = response.data.data.trip
                 }else if(response.data.code == 1) {
                     this.$message({
                         message: response.data.msg,
@@ -143,21 +143,8 @@ import axios from 'axios'
                 console.log(err)
             })  
         },
+        // 取消订单
         cancel(triporderid, triporderstatus) {
-            if(triporderstatus === '已取消') {
-                this.$message({
-                        message: "您已取消订单了，请不要重复操作",
-                        type: 'warning'
-                });
-                return
-            }
-            if(triporderstatus === '已确认') {
-                this.$message({
-                        message: "您已确认订单了，不可取消",
-                        type: 'warning'
-                });
-                return
-            }
             this.$confirm('是否要取消订单?', '提示', {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
@@ -180,8 +167,7 @@ import axios from 'axios'
                         }); 
                         setTimeout(() => {
                             location.reload()
-                        },2000)
-                        
+                        },2000)  
                     }else if(response.data.code == 1) {
                         this.$message({
                             message: response.data.msg,
@@ -196,58 +182,6 @@ import axios from 'axios'
             }).catch(() => {
 
             })
-        },
-        sure(triporderid, triporderstatus) {
-            if(triporderstatus === '已取消') {
-                this.$message({
-                        message: "您已经取消订单，操作无效",
-                        type: 'warning'
-                });
-                return
-            }
-            if(triporderstatus === '已确认') {
-                this.$message({
-                        message: "您已确认订单了，请不要重复操作",
-                        type: 'warning'
-                });
-                return
-            }
-            this.$confirm('是否要确认订单?', '提示', {
-                confirmButtonText: '确定',
-                cancelButtonText: '取消',
-                type: 'warning'
-            }).then(() => {
-                var params = new URLSearchParams();
-                params.append('triporderid', triporderid);
-                //取消订单信息
-                axios({
-                    method:'post',
-                    url:API_sureOrderURl,
-                    params
-                })
-                .then((response) => {
-                    console.log(response.data)
-                    if(response.data.code == 0) {
-                        this.$message({
-                            message: response.data.msg,
-                            type: 'success'
-                        }); 
-                        setTimeout(() => {
-                            location.reload()
-                        },2000)
-                    }else if(response.data.code == 1) {
-                        this.$message({
-                            message: response.data.msg,
-                            type: 'warning'
-                        }); 
-                    }else {
-                        this.$message.error('取消订单失败，请稍后重试');
-                    }        
-                }).catch((err) => {
-                    console.log(err)
-                })  
-            }).catch(() => {       
-            });            
         },
         evaluate(tripid, triporderid) {
                 console.log(tripid, triporderid)
@@ -321,7 +255,7 @@ import axios from 'axios'
     color: orange;
 }
 .triporderDetailBox {
-    width: 60rem;
+    width: 70rem;
     box-shadow:4px 4px 10px gray;
     margin: 0 auto;
 }
@@ -339,5 +273,8 @@ import axios from 'axios'
     display: flex;
     flex-direction: column;
 }
-
+.miniimg {
+    width: 3rem;
+    height:3rem;
+}
 </style>

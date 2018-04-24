@@ -14,17 +14,13 @@
     </div>
     <div class="right">
       <ul>
-        <!-- <router-link to='/shop'><li class="rightLi">我的商店</li></router-link>
-        <li class="rightLi">|</li> -->
         <router-link to='/userOrder'><li class="rightLi">我的订单</li></router-link>
         <li class="rightLi">|</li>
         <router-link to='/myClub'><li class="rightLi">我的部落</li></router-link>
         <li class="rightLi">|</li>
         <router-link to='/userCenter'><li class="rightLi">我的o-sport</li></router-link>
-        <!-- <ul class="meUl">
-          <li class="meLi">上传头像</li>
-          <li class="meLi">修改昵称</li>      
-        </ul> -->
+         <li class="rightLi">|</li>
+        <router-link to='/club'><li class="rightLi">部落主页</li></router-link>
         <li class="rightLi">|</li>
         <router-link to='/'><li class="rightLi">首页</li></router-link>
       </ul>

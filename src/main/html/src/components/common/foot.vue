@@ -14,8 +14,8 @@
         <span class="footsectionSpan">热忱和敬业的服务团队</span>
         </div>
         <div class="footsection">
-        <img class="footsectionImg" src="../../assets/images/experience.svg"/>
-        <span class="footsectionSpan">边走边玩，一路行摄</span>
+        <img class="footsectionImgE" src="../../assets/images/experience.svg"/>
+        <span class="footsectionSpanE">边走边玩，一路行摄</span>
         </div>
         <div class="footsection">
         <img class="footsectionImg" src="../../assets/images/happy.svg"/>
@@ -30,19 +30,15 @@
           <ul class="cooperationul">
               <li class="cooperationli">关于O-Sport</li>
               <li class="cooperationli">合作伙伴</li>
-              <li class="cooperationli">营销中心</li>
-              <li class="cooperationli">廉政举办</li>
               <li class="cooperationli">联系客服</li>
               <li class="cooperationli">开放平台</li>
               <li class="cooperationli">诚征英才</li>
               <li class="cooperationli">联系我们</li>
-              <li class="cooperationli">网站地图</li>
-              <li class="cooperationli">法律声明</li>
           </ul>
           <ul class="cooperationul">
               <li class="cooperationli">@2018-2019  osport.com版权所有</li>
-              <li class="cooperationli">联系电话：020-33023435</li>
-              <li class="cooperationli">投诉建议邮箱：8080897078@qq.com</li>
+              <li class="cooperationli">联系电话：020-123456789</li>
+              <li class="cooperationli">投诉建议邮箱：893430191@qq.com</li>
           </ul>
       </div>
   
@@ -81,8 +77,17 @@
     width: 5rem;
     padding-bottom: 1rem;
 }
+.footsectionImgE {
+    margin: 0.6rem auto;
+    width: 5rem;
+    padding-bottom: 1rem;
+}
 .footsectionSpan {
     font-size: .5rem;
+}
+.footsectionSpanE {
+    font-size: .5rem;
+    /* margin-top: 1rem; */
 }
 .cooperation {
     color: #fff;

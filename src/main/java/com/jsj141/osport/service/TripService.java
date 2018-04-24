@@ -25,7 +25,7 @@ public class TripService {
     public Result update(Trip trip) {
         Result result = ResultUtil.initResult();
         Constant.FACADE.getTripDao().update(trip);
-        ResultUtil.setSuccess(result, "修改Trip信息成功", trip);
+        ResultUtil.setSuccess(result, "修改成功", trip);
         return result;
     }
 
@@ -36,17 +36,24 @@ public class TripService {
         return result;
     }
 
-    public Result getTripInfo(Trip trip) {
+    public Trip getTripInfo(Trip trip) {
         Result result = ResultUtil.initResult();
         Trip tripInfo = (Trip) Constant.FACADE.getTripDao().select(trip);
         ResultUtil.setSuccess(result, "获取Trip信息成功", tripInfo);
-        return result;
+        return tripInfo;
     }
 
     public Result getTripCount() {
         Result result = ResultUtil.initResult();
         int count = Constant.FACADE.getTripDao().count(new Row());
-        ResultUtil.setSuccess(result, "获取当前Trip数量成功", count);
+        ResultUtil.setSuccess(result, "获取当前Trip发布中数量成功", count);
+        return result;
+    }
+
+    public Result getTripCountClose() {
+        Result result = ResultUtil.initResult();
+        int count = Constant.FACADE.getTripDao().countClose(new Row());
+        ResultUtil.setSuccess(result, "获取当前Trip已关闭数量成功", count);
         return result;
     }
 
@@ -57,22 +64,8 @@ public class TripService {
         return result;
     }
 
-
     /**
-     * 分页查询
-     * @param page 要获得数据的页码
-     * @param size 每一页显示的最大记录数
-     * @return
-     */
-    public List<Trip> list(int page, int size) {
-        Row row = new Row();
-        row.put("start", (page - 1) * size);
-        row.put("size", size);
-        return Constant.FACADE.getTripDao().list(row);
-    }
-
-    /**
-     * 取全部Trip指定数目的数据
+     * 取Trip指定数目的数据,已发布
      * @param page 要获得数据的页码
      * @param size 每一页显示的最大记录数
      * @return
@@ -86,41 +79,18 @@ public class TripService {
     }
 
     /**
-     * 商店下 取指定数目的数据
-     * @param start 要获得数据开始记录数
-     * @param size 每一页显示的最大记录数
+     * 取Trip指定数目的数据,已关闭
+     * @param page
+     * @param size
+     * @param order
      * @return
      */
-//    public List<Trip> listdesc(int start, int size, String shopid, String order) {
-//        Row row = new Row();
-//        row.put("start", start);
-//        row.put("size", size);
-//        row.put("shopid", shopid);
-//        row.put("order",order);
-//        return Constant.FACADE.getTripDao().listdesc(row);
-//    }
-
-    /**
-     * 商店下 取指定数目的数据
-     * @param start 要获得数据开始记录数
-     * @param size 每一页显示的最大记录数
-     * @return
-     */
-    public List<Trip> listdescn(int start, int size, String shopid, String order) {
+    public List<Trip> listdescClose(int page, int size, String order) {
         Row row = new Row();
-        if(start != -1) {
-            row.put("start", start);
-        }
-        if(size != -1) {
-            row.put("size", size);
-        }
-        if(!shopid.equals("")) {
-            row.put("shopid", shopid);
-        }
-        if(!order.equals("")) {
-            row.put("order",order);
-        }
-        return Constant.FACADE.getTripDao().listdescn(row);
+        row.put("start", page);
+        row.put("size", size);
+        row.put("order",order);
+        return Constant.FACADE.getTripDao().listdescclose(row);
     }
 
     /**

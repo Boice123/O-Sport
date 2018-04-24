@@ -15,11 +15,6 @@
         select * from club where clubid=#{clubid}
     </select>
 
-    <select id="selectByClubowner" resultType="com.jsj141.osport.domain.Club">
-        select * from club where clubowner=#{clubowner}
-    </select>
-
-
     <select id="selectByUserid" resultType="com.jsj141.osport.domain.Club">
         select * from club where clubid in (select clubid from clubuseritem where userid = #{userid})
     </select>
@@ -38,7 +33,12 @@
         <if test="_parameter.containsKey('order') and order!=null">
             order by ${order} DESC
         </if>
-        limit #{start},#{size}
+        <if test="_parameter.containsKey('start') and start!=-1">
+            limit #{start}
+        </if>
+        <if test="_parameter.containsKey('size') and size!=-1">
+            ,#{size}
+        </if>
     </select>
 
     <select id="selectByClubtab" resultType="com.jsj141.osport.domain.Club">
@@ -60,8 +60,8 @@
     </select>
 
     <insert id="insert" parameterType="com.jsj141.osport.domain.Club">
-        insert into club (clubid,clubname,clubtab,clubimg,clubpeople,clubowner,clubpublishtime)
-        values (#{clubid},#{clubname},#{clubtab},#{clubimg},#{clubpeople},#{clubowner},#{clubpublishtime})
+        insert into club (clubid,clubname,clubtab,clubimg,clubpeople,clubpublishtime)
+        values (#{clubid},#{clubname},#{clubtab},#{clubimg},#{clubpeople},#{clubpublishtime})
     </insert>
 
     <update id="update" parameterType="com.jsj141.osport.domain.Club">
@@ -76,11 +76,8 @@
             <if test="clubimg != null">
                 clubimg=#{clubimg},
             </if>
-            <if test="clubpeople != 0">
+            <if test="clubpeople != -1">
                 clubpeople=#{clubpeople},
-            </if>
-            <if test="clubowner != null">
-                clubowner=#{clubowner},
             </if>
             <if test="clubpublishtime != null">
                 clubpublishtime=#{clubpublishtime},
@@ -88,11 +85,6 @@
         </set>
         where clubid=#{clubid}
     </update>
-
-    <update id="updateClubPeople">
-        update club set clubpeople = clubpeople + 1 where clubid = #{clubid}
-    </update>
-
 
     <update id="delete">
         delete from club where clubid=#{clubid}

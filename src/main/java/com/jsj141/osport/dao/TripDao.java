@@ -11,10 +11,9 @@ import com.jsj141.osport.domain.Trip;
  */
 @Repository
 public interface TripDao extends BaseDao {
-    List<Trip> selectTripByShopId(String shopId);
-    int getCountByShopId(String shopid);
     List<Trip> listdesc(Map map);
-    List<Trip> listdescn(Map map);
+    List<Trip> listdescclose(Map map);
+    int countClose(Map map);
     void updateTripTrading(Trip trip);
     List<Trip> searchKey(Map map);
 }

@@ -10,7 +10,7 @@
     >
         <img 
             :class="{'searchImg': searchCover != search.clubid,'searchImgActive': searchCover == search.clubid}"
-            src="../../assets/images/bgc/manycamp.jpg"
+            :src="search.clubimg"
         />
         <div class="searchTextMask"></div>
         <div :class="{'searchText': searchCover != search.clubid, 'searchTextActive': searchCover == search.clubid}">
@@ -115,7 +115,6 @@ export default {
 .searchContent {
     width: 80%;
     margin: 3rem auto;
-    background: pink;
     overflow: hidden;
     flex-direction: column;
     display: grid;

@@ -13,23 +13,21 @@ public class Triporder implements Serializable {
 
     private String triporderid;
 
-    private String triporderitemid;
-
     private double tripordertotal;
 
     private String tripordertime;
 
     private String userid;
 
-    private String username;
-
     private String triporderstatus;
 
-    private Triptime triptime;
+    private String tripid;
+
+    private int people;
 
     private Trip trip;
 
-    private Triporderitem triporderitem;
+    private User user;
 
     public Trip getTrip() {
         return trip;
@@ -39,36 +37,12 @@ public class Triporder implements Serializable {
         this.trip = trip;
     }
 
-    public Triptime getTriptime() {
-        return triptime;
-    }
-
-    public void setTriptime(Triptime triptime){
-        this.triptime = triptime;
-    }
-
-    public Triporderitem getTriporderitem() {
-        return triporderitem;
-    }
-
-    public void setTriporderitem(Triporderitem triporderitem){
-        this.triporderitem = triporderitem;
-    }
-
     public String getTriporderid() {
         return triporderid;
     }
 
     public void setTriporderid(String triporderid){
         this.triporderid = triporderid;
-    }
-
-    public String getTriporderitemid() {
-        return triporderitemid;
-    }
-
-    public void setTriporderitemid(String triporderitemid){
-        this.triporderitemid = triporderitemid;
     }
 
     public double getTripordertotal() {
@@ -95,14 +69,6 @@ public class Triporder implements Serializable {
         this.userid = userid;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
     public void setTripordertime(String tripordertime) {
         this.tripordertime = tripordertime;
     }
@@ -113,6 +79,30 @@ public class Triporder implements Serializable {
 
     public void setTriporderstatus(String triporderstatus) {
         this.triporderstatus = triporderstatus;
+    }
+
+    public String getTripid() {
+        return tripid;
+    }
+
+    public int getPeople() {
+        return people;
+    }
+
+    public void setTripid(String tripid) {
+        this.tripid = tripid;
+    }
+
+    public void setPeople(int people) {
+        this.people = people;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

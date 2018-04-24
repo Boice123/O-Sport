@@ -1,45 +1,41 @@
 <template>
   <div class="clubContainer">
-      <div class="createClub">
-          <div class="createClubBox">
-            <el-form ref="form" :rules="rules" :model="form" label-width="80px">
-                <el-form-item label="部落名称" prop="clubname">
-                    <el-input type="text" v-model="form.clubname"></el-input>
-                </el-form-item>
-                <el-form-item label="部落标签" prop="clubtab">
-                    <el-select v-model="form.clubtab" placeholder="请选择">
-                        <el-option
-                        v-for="item in options"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.value">
-                        </el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
-                  <el-form-item label="部落头像">
-                      <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
-                  </el-form-item>
-                </el-form>
-                <el-form-item label="" prop="clubimg">
-                  <img class="shopimg" :src="form.clubimg"/>
-                </el-form-item>
-                <el-form-item>
-                    <el-button type="primary" @click="submitForm('form')">创建部落</el-button>
-                </el-form-item>
-            </el-form>
-            
-          </div>    
-      </div>
-  </div>
+    <div class="addTripknow">新增部落</div>
+    <el-form ref="form" :rules="rules" :model="form" label-width="140px">
+        <el-form-item label="部落名称" prop="clubname">
+            <el-input type="text" v-model="form.clubname"></el-input>
+        </el-form-item>
+        <el-form-item label="部落标签" prop="clubtab">
+            <el-select v-model="form.clubtab" placeholder="请选择">
+                <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+                </el-option>
+            </el-select>
+        </el-form-item>
+        <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
+          <el-form-item label="部落头像">
+              <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
+          </el-form-item>
+        </el-form>
+        <el-form-item label="" prop="clubimg">
+          <img class="shopimg" :src="form.clubimg"/>
+        </el-form-item>
+        <el-form-item>
+            <el-button type="primary" @click="submitForm('form')">创建部落</el-button>
+        </el-form-item>
+    </el-form>          
+  </div>    
 </template>
 
 <script>
 import axios from 'axios'
 import $ from 'jquery'
-import { API_saveClubURL ,API_uploadFileURL, API_getClubInfoURl} from '../../constants/index.js'
+import { API_saveClubURL ,API_uploadFileURL } from '../../constants/index.js'
   export default {
-    name: 'createclub',
+    name: 'addclub',
     data() {
       // 部落名称
       var validateClubname = (rule, value, callback) => {
@@ -123,7 +119,6 @@ import { API_saveClubURL ,API_uploadFileURL, API_getClubInfoURl} from '../../con
           this.clubcover = text
       },
       uploadPic (obj) {
-        // if( this.checkFile(obj) ){
           var options = {
             contentType:"multipart/form-data",
             url: API_uploadFileURL,
@@ -138,22 +133,17 @@ import { API_saveClubURL ,API_uploadFileURL, API_getClubInfoURl} from '../../con
           }
           $("#pictureForm").ajaxSubmit(options)
           console.log("点击上传后的图片"+this.form.clubimg)
-        // }
       },
       submitForm(formName,event) {
-         //信息加入param
         var param = new FormData()
-
         param.append('clubname',this.form.clubname)
         param.append('clubtab',this.form.clubtab)
         param.append('clubimg',this.form.clubimg)
-        // param.append('clubhead',this.form.clubhead)
         this.$refs[formName].validate((valid) => {
           if (valid) {
             axios({
               method: 'post',
               url: API_saveClubURL,
-              // headers: {'Content-Type': 'multipart/form-data'},
               data: param
             })
               .then((response) => {
@@ -162,37 +152,12 @@ import { API_saveClubURL ,API_uploadFileURL, API_getClubInfoURl} from '../../con
                   this.$message({
                     message: response.data.msg,
                     type: 'success'
-                  });
-                  //查看该用户是否有自己管理的club
-                  var params = new URLSearchParams();
-                  params.append('clubowner',this.getCookie('user_userid'));
-                  axios({
-                      method:'post',
-                      url:API_getClubInfoURl,
-                      params
                   })
-                  .then((res) => {
-                      console.log(res.data)
-                      if(res.data.code == 0) {
-                          this.setCookie('clubid', res.data.data.clubid, 2)
-                      }
-                  }).catch((err) => {
-                      console.log(err)
-                  })
-                  this.$router.push('/club')
                 }
-                else if(response.data.code == 1) {
-                  this.$message({
-                    message: response.data.msg,
-                    type: 'warning'
-                  });
-                }else {
-                  this.$message.error('创建部落验证失败，请稍后重试');
-                }
-            })
-              .catch((err) => {
+                this.$router.push('/admin/adminClub')
+              }).catch((err) => {
                 console.log(err)
-              });
+              })
           } else {
             console.log('请确认填写的信息是否正确')
             return false;
@@ -204,28 +169,33 @@ import { API_saveClubURL ,API_uploadFileURL, API_getClubInfoURl} from '../../con
 </script>
 
 <style>
-.createClub {
-  width: 100%;
-  height: 33rem;
-  background: url("../../assets/images/signupBgc.jpg");
-  background-size: cover;
-  position: relative;
+.addTripContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.createClubBox {
-  border-radius: 1rem;
-  position: absolute;
-  left: 60%;
-  margin-top: 8rem;
-  padding-top: 4rem;
-  padding-right: 4rem;
-  width: 17rem;
-  background: #000;
-  opacity: 0.9;
+.addTripknow {
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+.el-form {
+    width: 30rem;
+    margin: 0 auto;
+}
+.el-upload__tip {
+  padding-left: 1rem;
 }
 .shopimg {
-  width:5rem;
-  height: 5rem;
-  border-radius: 5px;
-  
+    width: 5rem;
+    height: 6rem;
+    border: 1px solid #e1e0e0;
+    border-radius: .5rem;
+    background: url("../../assets/images/addimg.svg") no-repeat center;
+    background-size: 2rem 2rem;
+}
+.pictureForm {
+  padding-left: 1rem;
 }
 </style>

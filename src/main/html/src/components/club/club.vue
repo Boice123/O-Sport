@@ -22,7 +22,6 @@
                 @mouseover="changeClubCover(club.clubid)" 
                 @mouseout="changeClubCover('')"
                 v-for="(club, key) in allClub"
-                @click="gotoClubMainPage(club.clubid)"
               >
                   <img 
                     :class="{'clubImg':clubcover!=club.clubid,'clubImgActive': clubcover==club.clubid}" 
@@ -30,27 +29,14 @@
                   />
                   <div class="clubTextMask" v-if="clubcover == club.clubid"></div>
                   <div :class="{'clubText': clubcover!=club.clubid,'clubTextActive': clubcover==club.clubid}">
-                    <h2 class="clubname">{{club.clubname}}</h2>
-                    <p class="clubnum"><br>共{{club.clubpeople}}名会员</p>
+                    <h2 class="clubname" @click="gotoClubMainPage(club.clubid)" >{{club.clubname}}</h2>
+                    <p class="clubnum"><br>{{club.clubtab}}</p>
                     <span 
                         :class="{'joinClub': clubcover!=club.clubid,'joinClubActive': clubcover==club.clubid }"
                         @click="joinClub(club.clubid)"
                     >+ 关注
                     </span>
                  </div>
-              </div>
-          </div>
-          <div class="clubrank">
-              <div class="clubranktitle">部落排名Top10</div>
-              <div>
-                  <ul>
-                      <li class="clubrankli">1.自行车部落</li>
-                      <li class="clubrankli">1.自行车部落</li>
-                      <li class="clubrankli">1.自行车部落</li>
-                      <li class="clubrankli">1.自行车部落</li>
-                      <li class="clubrankli">1.自行车部落</li>
-
-                  </ul>
               </div>
           </div>
           </div>
@@ -106,11 +92,11 @@ import { API_getKindClubInfoURl, API_getAllClubInfoURl, API_joinClubURl } from '
         })
       },
       changeClubCover(text) {
-          console.log(text)
           this.clubcover = text
       },
       gotoClubMainPage(clubid) {
-          this.$router.push({name:'clubMainPage',params:{clubid}})
+          this.setCookie("clubid", clubid)
+          this.$router.push({name:'clubMainPage'})
       },
       getAllClub() {
         axios({
@@ -135,6 +121,7 @@ import { API_getKindClubInfoURl, API_getAllClubInfoURl, API_joinClubURl } from '
       },
       joinClub(clubid) {
          var params = new URLSearchParams() 
+         params.append('userid', this.getCookie('user_userid'))
          params.append('clubid',clubid)
          axios({
             method:'post',
@@ -195,10 +182,11 @@ import { API_getKindClubInfoURl, API_getAllClubInfoURl, API_joinClubURl } from '
     font-size: 15px;
 }
 .clubspan {
-    display: block;
+    display: flex;
     background: red;
     width: 4rem;
     height: 3rem;
+    align-items: center;
 }
 .clubBody {
     width: 90%;
@@ -210,7 +198,7 @@ import { API_getKindClubInfoURl, API_getAllClubInfoURl, API_joinClubURl } from '
 .clubNav {
     width: 100%;
     height: 70px;
-    background: rgb(0,0,0,.8); 
+    background-color:rgba(0,0,0,0.8);
 }
 .clubNavUl {
     width: 75%;
@@ -285,7 +273,7 @@ import { API_getKindClubInfoURl, API_getAllClubInfoURl, API_joinClubURl } from '
 .clubTextMask {
     width: 100%;
     height: 14rem;
-    background: rgb(0,0,0,.2);
+    background-color: rgb(0,0,0,.2);
     position: absolute;
     left: 0;
     top: 0;
@@ -340,6 +328,7 @@ import { API_getKindClubInfoURl, API_getAllClubInfoURl, API_joinClubURl } from '
   to { top: 90% }
 }
 .joinClub {
+    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -357,6 +346,7 @@ import { API_getKindClubInfoURl, API_getAllClubInfoURl, API_joinClubURl } from '
     -o-animation: clubjoinhide .5s;	/* Opera */
 }
 .joinClubActive {
+    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;

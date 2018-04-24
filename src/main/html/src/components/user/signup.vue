@@ -14,10 +14,10 @@
       <el-form-item label="昵称" prop="username">
         <el-input type="text" v-model="form.username"></el-input>
       </el-form-item>
-      <el-form-item class="yzmlbox" label="验证码" prop="checkcode">
+      <!-- <el-form-item class="yzmlbox" label="验证码" prop="checkcode">
         <el-input class="yzmInput" type="text" v-model="form.checkcode"></el-input>
         <img id="checkImg" class="checkImage" src=API_checkImgURL @click="changeYZM" title="点击更换验证码">
-      </el-form-item>
+      </el-form-item> -->
        <a class="gotosign" type="primary" @click="gotoSignin">已有账号，前往登录</a>
       <el-form-item>
         <el-button type="primary" @click="submitForm('form')">注册</el-button>
@@ -71,7 +71,7 @@ import axios from 'axios'
           password: '',
           repassword: '',
           tel: '',
-          checkcode: ''
+          // checkcode: ''
         },
         rules: {
           username: [
@@ -87,25 +87,25 @@ import axios from 'axios'
           repassword: [
             { validator: validateRePassword, trigger: 'blur' }
           ],
-          checkcode: [
-            { required: true, message: '请输入验证码', trigger: 'blur' },
-          ]
+          // checkcode: [
+          //   { required: true, message: '请输入验证码', trigger: 'blur' },
+          // ]
         }
       }
     },
     mounted() {
-      var img1 = document.getElementById("checkImg");
-      img1.src=API_checkImgURL+"?"+new Date().getTime();
+      // var img1 = document.getElementById("checkImg");
+      // img1.src=API_checkImgURL+"?"+new Date().getTime();
     },
     methods: {
       gotoSignin() {
         this.$router.push('/signin')
       },
-      //更换验证码
-      changeYZM() {
-        var img1 = document.getElementById("checkImg");
-        img1.src=API_checkImgURL+"?"+new Date().getTime();
-      },
+      // //更换验证码
+      // changeYZM() {
+      //   var img1 = document.getElementById("checkImg");
+      //   img1.src=API_checkImgURL+"?"+new Date().getTime();
+      // },
       //检查手机是否已注册
       checkTel() {
         var params = new URLSearchParams();
@@ -133,7 +133,7 @@ import axios from 'axios'
         params.append('username', this.form.username);
         params.append('password',this.form.password);
         params.append('tel', this.form.tel);
-        params.append('checkcode', this.form.checkcode);
+        // params.append('checkcode', this.form.checkcode);
         this.$refs[formName].validate((valid) => {
           if (valid) {
             axios({
@@ -184,16 +184,17 @@ import axios from 'axios'
   height: 35rem;
   background: url("../../assets/images/bgc/sign.jpg");
   background-size: cover;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .signupBox {
   border-radius: 1rem;
-  position: absolute;
-  left: 60%;
+  /* position: absolute; */
   margin-top: 5rem;
   padding-top: 3rem;
   padding-right: 4rem;
-  width: 20rem;
+  width:30rem;
   background: #000;
   opacity: 0.9;
 }

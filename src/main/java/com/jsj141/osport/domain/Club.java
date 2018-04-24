@@ -2,7 +2,7 @@ package com.jsj141.osport.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-
+import java.util.List;
 import java.io.Serializable;
 
 /**
@@ -21,9 +21,11 @@ public class Club implements Serializable {
 
     private int clubpeople;
 
-    private String clubowner;
-
     private String clubpublishtime;
+
+    private List<Clubdiary> clubdiaryList;
+
+    private List<Clubactivity> clubactivityList;
 
     public String getClubid() {
         return clubid;
@@ -65,20 +67,28 @@ public class Club implements Serializable {
         this.clubpeople = clubpeople;
     }
 
-    public String getClubowner() {
-        return clubowner;
-    }
-
-    public void setClubowner(String clubowner){
-        this.clubowner = clubowner;
-    }
-
     public String getClubpublishtime() {
         return clubpublishtime;
     }
 
     public void setClubpublishtime(String clubpublishtime){
         this.clubpublishtime = clubpublishtime;
+    }
+
+    public void setClubdiaryList(List<Clubdiary> clubdiaryList) {
+        this.clubdiaryList = clubdiaryList;
+    }
+
+    public List<Clubdiary> getClubdiaryList() {
+        return clubdiaryList;
+    }
+
+    public void setClubactivityList(List<Clubactivity> clubactivityList) {
+        this.clubactivityList = clubactivityList;
+    }
+
+    public List<Clubactivity> getClubactivityList() {
+        return clubactivityList;
     }
 
     @Override

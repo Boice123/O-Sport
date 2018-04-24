@@ -1,6 +1,6 @@
 <template>
   <div class="updateshopContainer">
-    <div class="updateshopknow">修改昵称</div>
+    <div class="updateshopknow">修改资料</div>
     <el-form ref="form" :rules="rules" :model="form" label-width="80px">
       <el-form-item label="昵称" prop="username">
         <el-input v-model="form.username" :value="form.username"></el-input>

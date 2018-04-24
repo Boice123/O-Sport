@@ -1,15 +1,15 @@
 <template>
   <div class="updateshopContainer">
-    <div class="updateshopknow">修改活动信息</div>
+    <div class="updateshopknow">修改攻略信息</div>
     <el-form ref="form" :rules="rules" :model="form" label-width="80px">
-      <el-form-item label="活动标题" prop="clubactivitytitle">
+      <el-form-item label="攻略标题" prop="clubactivitytitle">
         <el-input v-model="form.clubactivitytitle" :value="form.clubactivitytitle"></el-input>
       </el-form-item>
-      <el-form-item label="活动内容" prop="clubactivitycontent">
-        <el-input v-model="form.clubactivitycontent" :value="form.clubactivitycontent"></el-input>
+      <el-form-item label="攻略内容" prop="clubactivitycontent">
+        <el-input v-model="form.clubactivitycontent" :value="form.clubactivitycontent" type="textarea"></el-input>
       </el-form-item>
        <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
-        <el-form-item label="活动封面">
+        <el-form-item label="攻略封面">
           <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
         </el-form-item>
       </el-form>
@@ -36,19 +36,19 @@ export default {
       // 检验店铺名
       var validateClubactivitytitle = (rule, value, callback) => {
         if (value === '') {
-          callback(new Error('请输入部落活动标题'));
+          callback(new Error('请输入部落攻略标题'));
         }
         callback()
       }
       var validateClubactivitycontent = (rule, value, callback) => {
         if (value === '') {
-          callback(new Error('请输入部落活动内容'));
+          callback(new Error('请输入部落攻略内容'));
         }
         callback()
       }
       var validateclubactivityimg = (rule, value, callback) => {
         if (value === '') {
-          callback(new Error('请选择活动封面'));
+          callback(new Error('请选择攻略封面'));
         } 
           callback()
       }
@@ -92,7 +92,7 @@ export default {
                     type: 'warning'
                 });
             }else {
-                this.$message.error('获取部落活动信息失败，请稍后重试');
+                this.$message.error('获取部落攻略信息失败，请稍后重试');
             }
         }).catch((err) => {
             console.log(err)
@@ -100,7 +100,6 @@ export default {
     },
     methods: {
       uploadPic (obj) {
-        // if( this.checkFile(obj) ){
           var options = {
             contentType:"multipart/form-data",
             url: API_uploadFileURL,
@@ -114,11 +113,8 @@ export default {
             }
           }
           $("#pictureForm").ajaxSubmit(options)
-          console.log("点击上传后的图片"+this.form.shopimg)
-        // }
       },
       submitForm(formName) {
-         //信息加入param
         var param = new FormData()
         param.append('clubactivityid',this.$route.params.clubactivityid)
         param.append('clubactivitytitle',this.form.clubactivitytitle)
@@ -138,7 +134,7 @@ export default {
                     message: response.data.msg,
                     type: 'success'
                   });
-                  this.$router.push('/clubManage')
+                  this.$router.push({name: 'adminClubActivity'})
                 }
                 else if(response.data.code == 1) {
                   this.$message({
@@ -146,7 +142,7 @@ export default {
                     type: 'warning'
                   });
                 }else {
-                  this.$message.error('修改部落活动信息失败，请稍后重试');
+                  this.$message.error('修改部落攻略信息失败，请稍后重试');
                 }
             })
               .catch((err) => {

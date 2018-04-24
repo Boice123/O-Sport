@@ -1,6 +1,7 @@
 package com.jsj141.osport.controller;
 
 import com.jsj141.osport.config.Constant;
+import com.jsj141.osport.domain.Trip;
 import com.jsj141.osport.util.Result;
 import com.jsj141.osport.util.ResultUtil;
 import org.slf4j.Logger;
@@ -18,6 +19,7 @@ import com.jsj141.osport.domain.User;
 import com.jsj141.osport.domain.Triporder;
 import com.jsj141.osport.service.UserService;
 import com.jsj141.osport.service.TriporderService;
+import com.jsj141.osport.service.TripService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,11 +38,14 @@ public class UserController {
     private UserService userService;
 
     @Autowired
+    private TripService tripService;
+
+    @Autowired
     private TriporderService triporderService;
 
     @ResponseBody
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    Result save(@Valid User user, String checkcode,BindingResult bindingResult, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+    Result save(@Valid User user,BindingResult bindingResult, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
         Result result = ResultUtil.initResult();
         //验证码验证
 //        String checkCode1 = (String)session.getAttribute("checkcode");
@@ -55,6 +60,7 @@ public class UserController {
 //            return result;
 //        }
         user.setUserid(UUID.randomUUID().toString());
+        user.setUserimg("       http://localhost/upload/1804//1234567898765.jpg");
         result = userService.save(user);
         WebUtils.setSessionAttribute(request, "loginUser", user);
         return result;
@@ -126,11 +132,14 @@ public class UserController {
         User loginUser = (User) WebUtils.getSessionAttribute(request, "loginUser");
         user.setUserid(loginUser.getUserid());
         User nowUser = userService.get(user);
-        System.out.println(nowUser.getPassword());
-        System.out.println(oldpwd);
         if(nowUser.getPassword().equals(oldpwd)) {
-            nowUser.setPassword(newpwd);
-            result= userService.update(nowUser);
+            if(newpwd.equals(nowUser.getPassword())){
+                result.setCode(1);
+                result.setMsg("原密码与新密码不能相同");
+            }else {
+                nowUser.setPassword(newpwd);
+                result= userService.update(nowUser);
+            }
         }else {
             result.setCode(1);
             result.setMsg("原密码错误");
@@ -154,9 +163,16 @@ public class UserController {
             HttpServletRequest request) {
         Result result = ResultUtil.initResult();
         User loginUser = (User) WebUtils.getSessionAttribute(request, "loginUser");
-        List<Triporder> triporder = triporderService.getUserTripOrder(loginUser.getUserid(),triporderstatus);
+        List<Triporder> triporderList = triporderService.getUserTripOrder(loginUser.getUserid(),triporderstatus);
+        for(int i=0; i < triporderList.size(); i++) {
+            String id = triporderList.get(i).getTripid();
+            Trip t = new Trip();
+            t.setTripid(id);
+            Trip rt = tripService.getTripInfo(t);
+            triporderList.get(i).setTrip(rt);
+        }
         result.setCode(0);
-        result.setData(triporder);
+        result.setData(triporderList);
         result.setMsg("获取用户订单成功");
         return result;
     }

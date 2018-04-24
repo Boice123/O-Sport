@@ -24,20 +24,6 @@ public class ClubdiaryService {
         return result;
     }
 
-    public Result update(Trip trip) {
-        Result result = ResultUtil.initResult();
-        Constant.FACADE.getTripDao().update(trip);
-        ResultUtil.setSuccess(result, "修改Trip信息成功", trip);
-        return result;
-    }
-
-    public Result updateTripTrading(Trip trip) {
-        Result result = ResultUtil.initResult();
-        Constant.FACADE.getTripDao().updateTripTrading(trip);
-        ResultUtil.setSuccess(result, "修改Trip trading信息成功", trip);
-        return result;
-    }
-
     public List<Clubdiary> getByClubid(Clubdiary clubdiary) {
         return Constant.FACADE.getClubdiaryDao().getByClubid(clubdiary);
     }
@@ -46,15 +32,25 @@ public class ClubdiaryService {
         return Constant.FACADE.getClubdiaryDao().getByClubowner(clubowner);
     }
 
-    public List<Clubdiary> getByUserid(String userid) {
-        return Constant.FACADE.getClubdiaryDao().getByUserid(userid);
+    public List<Clubdiary> getCountByUserid(String userid) {
+        return Constant.FACADE.getClubdiaryDao().getCountByUserid(userid);
     }
 
-    public Result getTripInfo(Trip trip) {
-        Result result = ResultUtil.initResult();
-        Trip tripInfo = (Trip) Constant.FACADE.getTripDao().select(trip);
-        ResultUtil.setSuccess(result, "获取Trip信息成功", tripInfo);
-        return result;
+    public List<Clubdiary> getByUserid(int start, int size, String order, String userid) {
+        Row row = new Row();
+        if (start !=-1) {
+            row.put("start", start);
+        }
+        if(size != -1) {
+            row.put("size", size);
+        }
+        if(!order.equals("")) {
+            row.put("order",order);
+        }
+        if(!userid.equals("")) {
+            row.put("userid",userid);
+        }
+        return Constant.FACADE.getClubdiaryDao().getByUserid(row);
     }
 
     public Result delete(Clubdiary clubdiary) {
@@ -62,20 +58,6 @@ public class ClubdiaryService {
         Constant.FACADE.getClubdiaryDao().delete(clubdiary);
         ResultUtil.setSuccess(result, "删除动态信息成功", null);
         return result;
-    }
-
-
-    /**
-     * 分页查询
-     * @param page 要获得数据的页码
-     * @param size 每一页显示的最大记录数
-     * @return
-     */
-    public List<Trip> list(int page, int size) {
-        Row row = new Row();
-        row.put("start", (page - 1) * size);
-        row.put("size", size);
-        return Constant.FACADE.getTripDao().list(row);
     }
 
     public List<Clubdiary> listdesc(int page, int size, String order, String clubid) {

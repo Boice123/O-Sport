@@ -19,14 +19,13 @@ import UpdatePassword from '@/components/user/updatePassword'
 import Club from '@/components/club/club'
 import ClubMainPage from '@/components/club/clubMainPage'
 import MyClub from '@/components/club/myClub'
-import CreateClub from '@/components/club/createClub'
-import AddActivity from '@/components/club/addActivity'
+import AddActivity from '@/components/admin/addActivity'
 import AddDiary from '@/components/club/addDiary'
 import ClubManage from '@/components/club/clubManage'
 import ClubManageDiary from '@/components/club/clubManageDiary'
 import ClubManageActivity from '@/components/club/clubManageActivity'
-import UpdateClubInfo from '@/components/club/updateClubInfo'
-import UpdateActivityInfo from '@/components/club/updateActivityInfo'
+// import UpdateClubInfo from '@/components/club/updateClubInfo'
+import UpdateActivity from '@/components/admin/updateActivity'
 import SearchList from '@/components/searchList'
 import SearchClubList from '@/components/club/searchClubList'
 
@@ -39,10 +38,13 @@ import Adminsignin from '@/components/admin/adminsignin'
 import AdminTrip from '@/components/admin/adminTrip'
 import AdminTripOrder from '@/components/admin/adminTripOrder'
 import AdminClub from '@/components/admin/adminClub'
+import AddClub from '@/components/admin/addClub'
+import UpdateClub from '@/components/admin/updateClub'
 import AdminClubActivity from '@/components/admin/adminClubActivity'
 import AdminClubDiary from '@/components/admin/adminClubDiary'
 import AdminAddTrip from '@/components/admin/addTrip'
 import AdminupdateTrip from '@/components/admin/updateTrip'
+import AdminClubUser from '@/components/admin/adminClubUser'
 
 Vue.use(Router)
 
@@ -180,19 +182,9 @@ export default new Router({
     component: MyClub
   },
   {
-    path: '/createClub',
-    name: 'createClub',
-    component: CreateClub
-  },
-  {
     path: '/addDiary',
     name: 'addDiary',
     component: AddDiary
-  },
-  {
-    path: '/addActivity',
-    name: 'addActivity',
-    component: AddActivity
   },
   {
     path: '/clubManage',
@@ -206,20 +198,10 @@ export default new Router({
         component: ClubManageActivity
       },
       {
-        path: 'updateActivityInfo',
-        name: 'updateActivityInfo',
-        component: UpdateActivityInfo
-      },
-      {
         path: 'clubManageDiary',
         name: 'clubManageDiary',
         component: ClubManageDiary
       },
-      {
-        path: 'updateClubInfo',
-        name: 'updateClubInfo',
-        component: UpdateClubInfo
-      }
     ]
   },
   {
@@ -228,34 +210,19 @@ export default new Router({
     component: Admin,
     redirect: 'admin/adminTrip',
     children: [
-      // {
-      //   path: 'adminShop',
-      //   name: 'adminShop',
-      //   component: AdminShop
-      // },
-      // {
-      //   path: 'adminShopTrip',
-      //   name: 'adminShopTrip',
-      //   component: AdminShopTrip
-      // },
-      // {
-      //   path: 'adminShopTripOrder',
-      //   name: 'adminShopTripOrder',
-      //   component: AdminShopTripOrder
-      // },
       {
         path: 'adminTrip',
         name: 'adminTrip',
         component: AdminTrip
       },
       {
-        path: 'adminaddTrip',
-        name: 'adminaddTrip',
+        path: 'addTrip',
+        name: 'addTrip',
         component: AdminAddTrip
       },
       {
-        path: 'adminupdateTrip',
-        name: 'adminupdateTrip',
+        path: 'updateTrip',
+        name: 'updateTrip',
         component: AdminupdateTrip
       },
       {
@@ -264,9 +231,29 @@ export default new Router({
         component: AdminTripOrder
       },
       {
+        path: '/addActivity',
+        name: 'addActivity',
+        component: AddActivity
+      },
+      {
+        path: 'updateActivity',
+        name: 'updateActivity',
+        component: UpdateActivity
+      },
+      {
         path: 'adminClub',
         name: 'adminClub',
         component: AdminClub
+      },
+      {
+        path: 'addClub',
+        name: 'addClub',
+        component: AddClub
+      },
+      {
+        path: 'updateClub',
+        name: 'updateClub',
+        component: UpdateClub
       },
       {
         path: 'adminClubActivity',
@@ -277,6 +264,11 @@ export default new Router({
         path: 'adminClubDiary',
         name: 'adminClubDiary',
         component: AdminClubDiary
+      },
+      {
+        path: 'adminClubUser',
+        name: 'adminClubUser',
+        component: AdminClubUser
       }
     ]
   },

@@ -20,19 +20,10 @@ public class Facade {
     private UserDao userDao;
 
     @Autowired
-    private ShopDao shopDao;
-
-    @Autowired
     private TripDao tripDao;
 
     @Autowired
-    private TriptimeDao triptimeDao;
-
-    @Autowired
     private TriporderDao triporderDao;
-
-    @Autowired
-    private TriporderitemDao triporderitemDao;
 
     @Autowired
     private ClubDao clubDao;
@@ -52,6 +43,12 @@ public class Facade {
     @Autowired
     private EvaluateDao evaluateDao;
 
+    @Autowired
+    private DiaryfirstevalDao diaryfirstevalDao;
+
+    @Autowired
+    private DiarysecondevalDao diarysecondevalDao;
+
     public Producer getCaptchaProducer() {
         return captchaProducer;
     }
@@ -64,7 +61,7 @@ public class Facade {
         return adminDao;
     }
 
-    public void setAdminsDao(AdminDao adminDao) {
+    public void setAdminDao(AdminDao adminDao) {
         this.adminDao = adminDao;
     }
 
@@ -76,14 +73,6 @@ public class Facade {
         this.userDao = userDao;
     }
 
-    public ShopDao getShopDao() {
-        return shopDao;
-    }
-
-    public void setShopDao(ShopDao shopDao) {
-        this.shopDao = shopDao;
-    }
-
     public TripDao getTripDao() {
         return tripDao;
     }
@@ -92,30 +81,12 @@ public class Facade {
         this.tripDao = tripDao;
     }
 
-
-    public TriptimeDao getTriptimeDao() {
-        return triptimeDao;
-    }
-
-    public void setTriptimeDao(TriptimeDao triptimeDao) {
-        this.triptimeDao = triptimeDao;
-    }
-
-
     public TriporderDao getTriporderDao() {
         return triporderDao;
     }
 
     public void setTriporderDao(TriporderDao triporderDao) {
         this.triporderDao = triporderDao;
-    }
-
-    public TriporderitemDao getTriporderitemDao() {
-        return triporderitemDao;
-    }
-
-    public void setTriporderitemDao(TriporderitemDao triporderitemDao) {
-        this.triporderitemDao = triporderitemDao;
     }
 
     public ClubDao getClubDao() {
@@ -133,7 +104,6 @@ public class Facade {
     public void setClubuseritemDao(ClubuseritemDao clubuseritemDao) {
         this.clubuseritemDao = clubuseritemDao;
     }
-
 
     public ClubdiaryDao getClubdiaryDao() {
         return clubdiarydao;
@@ -165,5 +135,21 @@ public class Facade {
 
     public void setEvaluateDao(EvaluateDao evaluateDao) {
         this.evaluateDao = evaluateDao;
+    }
+
+    public DiaryfirstevalDao getDiaryfirstevalDao() {
+        return diaryfirstevalDao;
+    }
+
+    public void setDiaryfirstevalDao(DiaryfirstevalDao diaryfirstevalDao) {
+        this.diaryfirstevalDao = diaryfirstevalDao;
+    }
+
+    public DiarysecondevalDao getDiarysecondevalDao() {
+        return diarysecondevalDao;
+    }
+
+    public void setDiarysecondevalDao(DiarysecondevalDao diarysecondevalDao) {
+        this.diarysecondevalDao = diarysecondevalDao;
     }
 }

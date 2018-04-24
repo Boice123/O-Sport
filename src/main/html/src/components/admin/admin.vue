@@ -5,31 +5,26 @@
         </div>
         <div class="shopContent">
             <div class="shopContentLeft">
-                <!-- <div class="shopContentLeftBox">
-                    <div class="shopContentLeftTitle">
-                        <img class="shopContentLeftTitleImg" src="../../assets/images/shopmanage.svg"/>
-                        <h3>入驻商家管理</h3>
-                    </div>
-                    <router-link to="adminShop"><div class="shopContentLeftList">编辑商家信息</div></router-link>
-                </div> -->
                 <div class="shopContentLeftBox">
+                     <router-link to="adminTrip">
                     <div class="shopContentLeftTitle">
                         <img class="shopContentLeftTitleImg" src="../../assets/images/ordermanage.svg"/>
-                        <h3>出行活动管理</h3>
+                        <h3>出行活动与订单管理</h3>
                     </div>
-                    <!-- <router-link to="adminShopTrip"><div class="shopContentLeftList">商家出行活动信息</div></router-link>
-                    <router-link to="adminShopTripOrder"><div class="shopContentLeftList">商家出行订单信息</div></router-link> -->
-                    <router-link to="adminTrip"><div class="shopContentLeftList">出行活动信息管理</div></router-link>
-                    <router-link to="adminTripOrder"><div class="shopContentLeftList">出行订单信息管理</div></router-link>
+                     </router-link>
+                   <!-- <div class="shopContentLeftList">出行活动信息与订单管理</div></router-link> -->
+                    <!-- <router-link to="adminTripOrder"><div class="shopContentLeftList">出行订单信息管理</div></router-link> -->
                 </div>
                 <div class="shopContentLeftBox">
+                    <router-link to="adminClub">
                     <div class="shopContentLeftTitle">
                         <img class="shopContentLeftTitleImg" src="../../assets/images/goodsmanage.svg"/>
                         <h3>部落管理</h3>
                     </div>
-                    <router-link to="adminClub"><div class="shopContentLeftList">部落管理</div></router-link>
+                    </router-link>
+                    <!-- <div class="shopContentLeftList">部落管理</div></router-link>
                     <router-link to="adminClubActivity"><div class="shopContentLeftList">部落活动管理</div></router-link>
-                    <router-link to="adminClubDiary"><div class="shopContentLeftList">部落动态管理</div></router-link>
+                    <router-link to="adminClubDiary"><div class="shopContentLeftList">部落动态管理</div></router-link> -->
                 </div>
             </div>
             <div class="shopContentRight">
@@ -86,15 +81,15 @@ import axios from 'axios'
 }
 .shopContent {
     width: 100%;
-    display: flex;
+    /* display: flex; */
 }
 .shopContentLeft {
-    flex: 1;
+    display: flex;
     margin-left: 1rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     background: #fff;
-    border: 2px solid orange;
+    /* border: 2px solid orange; */
     border-radius: 1rem;
 }
 .shopContentRight {
@@ -102,16 +97,16 @@ import axios from 'axios'
     margin-top: 1rem;
     margin-right: 1rem;
     margin-bottom: 1rem;
-    flex: 4;
+    /* flex: 4; */
     border: 2px solid orange;
     border-radius: 1rem;
 }
 .shopContentLeftBox {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: left; */
     margin: 2rem 2rem;
-    border-bottom: 1px solid #dfdede;
+    /* border-bottom: 1px solid #dfdede; */
 }
 .shopContentLeftTitle {
     display: flex;

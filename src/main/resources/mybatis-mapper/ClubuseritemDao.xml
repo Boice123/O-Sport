@@ -19,6 +19,10 @@
         select * from clubuseritem where userid=#{userid} and clubid=#{clubid}
     </select>
 
+    <select id="selectByClubid" resultType="com.jsj141.osport.domain.Clubuseritem">
+         select * from clubuseritem where clubid=#{clubid}
+    </select>
+
     <select id="count" resultType="int">
         select count(*) from clubuseritem
         <include refid="dynamicWhere" />

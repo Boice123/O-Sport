@@ -1,10 +1,20 @@
 <template>
   <div class="updateshopContainer">
     <div class="updateshopknow">修改部落信息</div>
-    <el-form ref="form" :rules="rules" :model="form" label-width="80px">
+    <el-form ref="form" :rules="rules" :model="form" label-width="140px">
       <el-form-item label="部落名称" prop="clubactivitytitle">
         <el-input v-model="form.clubname" :value="form.clubname"></el-input>
       </el-form-item>
+       <el-form-item label="部落标签" prop="clubtab">
+            <el-select v-model="form.clubtab" placeholder="请选择">
+                <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+                </el-option>
+            </el-select>
+        </el-form-item>
        <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
         <el-form-item label="部落头像">
           <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
@@ -47,6 +57,7 @@ export default {
       return {
         form: {
           clubname: '',
+          clubtab: '',
           clubimg: ''
         },
         rules: {
@@ -56,7 +67,39 @@ export default {
           clubimg: [
             { validator: validateClubimg, trigger: 'blur' }
           ]
-        }
+        },
+        options: [{
+          value: '自行车',
+          label: '自行车'
+        }, {
+          value: '徒步',
+          label: '徒步'
+        }, {
+          value: '潜水',
+          label: '潜水'
+        }, {
+          value: '露营',
+          label: '露营'
+        }, {
+          value: '马拉松',
+          label: '马拉松'
+        },
+        {
+          value: '登山',
+          label: '登山'
+        },
+        {
+          value: '野外定向',
+          label: '野外定向'
+        },
+        {
+          value: '轮滑',
+          label: '轮滑'
+        },
+        {
+          value: '其他',
+          label: '其他'
+        }],
       }
     },
     created() {
@@ -73,6 +116,7 @@ export default {
             if(response.data.code == 0) {
               this.form.clubname = response.data.data.clubname
               this.form.clubimg = response.data.data.clubimg
+              this.form.clubtab = response.data.data.clubtab
             }else if(response.data.code == 1) {
                 this.$message({
                     message: response.data.msg,
@@ -87,7 +131,6 @@ export default {
     },
     methods: {
       uploadPic (obj) {
-        // if( this.checkFile(obj) ){
           var options = {
             contentType:"multipart/form-data",
             url: API_uploadFileURL,
@@ -102,14 +145,14 @@ export default {
           }
           $("#pictureForm").ajaxSubmit(options)
           console.log("点击上传后的图片"+this.form.clubimg)
-        // }
       },
       submitForm(formName) {
          //信息加入param
         var param = new FormData()
         param.append('clubid',this.getCookie('clubid'))
         param.append('clubname',this.form.clubname)
-         param.append('clubimg',this.form.clubimg)
+        param.append('clubimg',this.form.clubimg)
+        param.append('clubtab', this.form.clubtab)
         this.$refs[formName].validate((valid) => {
           if (valid) {
             axios({
@@ -124,7 +167,7 @@ export default {
                     message: response.data.msg,
                     type: 'success'
                   });
-                  this.$router.push('/clubManage')
+                  this.$router.push('/admin/adminClub')
                 }
                 else if(response.data.code == 1) {
                   this.$message({

@@ -15,10 +15,6 @@
         select * from trip where tripid=#{tripid}
     </select>
 
-    <select id="selectTripByShopId" resultType="com.jsj141.osport.domain.Trip">
-        select * from trip where shopid=#{shopid}
-    </select>
-
     <select id="searchKey" resultType="com.jsj141.osport.domain.Trip">
         select * from trip where
         <include refid="dynamicWhere" />
@@ -32,16 +28,17 @@
     </select>
 
     <select id="count" resultType="int">
-        select count(*) from trip
+        select count(*) from trip where tripstatus='发布中'
         <include refid="dynamicWhere" />
     </select>
 
-    <select id="getCountByShopId" resultType="int">
-        select count(*) from trip where shopid=#{shopid}
+    <select id="countClose" resultType="int">
+        select count(*) from trip where tripstatus='已下架'
+        <include refid="dynamicWhere" />
     </select>
 
     <select id="listdesc" resultType="com.jsj141.osport.domain.Trip">
-        select * from trip
+        select * from trip where tripstatus='发布中'
         <include refid="dynamicWhere" />
         <if test="_parameter.containsKey('order') and order!=null">
             order by ${order} DESC
@@ -49,26 +46,17 @@
         limit #{start},#{size}
     </select>
 
-    <select id="listdescn" resultType="com.jsj141.osport.domain.Trip">
-        select * from trip
+    <select id="listdescclose" resultType="com.jsj141.osport.domain.Trip">
+        select * from trip where tripstatus='已下架'
         <include refid="dynamicWhere" />
-        <if test="_parameter.containsKey('shopid') and shopid!=null">
-            where shopid != #{shopid}
-        </if>
         <if test="_parameter.containsKey('order') and order!=null">
             order by ${order} DESC
         </if>
-        <if test="_parameter.containsKey('start') and start!=null">
-            limit #{start}
-        </if>
-        <if test="_parameter.containsKey('size') and size!=null">
-            ,#{size}
-        </if>
-
+        limit #{start},#{size}
     </select>
 
     <select id="list" resultType="com.jsj141.osport.domain.Trip">
-        select * from trip
+        select * from trip where tripstatus='发布中'
         <include refid="dynamicWhere" />
         <if test="_parameter.containsKey('order') and order!=null">
             order by ${order}
@@ -77,8 +65,8 @@
     </select>
 
     <insert id="insert" parameterType="com.jsj141.osport.domain.Trip">
-        insert into trip (tripid,tripname,tripdescription,tripnotice,tripprice,maxpeople,trippublishtime,tripimg,tripprovice,tripcity)
-        values (#{tripid},#{tripname},#{tripdescription},#{tripnotice},#{tripprice},#{maxpeople},#{trippublishtime},#{tripimg},#{tripprovice},#{tripcity})
+        insert into trip (tripid,tripname,tripdescription,tripnotice,tripprice,maxpeople,trippublishtime,tripimg,tripprovice,tripcity,triptime,tripstatus,tripsure)
+        values (#{tripid},#{tripname},#{tripdescription},#{tripnotice},#{tripprice},#{maxpeople},#{trippublishtime},#{tripimg},#{tripprovice},#{tripcity},#{triptime},#{tripstatus},#{tripsure})
     </insert>
 
     <update id="update" parameterType="com.jsj141.osport.domain.Trip">
@@ -96,7 +84,7 @@
             <if test="tripprice != 0">
                 tripprice=#{tripprice},
             </if>
-            <if test="maxpeople != 0">
+            <if test="maxpeople != -1">
                 maxpeople=#{maxpeople},
             </if>
             <if test="trippublishtime != null">
@@ -111,17 +99,18 @@
             <if test="tripcity != null">
                 tripcity=#{tripcity},
             </if>
-            <if test="triptrading != null">
+            <if test="triptrading != -1">
                 triptrading=#{triptrading},
             </if>
-        </set>
-        where tripid=#{tripid}
-    </update>
-
-    <update id="updateTripTrading" parameterType="com.jsj141.osport.domain.Trip">
-        update trip
-        <set>
-            triptrading = triptrading + #{triptrading}
+            <if test="triptime != null">
+                triptime=#{triptime},
+            </if>
+            <if test="tripstatus != null" >
+                tripstatus=#{tripstatus},
+            </if>
+            <if test="tripsure != -1" >
+                tripsure=#{tripsure},
+            </if>
         </set>
         where tripid=#{tripid}
     </update>

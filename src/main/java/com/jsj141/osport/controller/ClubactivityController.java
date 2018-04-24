@@ -4,7 +4,6 @@ import com.jsj141.osport.domain.*;
 import com.jsj141.osport.service.ClubdiaryService;
 import com.jsj141.osport.service.ClubactivityService;
 import com.jsj141.osport.service.TripService;
-import com.jsj141.osport.service.TriptimeService;
 import com.jsj141.osport.service.ClubService;
 import com.jsj141.osport.service.ClubuseractivityService;
 import com.jsj141.osport.util.Result;
@@ -21,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.WebUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Controller
@@ -31,9 +29,6 @@ public class ClubactivityController {
 
     @Autowired
     private TripService tripService;
-
-    @Autowired
-    private TriptimeService triptimeService;
 
     @Autowired
     private ClubdiaryService clubdiaryService;
@@ -54,34 +49,17 @@ public class ClubactivityController {
                 @RequestParam(value = "clubactivitytitle") String clubactivitytitle,
                 @RequestParam(value = "clubactivitycontent") String clubactivitycontent,
                 @RequestParam(value="clubactivityimg") String clubactivityimg,
-                Club club,
-                Clubactivity clubactivity,
-                BindingResult bindingResult,
-                HttpServletRequest request) {
+                Clubactivity clubactivity) {
         Result lastResult = ResultUtil.initResult();
-
-        User loginUser = (User) WebUtils.getSessionAttribute(request, "loginUser");
-
-        //检验当前用户是否部落创建人才可以创建活动
-        club.setClubid(clubid);
-        Club getClub = clubService.getByClubid(club);
-        if (getClub.getClubowner().equals(loginUser.getUserid())) {
-            //创建活动
-            clubactivity.setClubactivityid(UUID.randomUUID().toString());
-            clubactivity.setClubactivitytitle(clubactivitytitle);
-            clubactivity.setClubactivitycontent(clubactivitycontent);
-            clubactivity.setClubactivityimg(clubactivityimg);
-            clubactivity.setClubid(clubid);
-            clubactivityService.save(clubactivity);
-            lastResult.setCode(0);
-            lastResult.setMsg("添加成功");
-            return lastResult;
-        }
-        lastResult.setCode(1);
-        lastResult.setMsg("添加失败，您不是部落创建人，没有权限添加部落活动");
+        clubactivity.setClubactivityid(UUID.randomUUID().toString());
+        clubactivity.setClubactivityimg(clubactivityimg);
+        clubactivity.setClubactivitycontent(clubactivitycontent);
+        clubactivity.setClubactivitytitle(clubactivitytitle);
+        clubactivity.setClubid(clubid);
+        clubactivityService.save(clubactivity);
+        lastResult.setCode(0);
+        lastResult.setMsg("添加成功");
         return lastResult;
-
-
     }
 
 
@@ -91,9 +69,7 @@ public class ClubactivityController {
                   @RequestParam(value = "clubactivitytitle") String clubactivitytitle,
                   @RequestParam(value = "clubactivitycontent") String clubactivitycontent,
                   @RequestParam(value="clubactivityimg") String clubactivityimg,
-                  Clubactivity clubactivity,
-                  BindingResult bindingResult,
-                  HttpServletRequest request) {
+                  Clubactivity clubactivity) {
         Result lastResult = ResultUtil.initResult();
 
         clubactivity.setClubactivityid(clubactivityid);
@@ -108,15 +84,13 @@ public class ClubactivityController {
      *
      * @param clubactivityid
      * @param clubactivity
-     * @param request
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "/get", method = RequestMethod.POST)
-    Result getclubactivity(
+    Result get(
             @RequestParam(value = "clubactivityid") String clubactivityid,
-            Clubactivity clubactivity,
-            HttpServletRequest request) {
+            Clubactivity clubactivity) {
         Result result = ResultUtil.initResult();
         clubactivity.setClubactivityid(clubactivityid);
         Clubactivity ca = clubactivityService.get(clubactivity);
@@ -140,8 +114,8 @@ public class ClubactivityController {
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "/getAllByClubid", method = RequestMethod.POST)
-    Result getAllByClubid(@RequestParam(value = "clubid") String clubid,
+    @RequestMapping(value = "/getClubActivity", method = RequestMethod.POST)
+    Result getClubActivity(@RequestParam(value = "clubid") String clubid,
                           Clubactivity clubactivity,
                           HttpServletRequest request) {
         Result result = ResultUtil.initResult();
@@ -194,26 +168,41 @@ public class ClubactivityController {
      *
      * @param clubactivityid
      * @param clubActivity
-     * @param request
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    Result deleteTripInfo(@RequestParam(value = "clubactivityid") String clubactivityid,
-                          Clubactivity clubActivity,
-                          HttpServletRequest request) {
+    Result delete(@RequestParam(value = "clubactivityid") String clubactivityid,
+                          Clubactivity clubActivity) {
         Result result = ResultUtil.initResult();
 
         clubActivity.setClubactivityid(clubactivityid);
         clubactivityService.delete(clubActivity);
-        clubuseractivityService.deleteByClubactivityid(clubactivityid);
-//        if(result1.getCode() == 0 && result2.getCode() == 0) {
+//        clubuseractivityService.deleteByClubactivityid(clubactivityid);
         result.setCode(0);
         result.setMsg("删除成功");
-//        } else {
-//            result.setCode(1);
-//            result.setMsg("删除失败");
-//        }
+        return result;
+    }
+
+    /**
+     * 点赞clubActivity信息
+     *
+     * @param clubactivityid
+     * @param clubActivity
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/like", method = RequestMethod.POST)
+    Result like(@RequestParam(value = "clubactivityid") String clubactivityid,
+                  Clubactivity clubActivity) {
+        Result result = ResultUtil.initResult();
+
+        clubActivity.setClubactivityid(clubactivityid);
+        Clubactivity cc = clubactivityService.get(clubActivity);
+        cc.setClubactivitypeople(cc.getClubactivitypeople() + 1);
+        clubactivityService.update(cc);
+        result.setCode(0);
+        result.setMsg("点赞成功");
         return result;
     }
 

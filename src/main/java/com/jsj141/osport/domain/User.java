@@ -23,10 +23,6 @@ public class User implements Serializable {
 
     private String userimg;
 
-    private String realname;
-
-    private String realid;
-
     public String getUserid() {
         return userid;
     }
@@ -73,22 +69,6 @@ public class User implements Serializable {
 
     public void setUserimg(String userimg) {
         this.userimg = userimg;
-    }
-
-    public String getRealname() {
-        return realname;
-    }
-
-    public void setRealname(String realname){
-        this.realname = realname;
-    }
-
-    public String getRealid() {
-        return realid;
-    }
-
-    public void setRealid(String realid){
-        this.realid = realid;
     }
 
     @Override

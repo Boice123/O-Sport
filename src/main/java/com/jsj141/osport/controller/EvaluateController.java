@@ -57,65 +57,6 @@ public class EvaluateController {
         return result;
     }
 
-
-    /**
-     * 获取Trip信息
-     * @param tripid
-     * @param trip
-     * @param request
-     * @return
-     */
-//    @ResponseBody
-//    @RequestMapping(value = "/get", method = RequestMethod.POST)
-//    Result getTripInfo(String tripid, Trip trip, HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//
-//        trip.setTripid(tripid);
-//        result = tripService.getTripInfo(trip);
-//        return result;
-//    }
-
-    /**
-     * 根据shopid，获取当前店铺的Trip数量信息
-     * @param shopid
-     * @param trip
-     * @param request
-     * @return
-     */
-//    @ResponseBody
-//    @RequestMapping(value = "/getCount", method = RequestMethod.POST)
-//    Result getCount(String shopid, Trip trip, HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//        result = tripService.getTripCount(shopid);
-//        return result;
-//    }
-
-    /**
-     * 删除Trip信息
-     * @param tripid
-     * @param trip
-     * @param request
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    Result deleteTripInfo(String tripid, Trip trip, Triptime triptime, HttpServletRequest request) {
-        Result result = ResultUtil.initResult();
-        Result result1 = ResultUtil.initResult();
-        Result result2 = ResultUtil.initResult();
-        trip.setTripid(tripid);
-        result1 = tripService.deleteTripInfo(trip);
-        triptime.setTripid(tripid);
-        if(result1.getCode() == 0 && result2.getCode() == 0) {
-            result.setCode(0);
-            result.setMsg("删除成功");
-        } else {
-            result.setCode(1);
-            result.setMsg("删除失败");
-        }
-        return result;
-    }
-
     /**
      * 获取评价列表排列
      * @param tripid

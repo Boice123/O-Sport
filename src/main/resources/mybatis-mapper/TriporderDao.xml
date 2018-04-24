@@ -15,55 +15,27 @@
         select * from triporder where triporderid=#{triporderid}
     </select>
 
-    <select id="selectByShopid" resultType="com.jsj141.osport.domain.Triporder">
-        select * from triporder where triporderitemid in (select triporderitemid from triporderitem
-        where tripid in(select tripid from trip where shopid = #{shopid}))
-    </select>
-
     <select id="selectByUserid" resultType="com.jsj141.osport.domain.Triporder">
         select * from triporder where userid = #{userid}
     </select>
 
     <select id="count" resultType="int">
-        select count(*) from triporder
+        select count(*) from triporder where tripid=#{tripid}
         <include refid="dynamicWhere" />
-    </select>
-
-    <select id="shopTripOrderCount" resultType="int">
-        select count(*) from triporder
-        <include refid="dynamicWhere" />
-        <if test="_parameter.containsKey('shopid') and shopid!=null">
-            where triporderitemid in (select triporderitemid from triporderitem
-            where tripid in(select tripid from trip where shopid = #{shopid}))
-        </if>
-    </select>
-
-    <select id="list" resultType="com.jsj141.osport.domain.Triporder">
-        select * from triporder
-        <include refid="dynamicWhere" />
-        <if test="_parameter.containsKey('order') and order!=null">
-            order by ${order}
-        </if>
-        <if test="_parameter.containsKey('shopid') and shopid!=null">
-            where triporderitemid in (select triporderitemid from triporderitem
-            where tripid in(select tripid from trip where shopid = #{shopid}))
-        </if>
-        limit #{start},#{size}
     </select>
 
     <select id="listdesc" resultType="com.jsj141.osport.domain.Triporder">
-        select * from triporder
+        select * from triporder where
         <include refid="dynamicWhere" />
+        <if test="_parameter.containsKey('tripid') and tripid!=null">
+            tripid = #{tripid}
+        </if>
         <if test="_parameter.containsKey('userid') and userid!=null">
-            where userid = #{userid}
+            userid = #{userid}
         </if>
         <if test="_parameter.containsKey('triporderstatus') and triporderstatus!=null">
             and triporderstatus = #{triporderstatus}
         </if>
-        <if test="_parameter.containsKey('shopid') and shopid!=null">
-            where triporderitemid in (select triporderitemid from triporderitem
-            where tripid in (select tripid from trip where shopid = #{shopid}))
-        </if>
         <if test="_parameter.containsKey('order') and order!=null">
             order by ${order} DESC
         </if>
@@ -73,38 +45,16 @@
         <if test="_parameter.containsKey('size') and size!=null">
             ,#{size}
         </if>
-    </select>
-
-    <select id="listdescn" resultType="com.jsj141.osport.domain.Triporder">
-        select * from triporder
-        <include refid="dynamicWhere" />
-        <if test="_parameter.containsKey('shopid') and shopid!=null">
-            where triporderitemid in (select triporderitemid from triporderitem
-            where tripid in(select tripid from trip where shopid != #{shopid}))
-        </if>
-        <if test="_parameter.containsKey('order') and order!=null">
-            order by ${order} DESC
-        </if>
-        <if test="_parameter.containsKey('start') and start!=null">
-            limit #{start}
-        </if>
-        <if test="_parameter.containsKey('size') and size!=null">
-            ,#{size}
-        </if>
-
     </select>
 
     <insert id="insert" parameterType="com.jsj141.osport.domain.Triporder">
-        insert into triporder (triporderid,triporderitemid,tripordertotal,tripordertime,userid,username)
-        values (#{triporderid},#{triporderitemid},#{tripordertotal},#{tripordertime},#{userid},#{username})
+        insert into triporder (triporderid,tripordertotal,tripordertime,userid,tripid,people,triporderstatus)
+        values (#{triporderid},#{tripordertotal},#{tripordertime},#{userid},#{tripid},#{people},#{triporderstatus})
     </insert>
 
     <update id="update" parameterType="com.jsj141.osport.domain.Triporder">
         update triporder 
         <set>
-            <if test="triporderitemid != null">
-                triporderitemid=#{triporderitemid},
-            </if>
             <if test="tripordertotal != 0">
                 tripordertotal=#{tripordertotal},
             </if>
@@ -114,8 +64,11 @@
             <if test="userid != null">
                 userid=#{userid},
             </if>
-            <if test="username != null">
-                username=#{username},
+            <if test="tripid != null">
+                tripid=#{tripid},
+            </if>
+            <if test="people != 0">
+                people=#{people},
             </if>
             <if test="triporderstatus != null">
                 triporderstatus=#{triporderstatus},

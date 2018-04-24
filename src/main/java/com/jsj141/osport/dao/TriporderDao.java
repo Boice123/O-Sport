@@ -11,9 +11,8 @@ import java.util.Map;
  */
 @Repository
 public interface TriporderDao extends BaseDao {
-    List<Triporder> selectByShopid(String shopid);
-    List<Triporder> selectByUserid(String userid);
+//    List<Triporder> selectByShopid(String shopid);
+//    List<Triporder> listdescbytripid(Map map);
     List<Triporder> listdesc(Map map);
-    List<Triporder> listdescn(Map map);
-    int shopTripOrderCount(Map map);
+    int countbytripid(Map map);
  }

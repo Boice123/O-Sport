@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jsj141.osport.dao.DiaryfirstevalDao">
+
+    <sql id="dynamicWhere">
+        <where>
+            <if test="_parameter.containsKey('evalids') and evalids != null and evalids != ''">
+                and evalid in (${evalids})
+            </if>
+        </where>
+    </sql>
+
+    <select id="select" resultType="com.jsj141.osport.domain.Diaryfirsteval">
+        select * from diaryfirsteval where evalid=#{evalid}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from diaryfirsteval
+        <include refid="dynamicWhere" />
+    </select>
+
+    <select id="list" resultType="com.jsj141.osport.domain.Diaryfirsteval">
+        select * from diaryfirsteval
+        <include refid="dynamicWhere" />
+        <if test="_parameter.containsKey('order') and order!=null">
+            order by ${order}
+        </if>
+        limit #{start},#{size}
+    </select>
+
+    <select id="listdesc" resultType="com.jsj141.osport.domain.Diaryfirsteval">
+        select * from diaryfirsteval
+        <include refid="dynamicWhere" />
+        <if test="_parameter.containsKey('clubdiaryid') and clubdiaryid!=null">
+            where clubdiaryid=#{clubdiaryid}
+        </if>
+        <if test="_parameter.containsKey('order') and order!=null">
+            order by ${order} desc
+        </if>
+    </select>
+
+    <insert id="insert" parameterType="com.jsj141.osport.domain.Diaryfirsteval">
+        insert into diaryfirsteval (evalid,content,clubdiaryid,userid,evaltime)
+        values (#{evalid},#{content},#{clubdiaryid},#{userid},#{evaltime})
+    </insert>
+
+    <update id="update" parameterType="com.jsj141.osport.domain.Diaryfirsteval">
+        update diaryfirsteval 
+        <set>
+            <if test="content != null">
+                content=#{content},
+            </if>
+            <if test="clubdiaryid != null">
+                clubdiaryid=#{clubdiaryid},
+            </if>
+            <if test="userid != null">
+                userid=#{userid},
+            </if>
+            <if test="evaltime != evaltime">
+                evaltime=#{evaltime},
+            </if>
+        </set>
+        where evalid=#{evalid}
+    </update>
+
+    <update id="delete">
+        delete from diaryfirsteval where evalid=#{evalid}
+    </update>
+
+</mapper>

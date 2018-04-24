@@ -14,7 +14,7 @@
                     <span class="clubInfoDetailNum">{{clubDiary.length}}</span>
                 </div>
                 <div class="clubInfoDetailBox">
-                    <span class="clubInfoDetailTitle">活动</span>
+                    <span class="clubInfoDetailTitle">攻略</span>
                     <span class="clubInfoDetailNum">{{clubActivity.length}}</span>
                 </div>
             </div>
@@ -22,51 +22,13 @@
       </div>
       <div class="clubMainPageBody">
           <div class="addNewPart" v-if="clubChoose==='部落动态'" @click="addDiary(clubinfo.clubid)">发布动态</div>
-          <!-- <div class="addNewPart" v-if="clubChoose==='部落活动'" @click="addActivity(clubinfo.clubid)">发布活动</div> -->
-          <!-- <div class="addNewPart" v-if="clubChoose==='摄影作品'">摄影作品</div> -->
           <div class="clubMainPageNav">
               <ul class="clubMainPageNavUl">
-                  <li :class="{'clubMainPageNavLi': clubChoose!='部落活动','clubMainPageNavLiActive': clubChoose == '部落活动'}" @click="changeClubChoose('部落活动')">部落活动</li>     
+                  <li :class="{'clubMainPageNavLi': clubChoose!='部落攻略','clubMainPageNavLiActive': clubChoose == '部落攻略'}" @click="changeClubChoose('部落攻略')">部落攻略</li>     
                   <li :class="{'clubMainPageNavLi': clubChoose!='部落动态','clubMainPageNavLiActive': clubChoose == '部落动态'}" @click="changeClubChoose('部落动态')">部落动态</li>
                   <li :class="{'clubMainPageNavLi': clubChoose!='部落会员','clubMainPageNavLiActive': clubChoose == '部落会员'}" @click="changeClubChoose('部落会员')">部落会员</li>
-                  <!-- <li :class="{'clubMainPageNavLi': clubChoose!='摄影作品','clubMainPageNavLiActive': clubChoose == '摄影作品'}" @click="changeClubChoose('摄影作品')">摄影作品</li> -->
               </ul>
           </div>
-
-          <!-- <div class="photoDiv" v-if="clubChoose == '摄影作品'">
-              <div class="clubBox" @mouseover="changeClubCover('自行车')" @mouseout="changeClubCover('')">
-                  <img :class="{'clubImg':clubCover!='自行车','clubImgActive': clubCover=='自行车'}" src="../../assets/images/bgc/manycamp.jpg"/>
-                  <div class="clubTextMask" v-if="clubCover == '自行车'"></div>
-                  <div :class="{'clubText': clubCover!='自行车','clubTextActive': clubCover=='自行车'}">
-                    <h2 class="clubname">摄影集</h2>
-                    <p class="clubnum"><br>created by 喵喵</p>
-                 </div>
-              </div>
-              <div class="clubBox" @mouseover="changeClubCover('自行车')" @mouseout="changeClubCover('')">
-                  <img :class="{'clubImg':clubCover!='自行车','clubImgActive': clubCover=='自行车'}" src="../../assets/images/bgc/manycamp.jpg"/>
-                  <div class="clubTextMask" v-if="clubCover == '自行车'"></div>
-                  <div :class="{'clubText': clubCover!='自行车','clubTextActive': clubCover=='自行车'}">
-                    <h2 class="clubname">自行车俱乐部</h2>
-                    <p class="clubnum"><br>共93名会员</p>
-                 </div>
-              </div>
-              <div class="clubBox" @mouseover="changeClubCover('自行车')" @mouseout="changeClubCover('')">
-                  <img :class="{'clubImg':clubCover!='自行车','clubImgActive': clubCover=='自行车'}" src="../../assets/images/bgc/manycamp.jpg"/>
-                  <div class="clubTextMask" v-if="clubCover == '自行车'"></div>
-                  <div :class="{'clubText': clubCover!='自行车','clubTextActive': clubCover=='自行车'}">
-                    <h2 class="clubname">自行车俱乐部</h2>
-                    <p class="clubnum"><br>共93名会员</p>
-                 </div>
-              </div>
-              <div class="clubBox" @mouseover="changeClubCover('自行车')" @mouseout="changeClubCover('')">
-                  <img :class="{'clubImg':clubCover!='自行车','clubImgActive': clubCover=='自行车'}" src="../../assets/images/bgc/manycamp.jpg"/>
-                  <div class="clubTextMask" v-if="clubCover == '自行车'"></div>
-                  <div :class="{'clubText': clubCover!='自行车','clubTextActive': clubCover=='自行车'}">
-                    <h2 class="clubname">自行车俱乐部</h2>
-                    <p class="clubnum"><br>共93名会员</p>
-                 </div>
-              </div> -->
-          <!-- </div> -->
           <div class="messageDiv" v-if="clubChoose == '部落动态'">
               <div class="messageBox" v-for="(clubdiary, key) in clubDiary">
                   <img class="messageImg" :src="clubdiary.clubdiaryimg"/>
@@ -74,107 +36,52 @@
                       <div class="messageUp">
                           <div class="messageTitle">{{clubdiary.clubdiarytitle}}</div>
                           <div class="messageTitleRight">
-                              <img class="messageUserImg"/>
+                              <img class="messageUserImg" :src="clubdiary.user.userimg"/>
                               <span class="messageUserName">{{clubdiary.username}}</span>
                               <span class="messageTime">发表于{{clubdiary.clubdiarytime}}</span>
                           </div>
                       </div>
-                      <div :class="{'messageDown': clubdiaryid == clubdiary.clubdiaryid, 'messageDownDrag': clubdiaryid != clubdiary.clubdiaryid}">
+                      <!-- <div :class="{'messageDown': clubdiaryid != clubdiary.clubdiaryid, 'messageDownDrag': clubdiaryid == clubdiary.clubdiaryid}"> -->
+                      <div class="messageDownDrag" >   
                         {{clubdiary.clubdiarycontent}}
+                            <div class="evalBox">
+                                <div v-for="evale in clubdiary.diaryfirsteval">
+                                    <span class="evalUser">{{evale.user.username}}</span>评论：{{evale.content}}
+                                    <button  v-if="evale.user.username != getCookie('user_username')" class="evaluateButton">回复</button>
+                                    <div v-for="s in evale.secondevalList">
+                                        <span class="evalUser">{{s.fromusername}}</span>评论<span class="evalUser">{{s.tousername}}</span>：{{s.content}}
+                                        <button v-if="s.fromusername != getCookie('user_username')" class="evaluateButton" @click="secondeval(evale.evalid, s.fromusername)">回复</button>
+                                    </div>
+                                </div>
+                            </div>
                       </div>
-                      <span class="dragdown" @click="dragPassageDown(clubdiary.clubdiaryid)">点击下拉</span>
+                      <span class="dragdown"><span class="fromClubname">来自{{clubdiary.club.clubname}}</span><button class="evaluateButton" @click="evaluate(diary.clubdiaryid)">评论</button></span>
                   </div>
               </div>
-              <!-- <div class="messageBox">
-                  <img class="messageImg" src="../../assets/images/bgc/climbmountain.jpg"/>
-                  <div class="messageContent">
-                      <div class="messageUp">
-                          <div class="messageTitle">哈哈哈是标题</div>
-                          <div class="messageTitleRight">
-                              <img class="messageUserImg" src="../../assets/images/bgc/climbmountain.jpg"/>
-                              <span class="messageUserName">用户名字</span>
-                              <span class="messageTime">发表于19:08</span>
-                          </div>
-                      </div>
-                      <div :class="{'messageDown': passageDragDown == false, 'messageDownDrag': passageDragDown == true}">
-                        出游小日记出游小日记出游小日记出游小日记出游小日记出
-                          游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                          出游小日记
-                          出游小日记出游小日记出游小日记出游小日记出游小日记出
-                          游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                          出游小日记
-                          出游小日记出游小日记出游小日记出游小日记出游小日记出
-                          游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                          出游小日记
-                          出游小日记出游小日记出游小日记出游小日记出游小日记出
-                          游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                          出游小日记
-                          出游小日记出游小日记出游小日记出游小日记出游小日记出
-                          游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                          出游小日记出游小日记出游小日记出游小日记出游小日记出游小日记出
-                          游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                          出游小日记
-                      </div>
-                      <span class="dragdown" @click="dragPassageDown">点击下拉</span>
-                  </div>
-              </div>
-              <div class="messageBox">
-                  <img class="messageImg" src="../../assets/images/bgc/climbmountain.jpg"/>
-                  <div class="messageContent">
-                      <div class="messageUp">
-                          <div class="messageTitle">哈哈哈是标题</div>
-                          <div class="messageTitleRight">
-                              <img class="messageUserImg" src="../../assets/images/bgc/climbmountain.jpg"/>
-                              <span class="messageUserName">用户名字</span>
-                              <span class="messageTime">发表于19:08</span>
-                          </div>
-                      </div>
-                      <div :class="{'messageDown': passageDragDown == false, 'messageDownDrag': passageDragDown == true}">
-                        出游小日记出游小日记出游小日记出游小日记出游小日记出
-                          游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                          出游小日记
-                          出游小日记出游小日记出游小日记出游小日记出游小日记出
-                          游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                          出游小日记
-                          出游小日记出游小日记出游小日记出游小日记出游小日记出
-                          游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                          出游小日记
-                          出游小日记出游小日记出游小日记出游小日记出游小日记出
-                          游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                          出游小日记
-                          出游小日记出游小日记出游小日记出游小日记出游小日记出
-                          游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                          出游小日记出游小日记出游小日记出游小日记出游小日记出游小日记出
-                          游小日记出游小日记出游小日记出游小日记vvvvv出游小日记出游小日记
-                          出游小日记
-                      </div>
-                      <span class="dragdown" @click="dragPassageDown">点击下拉</span>
-                  </div>
-              </div>-->
           </div> 
-          <div class="activityDiv" v-if="clubChoose == '部落活动'">
-            <div 
-                class="activityBox"
-                @mouseover="changeClubCover(activity.clubactivityid)" 
-                @mouseout="changeClubCover('')"
-                v-for="(activity,key) in clubActivity"
-            >
-                  <img :class="{'activityImg':clubCover!=activity.clubactivityid,'activityImgActive': clubCover==activity.clubactivityid}" :src="activity.clubactivityimg"/>
-                  <div class="clubTextMask" v-if="clubCover == activity.clubactivityid"></div>
-                  <div :class="{'clubText': clubCover!=activity.clubactivityid,'clubTextActive': clubCover==activity.clubactivityid}">
-                    <h2 class="activityname">{{activity.clubactivitytitle}}</h2>
-                    <p class="activitypeople"><br>已有{{activity.clubactivitypeople}}人参加</p>
-                    <span 
-                        :class="{'joinActivity': clubCover!=activity.clubactivityid,'joinActivityActive': clubCover==activity.clubactivityid }"
-                        @click="joinActivity(activity.clubactivityid)"
-                    >参加
-                    </span>
-                    <span 
-                        :class="{'opendetail': clubCover!=activity.clubactivityid,'opendetailActive': clubCover==activity.clubactivityid }"
-                        @click="open(activity.clubactivitycontent)"
-                    >查看详情
-                    </span>
-                 </div>
+          <div class="messageDiv" v-if="clubChoose == '部落攻略'">
+            <div class="messageBox" v-for="(clubactivity, key) in clubActivity">
+                  <img class="messageImg" :src="clubactivity.clubactivityimg"/>
+                  <div class="messageContent">
+                      <div class="messageUp">
+                          <div class="messageTitle">{{clubactivity.clubactivitytitle}}</div>
+                          <div class="messageTitleRight">
+                              <span class="messageTime">发表于{{clubactivity.clubactivitytime}}</span>
+                          </div>
+                      </div>
+                      <div class="messageDownDrag" >   
+                        {{clubactivity.clubactivitycontent}}<br>
+                        <button class="likeButton" @click="like(clubactivity.clubactivityid)">点赞</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="messageDiv" v-if="clubChoose == '部落会员'">
+            <div class="clubusergrid">
+                <div class="clubuserbox" v-for="(user, key) in clubUser">
+                    <img class="clubuserimg" :src="user.user.userimg"/>
+                    <span class="clubusername" >{{user.user.username}}</span>
+                </div>
             </div>
           </div>
       </div>
@@ -183,26 +90,51 @@
 
 <script>
 import axios from 'axios'
-import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinClubActivityURl } from '../../constants/index.js'
+import { API_getClubURl, API_getClubActivity, API_getClubDiaryURl, API_joinClubActivityURl, API_saveDiarySecondEvalURl, API_likeClubActivityURl, API_getClubUserURl } from '../../constants/index.js'
   export default {
     name: 'club',
     data() {
       return {
-          clubChoose: '部落活动',
+          clubChoose: '部落攻略',
           clubCover: '',
           clubinfo: {},
-          clubDiary: [],
+          clubDiary: [{
+              club: {
+                  clubname: ''
+              },
+              user: {
+                  userimg: '',
+              },
+              diaryfirsteval: {
+                  content: '',
+                  user: {
+                      username:''
+                  },
+                  secondevalList: {
+                    content: '',
+                    fromusername: '', 
+                    tousername: ''
+                 }
+              }
+          }],
           clubActivity: [],
+          clubUser: [{
+             user: {
+                username: '',
+                userimg: ''
+             }
+          }],
           activityVisible: true,
           activityDetail: '',
           clubdiaryid: ''
       }
     },
     created () {
-        var clubid = this.$route.params.clubid
+        var clubid =this.getCookie("clubid")
         this.getClub(clubid)
         this.getClubDiary(clubid)
         this.getClubActivity(clubid)
+        this.getClubUser(clubid)
     },
     methods: {
       changeClubCover(text) {
@@ -217,7 +149,11 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
         });
       },
       dragPassageDown(clubdiaryid) {
-          this.clubdiaryid = clubdiaryid
+          if(this.clubdiaryid == '') {
+            this.clubdiaryid = clubdiaryid
+          }else {
+            this.clubdiaryid = ''
+          }
       },
       getClub(clubid) {
          var params = new URLSearchParams() 
@@ -243,6 +179,7 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
             console.log(err)
         })
       },
+      // 获取部落日记
       getClubDiary(clubid) {
          var params = new URLSearchParams() 
          params.append('clubid',clubid)
@@ -256,23 +193,21 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
             if(response.data.code == 0) {
                 this.clubDiary = response.data.data
             }else if(response.data.code == 1) {
-                this.$message({
-                    message: response.data.msg,
-                    type: 'warning'
-                }); 
+                console.log(response.data.msg) 
             }else {
-                this.$message.error('获取部落动态失败，请稍后重试');
+                 console.log(response.data.msg) 
             }        
         }).catch((err) => {
             console.log(err)
         })
       },
+      // 获取部落攻略
       getClubActivity(clubid) {
          var params = new URLSearchParams() 
          params.append('clubid',clubid)
          axios({
             method:'post',
-            url:API_getClubActivityURl,
+            url:API_getClubActivity,
             params
         })
         .then((response) => {
@@ -280,19 +215,44 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
             if(response.data.code == 0) {
                 this.clubActivity = response.data.data
             }else if(response.data.code == 1) {
-                this.$message({
-                    message: response.data.msg,
-                    type: 'warning'
-                }); 
+                console.log(response.data.msg) 
             }else {
-                this.$message.error('获取部落活动失败，请稍后重试');
+                 console.log(response.data.msg) 
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
+      // 获取部落成员
+      getClubUser(clubid) {
+         var params = new URLSearchParams() 
+         params.append('clubid',clubid)
+         axios({
+            method:'post',
+            url:API_getClubUserURl,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+                this.clubUser = response.data.data
+            }else if(response.data.code == 1) {
+                console.log(response.data.msg) 
+            }else {
+                console.log(response.data.msg) 
             }        
         }).catch((err) => {
             console.log(err)
         })
       },
       addDiary(clubid) {
-         this.$router.push({name:'addDiary', params:{clubid}})
+        for(let i = 0; i <  this.clubUser.length; i++) {
+            if(this.getCookie("user_username") === this.clubUser[i].user.username) {
+               this.$router.push({name:'addDiary', params:{clubid}})
+               return
+            }
+        }
+        this.$message.error("必须是该部落成员才可以发表动态，加入部落吧")
       },
       addActivity(clubid) {
           this.$router.push({name:'addActivity', params:{clubid}})
@@ -318,12 +278,127 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
                     type: 'warning'
                 }); 
             }else {
-                this.$message.error('参加部落活动失败，请稍后重试');
+                this.$message.error('参加主题讨论失败，请稍后重试');
             }        
         }).catch((err) => {
             console.log(err)
         })
-      }
+      },
+      // 评论一级动态
+      evaluate(clubdiaryid) {
+          this.$prompt('请输入评论', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            inputPattern: /\S/,
+            inputErrorMessage: '评论不能为空'
+            }).then(({ value }) => {
+                var params = new URLSearchParams();
+                params.append('content', value)
+                params.append('userid', this.getCookie("user_userid"))
+                params.append('clubdiaryid', clubdiaryid);
+                //评论订单信息
+                axios({
+                    method:'post',
+                    url:API_saveDiaryFirstEvalURl,
+                    params
+                })
+                .then((response) => {
+                    console.log(response.data)
+                    if(response.data.code == 0) {
+                        this.$message({
+                            message: response.data.msg,
+                            type: 'success'
+                        }); 
+                        setTimeout(() => {
+                            location.reload()
+                        },2000)
+                    }else if(response.data.code == 1) {
+                        this.$message({
+                            message: response.data.msg,
+                            type: 'warning'
+                        }); 
+                    }else {
+                        this.$message.error('评论失败，请稍后重试');
+                    }        
+                }).catch((err) => {
+                    console.log(err)
+                })  
+            }).catch(() => {
+    
+            });          
+      },
+       // 评论二级动态
+      secondeval(firstevalid, tousername) {
+          this.$prompt('请输入回复', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            inputPattern: /\S/,
+            inputErrorMessage: '回复不能为空'
+            }).then(({ value }) => {
+                var params = new URLSearchParams();
+                params.append('content', value)
+                params.append('fromusername', this.getCookie("user_username"))
+                params.append('tousername', tousername)
+                params.append('firstevalid', firstevalid);
+                //回复评论信息
+                axios({
+                    method:'post',
+                    url:API_saveDiarySecondEvalURl,
+                    params
+                })
+                .then((response) => {
+                    console.log(response.data)
+                    if(response.data.code == 0) {
+                        this.$message({
+                            message: response.data.msg,
+                            type: 'success'
+                        }); 
+                        setTimeout(() => {
+                            location.reload()
+                        },2000)
+                    }else if(response.data.code == 1) {
+                        this.$message({
+                            message: response.data.msg,
+                            type: 'warning'
+                        }); 
+                    }else {
+                        this.$message.error('评论失败，请稍后重试');
+                    }        
+                }).catch((err) => {
+                    console.log(err)
+                })  
+            }).catch(() => {
+    
+            });          
+      },
+      // 点赞
+      like(clubactivityid) {
+         var params = new URLSearchParams() 
+         params.append('clubactivityid',clubactivityid)
+         axios({
+            method:'post',
+            url:API_likeClubActivityURl,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'success'
+                });
+            }else if(response.data.code == 1) {
+                this.$message({
+                    message: response.data.msg,
+                    type: 'warning'
+                }); 
+            }else {
+                this.$message.error('点赞失败，请稍后重试');
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
     },
     components: {
         
@@ -334,7 +409,7 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
 <style>
 .clubMainPageContainer {
     width: 100%;
-    background: url('../../assets/images/bgc/campbgc.jpg');
+    background: #fff;
 }
 .clubHead {
     width: 100%;
@@ -353,7 +428,7 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
 .clubHeadName {
     margin-top: 1rem;
     margin-bottom: 1rem;
-    color: yellow;
+    color: #fdd000;
 }
 .clubInfoDetail {
     display: flex;
@@ -363,7 +438,7 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
     display: flex;
     flex: 1;
     flex-direction: column;
-    color: yellow;
+    color: #fdd000;
     align-items: center;
     justify-content: center;
 }
@@ -372,9 +447,9 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
     width: 80%;
     margin: 0 auto;
     margin-top: 20px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     padding-bottom: 5rem;
-    border: 1px solid #000;
+    border: 1px solid #fdd000;
     margin-bottom: 20px;
 }
 .clubMainPageNav {
@@ -391,7 +466,7 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
 }
 .clubMainPageNavLi {
     flex: 1;
-    color: yellow;
+    color: #000;
     font-size: 15px;
     line-height: 70px;
     height: 70px;
@@ -402,7 +477,7 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
     font-size: 15px;
     line-height: 70px;
     height: 70px;
-    background: yellow;  
+    background: #fdd000;  
 }
 .photoDiv {
     width: 98%;
@@ -541,7 +616,7 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
   to { left: -10%  }
 }
 .addNewPart {
-    background: yellow;
+    background: #fdd000;
     color: #000;
     position: absolute;
     right: -10%;
@@ -568,7 +643,7 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
     top: 100%;
     width: 4rem;
     height: 2rem;
-    background: yellow;
+    background: #fdd000;
     color: #000;
     border-radius: 10px;
     animation: opendetailhide .5s;
@@ -585,7 +660,7 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
     top: 100%;
     width: 4rem;
     height: 2rem;
-    background: yellow;
+    background: #fdd000;
     color: #000;
     border-radius: 10px;
     animation: opendetailhide .5s;
@@ -602,7 +677,7 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
     top: 85%;
     width: 4rem;
     height: 2rem;
-    background: yellow;
+    background: #fdd000;
     color: #000;
     border-radius: 10px;
     animation: opendetailshow .5s;
@@ -619,7 +694,7 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
     top: 85%;
     width: 4rem;
     height: 2rem;
-    background: yellow;
+    background: #fdd000;
     color: #000;
     border-radius: 10px;
     animation: opendetailshow .5s;
@@ -674,4 +749,68 @@ import { API_getClubURl, API_getClubActivityURl, API_getClubDiaryURl, API_joinCl
   from { top: -10% }
   to { top: 0 }
 }
+.fromClubname {
+    color: #fdd000;
+    margin-right: 1rem;
+    font-size: 0.8rem;
+}
+.evaluateButton {
+    padding: .1rem .4rem;
+    border: 1px solid #fdd000;
+    background: #fff;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+}
+.evalBox {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #fdd000;
+    margin-bottom: 3rem;
+    font-size: 0.8rem;
+}
+.activityBox {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #fdd000;
+    margin-bottom: 3rem;
+    font-size: 0.8rem;
+}
+.evalUser {
+    font-size: 0.8rem;
+    color: #fdd000;
+}
+.likeButton {
+    padding: .1rem .4rem;
+    border: 1px solid #fdd000;
+    background: #fff;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+    position: absolute;
+    right: 0;
+    bottom: -1rem;
+}
+.clubuserbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.clubusergrid {
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+.clubuserimg {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 3rem;
+}
+.clubusername {
+    color: #000;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
 </style>

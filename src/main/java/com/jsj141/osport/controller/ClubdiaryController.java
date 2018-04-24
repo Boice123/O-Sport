@@ -1,9 +1,7 @@
 package com.jsj141.osport.controller;
 
 import com.jsj141.osport.domain.*;
-import com.jsj141.osport.service.TripService;
-import com.jsj141.osport.service.TriptimeService;
-import com.jsj141.osport.service.ClubdiaryService;
+import com.jsj141.osport.service.*;
 import com.jsj141.osport.util.Result;
 import com.jsj141.osport.util.ResultUtil;
 import org.slf4j.Logger;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.WebUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Controller
@@ -27,13 +24,19 @@ public class ClubdiaryController {
     private final Logger logger = LoggerFactory.getLogger(ClubdiaryController.class);
 
     @Autowired
-    private TripService tripService;
+    private UserService userService;
 
     @Autowired
-    private TriptimeService triptimeService;
+    private ClubService clubService;
 
     @Autowired
     private ClubdiaryService clubdiaryService;
+
+    @Autowired
+    private DiaryfirstevalService diaryfirstevalService;
+
+    @Autowired
+    private DiarysecondevalService diarysecondevalService;
 
 
     @ResponseBody
@@ -62,24 +65,6 @@ public class ClubdiaryController {
         return lastResult;
     }
 
-
-    /**
-     * 获取Trip信息
-     * @param tripid
-     * @param trip
-     * @param request
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "/get", method = RequestMethod.POST)
-    Result getTripInfo(String tripid, Trip trip, HttpServletRequest request) {
-        Result result = ResultUtil.initResult();
-        trip.setTripid(tripid);
-        result = tripService.getTripInfo(trip);
-        return result;
-    }
-
-
     /**
      * 根据Clubid获取部落动态
      * @param clubid
@@ -95,14 +80,39 @@ public class ClubdiaryController {
         Result result = ResultUtil.initResult();
         clubdiary.setClubid(clubid);
         List<Clubdiary> clubDiaryList= clubdiaryService.getByClubid(clubdiary);
-        if(clubDiaryList.size() != 0 ) {
-            result.setCode(0);
-            result.setData(clubDiaryList);
-            result.setMsg("获取部落全部动态成功");
-        }else {
-            result.setCode(1);
-            result.setMsg("部落没有动态数据");
+        for(int i=0; i < clubDiaryList.size(); i++) {
+            //设置Club信息
+            String cid = clubDiaryList.get(i).getClubid();
+            Club c = new Club();
+            c.setClubid(cid);
+            Club cc = clubService.getByClubid(c);
+            clubDiaryList.get(i).setClub(cc);
+            //设置用户信息
+            String uid = clubDiaryList.get(i).getUserid();
+            User u = new User();
+            u.setUserid(uid);
+            User user = userService.get(u);
+            clubDiaryList.get(i).setUser(user);
+            //设置评论信息
+            String cdid = clubDiaryList.get(i).getClubdiaryid();
+            List<Diaryfirsteval> evalList = diaryfirstevalService.listdesc(cdid, "evaltime");
+            for(int j=0; j < evalList.size(); j++) {
+                //设置User信息
+                String id = evalList.get(j).getUserid();
+                User ue = new User();
+                ue.setUserid(id);
+                User uu = userService.get(ue);
+                evalList.get(j).setUser(uu);
+                //设置二级评论信息
+                String firstevalid = evalList.get(j).getEvalid();
+                List<Diarysecondeval> list = diarysecondevalService.getByFirstevalid(firstevalid);
+                evalList.get(j).setSecondevalList(list);
+            }
+            clubDiaryList.get(i).setDiaryfirsteval(evalList);
         }
+        result.setCode(0);
+        result.setData(clubDiaryList);
+        result.setMsg("获取部落全部动态成功");
         return result;
     }
 
@@ -127,45 +137,14 @@ public class ClubdiaryController {
             HttpServletRequest request) {
         Result result = ResultUtil.initResult();
         List<Clubdiary> clubdiaryList= clubdiaryService.listdesc(start, size, order, clubid);
-        if(clubdiaryList.size() != 0 ) {
-            result.setCode(0);
-            result.setData(clubdiaryList);
-            result.setMsg("获取部落全部动态成功");
-        }else {
-            result.setCode(1);
-            result.setMsg("部落没有动态数据");
-        }
-        return result;
-    }
-
-
-    /**
-     * 获取管理的部落全部动态
-     * @param clubowner
-     * @param club
-     * @param request
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "/getOwnClubDiary", method = RequestMethod.POST)
-    Result getOwnClubDiary(@RequestParam(value="clubowner") String clubowner,
-                           Club club,
-                           HttpServletRequest request){
-        Result result = ResultUtil.initResult();
-        List<Clubdiary> clubDiaryList= clubdiaryService.getByClubowner(clubowner);
-        if(clubDiaryList.size() != 0 ) {
-            result.setCode(0);
-            result.setData(clubDiaryList);
-            result.setMsg("获取管理的部落全部动态成功");
-        }else {
-            result.setCode(1);
-            result.setMsg("管理的部落没有动态数据");
-        }
+        result.setCode(0);
+        result.setData(clubdiaryList);
+        result.setMsg("获取部落全部动态成功");
         return result;
     }
 
     /**
-     * 获取部落全部动态
+     * 根据clubid获取部落全部动态
      * @param start
      * @param size
      * @param order
@@ -185,19 +164,14 @@ public class ClubdiaryController {
             HttpServletRequest request){
         Result result = ResultUtil.initResult();
         List<Clubdiary> clubDiaryList= clubdiaryService.listdesc(start, size, order, clubid);
-        if(clubDiaryList.size() != 0 ) {
-            result.setCode(0);
-            result.setData(clubDiaryList);
-            result.setMsg("获取部落全部动态成功");
-        }else {
-            result.setCode(1);
-            result.setMsg("部落没有动态数据");
-        }
+        result.setCode(0);
+        result.setData(clubDiaryList);
+        result.setMsg("获取部落全部动态成功");
         return result;
     }
 
     /**
-     * 获取参与的部落全部动态
+     * 获取参与的部落动态,排序，分页
      * @param userid
      * @param club
      * @param request
@@ -206,38 +180,81 @@ public class ClubdiaryController {
     @ResponseBody
     @RequestMapping(value = "/getJoinClubDiary", method = RequestMethod.POST)
     Result getJoinClubDiary(@RequestParam(value="userid") String userid,
+                            @RequestParam(value="start") int start,
+                            @RequestParam(value="size") int size,
+                            @RequestParam(value="order") String order,
                            Club club,
                            HttpServletRequest request){
         Result result = ResultUtil.initResult();
-        List<Clubdiary> clubDiaryList= clubdiaryService.getByUserid(userid);
-        if(clubDiaryList.size() != 0 ) {
-            result.setCode(0);
-            result.setData(clubDiaryList);
-            result.setMsg("获取参与的部落全部动态成功");
-        }else {
-            result.setCode(1);
-            result.setMsg("参与的部落没有动态数据");
+        List<Clubdiary> clubDiaryList= clubdiaryService.getByUserid(start, size, order, userid);
+        for(int i=0; i < clubDiaryList.size(); i++) {
+            //设置Club信息
+            String cid = clubDiaryList.get(i).getClubid();
+            Club c = new Club();
+            c.setClubid(cid);
+            Club cc = clubService.getByClubid(c);
+            clubDiaryList.get(i).setClub(cc);
+            //设置用户信息
+            String uid = clubDiaryList.get(i).getUserid();
+            User u = new User();
+            u.setUserid(uid);
+            User user = userService.get(u);
+            clubDiaryList.get(i).setUser(user);
+            //设置评论信息
+            String cdid = clubDiaryList.get(i).getClubdiaryid();
+            List<Diaryfirsteval> evalList = diaryfirstevalService.listdesc(cdid, "evaltime");
+            for(int j=0; j < evalList.size(); j++) {
+                //设置User信息
+                String id = evalList.get(j).getUserid();
+                User ue = new User();
+                ue.setUserid(id);
+                User uu = userService.get(ue);
+                evalList.get(j).setUser(uu);
+                //设置二级评论信息
+                String firstevalid = evalList.get(j).getEvalid();
+//            Diarysecondeval dsd = new Diarysecondeval();
+//            dsd.setFirstevalid(eid);
+                List<Diarysecondeval> list = diarysecondevalService.getByFirstevalid(firstevalid);
+                evalList.get(j).setSecondevalList(list);
+            }
+            clubDiaryList.get(i).setDiaryfirsteval(evalList);
         }
+        result.setCode(0);
+        result.setData(clubDiaryList);
+        result.setMsg("获取参与的部落全部动态成功");
+        return result;
+    }
+
+    /**
+     * 获取参与的部落所有动态，主要用于获取动态总数
+     * @param userid
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getJoinClubDiaryCount", method = RequestMethod.POST)
+    Result getJoinClubDiaryCount(@RequestParam(value="userid") String userid,
+                            HttpServletRequest request){
+        Result result = ResultUtil.initResult();
+        List<Clubdiary> clubDiaryList= clubdiaryService.getCountByUserid(userid);
+        result.setCode(0);
+        result.setData(clubDiaryList);
+        result.setMsg("获取参与的所有动态成功");
         return result;
     }
 
 
     @ResponseBody
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    Result deleteTripInfo(@RequestParam(value="clubdiaryid") String clubdiaryid,
+    Result delete(@RequestParam(value="clubdiaryid") String clubdiaryid,
                           Clubdiary clubdiary,
                           HttpServletRequest request) {
         Result result = ResultUtil.initResult();
 
         clubdiary.setClubdiaryid(clubdiaryid);
         clubdiaryService.delete(clubdiary);
-//        if(result1.getCode() == 0 && result2.getCode() == 0) {
         result.setCode(0);
         result.setMsg("删除成功");
-//        } else {
-//            result.setCode(1);
-//            result.setMsg("删除失败");
-//        }
         return result;
     }
 
@@ -262,17 +279,5 @@ public class ClubdiaryController {
         result.setCode(0);
         result.setMsg("删除成功");
         return result;
-    }
-
-    public String format(String time) {
-        try {
-            SimpleDateFormat sf = new SimpleDateFormat("EEE MMM dd hh:mm:ss z yyyy", Locale.ENGLISH);
-            Date date = sf.parse(time);
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            return df.format(date);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
     }
 }

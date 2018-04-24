@@ -1,12 +1,12 @@
 <template>
   <div class="addTripContainer">
-    <div class="addTripknow">发布部落活动</div>
+    <div class="addTripknow">发布部落攻略</div>
     <el-form ref="form" :rules="rules" :model="form" label-width="140px">
       <el-form-item label="标题" prop="clubactivitytitle">
         <el-input v-model="form.clubactivitytitle"></el-input>
       </el-form-item>
       <el-form-item label="内容" prop="clubactivitycontent">
-        <el-input v-model="form.clubactivitycontent"></el-input>
+        <el-input v-model="form.clubactivitycontent" type="textarea"></el-input>
       </el-form-item>
       <el-form id="pictureForm" class="pictureForm" method="POST" enctype="multipart/form-data">
         <el-form-item label="封面图">
@@ -32,23 +32,23 @@ import ajaxSubmit from '../../../static/js/jquery.form.js'
 export default {
     name: 'addActivity',
     data() {
-      // 请输入动态标题
+      // 请输入攻略标题
       var validateclubactivitytitle = (rule, value, callback) => {
         if (value === '') {
-          callback(new Error('请输入动态标题'));
+          callback(new Error('请输入攻略标题'));
         }
           callback()
       }
-      // 请输入动态内容
+      // 请输入攻略内容
       var validateclubactivitycontent = (rule, value, callback) => {
         if (value === '') {
-          callback(new Error('请输入动态内容'));
+          callback(new Error('请输入攻略内容'));
         } 
           callback()
       }
       var validateclubactivityimg = (rule, value, callback) => {
         if (value === '') {
-          callback(new Error('请选择动态封面'));
+          callback(new Error('请选择攻略封面'));
         } 
           callback()
       }
@@ -74,7 +74,6 @@ export default {
     },
     methods: {
       uploadPic (obj) {
-        // if( this.checkFile(obj) ){
           var options = {
             contentType:"multipart/form-data",
             url: API_uploadFileURL,
@@ -89,7 +88,6 @@ export default {
           }
           $("#pictureForm").ajaxSubmit(options)
           console.log("点击上传后的图片"+this.form.clubactivityimg)
-        // }
       },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
@@ -107,12 +105,12 @@ export default {
           }).then((response) => {
             console.log(response.data)
                 if(response.data.code == 0) {
-                  this.$router.push('/clubManage')
+                  this.$router.push({name: 'adminClubActivity'})
                 }else if(response.data.code == 1) {
                   this.$message.error(response.data.msg);
                 }
                 else {
-                  this.$message.error('添加部落活动失败，请稍后重试');
+                  this.$message.error('添加部落攻略失败，请稍后重试');
                 }
             })
           .catch((err) => {

@@ -25,42 +25,12 @@
           @change="handleChange">
         </el-cascader>
       </el-form-item>
-      <el-form-item label="选择日期(最多选择5个)" prop="date">
+      <el-form-item label="出行日期" prop="date">
         <el-date-picker
-          v-model="form.triptime1"
+          v-model="form.triptime"
           :picker-options="pickerBeginDateBefore"
           format="yyyy 年 MM 月 dd 日"
           value-format="yyyy-MM-dd"
-          placeholder="选择日期">
-        </el-date-picker>
-        <el-date-picker
-          v-model="form.triptime2"
-          :picker-options="pickerBeginDateBefore"
-          format="yyyy 年 MM 月 dd 日"
-          value-format="yyyy-MM-dd"
-          placeholder="选择日期">
-        </el-date-picker>
-        <el-date-picker
-          v-model="form.triptime3"
-          type="date"
-          :picker-options="pickerBeginDateBefore"
-          format="yyyy 年 MM 月 dd 日"
-          value-format="yyyy-MM-dd"
-          placeholder="选择日期">
-        </el-date-picker>
-        <el-date-picker
-          v-model="form.triptime4"
-          :picker-options="pickerBeginDateBefore"
-          format="yyyy 年 MM 月 dd 日"
-          value-format="yyyy-MM-dd"
-          placeholder="选择日期">
-        </el-date-picker>
-        <el-date-picker
-          v-model="form.triptime5"
-          type="date"
-          :picker-options="pickerBeginDateBefore"
-          format="yyyy 年 MM 月 dd 日"
-          @value-format="yyyy-MM-dd"
           placeholder="选择日期">
         </el-date-picker>
       </el-form-item>
@@ -83,7 +53,7 @@
 <script>
 import axios from 'axios'
 import regionList from '../../constants/regionList'
-import { API_uploadFileURL, API_saveAdminTripURL, API_checkTriptimeNull } from '../../constants/index.js'
+import { API_uploadFileURL, API_saveTripURL } from '../../constants/index.js'
 import $ from 'jquery'
 import ajaxSubmit from '../../../static/js/jquery.form.js'
 export default {
@@ -143,8 +113,14 @@ export default {
         }
         callback()
       }
+      // 出行日期
+      var validateTriptime = (rule, value, callback) => {
+        if (value === '' || value === null) {
+          callback(new Error('请选择出行日期'));
+        }
+        callback()
+      }
         return {
-          value1:'',
           form: {
             tripimg: '',
             tripname: '',
@@ -154,11 +130,7 @@ export default {
             tripprice: 0,
             tripprovice: '',
             tripcity: '',
-            triptime1: '',
-            triptime2: '',
-            triptime3: '',
-            triptime4: '',
-            triptime5: ''
+            triptime: '',
           },
           rules: {
             tripprice: [
@@ -178,6 +150,9 @@ export default {
             ],
             tripname: [
               { validator: validateTripname, trigger: 'blur' }
+            ],
+            triptime: [
+              { validator: validateTriptime, trigger: 'blur' }
             ]
           },
           options: [
@@ -229,7 +204,6 @@ export default {
     },
     methods: {
       uploadPic (obj) {
-        // if( this.checkFile(obj) ){
           var options = {
             contentType:"multipart/form-data",
             url: API_uploadFileURL,
@@ -244,7 +218,6 @@ export default {
           }
           $("#pictureForm").ajaxSubmit(options)
           console.log("点击上传后的图片"+this.form.tripimg)
-        // }
       },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
@@ -257,7 +230,6 @@ export default {
               return
           }
           var params = new FormData()
-          params.append('shopid',this.getCookie('admin_shopid'));
           params.append('tripname',this.form.tripname);
           params.append('tripdescription', this.form.tripdescription);
           params.append('tripnotice', this.form.tripnotice);
@@ -266,59 +238,27 @@ export default {
           params.append('tripimg', this.form.tripimg);
           params.append('tripprovice', this.form.tripprovice);
           params.append('tripcity', this.form.tripcity);
-          params.append('triptime1',this.form.triptime1)
-          params.append('triptime2',this.form.triptime2)
-          params.append('triptime3',this.form.triptime3)
-          params.append('triptime4',this.form.triptime4)
-          params.append('triptime5',this.form.triptime5)
-          var param = new FormData()
-          param.append('triptime1',this.form.triptime1)
-          param.append('triptime2',this.form.triptime2)
-          param.append('triptime3',this.form.triptime3)
-          param.append('triptime4',this.form.triptime4)
-          param.append('triptime5',this.form.triptime5)
-          //判断五个日期是否都为空或者null，不是才可以请求addTrip接口
+          params.append('triptime',this.form.triptime)
+          //请求addTrip接口
           axios({
-            method: 'post',
-            url:API_checkTriptimeNull,
-            data: param
-          }).then((response) => {
-            console.log(response.data)
-                if(response.data.code == 0) {
-                  //请求addTrip接口
-                  axios({
-                    method:'post',
-                    url:API_saveAdminTripURL,
-                    data: params
-                  })
-                    .then((response) => {
-                      console.log(response.data)
-                      if(response.data.code == 0) {
-                        this.$message({
-                          message: response.data.msg,
-                          type: 'success'
-                        });
-                        this.$router.push('/admin/adminTrip')
-                        // location.reload()
-                      }
-                      else if(response.data.code == 1) {
-                        this.$message({
-                          message: response.data.msg,
-                          type: 'warning'
-                        });
-                      }else {
-                        this.$message.error('添加报团出团信息失败，请稍后重试');
-                      }
-                  })
-                    .catch((err) => {
-                      console.log(err)
-                    })
-                }else {
-                  this.$message.error('请至少选择一项出行日期');
-                }
-          }).catch((err) => {
-            console.log(err)
+            method:'post',
+            url:API_saveTripURL,
+            data: params
           })
+            .then((response) => {
+              console.log(response.data)
+              if(response.data.code == 0) {
+                this.$message({
+                  message: response.data.msg,
+                  type: 'success'
+                })
+                this.$router.push('/admin/adminTrip')
+              }else {
+                this.$message.error('添加报团出团信息失败，请稍后重试');
+              }
+            }).catch((err) => {
+              console.log(err)
+            })
         } else {
           console.log('请确认填写的信息是否正确')
           return false;

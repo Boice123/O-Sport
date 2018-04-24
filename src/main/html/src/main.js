@@ -36,23 +36,29 @@ new Vue({
     '$route': function(to, from) {
       console.log(to.path)
       if(to.path == '/admin/adminTrip' ||
-         to.path == '/admin/adminaddTrip' ||
-         to.path == '/admin/adminupdateTrip' ||
-         to.path == '/admin/adminTripOrder' ||
          to.path == '/admin/adminClub' ||
+         to.path == '/admin/addTrip' ||
+         to.path == '/admin/addClub' ||
+         to.path == '/admin/updateTrip' ||
+         to.path == '/admin/updateClub' ||
+         to.path == '/admin/adminTripOrder' ||      
          to.path == '/admin/adminClubActivity' ||
-         to.path == '/admin/adminClubDiary') {       
-        if(this.getCookie('admin_shopid') == '') {
+         to.path == '/admin/adminClubDiary' ||
+         to.path == '/admin/adminClubUser' ||
+         to.path == '/adminsiginup' ||
+         to.path == '/adminsignin' ) { 
+         console.log("this.getCookie('admin_shopid')"+this.getCookie('admin_shopid') )     
+        if(this.getCookie('admin_shopid') == '' && to.path != '/adminsiginup') {
           this.$router.push('/adminsignin')
           return
         }
-      }
-      // if(to.path != '/signup' && to.path !='/' && to.path != '/trip') {
-      //   if(this.$store.state.username == '') {
-      //     this.$router.push('/signin')
-      //   }
-      // }
-     
+      } else {
+        if(to.path != '/signup' && to.path !='/' && to.path != '/trip') {
+          if(this.$store.state.username == '') {
+            this.$router.push('/signin')
+          }
+        }
+      }   
     }
   }
 })

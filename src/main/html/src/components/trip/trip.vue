@@ -7,9 +7,7 @@
         <!-- 介绍部分 -->
         <div class="tripDetail">
             <div class="tripDetailLeft">
-                <div class="tripBigImgboxWrap">
-                    <img class="tripBigImg" :src="trip.tripimg"/>
-                </div>
+                <img class="tripBigImg" :src="trip.tripimg"/>
             </div>
             <div class="tripDetailRight">
                 <h2 class="tripTitle">{{trip.tripname}}</h2>
@@ -18,18 +16,13 @@
                 <div class="tripPrice">
                     产品价格：<span class="tripPriceSpan">{{trip.tripprice}}</span>元起（成人）
                 </div>
+                <div class="tripPrice">
+                    出团日期：<span>{{trip.triptime}}</span>
+                </div>
+                <div class="tripPrice">
+                    可报名剩余数量：<span>{{trip.maxpeople}}</span>
+                </div>
                 <el-form class="tripgoDate">
-                    <el-form-item label="出发日期：" prop="date">
-                        <el-select v-model="form.chooseTriptime" placeholder="请选择" @change="getTriptime">
-                            
-                            <el-option
-                            v-for="(item, key) in triptime"
-                            :key="key"
-                            :label="item.triptime"
-                            :value="item.triptime">
-                            </el-option>
-                        </el-select>
-                    </el-form-item>
                     <el-form-item label="参加人数：" prop="person">
                         <el-input-number v-model="form.person" :min="1" :max="10"></el-input-number>
                     </el-form-item>
@@ -41,7 +34,7 @@
             </div>
         </div>
         <!-- 评价 -->
-        <div class="tripBottom">
+        <!-- <div class="tripBottom">
             <div class="introduceTrip">
                 <div class="introduceTripBox">
                     <span class="introduceTripTitle">出行推荐</span>
@@ -52,7 +45,6 @@
                     >
                     <div class="introname">{{trip.tripname}}</div>
                     <img class="introImg" :src="trip.tripimg"/>
-                    <!-- <img class="introImg" src="../../assets/images/banner/banner_01.jpg"/> -->
                 </div>
             </div>
             <div class="evaluate">
@@ -68,7 +60,7 @@
                     </div>
                     <div class="evaluateContent">{{evaluate.content}}</div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -76,7 +68,7 @@
 <script>
 import searchBar from '../common/searchBar'
 import topNav from '../common/topNav'
-import {API_getTripInfoURl, API_getTriptimeInfoURl, API_getTripList, API_getEvaluateURL} from '../../constants/index.js'
+import {API_getTripInfoURl, API_getTripList, API_getEvaluateURL} from '../../constants/index.js'
 import axios from 'axios'
   export default {
     name: 'trip',
@@ -85,82 +77,22 @@ import axios from 'axios'
           trip: {},
           tripid: '',
           value: "",
-          triptime:[],
           form: {
               person: 1,
-              chooseTriptime: '',
-              chooseTriptimeid: ''
           },
-          tripList: [],
-          evaluateList: []
+        //   tripL;ist: [],
+        //   evaluateList: []
       }
     },
     created() {
         this.getTripInfo()
-        this.getTriptimeInfo()
-        this.getTripListByTrading()
-        this.getEvaluate()
     },
     methods: {
       gotoTripPage(tripid) {
         this.$router.push({name:'trip', params:{tripid}})
       },
-      getEvaluate() {
-        //获取评价
-        var params = new URLSearchParams();
-        params.append('tripid', this.$route.params.tripid)
-        params.append('order', 'evaluatetime')
-        axios({
-            method:'post',
-            url:API_getEvaluateURL,
-            params
-        })
-        .then((response) => {
-            console.log(response.data)
-            if(response.data.code == 0) {
-                this.evaluateList = response.data.data
-            }else if(response.data.code == 1) {
-                this.$message({
-                    message: response.data.msg,
-                    type: 'warning'
-                }); 
-            }else {
-                this.$message.error('获取评价失败，请稍后重试');
-            }        
-        }).catch((err) => {
-            console.log(err)
-        })
-      },
-      getTripListByTrading() {
-        //按成交量热度获取出团活动信息
-        var params = new URLSearchParams();
-        params.append('start', 0)
-        params.append('size',2)
-        params.append('order','triptrading')
-        axios({
-            method:'post',
-            url:API_getTripList,
-            params
-        })
-        .then((response) => {
-            console.log(response.data)
-            if(response.data.code == 0) {
-                this.tripList = response.data.data
-            }else if(response.data.code == 1) {
-                this.$message({
-                    message: response.data.msg,
-                    type: 'warning'
-                }); 
-            }else {
-                this.$message.error('获取按热度排序获取出团活动信息失败，请稍后重试');
-            }        
-        }).catch((err) => {
-            console.log(err)
-        })
-      },
       //获取trip信息
       getTripInfo() {
-          //获取Trip信息
         var params = new URLSearchParams();
         params.append('tripid',this.$route.params.tripid)
         this.tripid = this.$route.params.tripid
@@ -185,71 +117,70 @@ import axios from 'axios'
             console.log(err)
         })
       },
-      //获取Trip时间
-      getTriptimeInfo() {
-        var params = new URLSearchParams()
-        params.append('tripid', this.$route.params.tripid)
-        axios({
-            method:'post',
-            url:API_getTriptimeInfoURl,
-            params
-        })
-        .then((response) => {
-            console.log(response.data)
-            if(response.data.code == 0) {
-                var dataArray = response.data.data.slice(0)
-                console.log(dataArray)
-                for(let i = 0 ;i < dataArray.length; i++) {
-                    if(dataArray[i].triptime === "" ) {
-                        dataArray.splice(i,1)
-                        i = -1
-                        continue
-                    }
-                    var triptime = dataArray[i].triptime.split("-")
-                    var startTime = new Date(triptime[0],triptime[1] -1 ,triptime[2])
-                    var startTimes = startTime.getTime()
-                    var endTime = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDay()+ 1)
-                    var endTimes = endTime.getTime()
-                    if(startTimes <= endTimes) {
-                        dataArray.splice(i,1)
-                        i = -1
-                    }
-                }
-                console.log(dataArray)
-                this.triptime = dataArray
-                this.form.chooseTriptime = dataArray[0].triptime
-                this.form.chooseTriptimeid= dataArray[0].triptimeid
-            }else if(response.data.code == 1) {
-                console.log("triptime数据为空")
-            }else {
-                this.$message.error('获取户外时间信息失败，请稍后重试');
-            }        
-        }).catch((err) => {
-            console.log(err)
-        })
-      },
-        submitForm(formName) {
-            console.log("this.form.chooseTriptime"+ this.form.chooseTriptime)
-            console.log("this.form.chooseTriptimeid"+ this.form.chooseTriptimeid)
-            console.log("this.form.person"+ this.form.person)
-                this.$router.push({name:'checkOrder', params: {
-                    tripid: this.tripid,
-                    person: this.form.person,
-                    //用作确认订单显示用
-                    triptime: this.form.chooseTriptime,
-                    //用作提交订单的后台数据用
-                    triptimeid: this.form.chooseTriptimeid
-                }})       
-        },
-        getTriptime(val) {
-            for(var i=0; i< this.triptime.length;i++) {
-                if(val === this.triptime[i].triptime) {
-                    this.form.chooseTriptimeid = this.triptime[i].triptimeid
-                    break
-                }
-            }
-            // console.log(this.form.chooseTriptimeid)
+    submitForm(formName) {
+        if(this.form.person > this.trip.maxpeople) {
+            this.$message.error("可报名的数目不足")
+            return
         }
+        this.$router.push({name:'checkOrder', params: {
+            tripid: this.tripid,
+            person: this.form.person,
+            triptime: this.trip.triptime,
+        }})       
+    },
+      //获取评价
+    //   getEvaluate() {
+    //     var params = new URLSearchParams();
+    //     params.append('tripid', this.$route.params.tripid)
+    //     params.append('order', 'evaluatetime')
+    //     axios({
+    //         method:'post',
+    //         url:API_getEvaluateURL,
+    //         params
+    //     })
+    //     .then((response) => {
+    //         console.log(response.data)
+    //         if(response.data.code == 0) {
+    //             this.evaluateList = response.data.data
+    //         }else if(response.data.code == 1) {
+    //             this.$message({
+    //                 message: response.data.msg,
+    //                 type: 'warning'
+    //             }); 
+    //         }else {
+    //             this.$message.error('获取评价失败，请稍后重试');
+    //         }        
+    //     }).catch((err) => {
+    //         console.log(err)
+    //     })
+    //   },
+     //按成交量热度获取出团活动信息
+    //   getTripListByTrading() {   
+    //     var params = new URLSearchParams();
+    //     params.append('start', 0)
+    //     params.append('size',2)
+    //     params.append('order','triptrading')
+    //     axios({
+    //         method:'post',
+    //         url:API_getTripList,
+    //         params
+    //     })
+    //     .then((response) => {
+    //         console.log(response.data)
+    //         if(response.data.code == 0) {
+    //             this.tripList = response.data.data
+    //         }else if(response.data.code == 1) {
+    //             this.$message({
+    //                 message: response.data.msg,
+    //                 type: 'warning'
+    //             }); 
+    //         }else {
+    //             this.$message.error('获取按热度排序获取出团活动信息失败，请稍后重试');
+    //         }        
+    //     }).catch((err) => {
+    //         console.log(err)
+    //     })
+    //   },
     },
     components: {
         searchBar,
@@ -264,6 +195,7 @@ import axios from 'axios'
 }
 .tripDetail {
     display: flex;
+    /* flex: 1; */
     flex-direction: row;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -271,12 +203,10 @@ import axios from 'axios'
     padding-right: 3rem;
 }
 .tripDetailLeft {
-    flex: 2;
-    display:flex;
-    flex-direction: column;
+    /* flex: 1; */
 }
 .tripDetailRight {
-    flex: 3;
+    /* flex: 2; */
     padding-left: 1rem;
     text-align: left;
 }
@@ -347,13 +277,9 @@ import axios from 'axios'
 }
 .introduceTrip {
     flex: 1;
-    /* height: 10rem; */
-    /* border: 1px solid #fdd000; */
 }
 .evaluate {
     flex: 3;
-    /* height: 10rem; */
-    /* border: 1px solid #fdd000; */
 }
 .introduceTripBox {
     border-bottom: 5px dotted gray;

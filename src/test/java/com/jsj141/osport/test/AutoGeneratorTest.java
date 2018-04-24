@@ -31,6 +31,8 @@ public class AutoGeneratorTest {
 //        auto.create("clubactivity", "clubactivity", "com.jsj141.osport", "resources/mybatis-mapper");
 //        auto.create("clubuseractivity", "clubuseractivity", "com.jsj141.osport", "resources/mybatis-mapper");
 //        auto.create("evaluate", "evaluate", "com.jsj141.osport", "resources/mybatis-mapper");
+//        auto.create("diaryfirsteval", "diaryfirsteval", "com.jsj141.osport", "resources/mybatis-mapper");
+//        auto.create("diarysecondeval", "diarysecondeval", "com.jsj141.osport", "resources/mybatis-mapper");
 
     }
 }

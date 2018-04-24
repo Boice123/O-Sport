@@ -36,7 +36,34 @@ export default {
         else if(to.fullPath == '/adminsignup') {
           this.admin = true
         }
-        else if(to.fullPath == 'admin') {
+        else if(to.fullPath == '/admin/adminTrip') {
+          this.admin = true
+        }
+        else if(to.fullPath == '/admin/addTrip') {
+          this.admin = true
+        }
+        else if(to.fullPath == '/admin/updateTrip') {
+          this.admin = true
+        }
+        else if(to.fullPath == '/admin/adminTripOrder') {
+          this.admin = true
+        }
+        else if(to.fullPath == '/admin/adminClub') {
+          this.admin = true
+        }
+        else if(to.fullPath == '/admin/addClub') {
+          this.admin = true
+        }
+        else if(to.fullPath == '/admin/updateClub') {
+          this.admin = true
+        }
+        else if(to.fullPath == '/admin/adminClubActivity') {
+          this.admin = true
+        }
+        else if(to.fullPath == '/admin/adminClubDiary') {
+          this.admin = true
+        }
+        else if(to.fullPath == '/admin/adminClubUser') {
           this.admin = true
         }
         else{

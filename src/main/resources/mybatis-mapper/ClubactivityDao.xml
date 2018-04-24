@@ -70,7 +70,7 @@
             <if test="clubactivitytime != null">
                 clubactivitytime=#{clubactivitytime},
             </if>
-            <if test="clubactivitypeople != 0">
+            <if test="clubactivitypeople != -1">
                 clubactivitypeople=#{clubactivitypeople},
             </if>
             <if test="clubid != null">
@@ -78,10 +78,6 @@
             </if>
         </set>
         where clubactivityid=#{clubactivityid}
-    </update>
-
-    <update id="updatePeople">
-        update clubactivity set clubactivitypeople = clubactivitypeople + 1 where clubactivityid=#{clubactivityid}
     </update>
 
     <update id="delete">

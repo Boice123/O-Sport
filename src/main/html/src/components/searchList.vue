@@ -10,7 +10,7 @@
     >
         <img 
             :class="{'searchImg': searchCover != search.tripid,'searchImgActive': searchCover == search.tripid}"
-            src="../assets/images/bgc/manycamp.jpg"
+            :src="search.tripimg"
         />
         <div class="searchTextMask"></div>
         <div :class="{'searchText': searchCover != search.tripid, 'searchTextActive': searchCover == search.tripid}">

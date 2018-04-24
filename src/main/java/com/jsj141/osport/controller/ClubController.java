@@ -1,7 +1,12 @@
 package com.jsj141.osport.controller;
 import com.jsj141.osport.domain.Club;
-import com.jsj141.osport.domain.User;
+import com.jsj141.osport.domain.Clubdiary;
+import com.jsj141.osport.domain.Clubactivity;
+import com.jsj141.osport.domain.Clubuseritem;
 import com.jsj141.osport.service.ClubService;
+import com.jsj141.osport.service.ClubdiaryService;
+import com.jsj141.osport.service.ClubactivityService;
+import com.jsj141.osport.service.ClubuseritemService;
 import com.jsj141.osport.util.Result;
 import com.jsj141.osport.util.ResultUtil;
 import org.slf4j.Logger;
@@ -27,6 +32,15 @@ public class ClubController {
     @Autowired
     private ClubService clubService;
 
+    @Autowired
+    private ClubdiaryService clubdiaryService;
+
+    @Autowired
+    private ClubactivityService clubactivityService;
+
+    @Autowired
+    private ClubuseritemService clubuseritemService;
+
     /**
      * 保存Club信息
      *
@@ -47,12 +61,10 @@ public class ClubController {
                 HttpServletRequest request) {
         Result result = ResultUtil.initResult();
         try {
-            User loginUser = (User) WebUtils.getSessionAttribute(request, "loginUser");
             club.setClubid(UUID.randomUUID().toString());
             club.setClubname(clubname);
             club.setClubtab(clubtab);
             club.setClubimg(clubimg);
-            club.setClubowner(loginUser.getUserid());
             result = clubService.save(club);
 
         } catch (Exception e) {
@@ -81,21 +93,30 @@ public class ClubController {
                 HttpServletRequest request) {
         Result result = ResultUtil.initResult();
         try{
-
             club.setClubid(clubid);
             club.setClubname(clubname);
             club.setClubimg(clubimg);
             result = clubService.update(club);
-
         } catch(Exception e) {
             e.printStackTrace();
         }
         return result;
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    Result delete(@RequestParam(value = "clubid") String clubid,
+                     Club club,
+                     HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        club.setClubid(clubid);
+        clubService.delete(club);
+        ResultUtil.setSuccess(result, "删除部落成功", null);
+        return result;
+    }
+
     /**
      * 根据Clubid返回Club信息
-     *
      * @param clubid
      * @param request
      * @return
@@ -107,7 +128,6 @@ public class ClubController {
             Club club,
             HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-
         club.setClubid(clubid);
         Club getclub = (Club) clubService.getByClubid(club);
         if (getclub != null) {
@@ -118,13 +138,11 @@ public class ClubController {
             result.setCode(1);
             result.setMsg("部落数据不存在");
         }
-
         return result;
     }
 
     /**
      * 获取所有部落信息
-     *
      * @param club
      * @param bindingResult
      * @param request
@@ -137,8 +155,15 @@ public class ClubController {
             BindingResult bindingResult,
             HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-
         List<Club> clubList = clubService.getAll();
+        for(int i = 0 ;i< clubList.size();i++) {
+            String clubid = clubList.get(i).getClubid();
+            List<Clubdiary> list = clubdiaryService.listdesc(-1, -1, "clubdiarytime",clubid);
+            clubList.get(i).setClubdiaryList(list);
+            // 设置攻略
+            List<Clubactivity> aclist = clubactivityService.listdesc(-1, -1, "clubactivitytime",clubid);
+            clubList.get(i).setClubactivityList(aclist);
+        }
         if (clubList.size() != 0) {
             result.setCode(0);
             result.setData(clubList);
@@ -152,7 +177,6 @@ public class ClubController {
 
     /**
      * 获取所有部落信息，带有排序的
-     *
      * @param start
      * @param size
      * @param order
@@ -171,8 +195,16 @@ public class ClubController {
             BindingResult bindingResult,
             HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-
         List<Club> clubList = clubService.listdesc(start, size, order);
+        for(int i = 0 ;i< clubList.size();i++) {
+            // 设置动态
+            String clubid = clubList.get(i).getClubid();
+            List<Clubdiary> list = clubdiaryService.listdesc(-1, -1, "clubdiarytime",clubid);
+            clubList.get(i).setClubdiaryList(list);
+            // 设置攻略
+            List<Clubactivity> aclist = clubactivityService.listdesc(-1, -1, "clubactivitytime",clubid);
+            clubList.get(i).setClubactivityList(aclist);
+        }
         if (clubList.size() != 0) {
             result.setCode(0);
             result.setData(clubList);
@@ -201,7 +233,6 @@ public class ClubController {
             BindingResult bindingResult,
             HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-
         club.setClubtab(clubtab);
         List<Club> clubList = clubService.getByClubtab(club);
         if (clubList.size() != 0) {
@@ -211,36 +242,6 @@ public class ClubController {
         } else {
             result.setCode(1);
             result.setMsg("暂时还没有您选择的部落信息");
-        }
-        return result;
-    }
-
-    /**
-     * 获取当前用户创建的Club信息
-     *
-     * @param clubowner
-     * @param club
-     * @param bindingResult
-     * @param request
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "/getClubByClubowner", method = RequestMethod.POST)
-    Result getClubByClubowner(@RequestParam(value = "clubowner") String clubowner,
-                              Club club,
-                              BindingResult bindingResult,
-                              HttpServletRequest request) {
-        Result result = ResultUtil.initResult();
-
-        club.setClubowner(clubowner);
-        Club getclub = clubService.getByClubowner(club);
-        if (getclub != null) {
-            result.setCode(0);
-            result.setData(getclub);
-            result.setMsg("获取部落信息成功");
-        } else {
-            result.setCode(1);
-            result.setMsg("部落信息不存在");
         }
         return result;
     }
@@ -261,17 +262,76 @@ public class ClubController {
         ResultUtil.setSuccess(result, "根据关键词获得Club信息成功", clubList);
         return result;
     }
-}
 
-//    @ResponseBody
-//    @RequestMapping(value="/getAllClubPagination", method = RequestMethod.POST)
-//    Result getAllClubPagination(
-//            @RequestParam(value="start") int start,
-//            @RequestParam(value="size") int size,
-//            @RequestParam(value="order") String order,
-//            HttpServletRequest request) {
-//        Result result = ResultUtil.initResult();
-//        List<Club> clubList = clubService.
-//        ResultUtil.setSuccess(result, "根据关键词获得Club信息成功", clubList);
-//        return result;
-//}
+    /**
+     * 加入部落
+     * @param userid
+     * @param clubid
+     * @param club
+     * @param clubuseritem
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/joinClub", method = RequestMethod.POST)
+    Result joinClub(@RequestParam(value = "userid") String userid,
+                    @RequestParam(value = "clubid") String clubid,
+                     Club club,
+                     Clubuseritem clubuseritem,
+                     HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        //判断用户是否已经加入过该部落
+        clubuseritem.setClubid(clubid);
+        clubuseritem.setUserid(userid);
+        Clubuseritem c = clubuseritemService.getUseridNClubid(clubuseritem);
+        if(c != null) {
+            result.setCode(1);
+            result.setMsg("您已经关注过该部落");
+            return result;
+        }
+        //部落人数加一
+        club.setClubid(clubid);
+        Club cc = clubService.getByClubid(club);
+        cc.setClubpeople(cc.getClubpeople() + 1);
+        clubService.updateClubPeople(cc);
+        //建立用户和部落之间的联系
+        clubuseritem.setClubuseritemid(UUID.randomUUID().toString());
+        clubuseritem.setClubid(clubid);
+        clubuseritem.setUserid(userid);
+        clubuseritemService.save(clubuseritem);
+
+        ResultUtil.setSuccess(result, "关注部落成功", null);
+        return result;
+    }
+
+    /**
+     * 退出部落
+     * @param clubid
+     * @param club
+     * @param clubuseritem
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/exitClub", method = RequestMethod.POST)
+    Result exitClub(@RequestParam(value = "userid") String userid,
+                    @RequestParam(value = "clubid") String clubid,
+                    Club club,
+                    Clubuseritem clubuseritem,
+                    HttpServletRequest request) {
+        Result result = ResultUtil.initResult();
+        //删除用户和部落之间的联系
+        clubuseritem.setUserid(userid);
+        clubuseritem.setClubid(clubid);
+        Clubuseritem cu = clubuseritemService.getUseridNClubid(clubuseritem);
+        clubuseritemService.delete(cu);
+        //部落人数减一
+        club.setClubid(clubid);
+        Club cc = clubService.getByClubid(club);
+        cc.setClubpeople(cc.getClubpeople() - 1);
+        clubService.updateClubPeople(cc);
+
+        ResultUtil.setSuccess(result, "退出部落成功", null);
+        return result;
+    }
+}

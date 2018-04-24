@@ -101,16 +101,19 @@ import axios from 'axios'
   height: 33rem;
   background: url("../../assets/images/signupBgc.jpg");
   background-size: cover;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: relative; */
 }
 .signinBox {
   border-radius: 1rem;
-  position: absolute;
-  left: 60%;
-  margin-top: 8rem;
+  /* position: absolute;
+  left: 60%; */
+  margin-top: 4rem;
   padding-top: 4rem;
   padding-right: 4rem;
-  width: 20rem;
+  width: 30rem;
   background: #000;
   opacity: 0.9;
 }

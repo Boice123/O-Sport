@@ -12,6 +12,7 @@ import java.util.Map;
 public interface ClubdiaryDao extends BaseDao {
     List<Clubdiary> getByClubid(Clubdiary clubdiary);
     List<Clubdiary> getByClubowner(String clubowner);
-    List<Clubdiary> getByUserid(String userid);
+    List<Clubdiary> getByUserid(Map map);
+    List<Clubdiary> getCountByUserid(String userid);
     List<Clubdiary> listdesc(Map map);
 }

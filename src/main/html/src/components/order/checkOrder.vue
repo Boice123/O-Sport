@@ -15,7 +15,7 @@
                     <div class="ordertotal">总价：{{trip.person * trip.tripprice}}</div>
                 </div>
                 <div class="tripDetailRight">
-                    <img src="../../assets/images/banner/banner_01.jpg"/>
+                    <img :src="trip.tripimg"/>
                     <div class="buttonBox"> 
                         <div class="cancelButton" @click="gotoIndex">取消</div>
                         <div class="payButton" @click="payOrder">确认订单</div>

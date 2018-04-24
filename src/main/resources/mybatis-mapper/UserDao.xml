@@ -34,8 +34,8 @@
     </select>
 
     <insert id="insert" parameterType="com.jsj141.osport.domain.User">
-        insert into User (userid,username,password,tel,registerTime,userimg,realname,realid)
-        values (#{userid},#{username},#{password},#{tel},#{registerTime},#{userimg},#{realname},#{realid})
+        insert into User (userid,username,password,tel,registerTime,userimg)
+        values (#{userid},#{username},#{password},#{tel},#{registerTime},#{userimg})
     </insert>
 
     <update id="update" parameterType="com.jsj141.osport.domain.User">
@@ -55,12 +55,6 @@
             </if>
             <if test="userimg != null">
                 userimg=#{userimg},
-            </if>
-            <if test="realname != null">
-                realname=#{realname},
-            </if>
-            <if test="realid != null">
-                realid=#{realid},
             </if>
         </set>
         where userid=#{userid}

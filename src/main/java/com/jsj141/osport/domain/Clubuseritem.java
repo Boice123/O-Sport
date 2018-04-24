@@ -17,6 +17,8 @@ public class Clubuseritem implements Serializable {
 
     private String userid;
 
+    private User user;
+
     public String getClubuseritemid() {
         return clubuseritemid;
     }
@@ -39,6 +41,14 @@ public class Clubuseritem implements Serializable {
 
     public void setUserid(String userid){
         this.userid = userid;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     @Override
