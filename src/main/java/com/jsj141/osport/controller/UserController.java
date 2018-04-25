@@ -96,6 +96,27 @@ public class UserController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/getAll", method = RequestMethod.POST)
+    Result getAll(HttpServletRequest request, HttpServletResponse response) {
+        Result result = ResultUtil.initResult();
+        List<User> list = userService.list();
+        result.setCode(0);
+        result.setMsg("获取用户信息成功");
+        result.setData(list);
+        return result;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    Result delete(@RequestParam(value="userid") String userid,
+                  User user) {
+        Result result = ResultUtil.initResult();
+        user.setUserid(userid);
+        result = userService.delete(user);
+        return result;
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     Result logout(HttpServletRequest request, HttpServletResponse response) {
         Result result = ResultUtil.initResult();

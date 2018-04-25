@@ -97,10 +97,10 @@ public class ClubactivityController {
         if (ca != null) {
             result.setCode(0);
             result.setData(ca);
-            result.setMsg("获取活动成功");
+            result.setMsg("获取攻略信息成功");
         } else {
             result.setCode(1);
-            result.setMsg("没有该活动数据");
+            result.setMsg("没有该攻略信息");
         }
         return result;
     }
@@ -121,14 +121,9 @@ public class ClubactivityController {
         Result result = ResultUtil.initResult();
         clubactivity.setClubid(clubid);
         List<Clubactivity> clubactivtyList = clubactivityService.getByClubid(clubactivity);
-        if (clubactivtyList.size() != 0) {
-            result.setCode(0);
-            result.setData(clubactivtyList);
-            result.setMsg("获取部落全部活动成功");
-        } else {
-            result.setCode(1);
-            result.setMsg("部落没有活动数据");
-        }
+        result.setCode(0);
+        result.setData(clubactivtyList);
+        result.setMsg("获取部落全部攻略成功");
         return result;
     }
 
@@ -150,17 +145,71 @@ public class ClubactivityController {
             Clubactivity clubactivity,
             HttpServletRequest request) {
         Result result = ResultUtil.initResult();
-//        clubactivity.setClubid(clubid);
         List<Clubactivity> clubactivtyList = clubactivityService.listdesc(start, size, order, clubid);
-        if (clubactivtyList.size() != 0) {
-            result.setCode(0);
-            result.setData(clubactivtyList);
-            result.setMsg("获取部落全部活动成功");
-        } else {
-            result.setCode(1);
-            result.setMsg("部落没有活动数据");
-        }
+        result.setCode(0);
+        result.setData(clubactivtyList);
+        result.setMsg("获取部落全部攻略成功");
         return result;
+    }
+
+    /**
+     * 获取用户参与部落的攻略，排序，分页
+     * @param userid
+     * @param start
+     * @param size
+     * @param order
+     * @param clubactivity
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getJoinClubActivity", method = RequestMethod.POST)
+    Result getJoinClubActivity(
+            @RequestParam(value = "userid") String userid,
+            @RequestParam(value = "start") int start,
+            @RequestParam(value = "size") int size,
+            @RequestParam(value = "order") String order,
+            Clubactivity clubactivity,
+            Club club,
+            HttpServletRequest request) {
+            Result result = ResultUtil.initResult();
+            List<Clubactivity> list= clubactivityService.getByUserid(start, size, order, userid);
+//            for(int i=0; i < clubDiaryList.size(); i++) {
+//                //设置Club信息
+//                String cid = clubDiaryList.get(i).getClubid();
+//                Club c = new Club();
+//                c.setClubid(cid);
+//                Club cc = clubService.getByClubid(c);
+//                clubDiaryList.get(i).setClub(cc);
+//                //设置用户信息
+//                String uid = clubDiaryList.get(i).getUserid();
+//                User u = new User();
+//                u.setUserid(uid);
+//                User user = userService.get(u);
+//                clubDiaryList.get(i).setUser(user);
+//                //设置评论信息
+//                String cdid = clubDiaryList.get(i).getClubdiaryid();
+//                List<Diaryfirsteval> evalList = diaryfirstevalService.listdesc(cdid, "evaltime");
+//                for(int j=0; j < evalList.size(); j++) {
+//                    //设置User信息
+//                    String id = evalList.get(j).getUserid();
+//                    User ue = new User();
+//                    ue.setUserid(id);
+//                    User uu = userService.get(ue);
+//                    evalList.get(j).setUser(uu);
+//                    //设置二级评论信息
+//                    String firstevalid = evalList.get(j).getEvalid();
+//    //            Diarysecondeval dsd = new Diarysecondeval();
+//    //            dsd.setFirstevalid(eid);
+//                    List<Diarysecondeval> list = diarysecondevalService.getByFirstevalid(firstevalid);
+//                    evalList.get(j).setSecondevalList(list);
+//                }
+//                clubDiaryList.get(i).setDiaryfirsteval(evalList);
+//            }
+            result.setCode(0);
+            result.setData(list);
+            result.setMsg("获取参与的部落全部攻略成功");
+            return result;
     }
 
     /**
@@ -243,7 +292,7 @@ public class ClubactivityController {
         Result result = ResultUtil.initResult();
         List<Clubactivity> clubactivtyList = clubactivityService.listdesc(start, size, order, clubid);
         result.setCode(0);
-        result.setMsg("获取clubactivtyList成功");
+        result.setMsg("获取部落攻略成功");
         result.setData(clubactivtyList);
         return result;
     }

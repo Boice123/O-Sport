@@ -35,6 +35,7 @@ import Adminsignin from '@/components/admin/adminsignin'
 // import AdminShop from '@/components/admin/adminShop'
 // import AdminShopTrip from '@/components/admin/adminShopTrip'
 // import AdminShopTripOrder from '@/components/admin/adminShopTripOrder'
+import AdminUser from '@/components/admin/adminUser'
 import AdminTrip from '@/components/admin/adminTrip'
 import AdminTripOrder from '@/components/admin/adminTripOrder'
 import AdminClub from '@/components/admin/adminClub'
@@ -108,64 +109,6 @@ export default new Router({
       name: 'checkOrder',
       component: CheckOrder
     },
-    // {
-    //   path: '/shop',
-    //   name: 'shop',
-    //   component: Shop,
-    //   redirect: 'shop/shopmanagetrip',
-    //   children: [
-    //     {
-    //       path: 'openshop',
-    //       name: 'openshop',
-    //       component: OpenShop
-    //     },
-    //     {
-    //       path: 'updateshopinfo',
-    //       name: 'updateshopinfo',
-    //       component: UpdateshopInfo
-    //     },
-    //     {
-    //       path: 'shopmanagetrip',
-    //       name: 'shopmanagetrip',
-    //       component: Shopmanagetrip
-    //     },
-    //     // {
-    //     //   path: 'shopmanagetrain',
-    //     //   name: 'shopmanagetrain',
-    //     //   component: Shopmanagetrain
-    //     // },
-    //     {
-    //       path: 'shopmanagetriporder',
-    //       name: 'shopmanagetriporder',
-    //       component: Shopmanagetriporder
-    //     },
-    //     // {
-    //     //   path: 'shopmanagetrainorder',
-    //     //   name: 'shopmanagetrainorder',
-    //     //   component: Shopmanagetrainorder
-    //     // },
-    //     {
-    //       path: 'addTrip',
-    //       name: 'addTrip',
-    //       component: AddTrip
-    //     },
-    //     {
-    //       path: 'updateTripInfo',
-    //       name: 'updateTripInfo',
-    //       component: UpdateTripInfo
-    //     },
-    //     // {
-    //     //   path: 'addTrain',
-    //     //   name: 'addTrain',
-    //     //   component: AddTrain
-    //     // },
-    //     // {
-    //     //   path: 'updateTrainInfo',
-    //     //   name: 'updateTrainInfo',
-    //     //   component: UpdateTrainInfo
-    //     // },
-    //   ]
-    // },
   {
     path: '/club',
     name: 'club',
@@ -210,6 +153,11 @@ export default new Router({
     component: Admin,
     redirect: 'admin/adminTrip',
     children: [
+      {
+        path: 'adminUser',
+        name: 'adminUser',
+        component: AdminUser
+      },
       {
         path: 'adminTrip',
         name: 'adminTrip',

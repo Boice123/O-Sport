@@ -23,8 +23,8 @@
           </div>
           <div class="myClubRight">
               <div class="myclubtab">
-                  <!-- <div class="myclubtabtab" @click="changeChoose('管理部落动态')">管理部落动态</div> -->
                   <div class="myclubtabtab" @click="changeChoose('部落动态')">部落动态</div>
+                  <div class="myclubtabtab" @click="changeChoose('部落攻略')">部落攻略</div>
               </div>
               <div class="myClubmessageDiv" v-if="choose == '部落动态'">
                 <div class="myClubmessageBox" 
@@ -59,6 +59,23 @@
                     </div>
                 </div>
               </div>
+              <div class="messageDiv" v-if="choose == '部落攻略'">
+                <div class="messageBox" v-for="(clubactivity, key) in clubActivity">
+                    <img class="messageImg" :src="clubactivity.clubactivityimg"/>
+                    <div class="messageContent">
+                        <div class="messageUp">
+                            <div class="messageTitle">{{clubactivity.clubactivitytitle}}</div>
+                            <div class="messageTitleRight">
+                                <span class="messageTime">发表于{{clubactivity.clubactivitytime}}</span>
+                            </div>
+                        </div>
+                        <div class="messageDownDrag" >   
+                            {{clubactivity.clubactivitycontent}}<br>
+                            <button class="likeButton" @click="like(clubactivity.clubactivityid)">点赞</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
           </div>
       </div>
       <div class="block">
@@ -78,17 +95,14 @@
 <script>
 import axios from 'axios'
 import ClubHead from './clubHead.vue'
-import { API_getClubUserItemURl, API_getJoinClubDiaryURl, API_exitClubURl, API_getJoinClubDiaryCountURL, API_saveDiaryFirstEvalURl, API_saveDiarySecondEvalURl } from '../../constants/index.js'
+import { API_getClubUserItemURl, API_getJoinClubDiaryURl, API_getJoinClubActivityURl, API_exitClubURl, API_getJoinClubDiaryCountURL, API_saveDiaryFirstEvalURl, API_saveDiarySecondEvalURl } from '../../constants/index.js'
   export default {
     name: 'myclub',
     data() {
       return {
         choose: '部落动态',
-        // ownclubcover: '',
-        // ownClub: {},
         clubusercover: '',
         clubuseritem: [],
-        // ownClubDiary: [],
         joinClubDiary: [{
             club: {
                 clubname: ''
@@ -108,7 +122,8 @@ import { API_getClubUserItemURl, API_getJoinClubDiaryURl, API_exitClubURl, API_g
                 }
             }]
         }],
-        clubdiaryid: '',
+        clubActivity: [],
+        // clubdiaryid: '',
         clubdiaryCount: 0,
         pageSize: 5,
         currentPage: 1,
@@ -118,6 +133,7 @@ import { API_getClubUserItemURl, API_getJoinClubDiaryURl, API_exitClubURl, API_g
         this.getClubUserItem()
         this.getJoinClubDiaryCount()
         this.getjoinClubDiary()
+        this.getClubActivity()
     },
     methods: {
     //   changeOwnClubCover(text) {
@@ -154,12 +170,9 @@ import { API_getClubUserItemURl, API_getJoinClubDiaryURl, API_exitClubURl, API_g
             if(response.data.code == 0) {
                 this.clubuseritem = response.data.data
             }else if(response.data.code == 1) {
-                this.$message({
-                    message: response.data.msg,
-                    type: 'warning'
-                }); 
+                 console.log(response.data.msg)
             }else {
-                this.$message.error('获取我参与的部落信息失败，请稍后重试');
+                 console.log('获取我参与的部落信息失败，请稍后重试');
             }        
         }).catch((err) => {
             console.log(err)
@@ -195,6 +208,31 @@ import { API_getClubUserItemURl, API_getJoinClubDiaryURl, API_exitClubURl, API_g
             console.log(err)
         }) 
       },
+      // 获取我参与Club的攻略
+      getClubActivity() {
+        var params = new URLSearchParams();
+        params.append('start', (this.currentPage-1) * this.pageSize)
+        params.append('size',this.pageSize)
+        params.append('order','clubactivitytime')
+        params.append('userid',this.getCookie('user_userid'))
+         axios({
+            method:'post',
+            url:API_getJoinClubActivityURl,
+            params
+        })
+        .then((response) => {
+            console.log(response.data)
+            if(response.data.code == 0) {
+                this.clubActivity = response.data.data
+            }else if(response.data.code == 1) {
+                console.log(response.data.msg) 
+            }else {
+                 console.log(response.data.msg) 
+            }        
+        }).catch((err) => {
+            console.log(err)
+        })
+      },
       //获取我参与Club的动态信息，分页，排序
       getjoinClubDiary() {
         var params = new URLSearchParams();
@@ -214,12 +252,9 @@ import { API_getClubUserItemURl, API_getJoinClubDiaryURl, API_exitClubURl, API_g
                 console.log(response.data.data[0].clubdiarytitle)
                 console.log(response.data.data[0].diaryfirsteval[0])
             }else if(response.data.code == 1) {
-                this.$message({
-                    message: response.data.msg,
-                    type: 'warning'
-                }); 
+                console.log(response.data.msg)
             }else {
-                this.$message.error('获取参与的部落动态失败，请稍后重试');
+                console.log('获取参与的部落动态失败，请稍后重试');
             }        
         }).catch((err) => {
             console.log(err)
@@ -355,8 +390,10 @@ import { API_getClubUserItemURl, API_getJoinClubDiaryURl, API_exitClubURl, API_g
 
 <style>
 .clubContainer {
+    min-height: 50rem;
 }
 .myClub {
+    min-height: 50rem;
     width: 90%;
     margin: 2rem auto;
     display: flex;
@@ -423,7 +460,7 @@ import { API_getClubUserItemURl, API_getJoinClubDiaryURl, API_exitClubURl, API_g
 .myclubtabtab {
     width: 8rem;
     height: 2rem;
-    border: 1px solid pink;
+    border: 1px solid orange;
     display: flex;
     align-items: center;
     justify-content: center;

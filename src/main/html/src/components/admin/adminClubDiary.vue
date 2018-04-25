@@ -314,6 +314,7 @@ export default {
 <style>
 .shopmanagetripContainer {
     width: 100%;
+    min-height: 50rem;
 }
 .shopmanagetripknow {
   font-size: 1.5rem;

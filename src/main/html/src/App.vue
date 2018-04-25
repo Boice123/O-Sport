@@ -1,7 +1,7 @@
 <template>
   <div id="app">
    <Top v-if="!isSign&&!admin"/>
-   <LogoTop v-if="isSign&&!admin"/>
+   <LogoTop v-if="!isLogoTop&&!admin"/>
    <router-view/>
     <Foot/>
   </div>
@@ -16,6 +16,7 @@ export default {
   data() {
     return {
       isSign: false,
+      isLogoTop: true,
       admin: false
     }
   },
@@ -30,10 +31,17 @@ export default {
           this.isSign = true
           this.admin = false
         }
+        else if(to.fullPath == '/userOrder') {
+          this.isLogoTop = false
+          this.admin = false
+        }
         else if(to.fullPath == '/adminsignin') {
           this.admin = true
         }
         else if(to.fullPath == '/adminsignup') {
+          this.admin = true
+        }
+        else if(to.fullPath == '/admin/adminUser') {
           this.admin = true
         }
         else if(to.fullPath == '/admin/adminTrip') {
@@ -60,6 +68,12 @@ export default {
         else if(to.fullPath == '/admin/adminClubActivity') {
           this.admin = true
         }
+        else if(to.fullPath == '/admin/addActivity') {
+          this.admin = true
+        }
+        else if(to.fullPath == '/admin/updateActivity') {
+          this.admin = true
+        }
         else if(to.fullPath == '/admin/adminClubDiary') {
           this.admin = true
         }
@@ -69,6 +83,7 @@ export default {
         else{
           this.isSign = false
           this.admin = false
+          this.isLogoTop = true
         }
       }
     }

@@ -1,8 +1,8 @@
 <template>
   <div class="shopmanagetripContainer">
-    <div class="shopmanagetripknow">部落会员管理</div>     
+    <div class="shopmanagetripknow">用户管理</div>     
     <el-table
-    :data="clubUser"
+    :data="user"
     style="width: 100%"
     tooltip-effect="dark"
     >
@@ -11,7 +11,7 @@
       width="50">
     </el-table-column>
     <el-table-column
-      prop="user.username"
+      prop="username"
       label="会员昵称"
       width="150">
     </el-table-column>
@@ -19,7 +19,7 @@
       label="会员头像"
       width="100">
        <template slot-scope="scope">
-        <img class="miniimg" :src="clubUser[scope.$index].user.userimg"/>
+        <img class="miniimg" :src="user[scope.$index].userimg"/>
       </template>
     </el-table-column>
     <el-table-column label="" prop="tripid">
@@ -27,7 +27,7 @@
         <el-button
           size="mini"
           type="danger"
-          @click="handleDelete(clubUser[scope.$index].clubuseritemid, clubUser[scope.$index].clubid)">移出</el-button>
+          @click="handleDelete(user[scope.$index].userid)">移出</el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -35,59 +35,42 @@
 </template>
 
 <script>
-import {API_getClubUserURl, API_deleteClubuserURl} from '../../constants/index.js'
+import {API_getUserURl, API_deleteUserURl} from '../../constants/index.js'
 import axios from 'axios'
-// import bus from '../../utils/passValue'
 export default {
     data() {
         return {
-          clubUser: [{
-              clubuseritemid: '',
-              clubid: '',
-              user: {
-                  userid: '',
-                  username: '',
-                  userimg: ''
-              }
-          }]
+          user: []
         }
     },
     created() {
-        var clubid = this.getCookie("clubid")
-        this.getClubUser(clubid)
+        this.getuser()
     },
     methods: {
-      getClubUser(clubid) {
-         var params = new URLSearchParams() 
-         params.append('clubid',clubid)
+      getuser() {
          axios({
             method:'post',
-            url:API_getClubUserURl,
-            params
+            url:API_getUserURl,
         })
         .then((response) => {
             console.log(response.data)
             if(response.data.code == 0) {
-                this.clubUser = response.data.data
+                this.user = response.data.data
             }else if(response.data.code == 1) {
-                this.$message({
-                    message: response.data.msg,
-                    type: 'warning'
-                }); 
+                console.log(response.data.msg)
             }else {
-                this.$message.error('获取部落会员失败，请稍后重试');
+                console.log('获取用户失败，请稍后重试');
             }        
         }).catch((err) => {
             console.log(err)
         })
       },
-      handleDelete(clubuseritemid, clubid) {
+      handleDelete(userid) {
         var params = new URLSearchParams();
-        params.append('clubuseritemid',clubuseritemid)
-        params.append('clubid',clubid)
+        params.append('userid',userid)
         axios({
             method:'post',
-            url:API_deleteClubuserURl,
+            url:API_deleteUserURl,
             params
         })
         .then((response) => {
@@ -97,28 +80,16 @@ export default {
                     message: response.data.msg,
                     type: 'success'
                 }); 
-            location.reload()
+            this.$router.push({name: 'adminTrip'})
             }else if(response.data.code == 1) {
-                this.$message({
-                    message: response.data.msg,
-                    type: 'warning'
-                }); 
+               console.log(response.data.msg)
             }else {
-                this.$message.error('删除部落会员失败，请稍后重试');
+                console.log('删除部落会员失败，请稍后重试');
             }        
         }).catch((err) => {
             console.log(err)
         })
       },
-      handleSizeChange(val) {      
-        this.pageSize = val
-        console.log(`每页 ${this.pageSize} 条`)
-      },
-      handleCurrentChange(val) {
-        this.currentPage = val
-        this.getAdminDiary()
-        console.log(`当前页: ${this.currentPage}`);
-      }
     }
 }
 </script>

@@ -7,6 +7,8 @@ import com.jsj141.osport.util.ResultUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import java.util.List;
+import com.iw86.base.Row;
 
 @Service
 public class UserService {
@@ -48,6 +50,17 @@ public class UserService {
         }else {
             ResultUtil.setSuccess(result, "登录成功", loginUser);
         }
+        return result;
+    }
+
+    public List<User> list() {
+       return Constant.FACADE.getUserDao().list(new Row());
+    }
+
+    public Result delete(User user) {
+        Result result = ResultUtil.initResult();
+        Constant.FACADE.getUserDao().delete(user);
+        ResultUtil.setSuccess(result, "删除成功", null);
         return result;
     }
 

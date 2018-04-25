@@ -8,13 +8,13 @@
       <el-form-item label="内容" prop="clubactivitycontent">
         <el-input v-model="form.clubactivitycontent" type="textarea"></el-input>
       </el-form-item>
-      <el-form id="pictureForm" class="pictureForm" method="POST" enctype="multipart/form-data">
+      <el-form id="pictureForm" class="pictureForm1" method="POST" enctype="multipart/form-data">
         <el-form-item label="封面图">
           <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
         </el-form-item>
       </el-form>
        <el-form-item label="" prop="clubactivityimg">
-        <img class="shopimg" :src="form.clubactivityimg"/>
+        <img v-if="form.clubactivityimg != ''" class="shopimg" :src="form.clubactivityimg"/>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('form')">提交</el-button>
@@ -153,7 +153,7 @@ export default {
     background: url("../../assets/images/addimg.svg") no-repeat center;
     background-size: 2rem 2rem;
 }
-.pictureForm {
-  padding-left: 1rem;
+.pictureForm1 {
+  margin-left: 6rem;
 }
 </style>

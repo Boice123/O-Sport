@@ -5,17 +5,17 @@
       <!-- topNav导航栏 -->
       <topNav/>
       <!-- banner -->
-      <el-carousel trigger="click" height="500px">
+      <el-carousel trigger="click" height="550px">
         <el-carousel-item :key="1">
           <a href="#"><img class="bannerImg" src="../assets/images/banner/banner1.jpg"/></a>
-          <a href="#"><img class="bannerImg" src="../assets/images/banner/banner2.jpg"/></a>
-          <a href="#"><img class="bannerImg" src="../assets/images/banner/banner3.jpg"/></a>
+          <!-- <a href="#"><img class="bannerImg2" src="../assets/images/banner/banner1.jpg"/></a>
+          <a href="#"><img class="bannerImg3" src="../assets/images/banner/banner1.jpg"/></a> -->
         </el-carousel-item>
         <el-carousel-item :key="2">
-          <a href="#"><img class="bannerImg" src="../assets/images/banner/banner2.jpg"/></a>
+          <a href="#"><img class="bannerImg2" src="../assets/images/banner/banner2.jpg"/></a>
         </el-carousel-item>
         <el-carousel-item :key="3">
-          <a href="#"><img class="bannerImg" src="../assets/images/banner/banner3.jpg"/></a>
+          <a href="#"><img class="bannerImg3" src="../assets/images/banner/banner3.jpg"/></a>
         </el-carousel-item>
       </el-carousel>
       <!-- 报名出团活动 -->
@@ -427,6 +427,20 @@ import { API_getTripList, API_getClubList, API_getClubActivityPaginationURl, API
 .bannerImg {
   width: 100%;
   height: auto;
+}
+.bannerImg2 {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: -24%;
+  left: 0;
+}
+.bannerImg3 {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: -20%;
+  left: 0;
 }
 .tripBox {
   background: #fff;

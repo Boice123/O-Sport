@@ -26,7 +26,7 @@ public class ClubService {
     public Result update(Club club) {
         Result result = ResultUtil.initResult();
         Constant.FACADE.getClubDao().update(club);
-        ResultUtil.setSuccess(result, "修改club信息成功", club);
+        ResultUtil.setSuccess(result, "修改部落信息成功", club);
         return result;
     }
 

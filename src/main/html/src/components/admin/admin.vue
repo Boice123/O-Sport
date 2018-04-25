@@ -12,8 +12,6 @@
                         <h3>出行活动与订单管理</h3>
                     </div>
                      </router-link>
-                   <!-- <div class="shopContentLeftList">出行活动信息与订单管理</div></router-link> -->
-                    <!-- <router-link to="adminTripOrder"><div class="shopContentLeftList">出行订单信息管理</div></router-link> -->
                 </div>
                 <div class="shopContentLeftBox">
                     <router-link to="adminClub">
@@ -22,9 +20,14 @@
                         <h3>部落管理</h3>
                     </div>
                     </router-link>
-                    <!-- <div class="shopContentLeftList">部落管理</div></router-link>
-                    <router-link to="adminClubActivity"><div class="shopContentLeftList">部落活动管理</div></router-link>
-                    <router-link to="adminClubDiary"><div class="shopContentLeftList">部落动态管理</div></router-link> -->
+                </div>
+                <div class="shopContentLeftBox">
+                     <router-link to="adminUser">
+                    <div class="shopContentLeftTitle">
+                        <img class="shopContentLeftTitleImg" src="../../assets/images/ordermanage.svg"/>
+                        <h3>用户管理</h3>
+                    </div>
+                     </router-link>
                 </div>
             </div>
             <div class="shopContentRight">

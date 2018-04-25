@@ -76,7 +76,7 @@ import axios from 'axios'
         rules: {
           username: [
             { required: true, message: '请输入昵称', trigger: 'blur' },
-            { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
+            { min: 2, max: 10, message: '长度在 2 到 10 个字符', trigger: 'blur' }
           ],
           tel: [
             { validator: validateTel, trigger: 'blur' }

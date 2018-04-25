@@ -62,6 +62,24 @@ public class ClubactivityService {
         return Constant.FACADE.getClubactivityDao().listdesc(row);
     }
 
+    public List<Clubactivity> getByUserid(int start, int size, String order, String userid) {
+        Row row = new Row();
+        if (start !=-1) {
+            row.put("start", start);
+        }
+        if(size != -1) {
+            row.put("size", size);
+        }
+        if(!order.equals("")) {
+            row.put("order",order);
+        }
+        if(!userid.equals("")) {
+            row.put("userid",userid);
+        }
+        return Constant.FACADE.getClubactivityDao().getByUserid(row);
+    }
+
+
     public Result delete(Clubactivity clubactivity) {
         Result result = ResultUtil.initResult();
         Constant.FACADE.getClubactivityDao().delete(clubactivity);

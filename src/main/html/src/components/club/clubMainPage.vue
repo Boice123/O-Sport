@@ -24,8 +24,8 @@
           <div class="addNewPart" v-if="clubChoose==='部落动态'" @click="addDiary(clubinfo.clubid)">发布动态</div>
           <div class="clubMainPageNav">
               <ul class="clubMainPageNavUl">
-                  <li :class="{'clubMainPageNavLi': clubChoose!='部落攻略','clubMainPageNavLiActive': clubChoose == '部落攻略'}" @click="changeClubChoose('部落攻略')">部落攻略</li>     
                   <li :class="{'clubMainPageNavLi': clubChoose!='部落动态','clubMainPageNavLiActive': clubChoose == '部落动态'}" @click="changeClubChoose('部落动态')">部落动态</li>
+                  <li :class="{'clubMainPageNavLi': clubChoose!='部落攻略','clubMainPageNavLiActive': clubChoose == '部落攻略'}" @click="changeClubChoose('部落攻略')">部落攻略</li>     
                   <li :class="{'clubMainPageNavLi': clubChoose!='部落会员','clubMainPageNavLiActive': clubChoose == '部落会员'}" @click="changeClubChoose('部落会员')">部落会员</li>
               </ul>
           </div>
@@ -95,7 +95,7 @@ import { API_getClubURl, API_getClubActivity, API_getClubDiaryURl, API_joinClubA
     name: 'club',
     data() {
       return {
-          clubChoose: '部落攻略',
+          clubChoose: '部落动态',
           clubCover: '',
           clubinfo: {},
           clubDiary: [{
@@ -410,6 +410,7 @@ import { API_getClubURl, API_getClubActivity, API_getClubDiaryURl, API_joinClubA
 .clubMainPageContainer {
     width: 100%;
     background: #fff;
+    min-height: 50rem;
 }
 .clubHead {
     width: 100%;
@@ -447,7 +448,7 @@ import { API_getClubURl, API_getClubActivity, API_getClubDiaryURl, API_joinClubA
     width: 80%;
     margin: 0 auto;
     margin-top: 20px;
-    /* border-radius: 10px; */
+    min-height: 40rem;
     padding-bottom: 5rem;
     border: 1px solid #fdd000;
     margin-bottom: 20px;

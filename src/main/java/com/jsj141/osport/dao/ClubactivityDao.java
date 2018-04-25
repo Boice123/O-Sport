@@ -13,4 +13,5 @@ public interface ClubactivityDao extends BaseDao {
     List<Clubactivity> getByClubid (Clubactivity clubactivity);
     void updatePeople(String clubactivityid);
     List<Clubactivity> listdesc(Map map);
+    List<Clubactivity> getByUserid(Map map);
 }

@@ -36,10 +36,13 @@ new Vue({
     '$route': function(to, from) {
       console.log(to.path)
       if(to.path == '/admin/adminTrip' ||
+         to.path == '/admin/adminUser' ||
          to.path == '/admin/adminClub' ||
          to.path == '/admin/addTrip' ||
+         to.path == '/admin/addActivity' ||
          to.path == '/admin/addClub' ||
          to.path == '/admin/updateTrip' ||
+         to.path == '/admin/updateActivity' ||
          to.path == '/admin/updateClub' ||
          to.path == '/admin/adminTripOrder' ||      
          to.path == '/admin/adminClubActivity' ||

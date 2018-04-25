@@ -40,7 +40,7 @@
         </el-form-item>
       </el-form>
        <el-form-item label="" prop="tripimg">
-        <img class="shopimg" :src="form.tripimg"/>
+        <img v-if="form.tripimg != ''" class="shopimg" :src="form.tripimg"/>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('form')">提交</el-button>
@@ -124,10 +124,10 @@ export default {
           form: {
             tripimg: '',
             tripname: '',
-            maxpeople: 0,
+            maxpeople: '',
             tripdescription: '',
             tripnotice: '',
-            tripprice: 0,
+            tripprice: '',
             tripprovice: '',
             tripcity: '',
             triptime: '',
@@ -161,8 +161,8 @@ export default {
             label: '广东',
             children: [
               {
-                value: '江门',
-                label: '江门'
+                value: '惠州',
+                label: '惠州'
               }, 
               {
                 value: '广州',
@@ -181,14 +181,20 @@ export default {
               {
                 value: '长沙',
                 label: '长沙'
-              }, 
+              }
+            ],
+          },
+          {
+            value: '浙江',
+            label: '浙江',
+            children: [
               {
-                value: '重庆',
-                label: '重庆',
+                value: '杭州',
+                label: '杭州'
               },
               {
-                value: "南京",
-                label: "南京",
+                value: '台州',
+                label: '台州'
               }
             ],
           }
@@ -304,6 +310,6 @@ export default {
     background-size: 2rem 2rem;
 }
 .pictureForm {
-  padding-left: 1rem;
+  margin-left: 4rem;
 }
 </style>

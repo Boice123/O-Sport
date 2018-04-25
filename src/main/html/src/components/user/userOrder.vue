@@ -5,6 +5,7 @@
                 <div :class="{'orderNavSectionActive': click == '未付款','orderNavSection': click != '未付款'}" @click="clickStatus('未付款')">未付款</div>
                 <div :class="{'orderNavSectionActive': click == '已付款','orderNavSection': click != '已付款'}" @click="clickStatus('已付款')">已付款</div>
                 <div :class="{'orderNavSectionActive': click == '已取消','orderNavSection': click != '已取消'}" @click="clickStatus('已取消')">已取消</div>
+                <div :class="{'orderNavSectionActive': click == '已关闭','orderNavSection': click != '已关闭'}" @click="clickStatus('已关闭')">已关闭</div>
         </div>
         <div class="triporderDetailBox">           
             <div class="checkOrdertitle">用户订单信息</div>
@@ -116,7 +117,6 @@ import axios from 'axios'
         },
         // 获取用户所有订单  
         getAllOrders(click) {
-            //获取所有triporder信息
             var params = new URLSearchParams();
             if(click == '全部') {
                 click = ''
@@ -132,12 +132,9 @@ import axios from 'axios'
                 if(response.data.code == 0) {
                     this.triporder = response.data.data
                 }else if(response.data.code == 1) {
-                    this.$message({
-                        message: response.data.msg,
-                        type: 'warning'
-                    }); 
+                    console.log(response.data.msg)
                 }else {
-                    this.$message.error('获取订单信息失败，请稍后重试');
+                    console.log('获取订单信息失败，请稍后重试');
                 }        
             }).catch((err) => {
                 console.log(err)
@@ -169,10 +166,7 @@ import axios from 'axios'
                             location.reload()
                         },2000)  
                     }else if(response.data.code == 1) {
-                        this.$message({
-                            message: response.data.msg,
-                            type: 'warning'
-                        }); 
+                        console.log(response.data.msg)
                     }else {
                         this.$message.error('取消订单失败，请稍后重试');
                     }        
@@ -233,6 +227,7 @@ import axios from 'axios'
 <style>
 .checkOrderContainer {
     width: 80rem;
+    height: 50rem;
     margin: 2rem auto;
     display: flex;
 }

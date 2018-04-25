@@ -30,7 +30,6 @@
         <if test="_parameter.containsKey('order') and order!=null">
             order by ${order}
         </if>
-        limit #{start},#{size}
     </select>
 
     <insert id="insert" parameterType="com.jsj141.osport.domain.User">

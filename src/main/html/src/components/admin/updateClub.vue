@@ -16,7 +16,7 @@
             </el-select>
         </el-form-item>
        <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
-        <el-form-item label="部落头像">
+        <el-form-item label="部落头像" class="headForm">
           <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
         </el-form-item>
       </el-form>
@@ -214,5 +214,11 @@ export default {
     border-radius: .5rem;
     background: url("../../assets/images/addimg.svg") no-repeat center;
     background-size: 2rem 2rem;
+}
+.headForm {
+  margin-left: 4.5rem;
+}
+.uploadInput {
+  width: 15rem;
 }
 </style>

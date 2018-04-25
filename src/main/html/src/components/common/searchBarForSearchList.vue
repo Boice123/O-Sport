@@ -1,7 +1,8 @@
 <template>
   <div class="searchBarContainer">
     <div class="searchBarLeft">
-      O-Sport
+      <div class="logo">O-Sport</div>
+      <div class="logo_content">专业户外运动社交与出行平台</div>
     </div>
     <div class="searchBarRight">
      <div class="searchBox">
@@ -45,8 +46,8 @@ import { API_searchTripURL } from '../../constants/index.js'
             label: '广东',
             children: [
               {
-                value: '江门',
-                label: '江门'
+                value: '惠州',
+                label: '惠州'
               }, 
               {
                 value: '广州',
@@ -65,20 +66,26 @@ import { API_searchTripURL } from '../../constants/index.js'
               {
                 value: '长沙',
                 label: '长沙'
-              }, 
+              }
+            ],
+          },
+          {
+            value: '浙江',
+            label: '浙江',
+            children: [
               {
-                value: '重庆',
-                label: '重庆',
+                value: '杭州',
+                label: '杭州'
               },
               {
-                value: "南京",
-                label: "南京",
+                value: '台州',
+                label: '台州'
               }
             ],
           }
         ],
-        value: '',
-        selectedOptions2: [],
+            value: '',
+            selectedOptions2: [],
         }
     },
     watch: {

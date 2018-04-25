@@ -57,6 +57,8 @@ export const API_addActivityURL =  'http://localhost:8000/clubactivity/save'
 export const API_deleteActivityURl =  'http://localhost:8000/clubactivity/delete' 
 export const API_getClubActivityURl = 'http://localhost:8000/clubactivity/getAllByClubid' 
 export const API_getClubActivityPaginationURl = 'http://localhost:8000/clubactivity/getAllByClubidPaginaton' 
+// 获取我参与部落的攻略
+export const API_getJoinClubActivityURl = 'http://localhost:8000/clubactivity/getJoinClubActivity'
 export const API_joinClubActivityURl = 'http://localhost:8000/clubuseractivity/save' 
 // export const API_getOwnClubDiaryURl = 'http://localhost:8000/clubdiary/getOwnClubDiary'
 // 部落本身的动态
@@ -101,3 +103,6 @@ export const API_getClubActivity = 'http://localhost:8000/clubactivity/getClubAc
 export const API_getAllClubDiary = 'http://localhost:8000/clubdiary/getAllClubDiary'
 export const API_getClubUserURl = 'http://localhost:8000/clubuseritem/getClubuser'
 export const API_deleteClubuserURl = 'http://localhost:8000/clubuseritem/delete'
+
+export const API_getUserURl = 'http://localhost:8000/user/getAll'
+export const API_deleteUserURl = 'http://localhost:8000/user/delete'

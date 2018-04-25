@@ -16,12 +16,12 @@
             </el-select>
         </el-form-item>
         <el-form id="pictureForm" method="POST" enctype="multipart/form-data">
-          <el-form-item label="部落头像">
+          <el-form-item class="headForm" label="部落头像">
               <input class="uploadInput" id="fileUpload" name="fileUpload" @change="uploadPic(this)" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" type="file"/>
           </el-form-item>
         </el-form>
         <el-form-item label="" prop="clubimg">
-          <img class="shopimg" :src="form.clubimg"/>
+          <img v-if="form.clubimg != ''" class="shopimg" :src="form.clubimg"/>
         </el-form-item>
         <el-form-item>
             <el-button type="primary" @click="submitForm('form')">创建部落</el-button>
@@ -198,4 +198,7 @@ import { API_saveClubURL ,API_uploadFileURL } from '../../constants/index.js'
 .pictureForm {
   padding-left: 1rem;
 }
+.headForm {
+  margin-left: 4.5rem;
+} 
 </style>

@@ -50,6 +50,19 @@
         limit #{start},#{size}
     </select>
 
+    <select id="getByUserid" resultType="com.jsj141.osport.domain.Clubactivity">
+        select * from clubactivity where clubid in (select clubid from clubuseritem where userid=#{userid})
+        <if test="_parameter.containsKey('order') and order!=null">
+            order by ${order} DESC
+        </if>
+        <if test="_parameter.containsKey('start') and start!=null">
+            limit #{start}
+        </if>
+        <if test="_parameter.containsKey('size') and size!=null">
+            ,#{size}
+        </if>
+    </select>
+
     <insert id="insert" parameterType="com.jsj141.osport.domain.Clubactivity">
         insert into clubactivity (clubactivityid,clubactivityimg,clubactivitytitle,clubactivitycontent,clubactivitytime,clubactivitypeople,clubid)
         values (#{clubactivityid},#{clubactivityimg},#{clubactivitytitle},#{clubactivitycontent},#{clubactivitytime},#{clubactivitypeople},#{clubid})
